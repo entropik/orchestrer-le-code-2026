@@ -1,0 +1,448 @@
+{
+  "titre": "Orchestrer le code en 2026",
+  "date": "2026-08-31",
+  "structure": "Deux parties de douze chapitres miroirs",
+  "chapitres": [
+    {
+      "id": "A01",
+      "theme": "01",
+      "titre": "Piloter un système, pas une génération de code",
+      "lecture": "accessible",
+      "fichier": "manuscrit/01-lecture-accessible/01-piloter-un-systeme.md",
+      "miroir": "manuscrit/02-lecture-ingenieure/01-piloter-un-systeme.md",
+      "tranche": "tranches/A01-piloter-un-systeme.md",
+      "statut": "amorce",
+      "dependances": [],
+      "sources": [
+        "O-MD §1, §4, §5",
+        "I-MD §1, §9.5"
+      ],
+      "cible_mots": "1200-1800"
+    },
+    {
+      "id": "A02",
+      "theme": "02",
+      "titre": "Organiser l'architecture et les responsabilités",
+      "lecture": "accessible",
+      "fichier": "manuscrit/01-lecture-accessible/02-architecture-et-frontieres.md",
+      "miroir": "manuscrit/02-lecture-ingenieure/02-architecture-et-frontieres.md",
+      "tranche": "tranches/A02-architecture-et-frontieres.md",
+      "statut": "amorce",
+      "dependances": [
+        "A01"
+      ],
+      "sources": [
+        "O-MD §1, §2",
+        "I-MD §2"
+      ],
+      "cible_mots": "1200-1800"
+    },
+    {
+      "id": "A03",
+      "theme": "03",
+      "titre": "Transformer le besoin en contrat vérifiable",
+      "lecture": "accessible",
+      "fichier": "manuscrit/01-lecture-accessible/03-besoin-et-contrats.md",
+      "miroir": "manuscrit/02-lecture-ingenieure/03-besoin-et-contrats.md",
+      "tranche": "tranches/A03-besoin-et-contrats.md",
+      "statut": "amorce",
+      "dependances": [
+        "A02"
+      ],
+      "sources": [
+        "O-MD §3, §12",
+        "I-MD §3, §9.3, §10.2"
+      ],
+      "cible_mots": "1200-1800"
+    },
+    {
+      "id": "A04",
+      "theme": "04",
+      "titre": "Donner du contexte et des limites à l'agent",
+      "lecture": "accessible",
+      "fichier": "manuscrit/01-lecture-accessible/04-harnais-et-contexte.md",
+      "miroir": "manuscrit/02-lecture-ingenieure/04-harnais-et-contexte.md",
+      "tranche": "tranches/A04-harnais-et-contexte.md",
+      "statut": "amorce",
+      "dependances": [
+        "A03"
+      ],
+      "sources": [
+        "O-MD §4, §5",
+        "I-MD §1.2 à §1.5, §10, §11.5"
+      ],
+      "cible_mots": "1200-1800"
+    },
+    {
+      "id": "A05",
+      "theme": "05",
+      "titre": "Garder une histoire fiable avec Git",
+      "lecture": "accessible",
+      "fichier": "manuscrit/01-lecture-accessible/05-git-et-collaboration.md",
+      "miroir": "manuscrit/02-lecture-ingenieure/05-git-et-collaboration.md",
+      "tranche": "tranches/A05-git-et-collaboration.md",
+      "statut": "amorce",
+      "dependances": [
+        "A04"
+      ],
+      "sources": [
+        "O-MD §6",
+        "I-MD §4"
+      ],
+      "cible_mots": "1200-1800"
+    },
+    {
+      "id": "A06",
+      "theme": "06",
+      "titre": "Demander des preuves, pas seulement du code",
+      "lecture": "accessible",
+      "fichier": "manuscrit/01-lecture-accessible/06-tests-et-preuves.md",
+      "miroir": "manuscrit/02-lecture-ingenieure/06-tests-et-preuves.md",
+      "tranche": "tranches/A06-tests-et-preuves.md",
+      "statut": "amorce",
+      "dependances": [
+        "A05"
+      ],
+      "sources": [
+        "O-MD §7",
+        "I-MD §5"
+      ],
+      "cible_mots": "1200-1800"
+    },
+    {
+      "id": "A07",
+      "theme": "07",
+      "titre": "Faire travailler le système sans perdre les opérations",
+      "lecture": "accessible",
+      "fichier": "manuscrit/01-lecture-accessible/07-asynchronisme-et-reprises.md",
+      "miroir": "manuscrit/02-lecture-ingenieure/07-asynchronisme-et-reprises.md",
+      "tranche": "tranches/A07-asynchronisme-et-reprises.md",
+      "statut": "amorce",
+      "dependances": [
+        "A06"
+      ],
+      "sources": [
+        "O-MD §1, §2, §12, §13",
+        "I-MD §6, §11.2, §11.3"
+      ],
+      "cible_mots": "1200-1800"
+    },
+    {
+      "id": "A08",
+      "theme": "08",
+      "titre": "Protéger les données et faire évoluer leur structure",
+      "lecture": "accessible",
+      "fichier": "manuscrit/01-lecture-accessible/08-donnees-et-migrations.md",
+      "miroir": "manuscrit/02-lecture-ingenieure/08-donnees-et-migrations.md",
+      "tranche": "tranches/A08-donnees-et-migrations.md",
+      "statut": "amorce",
+      "dependances": [
+        "A07"
+      ],
+      "sources": [
+        "O-MD §2, §3, §8, §10, §13",
+        "I-MD §7"
+      ],
+      "cible_mots": "1200-1800"
+    },
+    {
+      "id": "A09",
+      "theme": "09",
+      "titre": "Passer du poste local à un service réel",
+      "lecture": "accessible",
+      "fichier": "manuscrit/01-lecture-accessible/09-livraison-et-production.md",
+      "miroir": "manuscrit/02-lecture-ingenieure/09-livraison-et-production.md",
+      "tranche": "tranches/A09-livraison-et-production.md",
+      "statut": "amorce",
+      "dependances": [
+        "A08"
+      ],
+      "sources": [
+        "O-MD §8",
+        "I-MD §8, §10.2"
+      ],
+      "cible_mots": "1200-1800"
+    },
+    {
+      "id": "A10",
+      "theme": "10",
+      "titre": "Observer, améliorer et rétablir le service",
+      "lecture": "accessible",
+      "fichier": "manuscrit/01-lecture-accessible/10-exploitation-et-evolution.md",
+      "miroir": "manuscrit/02-lecture-ingenieure/10-exploitation-et-evolution.md",
+      "tranche": "tranches/A10-exploitation-et-evolution.md",
+      "statut": "amorce",
+      "dependances": [
+        "A09"
+      ],
+      "sources": [
+        "O-MD §9, §10",
+        "I-MD §2.3, §7.4, §11.1 à §11.6"
+      ],
+      "cible_mots": "1200-1800"
+    },
+    {
+      "id": "A11",
+      "theme": "11",
+      "titre": "Appliquer ORCHESTRE du besoin à la résolution",
+      "lecture": "accessible",
+      "fichier": "manuscrit/01-lecture-accessible/11-methode-et-cas-pratiques.md",
+      "miroir": "manuscrit/02-lecture-ingenieure/11-methode-et-cas-pratiques.md",
+      "tranche": "tranches/A11-methode-et-cas-pratiques.md",
+      "statut": "amorce",
+      "dependances": [
+        "A10"
+      ],
+      "sources": [
+        "O-MD §5, §11, §12, §13, §14",
+        "I-MD §9, §10"
+      ],
+      "cible_mots": "1200-1800"
+    },
+    {
+      "id": "A12",
+      "theme": "12",
+      "titre": "Choisir ses outils et préserver son indépendance",
+      "lecture": "accessible",
+      "fichier": "manuscrit/01-lecture-accessible/12-ecosysteme-et-independance.md",
+      "miroir": "manuscrit/02-lecture-ingenieure/12-ecosysteme-et-independance.md",
+      "tranche": "tranches/A12-ecosysteme-et-independance.md",
+      "statut": "amorce",
+      "dependances": [
+        "A11"
+      ],
+      "sources": [
+        "O-MD §2, §4",
+        "I-MD §12.1 à §12.6"
+      ],
+      "cible_mots": "1200-1800"
+    },
+    {
+      "id": "B01",
+      "theme": "01",
+      "titre": "Piloter un système, pas une génération de code",
+      "lecture": "ingenieure",
+      "fichier": "manuscrit/02-lecture-ingenieure/01-piloter-un-systeme.md",
+      "miroir": "manuscrit/01-lecture-accessible/01-piloter-un-systeme.md",
+      "tranche": "tranches/B01-piloter-un-systeme.md",
+      "statut": "amorce",
+      "dependances": [
+        "A01"
+      ],
+      "sources": [
+        "O-MD §1, §4, §5",
+        "I-MD §1, §9.5"
+      ],
+      "cible_mots": "2500-4000"
+    },
+    {
+      "id": "B02",
+      "theme": "02",
+      "titre": "Organiser l'architecture et les responsabilités",
+      "lecture": "ingenieure",
+      "fichier": "manuscrit/02-lecture-ingenieure/02-architecture-et-frontieres.md",
+      "miroir": "manuscrit/01-lecture-accessible/02-architecture-et-frontieres.md",
+      "tranche": "tranches/B02-architecture-et-frontieres.md",
+      "statut": "amorce",
+      "dependances": [
+        "A02",
+        "B01"
+      ],
+      "sources": [
+        "O-MD §1, §2",
+        "I-MD §2"
+      ],
+      "cible_mots": "2500-4000"
+    },
+    {
+      "id": "B03",
+      "theme": "03",
+      "titre": "Transformer le besoin en contrat vérifiable",
+      "lecture": "ingenieure",
+      "fichier": "manuscrit/02-lecture-ingenieure/03-besoin-et-contrats.md",
+      "miroir": "manuscrit/01-lecture-accessible/03-besoin-et-contrats.md",
+      "tranche": "tranches/B03-besoin-et-contrats.md",
+      "statut": "amorce",
+      "dependances": [
+        "A03",
+        "B02"
+      ],
+      "sources": [
+        "O-MD §3, §12",
+        "I-MD §3, §9.3, §10.2"
+      ],
+      "cible_mots": "2500-4000"
+    },
+    {
+      "id": "B04",
+      "theme": "04",
+      "titre": "Donner du contexte et des limites à l'agent",
+      "lecture": "ingenieure",
+      "fichier": "manuscrit/02-lecture-ingenieure/04-harnais-et-contexte.md",
+      "miroir": "manuscrit/01-lecture-accessible/04-harnais-et-contexte.md",
+      "tranche": "tranches/B04-harnais-et-contexte.md",
+      "statut": "amorce",
+      "dependances": [
+        "A04",
+        "B03"
+      ],
+      "sources": [
+        "O-MD §4, §5",
+        "I-MD §1.2 à §1.5, §10, §11.5"
+      ],
+      "cible_mots": "2500-4000"
+    },
+    {
+      "id": "B05",
+      "theme": "05",
+      "titre": "Garder une histoire fiable avec Git",
+      "lecture": "ingenieure",
+      "fichier": "manuscrit/02-lecture-ingenieure/05-git-et-collaboration.md",
+      "miroir": "manuscrit/01-lecture-accessible/05-git-et-collaboration.md",
+      "tranche": "tranches/B05-git-et-collaboration.md",
+      "statut": "amorce",
+      "dependances": [
+        "A05",
+        "B04"
+      ],
+      "sources": [
+        "O-MD §6",
+        "I-MD §4"
+      ],
+      "cible_mots": "2500-4000"
+    },
+    {
+      "id": "B06",
+      "theme": "06",
+      "titre": "Demander des preuves, pas seulement du code",
+      "lecture": "ingenieure",
+      "fichier": "manuscrit/02-lecture-ingenieure/06-tests-et-preuves.md",
+      "miroir": "manuscrit/01-lecture-accessible/06-tests-et-preuves.md",
+      "tranche": "tranches/B06-tests-et-preuves.md",
+      "statut": "amorce",
+      "dependances": [
+        "A06",
+        "B05"
+      ],
+      "sources": [
+        "O-MD §7",
+        "I-MD §5"
+      ],
+      "cible_mots": "2500-4000"
+    },
+    {
+      "id": "B07",
+      "theme": "07",
+      "titre": "Faire travailler le système sans perdre les opérations",
+      "lecture": "ingenieure",
+      "fichier": "manuscrit/02-lecture-ingenieure/07-asynchronisme-et-reprises.md",
+      "miroir": "manuscrit/01-lecture-accessible/07-asynchronisme-et-reprises.md",
+      "tranche": "tranches/B07-asynchronisme-et-reprises.md",
+      "statut": "amorce",
+      "dependances": [
+        "A07",
+        "B06"
+      ],
+      "sources": [
+        "O-MD §1, §2, §12, §13",
+        "I-MD §6, §11.2, §11.3"
+      ],
+      "cible_mots": "2500-4000"
+    },
+    {
+      "id": "B08",
+      "theme": "08",
+      "titre": "Protéger les données et faire évoluer leur structure",
+      "lecture": "ingenieure",
+      "fichier": "manuscrit/02-lecture-ingenieure/08-donnees-et-migrations.md",
+      "miroir": "manuscrit/01-lecture-accessible/08-donnees-et-migrations.md",
+      "tranche": "tranches/B08-donnees-et-migrations.md",
+      "statut": "amorce",
+      "dependances": [
+        "A08",
+        "B07"
+      ],
+      "sources": [
+        "O-MD §2, §3, §8, §10, §13",
+        "I-MD §7"
+      ],
+      "cible_mots": "2500-4000"
+    },
+    {
+      "id": "B09",
+      "theme": "09",
+      "titre": "Passer du poste local à un service réel",
+      "lecture": "ingenieure",
+      "fichier": "manuscrit/02-lecture-ingenieure/09-livraison-et-production.md",
+      "miroir": "manuscrit/01-lecture-accessible/09-livraison-et-production.md",
+      "tranche": "tranches/B09-livraison-et-production.md",
+      "statut": "amorce",
+      "dependances": [
+        "A09",
+        "B08"
+      ],
+      "sources": [
+        "O-MD §8",
+        "I-MD §8, §10.2"
+      ],
+      "cible_mots": "2500-4000"
+    },
+    {
+      "id": "B10",
+      "theme": "10",
+      "titre": "Observer, améliorer et rétablir le service",
+      "lecture": "ingenieure",
+      "fichier": "manuscrit/02-lecture-ingenieure/10-exploitation-et-evolution.md",
+      "miroir": "manuscrit/01-lecture-accessible/10-exploitation-et-evolution.md",
+      "tranche": "tranches/B10-exploitation-et-evolution.md",
+      "statut": "amorce",
+      "dependances": [
+        "A10",
+        "B09"
+      ],
+      "sources": [
+        "O-MD §9, §10",
+        "I-MD §2.3, §7.4, §11.1 à §11.6"
+      ],
+      "cible_mots": "3500-5000"
+    },
+    {
+      "id": "B11",
+      "theme": "11",
+      "titre": "Appliquer ORCHESTRE du besoin à la résolution",
+      "lecture": "ingenieure",
+      "fichier": "manuscrit/02-lecture-ingenieure/11-methode-et-cas-pratiques.md",
+      "miroir": "manuscrit/01-lecture-accessible/11-methode-et-cas-pratiques.md",
+      "tranche": "tranches/B11-methode-et-cas-pratiques.md",
+      "statut": "amorce",
+      "dependances": [
+        "A11",
+        "B10"
+      ],
+      "sources": [
+        "O-MD §5, §11, §12, §13, §14",
+        "I-MD §9, §10"
+      ],
+      "cible_mots": "3500-5000"
+    },
+    {
+      "id": "B12",
+      "theme": "12",
+      "titre": "Choisir ses outils et préserver son indépendance",
+      "lecture": "ingenieure",
+      "fichier": "manuscrit/02-lecture-ingenieure/12-ecosysteme-et-independance.md",
+      "miroir": "manuscrit/01-lecture-accessible/12-ecosysteme-et-independance.md",
+      "tranche": "tranches/B12-ecosysteme-et-independance.md",
+      "statut": "amorce",
+      "dependances": [
+        "A12",
+        "B11"
+      ],
+      "sources": [
+        "O-MD §2, §4",
+        "I-MD §12.1 à §12.6"
+      ],
+      "cible_mots": "2500-4000"
+    }
+  ]
+}
