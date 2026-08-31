@@ -6,3 +6,6 @@ tmp/
 .env
 .env.*
 !.env.example
+public/
+resources/_gen/
+.hugo_build.lock

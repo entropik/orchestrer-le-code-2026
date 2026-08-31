@@ -1,0 +1,215 @@
+{
+  "date_verification": "2026-08-31",
+  "themes": {
+    "10": {
+      "connexes": [
+        "07",
+        "08"
+      ],
+      "notions": [
+        "SLO",
+        "RPO",
+        "RTO"
+      ],
+      "references": [
+        "explain"
+      ]
+    },
+    "11": {
+      "connexes": [
+        "01",
+        "06"
+      ],
+      "notions": [
+        "ADR",
+        "Tranche verticale",
+        "Idempotence"
+      ],
+      "references": []
+    },
+    "12": {
+      "connexes": [
+        "04",
+        "06"
+      ],
+      "notions": [
+        "MCP",
+        "Modèle à poids ouverts",
+        "Runtime d'inférence"
+      ],
+      "references": [
+        "codestral",
+        "mcp",
+        "evals"
+      ]
+    },
+    "01": {
+      "connexes": [
+        "04",
+        "11"
+      ],
+      "notions": [
+        "Agent",
+        "Harnais",
+        "Invariant"
+      ],
+      "references": []
+    },
+    "02": {
+      "connexes": [
+        "03",
+        "08"
+      ],
+      "notions": [
+        "Port",
+        "Contrat",
+        "ADR"
+      ],
+      "references": []
+    },
+    "03": {
+      "connexes": [
+        "02",
+        "06"
+      ],
+      "notions": [
+        "Contrat",
+        "Invariant",
+        "API"
+      ],
+      "references": [
+        "typescript"
+      ]
+    },
+    "04": {
+      "connexes": [
+        "01",
+        "12"
+      ],
+      "notions": [
+        "Agent",
+        "Harnais",
+        "MCP"
+      ],
+      "references": []
+    },
+    "05": {
+      "connexes": [
+        "06",
+        "09"
+      ],
+      "notions": [
+        "Worktree",
+        "PR",
+        "Tranche verticale"
+      ],
+      "references": [
+        "git"
+      ]
+    },
+    "06": {
+      "connexes": [
+        "03",
+        "11"
+      ],
+      "notions": [
+        "CI",
+        "Invariant",
+        "Contrat"
+      ],
+      "references": []
+    },
+    "07": {
+      "connexes": [
+        "08",
+        "10"
+      ],
+      "notions": [
+        "Idempotence",
+        "Outbox",
+        "Invariant"
+      ],
+      "references": [
+        "notify"
+      ]
+    },
+    "08": {
+      "connexes": [
+        "07",
+        "09"
+      ],
+      "notions": [
+        "Migration",
+        "RPO",
+        "RTO"
+      ],
+      "references": [
+        "notify"
+      ]
+    },
+    "09": {
+      "connexes": [
+        "05",
+        "10"
+      ],
+      "notions": [
+        "Artefact",
+        "CI",
+        "Migration"
+      ],
+      "references": [
+        "caddy"
+      ]
+    }
+  },
+  "references": [
+    {
+      "id": "git",
+      "titre": "Git — arbres de travail",
+      "url": "https://git-scm.com/docs/git-worktree",
+      "note": "Fonctionnement et partage des ressources entre worktrees."
+    },
+    {
+      "id": "typescript",
+      "titre": "TypeScript — assertions de type",
+      "url": "https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#type-assertions",
+      "note": "Les assertions de type ne vérifient pas les données à l'exécution."
+    },
+    {
+      "id": "notify",
+      "titre": "PostgreSQL — NOTIFY",
+      "url": "https://www.postgresql.org/docs/current/sql-notify.html",
+      "note": "Notifications de sessions ; à distinguer d'une file durable de travaux."
+    },
+    {
+      "id": "caddy",
+      "titre": "Caddy — module de limitation de débit",
+      "url": "https://caddyserver.com/docs/modules/http.handlers.rate_limit",
+      "note": "Module non standard : sa présence doit être vérifiée."
+    },
+    {
+      "id": "explain",
+      "titre": "PostgreSQL — lire un plan EXPLAIN",
+      "url": "https://www.postgresql.org/docs/current/using-explain.html",
+      "note": "Choisir les optimisations à partir du plan et du coût observé."
+    },
+    {
+      "id": "codestral",
+      "titre": "Mistral — fiche Codestral 24.05",
+      "url": "https://docs.mistral.ai/models/codestral-24-05",
+      "note": "Exemple historique de licence MNPL, pas une recommandation de modèle actuel."
+    },
+    {
+      "id": "mcp",
+      "titre": "MCP — autorisation, spécification 2025-11-25",
+      "url": "https://modelcontextprotocol.io/specification/2025-11-25/basic/authorization",
+      "note": "Distinguer transport, autorisation et permissions effectives."
+    },
+    {
+      "id": "evals",
+      "titre": "OpenAI — construire une évaluation",
+      "url": "https://developers.openai.com/api/docs/guides/evals",
+      "note": "Définir tâches, données et critères ; cette référence n'établit aucun classement."
+    }
+  ]
+}

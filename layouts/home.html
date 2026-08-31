@@ -1,0 +1,27 @@
+{{ define "main" }}
+<main id="contenu" class="home-main">
+  <section class="intro">
+    <p class="eyebrow">Manuel de pratique · Édition en cours</p>
+    <h1>Orchestrer le code<br><em>en 2026.</em></h1>
+    <p class="lead">Comprendre pour décider.<br>Approfondir pour concevoir et vérifier.</p>
+    <p class="intro-note">Le même sujet, le même exemple, deux profondeurs de lecture. Un guide accessible pour piloter le travail, puis son miroir ingénieur pour comprendre les mécanismes.</p>
+    <div class="reading-paths">
+      {{ with site.GetPage "/accessible" }}<a class="path-choice" href="{{ .RelPermalink }}"><span>PARTIE I</span><strong>La lecture accessible <span aria-hidden="true">↗</span></strong><small>Comprendre, questionner, décider.</small></a>{{ end }}
+      {{ with site.GetPage "/ingenieure" }}<a class="path-choice" href="{{ .RelPermalink }}"><span>PARTIE II</span><strong>La lecture ingénieure <span aria-hidden="true">↗</span></strong><small>Concevoir, éprouver, approfondir.</small></a>{{ end }}
+    </div>
+  </section>
+  <section class="contents-section" aria-labelledby="chapitres">
+    <div class="section-heading"><h2 id="chapitres">Douze sujets. Deux portes d’entrée.</h2><span>24 chapitres miroirs</span></div>
+    <p class="status-note">Les textes actuels sont des amorces de synthèse, pas encore les chapitres définitifs.</p>
+    <ol class="chapter-matrix">
+      {{ range (where site.RegularPages "Section" "accessible").ByWeight }}
+      <li><span class="chapter-number">{{ .Params.theme }}</span><h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3><div class="chapter-choices"><a href="{{ .RelPermalink }}"><span class="sr-only">{{ .Title }} : </span>Accessible</a>{{ with site.GetPage .Params.mirror }}<a href="{{ .RelPermalink }}"><span class="sr-only">{{ .Title }} : </span>Approfondir ↗</a>{{ end }}</div></li>
+      {{ end }}
+    </ol>
+  </section>
+  <section class="home-about">
+    <h2>Une méthode.<br>Un fil rouge.</h2>
+    <div><p>Un atelier d’impression reçoit les PDF de ses clients. De cette situation concrète naissent les questions d’architecture, de données, de tests et de mise en production.</p><p>{{ with site.GetPage "/projet/synthese" }}<a href="{{ .RelPermalink }}">Lire la synthèse des deux approches →</a>{{ end }}</p><p>{{ with site.GetPage "/references" }}<a href="{{ .RelPermalink }}">Consulter les sources et les références →</a>{{ end }}</p></div>
+  </section>
+</main>
+{{ end }}

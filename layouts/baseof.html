@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>{{ if not .IsHome }}{{ .Title }} · {{ end }}{{ site.Title }}</title>
+  <meta name="description" content="{{ .Description | default site.Params.description }}">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta property="og:title" content="{{ .Title }}">
+  <meta property="og:description" content="{{ .Description | default site.Params.description }}">
+  <meta property="og:type" content="{{ if .Params.chapter_id }}article{{ else }}website{{ end }}">
+  <meta property="og:locale" content="fr_FR">
+  <link rel="canonical" href="{{ .Permalink }}">
+  {{ $css := resources.Get "css/manuel.css" | minify | fingerprint }}
+  <link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}">
+</head>
+<body>
+  <a class="skip-link" href="#contenu">Aller au contenu</a>
+  <header class="site-header">
+    <a class="brand" href="{{ site.Home.RelPermalink }}"><span class="brand-mark">OC</span><span>Orchestrer le code <span class="brand-year">/ 2026</span></span></a>
+    <nav aria-label="Navigation principale">
+      {{ range slice "accessible" "ingenieure" "references" "projet" }}
+        {{ with site.GetPage . }}<a href="{{ .RelPermalink }}"{{ if eq $.Section .Section }} aria-current="{{ if eq $.RelPermalink .RelPermalink }}page{{ else }}true{{ end }}"{{ end }}>{{ .LinkTitle }}</a>{{ end }}
+      {{ end }}
+    </nav>
+  </header>
+  {{ block "main" . }}{{ end }}
+  <footer class="site-footer">
+    <span>Un manuel en construction. Des décisions avant des outils.</span>
+    <nav aria-label="Pied de page">
+      {{ with site.GetPage "/annexes/glossaire" }}<a href="{{ .RelPermalink }}">Glossaire</a>{{ end }}
+      {{ with site.GetPage "/projet/charte" }}<a href="{{ .RelPermalink }}">Charte</a>{{ end }}
+      {{ with site.Params.repositoryURL }}<a href="{{ . }}" rel="external">Dépôt GitHub ↗</a>{{ end }}
+      <a href="#contenu">Haut de page ↑</a>
+    </nav>
+  </footer>
+</body>
+</html>

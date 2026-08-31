@@ -1,0 +1,12 @@
+{{ define "main" }}
+<main id="contenu" class="section-main">
+  <p class="eyebrow">{{ .Params.eyebrow | default "Autour du manuel" }}</p>
+  <h1>{{ .Title }}</h1>
+  <div class="prose section-intro">{{ .Content }}</div>
+  <ol class="page-list">
+    {{ range .Pages.ByWeight }}
+    <li><a href="{{ .RelPermalink }}">{{ with .Params.chapter_id }}<span class="page-code">{{ . }}</span>{{ end }}<span><strong>{{ .Title }}</strong>{{ with .Description }}<small>{{ . }}</small>{{ end }}</span><span aria-hidden="true">→</span></a></li>
+    {{ end }}
+  </ol>
+</main>
+{{ end }}

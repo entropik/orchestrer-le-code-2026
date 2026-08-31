@@ -1,0 +1,80 @@
+import json
+import sys
+import tempfile
+import unittest
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT / "scripts"))
+from preparer_hugo import build_files, numbered_sections, slug
+from verifier_html import verify_html
+
+
+class HugoTests(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        cls.files = build_files(ROOT)
+
+    def test_content_synchronised(self):
+        for name, content in self.files.items():
+            self.assertEqual((ROOT / name).read_text(encoding="utf-8"), content, name)
+
+    def test_twelve_pairs_with_symmetric_mirrors(self):
+        decoder = json.JSONDecoder()
+        pages = {}
+        for name, content in self.files.items():
+            meta, _ = decoder.raw_decode(content)
+            if "chapter_id" in meta:
+                pages[meta["chapter_id"]] = (name, meta)
+        self.assertEqual(len(pages), 24)
+        for ident, (name, meta) in pages.items():
+            mirror_id = ("B" if ident[0] == "A" else "A") + ident[1:]
+            mirror_name, mirror = pages[mirror_id]
+            self.assertEqual("content" + meta["mirror"] + ".md", mirror_name)
+            self.assertEqual("content" + mirror["mirror"] + ".md", name)
+            self.assertEqual(meta["title"], mirror["title"])
+            self.assertGreaterEqual(len(meta["related"]), 2)
+
+    def test_section_parser_ignores_code(self):
+        sections = numbered_sections("# 1. Sujet\n```sh\n# 9. Commande\n```\n## 1.2 Détail")
+        self.assertEqual(set(sections), {"1", "1.2"})
+
+    def test_source_12_is_linkable(self):
+        self.assertIn("{#section-12-6}", self.files["content/references/sources/i-md.md"])
+        for prefix in ("accessible", "ingenieure"):
+            content = self.files[f"content/{prefix}/12-ecosysteme-et-independance.md"]
+            self.assertIn("/references/sources/i-md#section-12-1", content)
+            self.assertIn("/references#ref-codestral", content)
+
+    def test_glossary_anchors(self):
+        mesh = json.loads((ROOT / "editorial/maillage.json").read_text(encoding="utf-8"))
+        glossary = self.files["content/annexes/glossaire.md"]
+        for theme in mesh["themes"].values():
+            for term in theme["notions"]:
+                self.assertIn("{#" + slug(term) + "}", glossary)
+
+    def test_html_checker_detects_missing_anchor(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            (root / "index.html").write_text('<html lang="fr"><title>T</title><h1>T</h1><a href="#absent">Lien</a></html>', encoding="utf-8")
+            errors, count, links = verify_html(root)
+            self.assertEqual((count, links), (1, 1))
+            self.assertTrue(any("Ancre absente" in e for e in errors))
+
+    def test_html_checker_supports_subdirectory(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            (root / "index.html").write_text('<html lang="fr"><title>T</title><h1 id="titre">T</h1><a href="/manuel/#titre">Lien</a></html>', encoding="utf-8")
+            self.assertEqual(verify_html(root, "/manuel/")[0], [])
+
+    def test_html_checker_detects_duplicates_and_missing_file(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            (root / "index.html").write_text('<html lang="fr"><title>T</title><h1 id="x">T</h1><p id="x">T</p><a href="absent.html">Lien</a></html>', encoding="utf-8")
+            errors, _, _ = verify_html(root)
+            self.assertTrue(any("dupliquée" in e for e in errors))
+            self.assertTrue(any("Lien cassé" in e for e in errors))
+
+
+if __name__ == "__main__":
+    unittest.main()
