@@ -75,6 +75,27 @@ class HugoTests(unittest.TestCase):
             self.assertTrue(any("dupliquée" in e for e in errors))
             self.assertTrue(any("Lien cassé" in e for e in errors))
 
+    def test_local_tufte_fonts_and_license(self):
+        for name in ("roman", "italic", "bold"):
+            font = ROOT / f"assets/fonts/et-book/{name}.woff"
+            self.assertEqual(font.read_bytes()[:4], b"wOFF")
+        license_text = (ROOT / "static/fonts/et-book/LICENSE.txt").read_text(encoding="utf-8")
+        self.assertIn("Copyright (c) 2015 Dmitry Krasny", license_text)
+
+    def test_css_fonts_and_preloads_under_prefix(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            (root / "index.html").write_text('<html lang="fr"><title>T</title><h1>T</h1><link rel="stylesheet" href="/manuel/style.css"><link rel="preload" href="/manuel/roman.woff" as="font"></html>', encoding="utf-8")
+            (root / "style.css").write_text('@font-face{src:url("/manuel/italic.woff")}p{background:url(data:image/png;base64,AA)}', encoding="utf-8")
+            errors, _, _ = verify_html(root, "/manuel/")
+            self.assertTrue(any("roman.woff" in e for e in errors))
+            self.assertTrue(any("italic.woff" in e for e in errors))
+            (root / "roman.woff").write_bytes(b"wOFF")
+            (root / "italic.woff").write_bytes(b"wOFF")
+            self.assertEqual(verify_html(root, "/manuel/")[0], [])
+            (root / "style.css").write_text('@font-face{src:url("/italic.woff")}', encoding="utf-8")
+            self.assertTrue(any("hors base" in e for e in verify_html(root, "/manuel/")[0]))
+
 
 if __name__ == "__main__":
     unittest.main()

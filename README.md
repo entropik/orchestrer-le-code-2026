@@ -33,7 +33,9 @@ On peut lire une partie d'un trait, ou passer d'un chapitre accessible à son mi
 
 ## Le site Hugo
 
-Une présentation sobre, centrée sur le texte : typographie de lecture, fond clair, navigation adaptée aux petits écrans et feuille de style d'impression. Aucune police distante, aucun traceur, aucune bibliothèque chargée depuis un CDN.
+Une présentation inspirée de Tufte, centrée sur le texte : police ET Book servie localement, fond ivoire, titres en italique, repères en marge sur grand écran et feuille de style d'impression. La navigation et les deux parcours restent propres au manuel ; aucun thème tiers n'est installé. Sur petit écran, les repères reviennent dans le fil de lecture. Aucune police distante, aucun traceur, aucune bibliothèque chargée depuis un CDN.
+
+L'habillage se règle dans [tufte.css](assets/css/tufte.css), au-dessus de la structure existante. [Origine des polices](assets/fonts/et-book/README.md) et [licence MIT d'ET Book](static/fonts/et-book/LICENSE.txt). Cette licence concerne la police, pas le corpus documentaire.
 
 Chaque chapitre dispose de :
 

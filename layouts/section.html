@@ -5,7 +5,7 @@
   <div class="prose section-intro">{{ .Content }}</div>
   <ol class="page-list">
     {{ range .Pages.ByWeight }}
-    <li><a href="{{ .RelPermalink }}">{{ with .Params.chapter_id }}<span class="page-code">{{ . }}</span>{{ end }}<span><strong>{{ .Title }}</strong>{{ with .Description }}<small>{{ . }}</small>{{ end }}</span><span aria-hidden="true">→</span></a></li>
+    <li><a href="{{ .RelPermalink }}">{{ with .Params.chapter_id }}<span class="page-code">{{ . }}</span>{{ end }}<span class="page-summary"><strong>{{ .Title }}</strong>{{ with .Description }}<small>{{ . }}</small>{{ end }}</span><span aria-hidden="true">→</span></a></li>
     {{ end }}
   </ol>
 </main>

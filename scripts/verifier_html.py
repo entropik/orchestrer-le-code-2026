@@ -1,5 +1,6 @@
 """Vérifie hors réseau les liens, ancres et ressources d'un rendu Hugo."""
 import argparse
+import re
 from collections import Counter
 from html.parser import HTMLParser
 from pathlib import Path
@@ -31,7 +32,7 @@ class Page(HTMLParser):
             self.links.append(attrs["href"])
         if tag in {"img", "script"} and "src" in attrs:
             self.links.append(attrs["src"])
-        if tag == "link" and attrs.get("rel") == "stylesheet":
+        if tag == "link" and attrs.get("rel") in {"stylesheet", "preload"}:
             self.links.append(attrs["href"])
 
 
@@ -51,12 +52,19 @@ def verify_html(directory, base_path="/"):
                 errors.append(f"Ancre dupliquée : {path.relative_to(directory)}#{ident}")
     if not pages:
         errors.append("Aucune page HTML à vérifier ; exécuter Hugo d'abord.")
+    resources = dict(pages)
+    for path in directory.rglob("*.css"):
+        parsed = Page()
+        parsed.links = re.findall(r"url\(\s*['\"]?([^'\"\s)]+)['\"]?\s*\)", path.read_text(encoding="utf-8"))
+        resources[path.resolve()] = parsed
     checked = 0
-    for path, parsed in pages.items():
+    for path, parsed in resources.items():
         current = base_path + path.relative_to(directory).as_posix()
         for target in parsed.links:
             parts = urlsplit(target)
             if parts.scheme in {"http", "https", "mailto", "tel"} or target.startswith("//"):
+                continue
+            if path.suffix == ".css" and parts.scheme == "data":
                 continue
             if parts.scheme:
                 errors.append(f"Protocole inattendu : {target}")

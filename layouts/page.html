@@ -21,10 +21,15 @@
       {{ with .Params.mirror }}{{ with site.GetPage . }}<a class="mirror-link" href="{{ .RelPermalink }}">{{ if eq .Section "ingenieure" }}Approfondir ce chapitre{{ else }}Revenir à la lecture accessible{{ end }} <span aria-hidden="true">↗</span></a>{{ end }}{{ end }}
     </header>
     {{ if .Params.chapter_id }}<details class="local-toc"><summary>Dans ce chapitre</summary>{{ .TableOfContents }}</details>{{ end }}
+    <div class="reading-body{{ if .Params.chapter_id }} with-margin{{ end }}">
     <div class="prose">{{ .Content }}</div>
     {{ with .Params.notions }}
-    <section class="notions" aria-labelledby="notions"><h2 id="notions">Notions à retrouver</h2><ul>{{ range . }}<li><a href="{{ (site.GetPage "/annexes/glossaire").RelPermalink }}#{{ .anchor }}">{{ .label }}</a></li>{{ end }}</ul></section>
+    <aside class="reading-notes" aria-label="Repères en marge">
+      <section class="notions" aria-labelledby="notions"><h2 id="notions">Notions à retrouver</h2><ul>{{ range . }}<li><a href="{{ (site.GetPage "/annexes/glossaire").RelPermalink }}#{{ .anchor }}">{{ .label }}</a></li>{{ end }}</ul></section>
+      <section class="margin-reference" aria-labelledby="reperes-sources"><h2 id="reperes-sources">Remonter aux sources</h2><p>Une synthèse à confronter aux documents, pas une preuve d’implémentation.</p><a href="#sources-et-limites">Sources de ce chapitre ↓</a></section>
+    </aside>
     {{ end }}
+    </div>
     {{ with .Params.related }}
     <section class="related" aria-labelledby="connexes"><p class="eyebrow">Continuer l’exploration</p><h2 id="connexes">Les sujets se répondent.</h2><ul>{{ range . }}{{ with site.GetPage . }}<li><a href="{{ .RelPermalink }}"><span>{{ .Params.chapter_id }}</span> {{ .Title }} →</a></li>{{ end }}{{ end }}</ul></section>
     {{ end }}

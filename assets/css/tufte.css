@@ -1,0 +1,178 @@
+/* Habillage éditorial : la navigation reste dans manuel.css.
+   Les URL des polices sont résolues par Hugo, y compris sous un préfixe. */
+@font-face {
+  font-family: "ET Book";
+  src: url('{{ (resources.Get "fonts/et-book/roman.woff").RelPermalink }}') format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "ET Book";
+  src: url('{{ (resources.Get "fonts/et-book/italic.woff").RelPermalink }}') format("woff");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "ET Book";
+  src: url('{{ (resources.Get "fonts/et-book/bold.woff").RelPermalink }}') format("woff");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --paper: #fffff8;
+  --surface: #f4f3eb;
+  --ink: #24231f;
+  --muted: #656159;
+  --line: #dedbd1;
+  --accent: #344b43;
+  --rust: #85472d;
+  --serif: "ET Book", "Palatino Linotype", Palatino, Georgia, serif;
+}
+body { font-kerning: normal; }
+::selection { background: #e5e7d9; color: var(--ink); }
+h1, h2 { letter-spacing: -.015em; }
+h1 { font-size: clamp(2.8rem, 4.4vw, 4.15rem); line-height: 1.06; }
+h2 { font-size: 2rem; }
+.eyebrow { font-weight: 500; letter-spacing: .16em; }
+
+/* Un titre courant discret, comme en tête d'un ouvrage. */
+.site-header { max-width: 1400px; padding: 1.4rem 2.5rem; }
+.brand { font-weight: 400; }
+.brand-mark {
+  width: auto;
+  height: auto;
+  background: none;
+  color: var(--ink);
+  font-size: 1.6rem;
+  font-style: italic;
+  padding-right: .55rem;
+  border-right: 1px solid var(--line);
+}
+.site-header nav { font-size: .79rem; }
+.site-header nav a[aria-current] { text-underline-offset: .45em; }
+
+/* Sommaires et pages de partie : la structure ne change pas. */
+.home-main { max-width: 1080px; padding-top: 5rem; }
+.intro { max-width: 850px; }
+.intro h1 { font-size: clamp(3.7rem, 7vw, 6rem); line-height: .99; }
+.intro em { color: var(--ink); }
+.lead { font-size: 1.9rem; line-height: 1.35; }
+.intro-note { font-family: var(--serif); font-size: 1.35rem; line-height: 1.5; max-width: 54ch; }
+.reading-paths { gap: 3rem; }
+.path-choice { border-top: 1px solid var(--line); padding-top: 1.3rem; }
+.path-choice strong { font-family: var(--serif); font-size: 1.65rem; font-weight: 400; }
+.path-choice small { font-size: .8rem; }
+.section-heading h2 { font-style: italic; }
+.chapter-matrix h3 { font-family: var(--serif); font-size: 1.3rem; line-height: 1.3; }
+.chapter-matrix>li { padding: 1rem 0; }
+.chapter-choices { gap: 1rem; }
+.home-about h2 { font-style: italic; }
+.home-about p { font-family: var(--serif); font-size: 1.25rem; line-height: 1.5; }
+.section-main { max-width: 1000px; padding-top: 4.5rem; }
+.section-intro { max-width: 64ch; }
+.page-list strong { font-family: var(--serif); font-weight: 400; font-size: 1.55rem; line-height: 1.25; }
+.page-list small { max-width: 72ch; font-size: .82rem; margin-top: .5rem; }
+.page-list>li>a { padding: 1.35rem 0; }
+.page-summary { flex: 1; min-width: 0; }
+.page-code { color: var(--muted); }
+
+/* Le corps du livre et, lorsqu'il y a la place, sa marge documentaire. */
+.reader-layout {
+  max-width: 1400px;
+  padding: 3.5rem 2.5rem;
+  grid-template-columns: 205px minmax(0, 940px);
+  gap: clamp(2rem, 4vw, 4.5rem);
+}
+.reader-sidebar { font-size: .74rem; padding-right: .4rem; }
+.reader-sidebar .eyebrow { font-size: .62rem; }
+.reader-sidebar li a { padding: .48rem .45rem; }
+.reader-sidebar a[aria-current=page] { background: transparent; box-shadow: inset 1px 0 var(--ink); color: var(--ink); }
+.breadcrumb { margin-bottom: 2.8rem; }
+.article-header { max-width: 740px; }
+.article-header h1 { margin-bottom: 1.7rem; }
+.article-header .eyebrow { margin-bottom: 1.4rem; }
+.status-badge { background: transparent; border: none; border-bottom: 1px solid var(--line); border-radius: 0; padding: 0 0 .1rem; }
+.mirror-link { font-family: var(--serif); font-size: 1.25rem; font-style: italic; color: var(--ink); margin-top: 1.3rem; }
+.local-toc { max-width: 640px; margin: 2.1rem 0 2.7rem; border-bottom: 0; padding-top: 1rem; }
+.local-toc summary { font-size: .78rem; }
+.reading-body { min-width: 0; }
+.prose { font-size: 1.4rem; line-height: 1.55; max-width: 640px; }
+.prose p { margin-bottom: 1.35rem; }
+.prose h2 { font-size: 2rem; font-style: italic; line-height: 1.15; margin-top: 2.5rem; margin-bottom: 1.2rem; }
+.prose h2:first-child { margin-top: 0; }
+.prose h3 { font-family: var(--serif); font-size: 1.5rem; font-weight: 400; font-style: italic; }
+.prose a { color: inherit; text-decoration-color: #928e81; text-decoration-thickness: 1px; }
+.prose a:hover { color: var(--rust); text-decoration-color: currentColor; }
+.prose strong { font-weight: 700; }
+.prose blockquote { border-left: 0; padding: 0 0 0 1.6rem; font-style: italic; color: var(--ink); }
+.prose code { font-size: .68em; border-radius: 0; }
+.prose pre { border-left: 1px solid var(--line); background: #f6f5ee; padding: 1.1rem; }
+.prose table { font-size: .8rem; }
+.prose th { background: none; border-top: 1px solid var(--ink); border-bottom: 1px solid var(--ink); }
+.prose td { border-bottom-color: var(--line); }
+.prose hr { border: 0; border-top: 1px solid var(--line); margin: 2rem 0; }
+.reading-notes { min-width: 0; max-width: 640px; }
+.notions { padding-top: 1rem; margin-top: 2rem; }
+.notions h2, .margin-reference h2 { font-family: var(--sans); font-size: .66rem; line-height: 1.5; font-weight: 500; letter-spacing: .08em; text-transform: uppercase; }
+.notions ul { gap: .35rem 1rem; }
+.notions a { padding: 0; background: none; font-family: var(--serif); font-size: 1.15rem; text-decoration: underline; text-decoration-color: var(--line); }
+.margin-reference { margin-top: 1.7rem; }
+.margin-reference p { font-family: var(--serif); font-size: 1.12rem; line-height: 1.4; color: var(--muted); margin-bottom: .8rem; }
+.margin-reference>a { font-family: var(--sans); font-size: .73rem; }
+.related, .chapter-pagination { max-width: 640px; }
+.related h2 { font-style: italic; font-size: 1.8rem; }
+.related a { font-family: var(--serif); font-size: 1.23rem; }
+.related a span { font-family: var(--sans); font-size: .67rem; }
+.chapter-pagination a { font-family: var(--serif); font-size: 1.2rem; line-height: 1.35; }
+.chapter-pagination small { font-family: var(--sans); font-size: .65rem; }
+.site-footer { max-width: 1320px; }
+
+@media (min-width: 1200px) {
+  .with-margin { display: grid; grid-template-columns: minmax(0, 640px) minmax(150px, 190px); gap: 3rem; }
+  .reading-notes { align-self: start; padding-top: .4rem; }
+  .reading-notes .notions { margin-top: 0; border-top: 0; padding-top: 0; }
+  .reading-notes .notions ul { display: block; }
+  .reading-notes .notions li { margin: .4rem 0; }
+  .margin-reference { margin-top: 2.4rem; }
+}
+@media (max-width: 960px) {
+  .site-header { padding: 1.1rem 1.5rem; }
+  .reader-layout { grid-template-columns: 175px minmax(0, 1fr); gap: 2rem; padding: 2.8rem 1.5rem; }
+  .reader-sidebar { font-size: .7rem; }
+  .reader-sidebar li a { gap: .55rem; }
+  .prose { font-size: 1.3rem; }
+  .home-main, .section-main { padding-top: 3rem; }
+}
+@media (max-width: 680px) {
+  .site-header { padding: 1rem 1.25rem; }
+  .site-header nav { font-size: .76rem; }
+  .home-main, .section-main { padding: 2.8rem 1.25rem; }
+  .intro h1 { font-size: clamp(3rem, 12vw, 4.2rem); }
+  .lead { font-size: 1.6rem; }
+  .intro-note { font-size: 1.25rem; }
+  .reading-paths { gap: 1rem; }
+  .path-choice strong { font-size: 1.5rem; }
+  .reader-layout { display: block; padding: 2rem 1.25rem; }
+  .reader-article h1 { font-size: 2.8rem; }
+  .breadcrumb { margin-bottom: 2rem; }
+  .prose { font-size: 1.3rem; line-height: 1.55; }
+  .prose h2 { font-size: 1.9rem; }
+  .chapter-matrix h3 { font-size: 1.25rem; }
+  .page-list strong { font-size: 1.4rem; }
+  .related a { font-size: 1.15rem; }
+  .chapter-pagination a { font-size: 1.05rem; }
+}
+@media print {
+  .reader-layout, .reading-body.with-margin { display: block; padding: 0; }
+  .article-header, .prose { max-width: none; }
+  .reading-notes { border-top: 1px solid #aaa; margin-top: 1rem; break-inside: avoid; }
+  .reading-notes .notions { margin-top: 0; border: 0; }
+  .margin-reference { margin-top: .8rem; }
+  .prose { font-size: 12pt; line-height: 1.45; }
+  .prose h2 { font-size: 19pt; }
+  .prose pre code { white-space: pre-wrap; overflow-wrap: anywhere; }
+}
