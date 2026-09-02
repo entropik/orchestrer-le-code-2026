@@ -17,12 +17,6 @@ class EditorialTests(unittest.TestCase):
     def test_repository(self):
         self.assertEqual(verify(ROOT), [])
 
-    def test_five_prerequisites_are_separate_from_pairs(self):
-        manifest = json.loads((ROOT / "editorial/chapitres.json").read_text(encoding="utf-8"))
-        preamble = json.loads((ROOT / manifest["prerequis"]["manifeste"]).read_text(encoding="utf-8"))
-        self.assertEqual([u["id"] for u in preamble["unites"]], ["P01", "P02", "P03", "P04", "P05"])
-        self.assertEqual(len(self.chapters), 24)
-
     def test_missing_pair_rejected(self):
         self.assertTrue(validate_manifest(self.chapters[:-1]))
 
@@ -61,7 +55,6 @@ class EditorialTests(unittest.TestCase):
         self.assertIn(f"{validated}/24 chapitres validés", full)
         self.assertLess(full.index("### A12"), full.index("### B01"))
         self.assertIn("### B12", full)
-        self.assertLess(full.index("### P01"), full.index("### A01"))
         for path in paths:
             for target in local_links(path.read_text(encoding="utf-8")):
                 self.assertTrue((path.parent / target).resolve().exists(), target)

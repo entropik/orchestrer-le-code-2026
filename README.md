@@ -1,6 +1,6 @@
 # Orchestrer le code en 2026
 
-**Un socle pour prendre la main, puis deux lectures : comprendre pour décider, approfondir pour concevoir et vérifier.**
+**Un manuel, deux lectures : comprendre pour décider, approfondir pour concevoir et vérifier.**
 
 Site de lecture : **[savoirs.keredit.com](https://savoirs.keredit.com/)**
 
@@ -8,11 +8,7 @@ Ce projet s'adresse aux personnes qui pilotent la création de logiciels avec de
 
 Le dépôt est pensé pour GitHub. Le site de lecture est un **projet Hugo autonome**, sans GitHub Pages ni thème distant. La lecture fonctionne sans JavaScript ; la recherche locale utilise un petit module sans dépendance.
 
-> État du projet : une partie zéro rédigée en cinq étapes et 12 paires de chapitres, soit 24 amorces de synthèse. Les chapitres miroirs complets restent à développer.
-
-## Partie zéro — Prendre la main
-
-Un débutant complet commence par [cinq étapes progressives](manuscrit/00-prendre-la-main/00-ouverture.md) : exécuter, transformer des données, découper un programme, enquêter avec des tests puis passer à TypeScript. Le [projet local](exemples/partie-zero/README.md) accompagne le texte sans framework ni service externe.
+> État du projet : 12 paires de chapitres, soit 24 amorces de synthèse. Les chapitres miroirs complets restent à développer.
 
 ## Deux façons de lire chaque chapitre
 

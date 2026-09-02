@@ -2,7 +2,6 @@
 // cache de l'index et nouvelle tentative après échec. Aucun service distant.
 export const scopes = {
   all: "Tout le manuel",
-  commencer: "Partie zéro",
   accessible: "Lecture accessible",
   ingenieure: "Lecture ingénieure",
   references: "Références et annexes",

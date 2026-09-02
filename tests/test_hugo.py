@@ -35,19 +35,6 @@ class HugoTests(unittest.TestCase):
             self.assertEqual(meta["title"], mirror["title"])
             self.assertGreaterEqual(len(meta["related"]), 2)
 
-    def test_five_common_prerequisites(self):
-        decoder = json.JSONDecoder()
-        pages = []
-        for name, content in self.files.items():
-            meta, _ = decoder.raw_decode(content)
-            if "prerequisite_id" in meta:
-                pages.append((name, meta))
-        pages.sort(key=lambda item: item[1]["weight"])
-        self.assertEqual([meta["prerequisite_id"] for _, meta in pages], ["P01", "P02", "P03", "P04", "P05"])
-        self.assertEqual(pages[-1][1]["next"], "/accessible/01-piloter-un-systeme")
-        for prefix in ("accessible", "ingenieure"):
-            self.assertIn("/commencer", self.files[f"content/{prefix}/01-piloter-un-systeme.md"])
-
     def test_section_parser_ignores_code(self):
         sections = numbered_sections("# 1. Sujet\n```sh\n# 9. Commande\n```\n## 1.2 Détail")
         self.assertEqual(set(sections), {"1", "1.2"})

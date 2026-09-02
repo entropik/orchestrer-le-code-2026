@@ -4,9 +4,8 @@
     <p class="eyebrow">Manuel de pratique · Édition en cours</p>
     <h1>Orchestrer le code<br><em>en 2026.</em></h1>
     <p class="lead">Comprendre pour décider.<br>Approfondir pour concevoir et vérifier.</p>
-    <p class="intro-note">Un socle commun pour lire, exécuter et vérifier un premier programme. Puis le même sujet, le même exemple et deux profondeurs de lecture.</p>
+    <p class="intro-note">Le même sujet, le même exemple et deux profondeurs de lecture.</p>
     <div class="reading-paths">
-      {{ with site.GetPage "/commencer" }}<a class="path-choice prerequisite" href="{{ .RelPermalink }}"><span>PARTIE ZÉRO</span><strong>Prendre la main <span aria-hidden="true">↗</span></strong><small>Débuter, exécuter, comprendre.</small></a>{{ end }}
       {{ with site.GetPage "/accessible" }}<a class="path-choice" href="{{ .RelPermalink }}"><span>PARTIE I</span><strong>La lecture accessible <span aria-hidden="true">↗</span></strong><small>Comprendre, questionner, décider.</small></a>{{ end }}
       {{ with site.GetPage "/ingenieure" }}<a class="path-choice" href="{{ .RelPermalink }}"><span>PARTIE II</span><strong>La lecture ingénieure <span aria-hidden="true">↗</span></strong><small>Concevoir, éprouver, approfondir.</small></a>{{ end }}
     </div>

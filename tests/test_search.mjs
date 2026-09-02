@@ -6,7 +6,6 @@ import { normalize, prepareEntries, findEntries, excerpt, createIndexLoader } fr
 
 const origin = "https://manuel.example";
 const raw = [
-  { i: "P01", t: "Faire exécuter un programme", u: "/commencer/01/", c: "commencer", d: "Débuter", x: "Terminal, Node et processus." },
   { i: "A04", t: "Harnais et contexte", u: "/accessible/04/", c: "accessible", d: "Comprendre", x: "Limiter les permissions de l’agent." },
   { i: "B04", t: "Harnais et contexte", u: "/ingenieure/04/", c: "ingenieure", d: "Concevoir", x: "Contexte, permissions et mémoire versionnée." },
   { i: "", t: "Glossaire", u: "/annexes/glossaire/", c: "references", d: "", x: "Un harnais donne du contexte à l’agent." },
@@ -23,7 +22,6 @@ test("tous les mots, même répartis entre titre et texte", () => {
   assert.equal(findEntries(entries, "harnais impossible").length, 0);
 });
 test("filtres, titre prioritaire et requête vide", () => {
-  assert.equal(findEntries(entries, "programme", "commencer")[0].i, "P01");
   assert.equal(findEntries(entries, "contexte", "accessible")[0].i, "A04");
   assert.equal(findEntries(entries, "contexte", "ingenieure")[0].i, "B04");
   assert.equal(findEntries(entries, "contexte").at(-1).t, "Glossaire");
@@ -73,7 +71,7 @@ test("après une erreur réseau, un clic peut réessayer", async () => {
   assert.equal(calls, 2);
 });
 
-test("index Hugo réel : prérequis, 24 chapitres, glossaire, références et liens existants", () => {
+test("index Hugo réel : 24 chapitres, glossaire, références et liens existants", () => {
   const site = resolve(process.env.MANUEL_SITE_DIR || "public");
   const searchHTML = readFileSync(resolve(site, "recherche/index.html"), "utf8");
   const indexURL = searchHTML.match(/data-index-url="([^"]+)"/)[1];
@@ -82,14 +80,12 @@ test("index Hugo réel : prérequis, 24 chapitres, glossaire, références et li
   assert.ok(statSync(indexPath).size < 750_000, "Budget index : 750 Ko maximum");
   const built = prepareEntries(JSON.parse(readFileSync(indexPath, "utf8")), origin, baseURL);
   assert.equal(built.filter((entry) => /^[AB]\d{2}$/.test(entry.i)).length, 24);
-  assert.equal(built.filter((entry) => /^P\d{2}$/.test(entry.i)).length, 5);
   assert.ok(built.some((entry) => entry.u.endsWith("/annexes/glossaire/")));
   assert.ok(built.some((entry) => entry.u.endsWith("/references/")));
   assert.ok(!built.some((entry) => entry.u.endsWith("/recherche/")));
   assert.ok(findEntries(built, "harnais", "accessible").some((entry) => entry.i === "A04"));
   assert.equal(findEntries(built, "contexte", "accessible")[0].i, "A04");
   assert.ok(findEntries(built, "quantification", "ingenieure").some((entry) => entry.i === "B12"));
-  assert.ok(findEntries(built, "processus", "commencer").some((entry) => entry.i === "P01"));
   assert.ok(findEntries(built, "thermodynamique entropie", "references").some((entry) => entry.u.endsWith("/sources/i-md/")));
   assert.ok(findEntries(built, "roulette russe", "references").some((entry) => entry.u.endsWith("/sources/o-pdf/")));
   for (const entry of built) {

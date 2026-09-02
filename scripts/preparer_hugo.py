@@ -35,7 +35,6 @@ def numbered_sections(text):
 
 def build_files(root=ROOT):
     manifest = json.loads((root / "editorial/chapitres.json").read_text(encoding="utf-8"))
-    preamble = json.loads((root / manifest["prerequis"]["manifeste"]).read_text(encoding="utf-8"))
     mesh = json.loads((root / "editorial/maillage.json").read_text(encoding="utf-8"))
     inventory = json.loads((root / "sources/inventaire.json").read_text(encoding="utf-8"))
     chapters = manifest["chapitres"]
@@ -49,13 +48,6 @@ def build_files(root=ROOT):
         routes[c["id"]] = route
         paths[c["fichier"]] = route
         paths[c["tranche"]] = f"/redaction/{Path(c['tranche']).stem.lower()}"
-    preamble_routes = {}
-    for unit in preamble["unites"]:
-        route = f"/commencer/{Path(unit['fichier']).stem}"
-        preamble_routes[unit["id"]] = route
-        paths[unit["fichier"]] = route
-    paths[preamble["ouverture"]] = "/commencer"
-    paths["exemples/partie-zero/README.md"] = "/commencer"
     auxiliary = {
         "analyse/01-corpus.md": ("/projet/corpus", "Analyse du corpus"),
         "analyse/02-synthese.md": ("/projet/synthese", "Synthèse des deux approches"),
@@ -100,11 +92,8 @@ def build_files(root=ROOT):
             dest = "content/_index.md"
         files[dest] = page(meta, body)
 
-    add("/", {"title": manifest["titre"], "description": "Un socle pour prendre la main, puis deux lectures : comprendre pour décider, approfondir pour concevoir et vérifier."}, "")
+    add("/", {"title": manifest["titre"], "description": "Un manuel, deux lectures : comprendre pour décider, approfondir pour concevoir et vérifier."}, "")
     add("/recherche", {"title": "Chercher dans le manuel", "linkTitle": "Rechercher", "layout": "search", "description": "Retrouver un chapitre, une notion ou une référence dans les deux lectures."}, "")
-    opening_source = root / preamble["ouverture"]
-    opening_body = opening_source.read_text(encoding="utf-8").split("\n", 1)[1]
-    add("/commencer", {"title": preamble["titre"], "linkTitle": "Commencer", "eyebrow": "Partie zéro · Socle commun", "description": preamble["promesse"], "source_path": preamble["ouverture"]}, rewrite(opening_body, opening_source), section=True)
     for route, title, linktitle, body in [
         ("accessible", "La lecture accessible", "Accessible", "Douze chapitres pour comprendre, poser les bonnes questions et décider. Aucun prérequis en programmation. Chaque chapitre renvoie à son miroir approfondi.\n\nLes textes sont actuellement des amorces, à développer et à relire."),
         ("ingenieure", "La lecture ingénieure", "Ingénieure", "Les mêmes sujets, dans le même ordre, avec les mécanismes, les compromis et les preuves techniques. Ce parcours peut aussi se lire indépendamment.\n\nLes exemples exécutables et les corrigés seront développés pendant la rédaction."),
@@ -114,21 +103,6 @@ def build_files(root=ROOT):
         ("references/sources", "Le corpus original", "Sources", "Les huit documents sont lisibles intégralement ici et conservés à l'identique au téléchargement. Les Markdown se parcourent par sections ; les PDF, page par page, avec leur texte extrait et leur fac-similé. Aucun texte n'est résumé ni corrigé. Les instructions citées font partie des documents, pas du fonctionnement du site."),
     ]:
         add("/" + route, {"title": title, "linkTitle": linktitle}, body, section=True)
-
-    for index, unit in enumerate(preamble["unites"]):
-        source = root / unit["fichier"]
-        text = source.read_text(encoding="utf-8").split("\n", 1)[1]
-        meta = {"title": unit["titre"], "description": preamble["promesse"], "weight": unit["poids"],
-                "prerequisite_id": unit["id"], "status": preamble["statut"], "source_path": unit["fichier"]}
-        if index:
-            meta["previous"] = preamble_routes[preamble["unites"][index - 1]["id"]]
-        else:
-            meta["previous"] = "/commencer"
-        if index + 1 < len(preamble["unites"]):
-            meta["next"] = preamble_routes[preamble["unites"][index + 1]["id"]]
-        else:
-            meta["next"] = routes["A01"]
-        add(preamble_routes[unit["id"]], meta, rewrite(text, source))
 
     external_by_id = {r["id"]: r for r in mesh["references"]}
     for c in chapters:
@@ -141,8 +115,6 @@ def build_files(root=ROOT):
         text = text[text.index("## Ce que tu sauras faire"):]
         description = text.split("## Ce que tu sauras faire", 1)[1].split("\n\n", 2)[1].strip()
         text = rewrite(text, source)
-        if c["id"] in {"A01", "B01"}:
-            text = "> Nouveau dans cette édition : [évaluer ou acquérir le socle de programmation](/commencer) avant de poursuivre. Ce passage reste facultatif pour un lecteur déjà autonome.\n\n" + text
         refs = []
         for reference in theme["references"]:
             item = external_by_id[reference]

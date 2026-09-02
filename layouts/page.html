@@ -1,8 +1,8 @@
 {{ define "main" }}
 <main id="contenu" class="reader-layout">
   <aside class="reader-sidebar" aria-label="Parcours de lecture">
-    {{ if or .Params.chapter_id .Params.prerequisite_id }}
-    <p class="eyebrow">{{ if eq .Section "commencer" }}Partie zéro · Prendre la main{{ else if eq .Section "accessible" }}Partie I · Accessible{{ else }}Partie II · Ingénieure{{ end }}</p>
+    {{ if .Params.chapter_id }}
+    <p class="eyebrow">{{ if eq .Section "accessible" }}Partie I · Accessible{{ else }}Partie II · Ingénieure{{ end }}</p>
     <nav aria-label="Chapitres de cette lecture"><ol>
     {{ range (where site.RegularPages "Section" .Section).ByWeight }}
       <li><a href="{{ .RelPermalink }}"{{ if eq $.RelPermalink .RelPermalink }} aria-current="page"{{ end }}><span>{{ .Params.theme }}</span> {{ .Title }}</a></li>
@@ -15,12 +15,12 @@
   <article class="reader-article">
     <nav class="breadcrumb" aria-label="Fil d’Ariane"><a href="{{ site.Home.RelPermalink }}">Le manuel</a><span aria-hidden="true">/</span>{{ with .CurrentSection }}<a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>{{ end }}</nav>
     <header class="article-header">
-      <p class="eyebrow">{{ with .Params.prerequisite_id }}Étape {{ . }}{{ else }}{{ with .Params.chapter_id }}Chapitre {{ . }}{{ else }}Document de référence{{ end }}{{ end }}</p>
+      <p class="eyebrow">{{ with .Params.chapter_id }}Chapitre {{ . }}{{ else }}Document de référence{{ end }}</p>
       <h1>{{ .Title }}</h1>
-      <div class="article-meta">{{ with .Params.status }}<span class="status-badge">{{ . }}</span>{{ end }}<span>{{ .ReadingTime }} min de lecture</span>{{ with .Params.chapter_id }}<span>Même sujet, deux profondeurs</span>{{ end }}{{ with .Params.prerequisite_id }}<span>Socle commun progressif</span>{{ end }}</div>
+      <div class="article-meta">{{ with .Params.status }}<span class="status-badge">{{ . }}</span>{{ end }}<span>{{ .ReadingTime }} min de lecture</span>{{ with .Params.chapter_id }}<span>Même sujet, deux profondeurs</span>{{ end }}</div>
       {{ with .Params.mirror }}{{ with site.GetPage . }}<a class="mirror-link" href="{{ .RelPermalink }}">{{ if eq .Section "ingenieure" }}Approfondir ce chapitre{{ else }}Revenir à la lecture accessible{{ end }} <span aria-hidden="true">↗</span></a>{{ end }}{{ end }}
     </header>
-    {{ if or .Params.chapter_id .Params.prerequisite_id }}<details class="local-toc"><summary>Dans ce chapitre</summary>{{ .TableOfContents }}</details>{{ end }}
+    {{ if .Params.chapter_id }}<details class="local-toc"><summary>Dans ce chapitre</summary>{{ .TableOfContents }}</details>{{ end }}
     <div class="reading-body{{ if .Params.chapter_id }} with-margin{{ end }}">
     <div class="prose">{{ .Content }}</div>
     {{ with .Params.notions }}
@@ -33,10 +33,10 @@
     {{ with .Params.related }}
     <section class="related" aria-labelledby="connexes"><p class="eyebrow">Continuer l’exploration</p><h2 id="connexes">Les sujets se répondent.</h2><ul>{{ range . }}{{ with site.GetPage . }}<li><a href="{{ .RelPermalink }}"><span>{{ .Params.chapter_id }}</span> {{ .Title }} →</a></li>{{ end }}{{ end }}</ul></section>
     {{ end }}
-    {{ if or .Params.chapter_id .Params.prerequisite_id }}
+    {{ if .Params.chapter_id }}
     <nav class="chapter-pagination" aria-label="Chapitre précédent et suivant">
-      <div>{{ with .Params.previous }}{{ with site.GetPage . }}<a rel="prev" href="{{ .RelPermalink }}"><small>← Précédent{{ with .Params.chapter_id }} · {{ . }}{{ end }}{{ with .Params.prerequisite_id }} · {{ . }}{{ end }}</small>{{ .Title }}</a>{{ end }}{{ end }}</div>
-      <div>{{ with .Params.next }}{{ with site.GetPage . }}<a rel="next" href="{{ .RelPermalink }}"><small>Suivant{{ with .Params.chapter_id }} · {{ . }}{{ end }}{{ with .Params.prerequisite_id }} · {{ . }}{{ end }} →</small>{{ .Title }}</a>{{ end }}{{ else }}<a href="{{ site.Home.RelPermalink }}"><small>Parcours terminé</small>Retour au sommaire →</a>{{ end }}</div>
+      <div>{{ with .Params.previous }}{{ with site.GetPage . }}<a rel="prev" href="{{ .RelPermalink }}"><small>← Précédent{{ with .Params.chapter_id }} · {{ . }}{{ end }}</small>{{ .Title }}</a>{{ end }}{{ end }}</div>
+      <div>{{ with .Params.next }}{{ with site.GetPage . }}<a rel="next" href="{{ .RelPermalink }}"><small>Suivant{{ with .Params.chapter_id }} · {{ . }}{{ end }} →</small>{{ .Title }}</a>{{ end }}{{ else }}<a href="{{ site.Home.RelPermalink }}"><small>Parcours terminé</small>Retour au sommaire →</a>{{ end }}</div>
     </nav>
     {{ end }}
   </article>

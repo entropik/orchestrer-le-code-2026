@@ -22,8 +22,6 @@ Les cas viennent du guide d'orchestration, chapitres 12 et 13. Les choix ci-dess
 
 ## Progression
 
-La partie zéro construit une version miniature et locale : lire une commande fictive, inspecter le début d'un fichier, appliquer des règles et produire un rapport. Elle ne traite ni upload, compte utilisateur, base de données ni production.
-
 Les chapitres 01 à 06 cadrent le service et ses preuves. Les chapitres 07 à 10 examinent les reprises, les données, la livraison et l'exploitation. Le chapitre 11 rejoue un ajout de fonctionnalité et une enquête sur un doublon. Le chapitre 12 applique les mêmes missions au choix des outils et des modèles.
 
 ## Ce qui reste à concevoir

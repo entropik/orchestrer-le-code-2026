@@ -18,15 +18,10 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: "24"
-          cache: npm
-          cache-dependency-path: exemples/partie-zero/package-lock.json
       - uses: peaceiris/actions-hugo@v3
         with:
           hugo-version: "0.164.0"
           extended: true
-      - name: Vérifier le projet de la partie zéro
-        working-directory: exemples/partie-zero
-        run: npm ci && npm run check && npm test && npm run build
       - name: Vérifier les sources et le contenu généré
         run: python -X utf8 scripts/verifier.py && python -X utf8 scripts/preparer_hugo.py --check && python -X utf8 -m unittest discover -s tests
       - name: Construire et contrôler Hugo

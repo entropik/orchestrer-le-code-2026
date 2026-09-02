@@ -10,7 +10,7 @@
     {{ range .Params.notions }}{{ $notions = $notions | append .label }}{{ end }}
     {{/* Le dessin et son ASCII ont les mêmes libellés : indexer une seule fois. */}}
     {{ $text := .Content | replaceRE `(?s)<details class="flow-original">.*?</details>` "" | plainify | htmlUnescape | replaceRE `\s+` " " }}
-    {{ $ident := .Params.chapter_id | default (.Params.prerequisite_id | default "") }}
+    {{ $ident := .Params.chapter_id | default "" }}
     {{ $entries = $entries | append (dict "i" $ident "t" .Title "u" .RelPermalink "c" $scope "g" $notions "d" (.Description | default "") "x" $text) }}
   {{ end }}
 {{ end }}
@@ -29,7 +29,6 @@
       <label for="search-scope">Parcours</label>
       <select id="search-scope" name="scope" aria-controls="search-results">
         <option value="all">Tout le manuel</option>
-        <option value="commencer">Partie zéro</option>
         <option value="accessible">Lecture accessible</option>
         <option value="ingenieure">Lecture ingénieure</option>
         <option value="references">Références et annexes</option>

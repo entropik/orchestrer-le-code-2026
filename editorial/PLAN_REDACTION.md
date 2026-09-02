@@ -1,17 +1,5 @@
 # Plan de rédaction par chapitre
 
-## Partie zéro — socle commun
-
-| ID | Étape | Statut |
-|---|---|---|
-| P01 | Faire exécuter un programme | rédaction |
-| P02 | Transformer des données avec des règles | rédaction |
-| P03 | Lire, découper et modifier sans se perdre | rédaction |
-| P04 | Enquêter et demander des preuves | rédaction |
-| P05 | Passer à TypeScript et diriger une mission complète | rédaction |
-
-Ces cinq unités partagent le [projet exécutable](../exemples/partie-zero/README.md) et précèdent les lectures miroirs. Elles ne changent pas le compte des 24 tranches A/B.
-
 ## Unité de travail
 
 Une tranche = une lecture d'un chapitre. Une paire = Axx + Bxx sur le même sujet. Les fiches sont des missions locales prêtes à utiliser, pas des issues déjà créées sur GitHub.

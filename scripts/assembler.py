@@ -27,10 +27,7 @@ def relocate(text, source, destination):
             line = LINK.sub(replace, line)
             line = re.sub(r"^(#{1,4}) ", r"##\1 ", line)
         output.append(line)
-    result = "\n".join(output)
-    result = result.replace('{{< correction >}}', '<details><summary>Voir le corrigé raisonné</summary>')
-    result = result.replace('{{< /correction >}}', '</details>')
-    return result
+    return "\n".join(output)
 
 
 def build(root=ROOT):
@@ -38,28 +35,18 @@ def build(root=ROOT):
     if errors:
         raise ValueError("Assemblage refusé : " + "; ".join(errors))
     manifest = json.loads((root / "editorial/chapitres.json").read_text(encoding="utf-8"))
-    preamble = json.loads((root / manifest["prerequis"]["manifeste"]).read_text(encoding="utf-8"))
     chapters = manifest["chapitres"]
     output = root / "dist"
     output.mkdir(exist_ok=True)
     variants = [("orchestrer-le-code-2026.md", chapters),
                 ("lecture-accessible.md", [c for c in chapters if c["lecture"] == "accessible"]),
-                ("lecture-ingenieure.md", [c for c in chapters if c["lecture"] == "ingenieure"]),
-                ("prendre-la-main.md", [])]
+                ("lecture-ingenieure.md", [c for c in chapters if c["lecture"] == "ingenieure"])]
     for filename, selected in variants:
         destination = output / filename
         validated = sum(c["statut"] == "valide" for c in selected)
-        if selected:
-            status = "Chapitres validés" if validated == len(selected) else "Manuscrit de travail - amorces et rédaction en cours"
-            progress = f"{validated}/{len(selected)} chapitres validés."
-        else:
-            status = "Partie zéro rédigée - relecture éditoriale en cours"
-            progress = "Cinq étapes communes avant les lectures miroirs."
+        status = "Chapitres validés" if validated == len(selected) else "Manuscrit de travail - amorces et rédaction en cours"
+        progress = f"{validated}/{len(selected)} chapitres validés."
         parts = [f"# {manifest['titre']}\n\n{status}.\n\n{progress}\n\nLes renvois locaux restent liés au dépôt ; ce fichier n'est pas une édition autonome publiée."]
-        parts.append("## Partie zéro - Prendre la main")
-        for filename0 in [preamble["ouverture"], *(u["fichier"] for u in preamble["unites"])]:
-            source0 = root / filename0
-            parts.append(relocate(source0.read_text(encoding="utf-8"), source0, destination))
         previous = None
         for c in selected:
             if c["lecture"] != previous:
@@ -67,13 +54,11 @@ def build(root=ROOT):
                 previous = c["lecture"]
             source = root / c["fichier"]
             parts.append(relocate(source.read_text(encoding="utf-8"), source, destination))
-        if selected:
-            parts.append("## Annexes communes")
-            for source in sorted((root / "manuscrit/annexes").glob("*.md")):
-                parts.append(relocate(source.read_text(encoding="utf-8"), source, destination))
+        parts.append("## Annexes communes")
+        for source in sorted((root / "manuscrit/annexes").glob("*.md")):
+            parts.append(relocate(source.read_text(encoding="utf-8"), source, destination))
         destination.write_text("\n\n---\n\n".join(parts) + "\n", encoding="utf-8")
-        detail = f"{len(selected)} chapitres, {validated} validés" if selected else "5 étapes"
-        print(f"Créé : {destination.relative_to(root)} ({detail})")
+        print(f"Créé : {destination.relative_to(root)} ({len(selected)} chapitres, {validated} validés)")
     return [output / name for name, _ in variants]
 
 
