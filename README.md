@@ -117,7 +117,7 @@ python scripts/verifier_html.py public
 
 Le contrôle HTML vérifie les fichiers, les ancres, les ressources locales et les chemins sous un préfixe. Il ne vérifie pas la disponibilité en ligne des références externes, ni la justesse technique du texte.
 
-Le dépôt GitHub et l'hébergement restent indépendants. Le site est destiné à **Cloudflare Pages**, sans GitHub Pages : branche de production `main`, commande `hugo --panicOnWarning`, dossier de sortie `public`, variable `HUGO_VERSION=0.164.0`. Les déploiements d'aperçu peuvent remplacer l'adresse avec `hugo --baseURL "$CF_PAGES_URL"`.
+Le dépôt GitHub et l'hébergement restent indépendants. Le site est publié sur **Cloudflare Pages**, sans GitHub Pages. La CI GitHub vérifie chaque push ; la mise en ligne actuelle est volontairement explicite : `hugo --panicOnWarning`, puis `npx wrangler pages deploy public --project-name savoirs --branch main`. Une automatisation ultérieure devra utiliser un jeton Cloudflare dédié, jamais le jeton OAuth local.
 
 ## Où modifier quoi ?
 

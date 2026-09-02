@@ -1,20 +1,28 @@
 # Déployer `savoirs.keredit.com`
 
-Le site Hugo est publié par Cloudflare Pages depuis le dépôt GitHub `entropik/orchestrer-le-code-2026`. GitHub Pages n'est pas utilisé.
+Le site Hugo est publié sur Cloudflare Pages et son code source est conservé dans le dépôt GitHub `entropik/orchestrer-le-code-2026`. GitHub Pages n'est pas utilisé.
 
-## Configuration Cloudflare Pages
+## Configuration actuelle
 
-Créer un projet Pages relié au dépôt avec ces valeurs :
+Le projet Pages a été créé en mode **Direct Upload** avec ces valeurs :
 
 | Réglage | Valeur |
 |---|---|
 | Nom du projet | `savoirs` |
-| Branche de production | `main` |
-| Commande de construction | `hugo --panicOnWarning` |
-| Dossier de sortie | `public` |
-| Variable de production et d'aperçu | `HUGO_VERSION=0.164.0` |
+| Branche indiquée au déploiement | `main` |
+| Commande de construction locale | `hugo --panicOnWarning` |
+| Dossier envoyé | `public` |
 
-Le contenu Hugo étant versionné, aucun générateur Python n'est requis sur l'hébergeur. La CI contrôle séparément que le contenu est synchronisé avec le manuscrit.
+Le contenu Hugo étant versionné, aucun générateur Python n'est requis sur l'hébergeur. La CI GitHub contrôle séparément que le contenu est synchronisé avec le manuscrit.
+
+Après validation de la CI :
+
+```sh
+hugo --panicOnWarning
+npx wrangler pages deploy public --project-name savoirs --branch main
+```
+
+Wrangler utilise uniquement l'autorisation OAuth locale. Aucun secret Cloudflare n'est enregistré dans GitHub. Un déploiement automatique pourra être ajouté plus tard avec un jeton dédié et limité à Pages.
 
 ## Domaine
 
