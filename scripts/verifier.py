@@ -73,6 +73,26 @@ def verify(root=ROOT):
     manifest = json.loads((root / "editorial/chapitres.json").read_text(encoding="utf-8"))
     chapters = manifest["chapitres"]
     errors = validate_manifest(chapters)
+    preamble_path = root / manifest.get("prerequis", {}).get("manifeste", "")
+    if not preamble_path.is_file():
+        errors.append("Manifeste de la partie zéro absent.")
+    else:
+        preamble = json.loads(preamble_path.read_text(encoding="utf-8"))
+        units = preamble.get("unites", [])
+        if [u.get("id") for u in units] != [f"P{n:02d}" for n in range(1, 6)]:
+            errors.append("La partie zéro doit contenir P01 à P05 dans cet ordre.")
+        for filename in [preamble.get("ouverture", ""), *(u.get("fichier", "") for u in units)]:
+            source = root / filename
+            if not source.is_file():
+                errors.append(f"Partie zéro : fichier absent {filename}.")
+                continue
+            content = source.read_text(encoding="utf-8")
+            if filename != preamble.get("ouverture"):
+                for heading in ("## Situation et résultat observable", "## Ta prédiction", "## Porte de sortie"):
+                    if heading not in content:
+                        errors.append(f"{filename}: section pédagogique absente {heading}.")
+                if "## Exercice autonome" not in content and "## Épreuve finale" not in content:
+                    errors.append(f"{filename}: exercice autonome absent.")
     for c in chapters:
         for field in ("fichier", "miroir", "tranche"):
             if not (root / c[field]).is_file():
@@ -121,7 +141,7 @@ def main():
         for error in errors:
             print(f"ERREUR : {error}")
         raise SystemExit(1)
-    print("OK : 8 sources intactes, 12 paires, 24 tranches, dépendances et liens locaux valides.")
+    print("OK : 8 sources intactes, 5 prérequis, 12 paires, 24 tranches, dépendances et liens locaux valides.")
     print("Limites : pas de contrôle des ancres Markdown, des liens web ni de la justesse technique.")
 
 

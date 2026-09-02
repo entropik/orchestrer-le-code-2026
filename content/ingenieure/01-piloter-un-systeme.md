@@ -28,6 +28,8 @@
   "next": "/ingenieure/02-architecture-et-frontieres"
 }
 
+> Nouveau dans cette édition : [évaluer ou acquérir le socle de programmation](/commencer) avant de poursuivre. Ce passage reste facultatif pour un lecteur déjà autonome.
+
 ## Ce que tu sauras faire
 
 Formaliser le système de contrôle entourant un agent et ses limites de garantie.

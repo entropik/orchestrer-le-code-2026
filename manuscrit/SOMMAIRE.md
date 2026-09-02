@@ -1,5 +1,17 @@
 # Orchestrer le code en 2026
 
+## Commencer par prendre la main
+
+Pour un débutant complet, la [partie zéro](00-prendre-la-main/00-ouverture.md) établit le socle commun avant les deux lectures :
+
+1. [P01 — Faire exécuter un programme](00-prendre-la-main/01-faire-executer.md)
+2. [P02 — Transformer des données avec des règles](00-prendre-la-main/02-transformer-des-donnees.md)
+3. [P03 — Lire, découper et modifier sans se perdre](00-prendre-la-main/03-lire-et-decouper.md)
+4. [P04 — Enquêter et demander des preuves](00-prendre-la-main/04-enqueter-et-prouver.md)
+5. [P05 — Passer à TypeScript et diriger une mission complète](00-prendre-la-main/05-typescript-et-mission.md)
+
+Ce parcours reste facultatif pour un lecteur déjà autonome.
+
 ## Deux lectures complètes, douze sujets communs
 
 La première partie explique pour comprendre et décider. La seconde reprend exactement les mêmes sujets, dans le même ordre, pour concevoir, mettre en œuvre et vérifier. Le lecteur peut lire une partie entière ou passer directement d'un chapitre à son miroir.

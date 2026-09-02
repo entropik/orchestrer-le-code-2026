@@ -1,0 +1,5 @@
+{
+  "commandeId": "CMD-001",
+  "organisationId": "ORG-DEMO",
+  "document": "fixtures/affiche.pdf"
+}

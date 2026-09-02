@@ -17,4 +17,4 @@
 {{- if and (not $external) $url.Fragment (not (hasPrefix .Destination "#")) -}}
   {{- $href = printf "%s#%s" $href $url.Fragment -}}
 {{- end -}}
-<a href="{{ $href }}"{{ with .Title }} title="{{ . }}"{{ end }}{{ if $external }} rel="external noopener noreferrer"{{ end }}>{{ .Text | safeHTML }}{{ if $external }}<span class="external-mark" aria-hidden="true"> ↗</span><span class="sr-only"> (référence externe)</span>{{ end }}</a>
+<a href="{{ $href }}"{{ with .Title }} title="{{ . }}"{{ end }}{{ if $external }} target="_blank" rel="external noopener noreferrer"{{ end }}>{{ .Text | safeHTML }}{{ if $external }}<span class="external-mark" aria-hidden="true"> ↗</span><span class="sr-only"> (référence externe, nouvel onglet)</span>{{ end }}</a>

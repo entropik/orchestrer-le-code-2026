@@ -5,7 +5,11 @@
 
 ## Intention
 
-Permettre à un décideur de piloter la fabrication d'un logiciel, puis d'accéder aux mécanismes d'ingénierie qui justifient ses décisions. Le manuel n'est ni une collection de prompts magiques ni une défense d'un fournisseur.
+Permettre à un débutant d'acquérir le socle nécessaire pour lire, exécuter et vérifier un premier programme avec un agent ; permettre ensuite à un décideur de piloter la fabrication d'un logiciel, puis d'accéder aux mécanismes d'ingénierie qui justifient ses décisions. Le manuel n'est ni une collection de prompts magiques ni une défense d'un fournisseur.
+
+## Partie zéro commune
+
+P01 à P05 forment un parcours progressif unique avant les lectures miroirs. Chaque étape part d'une prédiction, fait lire et exécuter un changement, introduit une erreur à diagnostiquer puis se termine par un exercice autonome et un corrigé raisonné. Les encadrés techniques sont facultatifs ; aucun prérequis en programmation n'est supposé.
 
 ## Deux lectures pour chaque chapitre
 

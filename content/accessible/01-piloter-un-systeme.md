@@ -28,6 +28,8 @@
   "next": "/accessible/02-architecture-et-frontieres"
 }
 
+> Nouveau dans cette édition : [évaluer ou acquérir le socle de programmation](/commencer) avant de poursuivre. Ce passage reste facultatif pour un lecteur déjà autonome.
+
 ## Ce que tu sauras faire
 
 Savoir ce que l'on délègue à un agent et ce que l'on doit décider soi-même.

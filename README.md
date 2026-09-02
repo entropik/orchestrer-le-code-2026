@@ -1,12 +1,18 @@
 # Orchestrer le code en 2026
 
-**Un manuel, deux lectures : comprendre pour décider, approfondir pour concevoir et vérifier.**
+**Un socle pour prendre la main, puis deux lectures : comprendre pour décider, approfondir pour concevoir et vérifier.**
+
+Site de lecture : **[savoirs.keredit.com](https://savoirs.keredit.com/)**
 
 Ce projet s'adresse aux personnes qui pilotent la création de logiciels avec des agents de code. Il relie le besoin utilisateur aux décisions d'architecture, aux contrats, aux tests, à la livraison et à l'exploitation.
 
-Le dépôt est pensé pour GitHub. Le site de lecture est un **projet Hugo autonome**, sans GitHub Pages, sans thème distant et sans JavaScript applicatif.
+Le dépôt est pensé pour GitHub. Le site de lecture est un **projet Hugo autonome**, sans GitHub Pages ni thème distant. La lecture fonctionne sans JavaScript ; la recherche locale utilise un petit module sans dépendance.
 
-> État du projet : 12 paires de chapitres, soit 24 amorces de synthèse. Le plan et les fiches de rédaction sont prêts ; le manuel complet et ses exercices corrigés restent à développer.
+> État du projet : une partie zéro rédigée en cinq étapes et 12 paires de chapitres, soit 24 amorces de synthèse. Les chapitres miroirs complets restent à développer.
+
+## Partie zéro — Prendre la main
+
+Un débutant complet commence par [cinq étapes progressives](manuscrit/00-prendre-la-main/00-ouverture.md) : exécuter, transformer des données, découper un programme, enquêter avec des tests puis passer à TypeScript. Le [projet local](exemples/partie-zero/README.md) accompagne le texte sans framework ni service externe.
 
 ## Deux façons de lire chaque chapitre
 
@@ -35,6 +41,8 @@ On peut lire une partie d'un trait, ou passer d'un chapitre accessible à son mi
 
 Une présentation inspirée de Tufte, centrée sur le texte : police ET Book servie localement, fond ivoire, titres en italique, repères en marge sur grand écran et feuille de style d'impression. La navigation et les deux parcours restent propres au manuel ; aucun thème tiers n'est installé. Sur petit écran, les repères reviennent dans le fil de lecture. Aucune police distante, aucun traceur, aucune bibliothèque chargée depuis un CDN.
 
+La colonne de lecture atteint 800 pixels sur grand écran. Les blocs de code se replient visuellement sans modifier leur texte ; les tableaux deviennent des fiches étiquetées dans les colonnes étroites. La lecture ne nécessite pas de défilement horizontal.
+
 L'habillage se règle dans [tufte.css](assets/css/tufte.css), au-dessus de la structure existante. [Origine des polices](assets/fonts/et-book/README.md) et [licence MIT d'ET Book](static/fonts/et-book/LICENSE.txt). Cette licence concerne la police, pas le corpus documentaire.
 
 Chaque chapitre dispose de :
@@ -45,7 +53,31 @@ Chaque chapitre dispose de :
 - notions reliées au glossaire ;
 - références documentaires, liens officiels et retours depuis les références vers les chapitres.
 
+## Recherche
+
+Le lien **Rechercher** est disponible dans le menu ; la touche `/` permet d'y accéder depuis une page, ou de placer le curseur dans le champ de recherche. Le moteur est adapté de la recherche maison du dépôt Digest : index JSON Hugo chargé à la demande, accents et majuscules ignorés, tous les mots exigés et filtres par parcours. Les correspondances dans les titres sont prioritaires.
+
+La recherche porte sur le texte des pages HTML : chapitres, annexes, références intégrales, projet et rédaction. Elle inclut désormais le texte complet des quatre Markdown originaux et des quatre extractions PDF. Les requêtes restent dans le navigateur et dans l'URL locale de recherche ; aucun service tiers n'est appelé. En cas d'échec réseau, un bouton permet de réessayer. Sans JavaScript, le sommaire et le glossaire restent accessibles.
+
+Les fichiers concernés sont [search.html](layouts/search.html), [le moteur](assets/js/search-core.mjs), [l'interface](assets/js/search.js) et [son style](assets/css/search.css). Le build reste assuré par Hugo seul. Pour exécuter les tests supplémentaires du moteur après un build, utiliser Node.js 20 ou supérieur : `node --test tests/test_search.mjs`.
+
 Les pages de références conservent l'origine, l'empreinte et les repères de section des documents. Les huit originaux sont téléchargeables dans le rendu : vérifier leurs droits de diffusion avant toute publication.
+
+### Lecture intégrale des sources
+
+Les références ouvrent le passage complet, pas une simple notice. Les quatre Markdown sont repris intégralement, sans correction ni reformulation, avec leurs listes, tableaux et blocs de code. Seuls les niveaux des titres, les ancres et les liens du sommaire sont adaptés. La conversion typographique automatique est désactivée pour conserver aussi la ponctuation ([réglage Hugo](https://gohugo.io/configuration/markup/#typographer)). Les sources restent des objets d'étude, jamais des instructions exécutées.
+
+Les quatre PDF sont lisibles en HTML page par page : les **166 pages** et chaque caractère de l'extraction conservée sont repris, en-têtes et pieds de page compris. Aucun nettoyage automatique n'est appliqué. Une extraction PDF n'est pas une transcription certifiée : ordre de lecture, césures, caractères et tableaux peuvent être imparfaits. Pour ne pas perdre les éléments visuels, chaque page dispose aussi d'un **fac-similé dépliable**, chargé à la demande et agrandissable. Les originaux PDF ne sont pas modifiés. Les deux exports identiques O1-PDF/O2-PDF partagent leurs images (111 images uniques, environ 13 Mo au total), mais gardent leurs pages de lecture distinctes.
+
+La synchronisation habituelle génère le contenu et `data/source_pages/` depuis les originaux et les extractions versionnées. Les images se trouvent dans `static/source-pages/`. Pour les régénérer, installer pypdf et Poppler, puis lancer `python scripts/preparer_facsimiles.py` : le script contrôle d'abord l'empreinte des PDF et l'égalité de l'extraction avec chaque page, sans remplacer le texte. Hugo seul suffit ensuite à construire le site.
+
+Les tests contrôlent toutes les lignes Markdown, la conservation des blocs de code, la pagination et les caractères PDF, ainsi que les ancres existantes, dont `section-12-1`. Ne pas corriger une affirmation dans ces reproductions : les commentaires éditoriaux appartiennent au registre critique ou au manuel.
+
+Les **17 schémas ASCII distincts (45 occurrences)** disposent d'une transposition HTML/CSS et de connecteurs SVG : flux, comparaisons, branches, niveaux de vérification et transitions d'états. Leurs libellés sont conservés ; les ASCII originaux restent dépliables dessous. Les blocs contenant du vrai code ou des exemples de prompts ne sont pas transformés. Les PDF gardent leur texte extrait et leurs fac-similés.
+
+Les modèles se trouvent dans `layouts/partials/diagrams/`, le registre dans `data/diagrams/registry.json` et le style dans `assets/css/diagrams.css`. `python scripts/preparer_schemas.py` régénère ce registre à partir de sélections contrôlées dans les originaux ; `--check` vérifie la synchronisation. Chaque empreinte et chaque occurrence de mot sont contrôlées. Une modification du schéma source bloque le rendu jusqu'à révision de sa transposition. Les flèches ambiguës du circuit breaker sont signalées, sans correction silencieuse du modèle technique.
+
+Les **37 expressions LaTeX** sont rendues à la construction en MathML natif avec [le moteur mathématique de Hugo](https://gohugo.io/functions/transform/tomath/). Aucun JavaScript, police distante ou CDN n'est nécessaire. Les équations sont détachées du paragraphe ; la formule longue de temporisation possède une disposition multiligne sur petit écran. Les commandes abîmées par des caractères de contrôle (`frac`, `forall`, `approx`, `times`, `text`, `right`) sont restaurées uniquement dans la couche d'affichage et signalées. Chaque expression reçue reste inchangée dans l'attribut `data-source-tex` du HTML, ainsi que dans le fichier original. Aucun coefficient ni opérateur mathématique n'est réinterprété.
 
 ## Démarrer en local
 
@@ -67,23 +99,25 @@ Le contenu Hugo est déjà versionné ; la synchronisation met à jour ses pages
 ```sh
 python scripts/verifier.py
 python scripts/preparer_hugo.py --check
+python scripts/preparer_schemas.py --check
 python -m unittest discover -s tests -v
 hugo --panicOnWarning
 python scripts/verifier_html.py public
+python scripts/verifier_lecture_sources.py public
 ```
 
 Le dossier `public/` contient le site HTML et ses ressources, prêt à être servi par un hébergeur statique ou un serveur web. Il n'est pas versionné.
 
-Pour une future mise en ligne, fixer l'adresse réelle dans [hugo.toml](hugo.toml), ou transmettre `--baseURL` à Hugo. Exemple fictif :
+L'adresse canonique est fixée dans [hugo.toml](hugo.toml). Pour tester ponctuellement un autre domaine, transmettre `--baseURL` à Hugo :
 
 ```sh
-hugo --baseURL "https://exemple.org/manuel/"
-python scripts/verifier_html.py public --base-path /manuel/
+hugo --baseURL "https://aperçu.example/"
+python scripts/verifier_html.py public
 ```
 
 Le contrôle HTML vérifie les fichiers, les ancres, les ressources locales et les chemins sous un préfixe. Il ne vérifie pas la disponibilité en ligne des références externes, ni la justesse technique du texte.
 
-Aucune configuration GitHub Pages ni automatisation de déploiement n'est incluse. Le dépôt GitHub et l'hébergement Hugo sont deux choix indépendants.
+Le dépôt GitHub et l'hébergement restent indépendants. Le site est destiné à **Cloudflare Pages**, sans GitHub Pages : branche de production `main`, commande `hugo --panicOnWarning`, dossier de sortie `public`, variable `HUGO_VERSION=0.164.0`. Les déploiements d'aperçu peuvent remplacer l'adresse avec `hugo --baseURL "$CF_PAGES_URL"`.
 
 ## Où modifier quoi ?
 
@@ -121,16 +155,15 @@ python scripts/importer_sources.py CHEMIN_DU_DOSSIER_SOURCE
 
 Remplacer le dernier argument par le dossier contenant les huit documents.
 
-## Préparer le dépôt GitHub
+## Dépôt GitHub
 
-Nom suggéré : `orchestrer-le-code-2026`. Description : « Un manuel à deux niveaux pour piloter le code avec des agents : architecture, Git, tests et production. Site Hugo. »
+Le dépôt public est **[entropik/orchestrer-le-code-2026](https://github.com/entropik/orchestrer-le-code-2026)**. Description : « Des savoirs partagés pour apprendre à comprendre, vérifier et orchestrer le code avec des agents. Site Hugo. »
 
-Avant le premier push :
+Avant toute publication d'une nouvelle source :
 
-1. Choisir le compte propriétaire et la visibilité du dépôt.
-2. Vérifier les droits de diffusion du corpus, du manuscrit et de l'historique Git.
-3. Ajouter l'URL réelle du dépôt dans `params.repositoryURL` de [hugo.toml](hugo.toml) pour afficher le lien sur le site.
-4. Créer le dépôt distant puis y pousser les sources, sans publier automatiquement le site.
+1. Vérifier les droits de diffusion du document.
+2. Ajouter son origine et son empreinte au registre.
+3. Contrôler sa reproduction HTML avant le push.
 
 Attention : les documents originaux sont déjà présents dans l'historique local. Les enlever uniquement du dernier état ne suffirait pas à les retirer d'un dépôt public. Aucune licence libre n'est attribuée implicitement à ces documents.
 

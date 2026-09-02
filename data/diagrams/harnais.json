@@ -1,0 +1,38 @@
+{
+  "source_sha256": "9c34761a873c95fe19ae2bb85b94e51c2c907974577f963e9afc0b5b53600c0b",
+  "title": "ANATOMIE DU HARNAIS AGENTIQUE",
+  "steps": [
+    {"title": "CAHIER DES CHARGES FORMEL (Markdown / SPEC.md)"},
+    {
+      "title": "CONSTRUCTEUR DE CONTEXTE CHIRURGICAL",
+      "items": [
+        "Extraction des Types & Schémas d'API (Zod / TypeBox / OpenAPI)",
+        "Extraction de l'AST ciblé (Arbre Syntaxique Abstrait sans corps de fonction)",
+        "Injection de la Banque de Mémoire (activeContext.md & systemPatterns.md)"
+      ]
+    },
+    {"title": "MOTEUR AGENTIQUE (LLM)", "output": "Génération d'un UNIFIED DIFF (Patch atomique)"},
+    {
+      "title": "SAS DE VÉRIFICATION MÉCANIQUE DÉTERMINISTE",
+      "items": [
+        "Étape 1 : Analyse Syntaxique & Validation AST (Tree-sitter)",
+        "Étape 2 : Vérification Statique des Types (tsc --strict --noEmit)",
+        "Étape 3 : Analyse des Invariants de Sécurité & Fuite de Secrets (.gitleaks)",
+        "Étape 4 : Exécution de la Suite de Tests Unitaires en Boîte Noire"
+      ]
+    }
+  ],
+  "outcomes": [
+    {
+      "title": "ÉCHEC",
+      "action": "Réinjection automatique du message d'erreur brut au LLM (Max 3 cycles)",
+      "condition": "Si échec persistant :",
+      "end": "Interruption & Alerte Humain"
+    },
+    {
+      "title": "SUCCÈS",
+      "action": "Commit Atomique formaté sur Git Worktree isolé",
+      "end": "PR / Revue Humaine"
+    }
+  ]
+}

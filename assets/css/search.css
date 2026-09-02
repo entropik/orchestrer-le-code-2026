@@ -1,0 +1,30 @@
+/* La recherche reprend le langage typographique du manuel, pas celui de Digest. */
+.search-nav { white-space: nowrap; }
+.search-nav kbd, .search-help kbd { font: .75rem var(--sans); border: 1px solid var(--line); padding: .05rem .3rem; margin-left: .25rem; }
+.search-main { max-width: 1000px; }
+.search-intro { max-width: 55ch; font: 1.4rem/1.5 var(--serif); }
+.search-form { margin: 2.5rem 0 1.4rem; }
+.search-form>label { display: block; margin-bottom: .6rem; font-size: .8rem; }
+.search-input-row { display: flex; border-bottom: 1px solid var(--ink); gap: 1rem; padding-bottom: .7rem; }
+.search-input-row input { flex: 1; min-width: 0; width: 100%; padding: .4rem 0; border: none; background: transparent; color: var(--ink); font: 1.65rem/1.3 var(--serif); }
+.search-input-row input::placeholder { color: var(--muted); opacity: 1; }
+.search-main button, .search-main select { font: .8rem var(--sans); border: 1px solid var(--line); background: transparent; color: var(--ink); border-radius: 0; padding: .65rem .9rem; }
+.search-main button { cursor: pointer; }
+.search-main button:hover { color: var(--accent); border-color: var(--accent); }
+.search-main :is(button,input,select):focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+.search-options { display: flex; flex-wrap: wrap; gap: .8rem; align-items: center; margin-top: 1.3rem; font-size: .8rem; }
+.search-help { color: var(--muted); font-size: .76rem; max-width: 75ch; margin-top: 1.2rem; }
+.search-status { font-size: .85rem; margin: 2rem 0 1rem; color: var(--muted); }
+.search-results { list-style: none; padding: 0; margin: 0 0 2rem; }
+.search-results>li { border-top: 1px solid var(--line); padding: 1.5rem 0; }
+.search-result-meta { font: .67rem var(--sans); letter-spacing: .08em; color: var(--muted); margin-bottom: .65rem; }
+.search-results h2 { font-size: 1.85rem; margin-bottom: .7rem; line-height: 1.2; overflow-wrap: anywhere; }
+.search-results h2 a { text-decoration: none; }
+.search-excerpt { font: 1.2rem/1.5 var(--serif); margin: 0; max-width: 70ch; overflow-wrap: anywhere; }
+@media(max-width:680px) {
+  .search-input-row { flex-wrap: wrap; gap: .6rem; }
+  .search-input-row input { flex-basis: 100%; font-size: 1.45rem; }
+  .search-options select { max-width: 100%; }
+  .search-results h2 { font-size: 1.6rem; }
+}
+@media print { .search-form, #search-more, #search-retry { display: none; } }

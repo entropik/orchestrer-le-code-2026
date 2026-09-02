@@ -1,0 +1,13 @@
+{
+  "titre": "Partie zéro — Prendre la main",
+  "promesse": "Construire un premier programme avec un agent sans lui abandonner sa compréhension.",
+  "statut": "redaction",
+  "ouverture": "manuscrit/00-prendre-la-main/00-ouverture.md",
+  "unites": [
+    {"id":"P01","titre":"Faire exécuter un programme","fichier":"manuscrit/00-prendre-la-main/01-faire-executer.md","poids":1},
+    {"id":"P02","titre":"Transformer des données avec des règles","fichier":"manuscrit/00-prendre-la-main/02-transformer-des-donnees.md","poids":2},
+    {"id":"P03","titre":"Lire, découper et modifier sans se perdre","fichier":"manuscrit/00-prendre-la-main/03-lire-et-decouper.md","poids":3},
+    {"id":"P04","titre":"Enquêter et demander des preuves","fichier":"manuscrit/00-prendre-la-main/04-enqueter-et-prouver.md","poids":4},
+    {"id":"P05","titre":"Passer à TypeScript et diriger une mission complète","fichier":"manuscrit/00-prendre-la-main/05-typescript-et-mission.md","poids":5}
+  ]
+}

@@ -1,0 +1,9 @@
+{{- $pages := index hugo.Data.source_pages (.Get "id") -}}
+{{- $number := int (.Get "page") -}}
+{{- $path := printf "source-pages/%s/page-%02d.png" (.Get "images") $number -}}
+<div class="pdf-transcription" data-source-page="{{ $number }}">{{ index $pages (sub $number 1) }}</div>
+<details class="source-facsimile">
+  <summary>Voir la page {{ $number }} originale</summary>
+  <a href="{{ $path | relURL }}" target="_blank" rel="noopener noreferrer"><img src="{{ $path | relURL }}" loading="lazy" decoding="async" alt="Fac-similé de la page {{ $number }} du document {{ .Get "id" }}"></a>
+  <p class="source-image-help">Cliquer sur l’image pour l’agrandir dans un nouvel onglet.</p>
+</details>

@@ -12,7 +12,7 @@
   <meta property="og:type" content="{{ if .Params.chapter_id }}article{{ else }}website{{ end }}">
   <meta property="og:locale" content="fr_FR">
   <link rel="canonical" href="{{ .Permalink }}">
-  {{ $css := slice (resources.Get "css/manuel.css") (resources.Get "css/tufte.css") | resources.Concat "css/lecture.css" | resources.ExecuteAsTemplate "css/lecture.css" . | minify | fingerprint }}
+  {{ $css := slice (resources.Get "css/manuel.css") (resources.Get "css/tufte.css") (resources.Get "css/search.css") (resources.Get "css/diagrams.css") | resources.Concat "css/lecture.css" | resources.ExecuteAsTemplate "css/lecture.css" . | minify | fingerprint }}
   <link rel="preload" href="{{ (resources.Get "fonts/et-book/roman.woff").RelPermalink }}" as="font" type="font/woff" crossorigin>
   <link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}">
 </head>
@@ -21,9 +21,10 @@
   <header class="site-header">
     <a class="brand" href="{{ site.Home.RelPermalink }}"><span class="brand-mark">OC</span><span>Orchestrer le code <span class="brand-year">/ 2026</span></span></a>
     <nav aria-label="Navigation principale">
-      {{ range slice "accessible" "ingenieure" "references" "projet" }}
+      {{ range slice "commencer" "accessible" "ingenieure" "references" "projet" }}
         {{ with site.GetPage . }}<a href="{{ .RelPermalink }}"{{ if eq $.Section .Section }} aria-current="{{ if eq $.RelPermalink .RelPermalink }}page{{ else }}true{{ end }}"{{ end }}>{{ .LinkTitle }}</a>{{ end }}
       {{ end }}
+      {{ with site.GetPage "/recherche" }}<a class="search-nav" data-search-link href="{{ .RelPermalink }}"{{ if eq $.RelPermalink .RelPermalink }} aria-current="page"{{ end }}>Rechercher <kbd aria-hidden="true">/</kbd></a>{{ end }}
     </nav>
   </header>
   {{ block "main" . }}{{ end }}
@@ -32,9 +33,11 @@
     <nav aria-label="Pied de page">
       {{ with site.GetPage "/annexes/glossaire" }}<a href="{{ .RelPermalink }}">Glossaire</a>{{ end }}
       {{ with site.GetPage "/projet/charte" }}<a href="{{ .RelPermalink }}">Charte</a>{{ end }}
-      {{ with site.Params.repositoryURL }}<a href="{{ . }}" rel="external">Dépôt GitHub ↗</a>{{ end }}
+      {{ with site.Params.repositoryURL }}<a href="{{ . }}" target="_blank" rel="external noopener noreferrer">Dépôt GitHub ↗<span class="sr-only"> (nouvel onglet)</span></a>{{ end }}
       <a href="#contenu">Haut de page ↑</a>
     </nav>
   </footer>
+  {{ $search := resources.Get "js/search.js" | js.Build (dict "target" "es2020") | minify | fingerprint }}
+  <script type="module" src="{{ $search.RelPermalink }}" integrity="{{ $search.Data.Integrity }}"></script>
 </body>
 </html>

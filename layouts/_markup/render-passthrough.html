@@ -1,0 +1,24 @@
+{{- $tex := .Inner -}}
+{{- /* Réparer uniquement les séquences de contrôle identifiées dans le corpus.
+      L'expression reçue reste conservée, inchangée, dans data-source-tex. */ -}}
+{{- $tex = replace $tex (printf "%crac" 12) "\\frac" -}}
+{{- $tex = replace $tex (printf "%corall" 12) "\\forall" -}}
+{{- $tex = replace $tex (printf "%cpprox" 7) "\\approx" -}}
+{{- $tex = replace $tex (printf "%cimes" 9) "\\times" -}}
+{{- $tex = replace $tex (printf "%cext" 9) "\\text" -}}
+{{- $tex = replace $tex "\night" "\\right" -}}
+{{- $repaired := ne $tex .Inner -}}
+{{- $block := eq .Type "block" -}}
+{{- $opts := dict "output" "mathml" "displayMode" $block -}}
+{{- $narrow := "" -}}
+{{- if eq $tex "T_{attente} = \\min\\left(T_{max}, \\; T_{base} \\times 2^{tentative} + \\text{random}(0, \\text{Jitter})\\right)" -}}
+  {{- $narrow = `\begin{aligned}T_{attente} &= \min\left(T_{max},\right.\\ &\quad T_{base} \times 2^{tentative}\\ &\quad \left.{}+\text{random}(0,\text{Jitter})\right)\end{aligned}` -}}
+{{- end -}}
+{{- with try (transform.ToMath $tex $opts) -}}
+  {{- with .Err -}}
+    {{- errorf "Formule illisible à %s : %s" $.Position . -}}
+  {{- else -}}
+    {{- if $block }}<div class="math-display" data-source-tex="{{ $.Inner }}"{{ if $repaired }} data-latex-restored="true"{{ end }}>{{ if $narrow }}<span class="math-wide">{{ .Value }}</span><span class="math-narrow">{{ transform.ToMath $narrow $opts }}</span>{{ else }}{{ .Value }}{{ end }}{{ if $repaired }}<small class="math-repair-note">Syntaxe LaTeX restaurée pour l’affichage ; expression originale conservée dans le fichier source.</small>{{ end }}</div>
+    {{- else }}<span class="math-inline" data-source-tex="{{ $.Inner }}"{{ if $repaired }} data-latex-restored="true" title="Syntaxe LaTeX restaurée pour l’affichage ; original conservé."{{ end }}>{{ .Value }}</span>{{ end -}}
+  {{- end -}}
+{{- end -}}

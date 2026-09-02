@@ -35,6 +35,19 @@ class HugoTests(unittest.TestCase):
             self.assertEqual(meta["title"], mirror["title"])
             self.assertGreaterEqual(len(meta["related"]), 2)
 
+    def test_five_common_prerequisites(self):
+        decoder = json.JSONDecoder()
+        pages = []
+        for name, content in self.files.items():
+            meta, _ = decoder.raw_decode(content)
+            if "prerequisite_id" in meta:
+                pages.append((name, meta))
+        pages.sort(key=lambda item: item[1]["weight"])
+        self.assertEqual([meta["prerequisite_id"] for _, meta in pages], ["P01", "P02", "P03", "P04", "P05"])
+        self.assertEqual(pages[-1][1]["next"], "/accessible/01-piloter-un-systeme")
+        for prefix in ("accessible", "ingenieure"):
+            self.assertIn("/commencer", self.files[f"content/{prefix}/01-piloter-un-systeme.md"])
+
     def test_section_parser_ignores_code(self):
         sections = numbered_sections("# 1. Sujet\n```sh\n# 9. Commande\n```\n## 1.2 Détail")
         self.assertEqual(set(sections), {"1", "1.2"})
@@ -81,6 +94,17 @@ class HugoTests(unittest.TestCase):
             self.assertEqual(font.read_bytes()[:4], b"wOFF")
         license_text = (ROOT / "static/fonts/et-book/LICENSE.txt").read_text(encoding="utf-8")
         self.assertIn("Copyright (c) 2015 Dmitry Krasny", license_text)
+
+    def test_external_links_open_in_protected_tab(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            page = root / "index.html"
+            for href in ("https://example.org/", "http://example.org/", "//example.org/"):
+                for attrs in ('', 'target="_blank"', 'target="_blank" rel="noopener"'):
+                    page.write_text(f'<html lang="fr"><title>T</title><h1>T</h1><a href="{href}" {attrs}>Externe</a></html>', encoding="utf-8")
+                    self.assertTrue(any("nouvel onglet protégé" in e for e in verify_html(root)[0]))
+                page.write_text(f'<html lang="fr"><title>T</title><h1 id="titre">T</h1><a href="{href}" target="_blank" rel="external noopener noreferrer">Externe</a><a href="#titre">Interne</a></html>', encoding="utf-8")
+                self.assertEqual(verify_html(root)[0], [])
 
     def test_css_fonts_and_preloads_under_prefix(self):
         with tempfile.TemporaryDirectory() as temp:

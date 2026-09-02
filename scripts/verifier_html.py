@@ -14,6 +14,7 @@ class Page(HTMLParser):
         super().__init__(convert_charrefs=True)
         self.ids = []
         self.links = []
+        self.external_errors = []
         self.h1 = 0
         self.language = None
         self.title = False
@@ -30,6 +31,9 @@ class Page(HTMLParser):
             self.title = True
         if tag == "a" and "href" in attrs:
             self.links.append(attrs["href"])
+            if urlsplit(attrs["href"]).scheme in {"http", "https"} or attrs["href"].startswith("//"):
+                if attrs.get("target") != "_blank" or not {"noopener", "noreferrer"}.issubset(attrs.get("rel", "").split()):
+                    self.external_errors.append(attrs["href"])
         if tag in {"img", "script"} and "src" in attrs:
             self.links.append(attrs["src"])
         if tag == "link" and attrs.get("rel") in {"stylesheet", "preload"}:
@@ -45,6 +49,8 @@ def verify_html(directory, base_path="/"):
         parsed = Page()
         parsed.feed(path.read_text(encoding="utf-8"))
         pages[path.resolve()] = parsed
+        for target in parsed.external_errors:
+            errors.append(f"Lien externe sans nouvel onglet protégé : {path.relative_to(directory)} -> {target}")
         if parsed.h1 != 1 or parsed.language != "fr" or not parsed.title:
             errors.append(f"Structure HTML incorrecte : {path.relative_to(directory)}")
         for ident, count in Counter(parsed.ids).items():

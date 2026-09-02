@@ -1,0 +1,48 @@
+{{ define "main" }}
+{{ $entries := slice }}
+{{ $pages := site.RegularPages | append (site.GetPage "/references") }}
+{{ range $pages }}
+  {{ if ne .Layout "search" }}
+    {{ $scope := .Section }}
+    {{ if eq .Section "annexes" }}{{ $scope = "references" }}{{ end }}
+    {{ if eq .Section "projet" }}{{ $scope = "redaction" }}{{ end }}
+    {{ $notions := slice }}
+    {{ range .Params.notions }}{{ $notions = $notions | append .label }}{{ end }}
+    {{/* Le dessin et son ASCII ont les mêmes libellés : indexer une seule fois. */}}
+    {{ $text := .Content | replaceRE `(?s)<details class="flow-original">.*?</details>` "" | plainify | htmlUnescape | replaceRE `\s+` " " }}
+    {{ $ident := .Params.chapter_id | default (.Params.prerequisite_id | default "") }}
+    {{ $entries = $entries | append (dict "i" $ident "t" .Title "u" .RelPermalink "c" $scope "g" $notions "d" (.Description | default "") "x" $text) }}
+  {{ end }}
+{{ end }}
+{{ $index := resources.FromString "data/search-index.json" ($entries | jsonify) | minify | fingerprint }}
+<main id="contenu" class="section-main search-main">
+  <p class="eyebrow">Le manuel à portée de mot</p>
+  <h1>{{ .Title }}</h1>
+  <p class="search-intro">Une notion, un mécanisme, une question. Retrouve le passage et choisis ta profondeur de lecture.</p>
+  <form id="manual-search" class="search-form" role="search" action="{{ .RelPermalink }}" data-index-url="{{ $index.RelPermalink }}" data-base-url="{{ site.Home.RelPermalink }}">
+    <label for="search-query">Que cherches-tu ?</label>
+    <div class="search-input-row">
+      <input id="search-query" name="q" type="search" placeholder="Un mot, un sujet…" autocomplete="off" maxlength="160" aria-describedby="search-help" aria-controls="search-results">
+      <button type="submit">Rechercher</button>
+    </div>
+    <div class="search-options">
+      <label for="search-scope">Parcours</label>
+      <select id="search-scope" name="scope" aria-controls="search-results">
+        <option value="all">Tout le manuel</option>
+        <option value="commencer">Partie zéro</option>
+        <option value="accessible">Lecture accessible</option>
+        <option value="ingenieure">Lecture ingénieure</option>
+        <option value="references">Références et annexes</option>
+        <option value="redaction">Projet et rédaction</option>
+      </select>
+      <button type="button" id="search-clear" hidden>Effacer</button>
+    </div>
+    <p id="search-help" class="search-help">Tous les mots saisis sont recherchés, sans distinction d’accents ni de majuscules. Raccourci clavier : <kbd>/</kbd>.</p>
+  </form>
+  <p id="search-status" class="search-status" role="status" aria-live="polite" aria-atomic="true">Saisis quelques mots pour explorer le manuel.</p>
+  <button type="button" id="search-retry" hidden>Réessayer le chargement</button>
+  <ol id="search-results" class="search-results" aria-label="Résultats de recherche"></ol>
+  <button type="button" id="search-more" hidden>Afficher la suite</button>
+  <noscript><p class="search-intro">La recherche utilise JavaScript dans ton navigateur. Tu peux aussi parcourir le <a href="{{ site.Home.RelPermalink }}">sommaire</a> et le <a href="{{ (site.GetPage "/annexes/glossaire").RelPermalink }}">glossaire</a>.</p></noscript>
+</main>
+{{ end }}

@@ -1,0 +1,8 @@
+{{- $id := printf "schema-%s" .diagram.id -}}
+<figure class="flow-plate diagram-plate" id="{{ $id }}" aria-labelledby="{{ $id }}-title" data-diagram="{{ .diagram.id }}" data-source-sha256="{{ .diagram.source_sha256 }}">
+  <figcaption><span class="flow-caption-label">Lecture graphique · schéma source</span><span class="flow-title" id="{{ $id }}-title">{{ .diagram.title }}</span></figcaption>
+  {{ range .diagram.parts }}{{ partial "diagrams/part.html" (dict "part" . "id" $id) }}{{ end }}
+  {{ with .diagram.note }}<p class="diagram-caution">{{ . }}</p>{{ end }}
+  <p class="flow-note">Transposition graphique : libellés conservés, disposition adaptée à l’écran.</p>
+</figure>
+<details class="flow-original"><summary>Consulter le schéma ASCII original inchangé</summary>{{ highlight .original "text" "" }}</details>

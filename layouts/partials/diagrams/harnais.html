@@ -1,0 +1,37 @@
+<figure class="flow-plate" id="schema-harnais" aria-labelledby="schema-harnais-title" data-diagram="harnais" data-source-sha256="{{ .diagram.source_sha256 }}">
+  <figcaption>
+    <span class="flow-caption-label">Lecture graphique · schéma source</span>
+    <span class="flow-title" id="schema-harnais-title">{{ .diagram.title }}</span>
+  </figcaption>
+  <ol class="flow-steps">
+    {{ range $i, $step := .diagram.steps }}
+    <li class="flow-step">
+      {{ if $i }}{{ partial "diagrams/arrow.html" }}{{ end }}
+      <div class="flow-node">
+        <span class="flow-number" aria-hidden="true">{{ printf "%02d" (add $i 1) }}</span>
+        <div class="flow-node-body">
+          <p class="flow-node-title">{{ .title }}</p>
+          {{ with .items }}<ul class="flow-details">{{ range . }}<li>{{ . }}</li>{{ end }}</ul>{{ end }}
+          {{ with .output }}<p class="flow-output"><span aria-hidden="true">↳</span> {{ . }}</p>{{ end }}
+        </div>
+      </div>
+    </li>
+    {{ end }}
+  </ol>
+  <svg class="flow-fork" viewBox="0 0 600 38" preserveAspectRatio="none" fill="none" aria-hidden="true" focusable="false"><path d="M300 0v14M150 33V14h300v19m-155-23 5 4 5-4M145 28l5 5 5-5m290 0 5 5 5-5" stroke="currentColor" stroke-width="1.25" vector-effect="non-scaling-stroke"/></svg>
+  <div class="flow-outcomes">
+    {{ range .diagram.outcomes }}
+    <section class="flow-outcome" aria-label="{{ .title }}">
+      <p class="flow-outcome-title">{{ .title }}</p>
+      <p class="flow-action">{{ .action }}</p>
+      {{ partial "diagrams/arrow.html" }}
+      <p class="flow-end">{{ with .condition }}<span class="flow-condition">{{ . }}</span>{{ end }}{{ .end }}</p>
+    </section>
+    {{ end }}
+  </div>
+  <p class="flow-note">Transposition graphique : libellés conservés, disposition adaptée à l’écran.</p>
+</figure>
+<details class="flow-original">
+  <summary>Consulter le schéma ASCII original inchangé</summary>
+  {{ highlight .original "text" "" }}
+</details>

@@ -1,4 +1,4 @@
-baseURL = 'http://localhost:1313/'
+baseURL = 'https://savoirs.keredit.com/'
 title = 'Orchestrer le code en 2026'
 locale = 'fr-FR'
 defaultContentLanguage = 'fr'
@@ -8,11 +8,21 @@ enableRobotsTXT = true
 refLinksErrorLevel = 'ERROR'
 
 [params]
-description = 'Un manuel, deux lectures : comprendre pour décider, approfondir pour concevoir et vérifier.'
-repositoryURL = ''
+description = 'Des savoirs partagés pour apprendre à comprendre, vérifier et orchestrer le code avec des agents.'
+repositoryURL = 'https://github.com/entropik/orchestrer-le-code-2026'
 
 [markup.goldmark.renderer]
 unsafe = false
+
+# Préserver aussi les apostrophes, guillemets et points des textes originaux.
+[markup.goldmark.extensions.typographer]
+disable = true
+
+[markup.goldmark.extensions.passthrough]
+enable = true
+  [markup.goldmark.extensions.passthrough.delimiters]
+  block = [['$$', '$$'], ['\[', '\]']]
+  inline = [['$', '$'], ['\(', '\)']]
 
 [markup.goldmark.parser.attribute]
 block = true

@@ -1,0 +1,984 @@
+{
+  "9c34761a873c95fe19ae2bb85b94e51c2c907974577f963e9afc0b5b53600c0b": {
+    "id": "harnais",
+    "title": "ANATOMIE DU HARNAIS AGENTIQUE",
+    "source_sha256": "9c34761a873c95fe19ae2bb85b94e51c2c907974577f963e9afc0b5b53600c0b",
+    "kind": "harnais"
+  },
+  "69e51917fb91e4abe8a8d0f82ccc9fb47747decdccae0876ad1598fda25f221d": {
+    "id": "profondeur",
+    "title": "COMPARAISON VISUELLE DE PROFONDEUR ARCHITECTURALE :",
+    "source_sha256": "69e51917fb91e4abe8a8d0f82ccc9fb47747decdccae0876ad1598fda25f221d",
+    "parts": [
+      {
+        "kind": "grid",
+        "items": [
+          {
+            "kind": "module",
+            "title": "MODULE PROFOND (Idéal pour l'IA)",
+            "parts": [
+              {
+                "kind": "node",
+                "title": "INTERFACE MINIMALE : 2 FONCTIONS",
+                "lines": [
+                  "read(id), write(id, payload)"
+                ]
+              },
+              {
+                "kind": "node",
+                "title": "COMPLEXITÉ INTERNE FORTE (MASQUÉE)",
+                "lines": [
+                  "Gestion des pools de connexion DB",
+                  "Mise en cache LRU mémoire",
+                  "Détection des collisions & Locks",
+                  "Retry exponentiel sur panne",
+                  "Chiffrement AES-256 au vol"
+                ]
+              }
+            ]
+          },
+          {
+            "kind": "module",
+            "title": "MODULE SUPERFICIEL (Anti-pattern)",
+            "parts": [
+              {
+                "kind": "node",
+                "title": "INTERFACE LARGE : 12 MÉTHODES",
+                "lines": [
+                  "init(), config(), setBuff(), auth(), lock(), flush(), verify(), clear().."
+                ]
+              },
+              {
+                "kind": "node",
+                "title": "COMPLEXITÉ INTERNE MINIME",
+                "lines": [
+                  "(Ne fait que relayer les paramètres vers un autre micro-composant sans véritable transformation)"
+                ]
+              }
+            ]
+          }
+        ],
+        "style": "comparison"
+      }
+    ]
+  },
+  "15255bfae710363a1c023b9caa221355b98386f07ee31163121c9a15089b2582": {
+    "id": "hexagonal",
+    "title": "TOPOLOGIE HEXAGONALE COMPLÈTE :",
+    "source_sha256": "15255bfae710363a1c023b9caa221355b98386f07ee31163121c9a15089b2582",
+    "parts": [
+      {
+        "kind": "grid",
+        "items": [
+          {
+            "kind": "node",
+            "title": "CLIENT HTTP",
+            "lines": []
+          },
+          {
+            "kind": "node",
+            "title": "CRON TRIGGER",
+            "lines": []
+          },
+          {
+            "kind": "node",
+            "title": "WEBHOOK EXT",
+            "lines": []
+          }
+        ]
+      },
+      {
+        "kind": "arrow",
+        "label": "",
+        "direction": "down"
+      },
+      {
+        "kind": "node",
+        "title": "ADAPTATEURS PRIMAIRES (DRIVING)",
+        "lines": [
+          "(Fastify Controller, CLI Command, Message Consumer)"
+        ]
+      },
+      {
+        "kind": "arrow",
+        "label": "",
+        "direction": "down"
+      },
+      {
+        "kind": "node",
+        "title": "PORTS D'ENTRÉE (INBOUND)",
+        "lines": [
+          "(Interfaces de Cas d'Usage)",
+          "ex: ICreateOrderUseCase, IGeneratePrintPdfUseCase"
+        ]
+      },
+      {
+        "kind": "arrow",
+        "label": "",
+        "direction": "down"
+      },
+      {
+        "kind": "node",
+        "title": "CŒUR DE DOMAINE PUR",
+        "lines": [
+          "Entités Métier (Commande, LivrePhoto, Page)",
+          "Value Objects (Dimensions, CouleurCMJN, PrixTTC)",
+          "Règles de validation arithmétiques & contraintes",
+          "ZÉRO DÉPENDANCE VERS LE RÉSEAU, SQL OU NPM EXTERNE"
+        ]
+      },
+      {
+        "kind": "arrow",
+        "label": "",
+        "direction": "down"
+      },
+      {
+        "kind": "node",
+        "title": "PORTS DE SORTIE (OUTBOUND)",
+        "lines": [
+          "(Interfaces d'Infrastructure Requises)",
+          "ex: IOrderRepository, IStorageProvider, IPaymentGateway"
+        ]
+      },
+      {
+        "kind": "arrow",
+        "label": "",
+        "direction": "down"
+      },
+      {
+        "kind": "node",
+        "title": "ADAPTATEURS SECONDAIRES (DRIVEN)",
+        "lines": [
+          "(PostgreSQL Drizzle/Prisma, Redis BullMQ, S3/R2 SDK)"
+        ]
+      }
+    ]
+  },
+  "0d10109827f984274c22928ab174e7cb1c3876d0c44e825849c8107e1ba5c25f": {
+    "id": "validation",
+    "title": "FLUX DE VALIDATION AUX FRONTIÈRES :",
+    "source_sha256": "0d10109827f984274c22928ab174e7cb1c3876d0c44e825849c8107e1ba5c25f",
+    "parts": [
+      {
+        "kind": "node",
+        "title": "Flux Brut Non Sécurisé (JSON HTTP)",
+        "lines": []
+      },
+      {
+        "kind": "arrow",
+        "label": "",
+        "direction": "down"
+      },
+      {
+        "kind": "node",
+        "title": "Parseur Runtime (TypeBox / Zod)",
+        "lines": []
+      },
+      {
+        "kind": "arrow",
+        "label": "",
+        "direction": "down"
+      },
+      {
+        "kind": "grid",
+        "items": [
+          {
+            "kind": "branch",
+            "parts": [
+              {
+                "kind": "node",
+                "title": "INVALIDE",
+                "lines": []
+              },
+              {
+                "kind": "arrow",
+                "label": "",
+                "direction": "down"
+              },
+              {
+                "kind": "node",
+                "title": "Rejet 400 Immédiat",
+                "lines": [
+                  "(Zéro propagation)"
+                ]
+              }
+            ]
+          },
+          {
+            "kind": "branch",
+            "parts": [
+              {
+                "kind": "node",
+                "title": "CONFORME",
+                "lines": []
+              },
+              {
+                "kind": "arrow",
+                "label": "",
+                "direction": "down"
+              },
+              {
+                "kind": "node",
+                "title": "Type Statique Garanti Invariant",
+                "lines": []
+              },
+              {
+                "kind": "arrow",
+                "label": "",
+                "direction": "down"
+              },
+              {
+                "kind": "node",
+                "title": "Domaine Métier Pur",
+                "lines": []
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "66d4e66b7ce695c364882075fa4e448343e8514c13d780b2710f5dab08bd7f97": {
+    "id": "worktrees",
+    "title": "TOPOLOGIE D'EXÉCUTION PARALLÈLE AVEC GIT WORKTREES :",
+    "source_sha256": "66d4e66b7ce695c364882075fa4e448343e8514c13d780b2710f5dab08bd7f97",
+    "parts": [
+      {
+        "kind": "node",
+        "title": "BASE DE DONNÉES CENTRALE GIT (.git)",
+        "lines": [
+          "Historique, Objets SHA-1/SHA-256, Refs"
+        ]
+      },
+      {
+        "kind": "arrow",
+        "label": "",
+        "direction": "down"
+      },
+      {
+        "kind": "grid",
+        "items": [
+          {
+            "kind": "node",
+            "title": "WORKTREE PRINCIPAL",
+            "lines": [
+              "Dossier: ~/src/app-main",
+              "Branche: main",
+              "Opérateur Humain / Lead",
+              "Éditeur ouvert sur VS Code"
+            ]
+          },
+          {
+            "kind": "node",
+            "title": "WORKTREE AGENT-ALPHA",
+            "lines": [
+              "Dossier: ~/src/agent-pdf",
+              "Branche: feat/pdf-engine",
+              "Agent IA - Tâche A",
+              "Compilation / Tests en boucle"
+            ]
+          },
+          {
+            "kind": "node",
+            "title": "WORKTREE AGENT-BETA",
+            "lines": [
+              "Dossier: ~/src/agent-auth",
+              "Branche: fix/session-timeout",
+              "Agent IA - Tâche B",
+              "Linter / AST Analysis en cours"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "f2ac29aa99e4e1ad322220bcacae33ac1a988a91714b20e009acc7aa6ff883ed": {
+    "id": "stacked-pr",
+    "title": "SÉQUENCE LINÉAIRE DE STACKED PULL REQUESTS :",
+    "source_sha256": "f2ac29aa99e4e1ad322220bcacae33ac1a988a91714b20e009acc7aa6ff883ed",
+    "parts": [
+      {
+        "kind": "node",
+        "title": "Branche: main",
+        "lines": [
+          "(Production Stable)"
+        ]
+      },
+      {
+        "kind": "arrow",
+        "label": "(Merge PR #101 : 40 lignes)",
+        "direction": "up"
+      },
+      {
+        "kind": "node",
+        "title": "PR #1 : feat/order-schema",
+        "lines": [
+          "Définition exclusive des contrats Zod & types TypeScript"
+        ]
+      },
+      {
+        "kind": "arrow",
+        "label": "(Merge PR #102 : 90 lignes)",
+        "direction": "up"
+      },
+      {
+        "kind": "node",
+        "title": "PR #2 : feat/order-domain",
+        "lines": [
+          "Logique métier pure + Tests unitaires (In Memory)"
+        ]
+      },
+      {
+        "kind": "arrow",
+        "label": "(Merge PR #103 : 80 lignes)",
+        "direction": "up"
+      },
+      {
+        "kind": "node",
+        "title": "PR #3 : feat/order-db-adapter",
+        "lines": [
+          "Adaptateur PostgreSQL Drizzle + Migrations SQL"
+        ]
+      },
+      {
+        "kind": "arrow",
+        "label": "(Merge PR #104 : 60 lignes)",
+        "direction": "up"
+      },
+      {
+        "kind": "node",
+        "title": "PR #4 : feat/order-http-routes",
+        "lines": [
+          "Contrôleur HTTP Fastify + Validation frontières"
+        ]
+      }
+    ]
+  },
+  "682980f9958acc7cdf5cb438afc7e1c5da6527dbcab26a9f4dcd0a8b8c64f397": {
+    "id": "pyramide",
+    "title": "PYRAMIDE COMPLÈTE DE VÉRIFICATION SYSTÉMIQUE :",
+    "source_sha256": "682980f9958acc7cdf5cb438afc7e1c5da6527dbcab26a9f4dcd0a8b8c64f397",
+    "parts": [
+      {
+        "kind": "pyramid",
+        "items": [
+          {
+            "kind": "node",
+            "title": "TESTS E2E (Playwright / Cypress)",
+            "lines": [
+              "Couverture : < 5% | Durée : 2-5 min | Coût : Élevé",
+              "Vérifient le parcours navigateur utilisateur complet."
+            ],
+            "badge": "E2E"
+          },
+          {
+            "kind": "node",
+            "title": "TESTS D'INTÉGRATION (DB Réelle, Redis, Seams)",
+            "lines": [
+              "Couverture : ~20% | Durée : 10-30s | Coût : Moyen",
+              "Vérifient l'assemblage entre le domaine et l'infrastructure."
+            ],
+            "badge": "INTEG"
+          },
+          {
+            "kind": "node",
+            "title": "TESTS UNITAIRES EN BOÎTE NOIRE (Vitest / Pytest)",
+            "lines": [
+              "Couverture : > 75% | Durée : < 1s | Coût : Minime",
+              "Vérifient la pureté arithmétique et les règles métier."
+            ],
+            "badge": "UNITAIRES"
+          },
+          {
+            "kind": "node",
+            "title": "ANALYSE STATIQUE, LINTER & AST (tsc, ESLint)",
+            "lines": [
+              "Couverture : 100% | Durée : Immédiate | Zéro exécution",
+              "Prouvent l'absence d'erreurs de syntaxe et de types."
+            ],
+            "badge": "ANALYSE STATIQUE"
+          }
+        ]
+      }
+    ]
+  },
+  "3bb6837916c9f18d57103ba558e18d5c49e26b550d3961daf101963da3f8ce71": {
+    "id": "asynchrone",
+    "title": "TOPOLOGIE DU DÉCOUPAGE ASYNCHRONE INDUSTRIEL :",
+    "source_sha256": "3bb6837916c9f18d57103ba558e18d5c49e26b550d3961daf101963da3f8ce71",
+    "parts": [
+      {
+        "kind": "node",
+        "title": "CLIENT WEB / APP",
+        "lines": []
+      },
+      {
+        "kind": "arrow",
+        "label": "1. HTTP POST /documents/generate",
+        "direction": "down"
+      },
+      {
+        "kind": "grid",
+        "items": [
+          {
+            "kind": "branch",
+            "parts": [
+              {
+                "kind": "node",
+                "title": "SERVEUR API FASTIFY",
+                "lines": [
+                  "Valide le contrat d'entrée (Zod Schema)",
+                  "Écrit la commande en base SQL (State: QUEUED)",
+                  "Publie le message dans Redis BullMQ"
+                ]
+              },
+              {
+                "kind": "arrow",
+                "label": "",
+                "direction": "down"
+              },
+              {
+                "kind": "node",
+                "title": "FILE REDIS PERSISTANTE (BullMQ)",
+                "lines": [
+                  "Stockage en mémoire avec persistance disque RDB/AOF",
+                  "Gestion des priorités, retries exponentiels et dead-letter queue"
+                ]
+              },
+              {
+                "kind": "arrow",
+                "label": "(Consommation asynchrone concurrente)",
+                "direction": "down"
+              },
+              {
+                "kind": "node",
+                "title": "WORKER DE TRAITEMENT DÉDIÉ (GOF PDF Engine)",
+                "lines": [
+                  "Dépile le message de manière exclusive",
+                  "Exécute le rendu lourd (Calculs vectoriels, Canvas, Rasterisation)",
+                  "Téléverse le document final sur le stockage objet chiffré (Cloudflare R2 / S3)",
+                  "Met à jour l'enregistrement SQL (State: COMPLETED, Url: \"https://...\")",
+                  "Émet une notification de fin (Server-Sent Events / Webhook)"
+                ]
+              }
+            ]
+          },
+          {
+            "kind": "node",
+            "title": "RETOUR IMMÉDIAT (10ms)",
+            "lines": [
+              "HTTP 202 Accepted",
+              "Payload: { jobId: \"job_99\", status: \"PENDING\" }"
+            ]
+          }
+        ],
+        "style": "async"
+      }
+    ]
+  },
+  "b89b6ce97d8ad68e3c31aa91c98e3d33ff2542f133538356d7329b426cdc6b8e": {
+    "id": "outbox",
+    "title": "FONCTIONNEMENT DU PATTERN TRANSACTIONAL OUTBOX :",
+    "source_sha256": "b89b6ce97d8ad68e3c31aa91c98e3d33ff2542f133538356d7329b426cdc6b8e",
+    "parts": [
+      {
+        "kind": "node",
+        "title": "TRANSACTION SQL ATOMIQUE UNIQUE (ACID)",
+        "lines": [
+          "1. INSERT INTO orders (id, customer, total) VALUES ('ord_1', ...);",
+          "2. INSERT INTO outbox (id, event_name, payload, status) VALUES ('evt_1', 'OrderCreated', '{\"id\":\"ord_1\"}', 'PENDING');"
+        ],
+        "style": "sql"
+      },
+      {
+        "kind": "arrow",
+        "label": "COMMIT LOCAL RÉUSSI EN BASE",
+        "direction": "down"
+      },
+      {
+        "kind": "node",
+        "title": "PROCESSUS DE DÉPONTAGE (OUTBOX RELAY)",
+        "lines": [
+          "Lit périodiquement les lignes PENDING dans la table outbox",
+          "Publie le message dans Redis / Kafka avec garantie de livraison",
+          "Marque la ligne comme PROCESSED ou la supprime"
+        ]
+      }
+    ]
+  },
+  "02ca5eacd31f36d9a7ba8c48272f02613a0af78be45451288c47cce8c8dc6f5d": {
+    "id": "expand-contract",
+    "title": "LE CYCLE ZERO-DOWNTIME DU PATTERN EXPAND-CONTRACT :",
+    "source_sha256": "02ca5eacd31f36d9a7ba8c48272f02613a0af78be45451288c47cce8c8dc6f5d",
+    "parts": [
+      {
+        "kind": "node",
+        "title": "PHASE 1 : ÉLARGISSEMENT (EXPAND)",
+        "lines": [
+          "1. Migration SQL : Création de la nouvelle colonne \"phone_e164\" (NULLABLE) sans toucher à \"phone\"",
+          "2. Version applicative V1 en production : Continue de lire et écrire sur l'ancienne colonne \"phone\""
+        ]
+      },
+      {
+        "kind": "arrow",
+        "label": "",
+        "direction": "down"
+      },
+      {
+        "kind": "node",
+        "title": "PHASE 2 : TRANSITION & DOUBLE ÉCRITURE",
+        "lines": [
+          "3. Déploiement Version applicative V2 :",
+          "Écrit SIMULTANÉMENT sur \"phone\" ET \"phone_e164\"",
+          "Lit en priorité sur \"phone_e164\" (avec fallback sur \"phone\")",
+          "4. Script de fond (Backfill) : Migre les anciennes données historiques vers \"phone_e164\""
+        ]
+      },
+      {
+        "kind": "arrow",
+        "label": "",
+        "direction": "down"
+      },
+      {
+        "kind": "node",
+        "title": "PHASE 3 : CONTRACTION (CONTRACT)",
+        "lines": [
+          "5. Déploiement Version applicative V3 : Utilise EXCLUSIVEMENT \"phone_e164\"",
+          "6. Migration SQL finale : Suppression sécurisée de l'ancienne colonne \"phone\" (DROP COLUMN)"
+        ]
+      }
+    ]
+  },
+  "0ab2e6eaf3d357c44fcf0f11a5ac249a92b43ee96e0db5af7088064540acda69": {
+    "id": "livraison",
+    "title": "FLUX COMPLET DE LIVRAISON CONTINUE (DE LA LIGNE DE CODE AU SERVEUR FINAL) :",
+    "source_sha256": "0ab2e6eaf3d357c44fcf0f11a5ac249a92b43ee96e0db5af7088064540acda69",
+    "parts": [
+      {
+        "kind": "node",
+        "title": "POSTE LOCAL DÉVELOPPEUR",
+        "lines": [
+          "1. Git Pre-commit Hook (Lefthook) : Linter, Formatage (Prettier/Biome), Secret Scan",
+          "2. Git Push origin feat/order-service"
+        ]
+      },
+      {
+        "kind": "arrow",
+        "label": "",
+        "direction": "down"
+      },
+      {
+        "kind": "node",
+        "title": "SERVEUR SAAS GIT (GitHub / GitLab)",
+        "lines": [
+          "3. Ouverture de la Pull Request & Contrôle des Invariants",
+          "4. Déclenchement de la MATRIX CI (GitHub Actions) :",
+          "Job 1 : Analyse Statique & Typecheck strict (tsc --strict --noEmit)",
+          "Job 2 : Suite de Tests Unitaires & Propriétés (Vitest / fast-check)",
+          "Job 3 : Tests d'Intégration sur conteneur éphémère PostgreSQL",
+          "Job 4 : Audit de Sécurité Dépendances (CVE Scanner / Trivy)"
+        ]
+      },
+      {
+        "kind": "arrow",
+        "label": "",
+        "direction": "down"
+      },
+      {
+        "kind": "node",
+        "title": "SAS DE VALIDATION & MERGE",
+        "lines": [
+          "5. Revue Humaine du Diff & Approbation obligatoire",
+          "6. Squash & Merge sur la branche \"main\"",
+          "7. Construction de l'image Docker Multi-Stage Build ultra-sécurisée",
+          "Tagguée par le commit SHA immuable : ghcr.io/org/app:a1b2c3d"
+        ]
+      },
+      {
+        "kind": "arrow",
+        "label": "",
+        "direction": "down"
+      },
+      {
+        "kind": "node",
+        "title": "PIPELINE DE DÉPLOIEMENT CONTINU (CD)",
+        "lines": [
+          "8. Notification chiffrée vers le serveur de production VPS",
+          "9. Déclenchement du runner de déploiement sécurisé"
+        ]
+      },
+      {
+        "kind": "arrow",
+        "label": "",
+        "direction": "down"
+      },
+      {
+        "kind": "node",
+        "title": "SERVEUR DE PRODUCTION VPS (Linux Ubuntu LTS)",
+        "lines": [
+          "10. Pull de la nouvelle image Docker validée",
+          "11. Exécution des migrations SQL (Phase Expand)",
+          "12. Démarrage du nouveau conteneur en parallèle (Instance Green)",
+          "13. Validation du Healthcheck HTTP interne (/healthz renvoie 200 OK)",
+          "14. Bascule dynamique du Reverse Proxy Caddy (Zero-Downtime Reload)",
+          "15. Arrêt propre (Graceful Shutdown avec drain des connexions) de l'ancien conteneur"
+        ]
+      }
+    ]
+  },
+  "bb214ee97f133517f3c0aa9433548ee3681cd233934d324429ca7da9a9007fe8": {
+    "id": "kiss",
+    "title": "LE WORKFLOW UNIVERSEL EN 6 PHASES SÉQUENTIELLES :",
+    "source_sha256": "bb214ee97f133517f3c0aa9433548ee3681cd233934d324429ca7da9a9007fe8",
+    "parts": [
+      {
+        "kind": "node",
+        "title": "PHASE 1 : SPÉCIFICATION & PÉRIMÈTRE FORMEL (L'HUMAIN SEUL)",
+        "lines": [
+          "Rédaction de SPEC.md : Problème métier, Scope strict, Invariants.",
+          "Exclusion formelle de tout détail d'implémentation prématuré."
+        ]
+      },
+      {
+        "kind": "arrow",
+        "label": "",
+        "direction": "down"
+      },
+      {
+        "kind": "node",
+        "title": "PHASE 2 : CONTRATS DE DONNÉES & SCHÉMAS (HUMAIN AUDITE & FIGE)",
+        "lines": [
+          "Génération des schémas d'échanges (TypeBox, Zod, OpenAPI).",
+          "Verrouillage des fichiers de contrats : Socle immuable."
+        ]
+      },
+      {
+        "kind": "arrow",
+        "label": "",
+        "direction": "down"
+      },
+      {
+        "kind": "node",
+        "title": "PHASE 3 : TDD INVERSÉ & SUITE DE PREUVES (AGENT ÉCRIT, HUMAIN VALIDE)",
+        "lines": [
+          "Création du Git Worktree isolé : git worktree add ../task-test",
+          "L'agent génère exclusivement les tests unitaires et de propriétés.",
+          "L'humain relit et fige les tests en lecture seule."
+        ]
+      },
+      {
+        "kind": "arrow",
+        "label": "",
+        "direction": "down"
+      },
+      {
+        "kind": "node",
+        "title": "PHASE 4 : IMPLÉMENTATION DANS LE HARNAIS (AGENT CODE EN BOUCLE FERMÉE)",
+        "lines": [
+          "L'agent produit le code métier pur jusqu'au passage au vert (Exit 0).",
+          "Validation déterministe automatique : Linter > Typecheck > Tests."
+        ]
+      },
+      {
+        "kind": "arrow",
+        "label": "",
+        "direction": "down"
+      },
+      {
+        "kind": "node",
+        "title": "PHASE 5 : INTÉGRATION PÉRIPHÉRIQUE & REVUE DU DIFF (L'HUMAIN DÉCIDE)",
+        "lines": [
+          "Raccordement des adaptateurs (Fastify, PostgreSQL, React).",
+          "Inspection chirurgicale de la Pull Request via la vue Unified Diff.",
+          "Rebase interactif, Squash atomique et Merge sur la branche main."
+        ]
+      },
+      {
+        "kind": "arrow",
+        "label": "",
+        "direction": "down"
+      },
+      {
+        "kind": "node",
+        "title": "PHASE 6 : DÉPLOIEMENT CONTINU DÉTERMINISTE (AUTOMATISATION TOTALE)",
+        "lines": [
+          "Matrix CI distante > Build Docker multi-étapes immuable.",
+          "Migration SQL Expand-Contract > Bascule dynamique Reverse Proxy."
+        ]
+      }
+    ]
+  },
+  "a5298b082325a1a45fdc4cda00ab9f78aca6f74b89872daa70bd05bf832e5ff5": {
+    "id": "observabilite",
+    "title": "LES TROIS PILIERS DE L'OBSERVABILITÉ INDUSTRIELLE :",
+    "source_sha256": "a5298b082325a1a45fdc4cda00ab9f78aca6f74b89872daa70bd05bf832e5ff5",
+    "parts": [
+      {
+        "kind": "grid",
+        "items": [
+          {
+            "kind": "node",
+            "title": "1. LOGS STRUCTURÉS",
+            "lines": [
+              "(JSON Contextualisé)",
+              "Événements discrets et enrichis (Timestamp, LogLevel, trace_id, userId, duration_ms)."
+            ]
+          },
+          {
+            "kind": "node",
+            "title": "2. MÉTRIQUES RED",
+            "lines": [
+              "(Rate, Errors, Dur.)",
+              "Valeurs agrégées numériques scalaires temporelles (Compteurs, Histogrammes, Gauges)."
+            ]
+          },
+          {
+            "kind": "node",
+            "title": "3. TRACING DISTRIBUÉ",
+            "lines": [
+              "(OpenTelemetry / W3C",
+              "Propagation d'un ID de corrélation (trace_id) à travers les frontières réseau et files Redis."
+            ]
+          }
+        ],
+        "style": "pillars"
+      }
+    ]
+  },
+  "2890f98a7f21904747d4c8d28fcc8b2b91e21eef7dc36ef9d4134a5a2895221d": {
+    "id": "circuit-breaker",
+    "title": "MACHINE D'ÉTATS FINIS DU CIRCUIT BREAKER :",
+    "source_sha256": "2890f98a7f21904747d4c8d28fcc8b2b91e21eef7dc36ef9d4134a5a2895221d",
+    "note": "Les retours des tests suivent le tracé ASCII fourni, dont les flèches sont ambiguës ; cette transposition ne corrige pas le modèle technique.",
+    "parts": [
+      {
+        "kind": "states",
+        "items": [
+          {
+            "kind": "node",
+            "title": "FERMÉ",
+            "lines": [
+              "(Nominal)"
+            ],
+            "key": "closed"
+          },
+          {
+            "kind": "node",
+            "title": "OUVERT",
+            "lines": [
+              "(Protection)"
+            ],
+            "key": "open"
+          },
+          {
+            "kind": "node",
+            "title": "SEMI-OUVERT",
+            "lines": [
+              "(Sondage)"
+            ],
+            "key": "half"
+          }
+        ],
+        "transitions": [
+          {
+            "source": "closed",
+            "target": "open",
+            "label": "Taux d'échec > 50%"
+          },
+          {
+            "source": "open",
+            "target": "half",
+            "label": "(Délai de cooldown expiré)"
+          },
+          {
+            "source": "open",
+            "target": "closed",
+            "label": "(Succès du test)"
+          },
+          {
+            "source": "half",
+            "target": "closed",
+            "label": "(Échec du test)"
+          }
+        ]
+      }
+    ]
+  },
+  "9b24c108ce18bf3b5671286744e180ddaeeb61127e28bb14a599cf76ba7e5563": {
+    "id": "dlq",
+    "title": "GESTION DU CYCLE DE VIE DES MESSAGES AVEC DEAD LETTER QUEUE (DLQ) :",
+    "source_sha256": "9b24c108ce18bf3b5671286744e180ddaeeb61127e28bb14a599cf76ba7e5563",
+    "parts": [
+      {
+        "kind": "node",
+        "title": "File Principale : pdf-generation",
+        "lines": []
+      },
+      {
+        "kind": "arrow",
+        "label": "",
+        "direction": "down"
+      },
+      {
+        "kind": "node",
+        "title": "Worker tente le traitement (Tentative 1/3)",
+        "lines": [
+          "Échec"
+        ]
+      },
+      {
+        "kind": "arrow",
+        "label": "",
+        "direction": "down"
+      },
+      {
+        "kind": "node",
+        "title": "Worker retente avec Backoff (Tentative 2/3)",
+        "lines": [
+          "Échec"
+        ]
+      },
+      {
+        "kind": "arrow",
+        "label": "",
+        "direction": "down"
+      },
+      {
+        "kind": "node",
+        "title": "Worker retente (Tentative 3/3)",
+        "lines": [
+          "Échec Définitif"
+        ]
+      },
+      {
+        "kind": "arrow",
+        "label": "",
+        "direction": "down"
+      },
+      {
+        "kind": "node",
+        "title": "Quarantaine Immédiate : Dead Letter Queue (DLQ)",
+        "lines": [
+          "Le message fautif est extrait de la file de production.",
+          "La pile d'erreur exacte et le contexte d'exécution sont attachés au payload.",
+          "Une alerte d'astreinte est émise.",
+          "La file principale continue de dépiler les messages sains sans latence.",
+          "Après correction du bug, l'opérateur exécute un script de rejeu (Re-drive DLQ)."
+        ]
+      }
+    ]
+  },
+  "647d2f5aa0ef2ce8873f8d929f82c33ea1b7dbac79750e17ae5b05e886bdc394": {
+    "id": "reprise",
+    "title": "SÉQUENCE DU PLAN DE REPRISE D'ACTIVITÉ EN 4 PHASES :",
+    "source_sha256": "647d2f5aa0ef2ce8873f8d929f82c33ea1b7dbac79750e17ae5b05e886bdc394",
+    "parts": [
+      {
+        "kind": "node",
+        "title": "PHASE 1 : PROVISIONNEMENT RAPIDE DE LA NOUVELLE MACHINE (0-3 min)",
+        "lines": [
+          "1. Création d'un VPS vierge Ubuntu LTS chez n'importe quel fournisseur cloud.",
+          "2. Exécution du script déclaratif de configuration (cloud-init / Ansible minimal) :",
+          "Installation de Docker, Docker Compose, Git, UFW, durcissement SSH."
+        ]
+      },
+      {
+        "kind": "arrow",
+        "label": "",
+        "direction": "down"
+      },
+      {
+        "kind": "node",
+        "title": "PHASE 2 : RESTAURATION DE LA PERSISTANCE & DES SECRETS (3-8 min)",
+        "lines": [
+          "3. Rapatriement chiffré des secrets (.env.production) depuis le gestionnaire sécurisé.",
+          "4. Restauration PITR de PostgreSQL à partir des archives WAL stockées sur Cloudflare R2 / S3."
+        ]
+      },
+      {
+        "kind": "arrow",
+        "label": "",
+        "direction": "down"
+      },
+      {
+        "kind": "node",
+        "title": "PHASE 3 : DÉPLOIEMENT DES CONTENEURS IMMUABLES (8-12 min)",
+        "lines": [
+          "5. Clone du dépôt Git sur la branche stable \"main\".",
+          "6. Docker Compose Pull & Up : Téléchargement des images conteneurisées depuis le Registry privé."
+        ]
+      },
+      {
+        "kind": "arrow",
+        "label": "",
+        "direction": "down"
+      },
+      {
+        "kind": "node",
+        "title": "PHASE 4 : BASCULE DNS & CERTIFICATS TLS AUTOMATIQUES (12-15 min)",
+        "lines": [
+          "7. Mise à jour de l'enregistrement DNS A vers la nouvelle adresse IP du VPS.",
+          "8. Caddy négocie instantanément les nouveaux certificats SSL Let's Encrypt. Service rétabli."
+        ]
+      }
+    ]
+  },
+  "f8ac5930ea4d81f526088c867b7de9187593060fc9f94f61281b3f9ae3255882": {
+    "id": "routage",
+    "title": "ARCHITECTURE DE ROUTAGE AGNOSTIQUE ET SOUVERAINE :",
+    "source_sha256": "f8ac5930ea4d81f526088c867b7de9187593060fc9f94f61281b3f9ae3255882",
+    "parts": [
+      {
+        "kind": "node",
+        "title": "HARNAIS AGENTIQUE SOUVERAIN",
+        "lines": [
+          "(Aider / Claude Code / Roo Code / OpenHands)"
+        ]
+      },
+      {
+        "kind": "arrow",
+        "label": "(Standard OpenAI / OpenTelemetry)",
+        "direction": "down"
+      },
+      {
+        "kind": "node",
+        "title": "ROUTEUR LOCAL UNIFIÉ (LiteLLM / Ollama)",
+        "lines": []
+      },
+      {
+        "kind": "arrow",
+        "label": "",
+        "direction": "down"
+      },
+      {
+        "kind": "grid",
+        "items": [
+          {
+            "kind": "node",
+            "title": "MOTEURS PROPRIÉTAIRES",
+            "lines": [
+              "Claude (Anthropic API)",
+              "OpenAI (o-series / GPT)"
+            ]
+          },
+          {
+            "kind": "node",
+            "title": "INFÉRENCE LOCALE / VPS",
+            "lines": [
+              "vLLM / SGLang (GPU Nvidia)",
+              "Ollama / llama.cpp (Apple/CPU)"
+            ]
+          },
+          {
+            "kind": "node",
+            "title": "SERVEURS DISTANTS DÉDIÉS",
+            "lines": [
+              "Hugging Face TGI / RunPod",
+              "Modèles Open Weights hébergés"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

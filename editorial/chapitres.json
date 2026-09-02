@@ -2,6 +2,10 @@
   "titre": "Orchestrer le code en 2026",
   "date": "2026-08-31",
   "structure": "Deux parties de douze chapitres miroirs",
+  "prerequis": {
+    "manifeste": "editorial/preambule.json",
+    "unites": ["P01", "P02", "P03", "P04", "P05"]
+  },
   "chapitres": [
     {
       "id": "A01",

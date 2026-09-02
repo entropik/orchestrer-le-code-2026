@@ -1,0 +1,14 @@
+{{- $digest := crypto.SHA256 (printf "%s\n" .Inner) -}}
+{{- $diagram := index hugo.Data.diagrams.registry $digest -}}
+{{- if $diagram -}}
+  {{- if eq $diagram.kind "harnais" -}}
+    {{- partial "diagrams/harnais.html" (dict "diagram" hugo.Data.diagrams.harnais "original" .Inner) -}}
+  {{- else -}}
+    {{- partial "diagrams/plate.html" (dict "diagram" $diagram "original" .Inner) -}}
+  {{- end -}}
+{{- else -}}
+  {{- if and .Page.Params.source_document (findRE `[┌┬└┼─│]` .Inner) -}}
+    {{- errorf "Schéma non transposé ou modifié dans %s : %s" .Page.File.Path $digest -}}
+  {{- end -}}
+  {{- highlight .Inner .Type .Options -}}
+{{- end -}}

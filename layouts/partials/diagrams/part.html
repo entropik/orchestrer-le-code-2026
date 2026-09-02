@@ -1,0 +1,35 @@
+{{- $p := .part -}}
+{{- $id := .id -}}
+{{- if eq $p.kind "node" -}}
+  <div class="diagram-card{{ with $p.style }} diagram-card-{{ . }}{{ end }}"{{ with $p.key }} id="{{ $id }}-{{ . }}"{{ end }}>
+    <p class="diagram-card-title">{{ $p.title }}</p>
+    {{ with $p.lines }}<ul class="diagram-lines">{{ range . }}<li>{{ . }}</li>{{ end }}</ul>{{ end }}
+  </div>
+{{- else if eq $p.kind "arrow" -}}
+  <div class="diagram-connector{{ if eq $p.direction "up" }} diagram-connector-up{{ end }}">{{ partial "diagrams/arrow.html" }}{{ with $p.label }}<p>{{ . }}</p>{{ end }}</div>
+{{- else if eq $p.kind "grid" -}}
+  <div class="diagram-grid diagram-grid-{{ len $p.items }}{{ with $p.style }} diagram-grid-{{ . }}{{ end }}">
+    {{ range $p.items }}{{ partial "diagrams/part.html" (dict "part" . "id" $id) }}{{ end }}
+  </div>
+{{- else if eq $p.kind "branch" -}}
+  <div class="diagram-branch">{{ range $p.parts }}{{ partial "diagrams/part.html" (dict "part" . "id" $id) }}{{ end }}</div>
+{{- else if eq $p.kind "module" -}}
+  <div class="diagram-module"><p class="diagram-module-title">{{ $p.title }}</p>{{ range $p.parts }}{{ partial "diagrams/part.html" (dict "part" . "id" $id) }}{{ end }}</div>
+{{- else if eq $p.kind "pyramid" -}}
+  <div class="diagram-pyramid">
+    {{ range $i, $level := $p.items }}
+    <div class="diagram-tier tier-{{ add $i 1 }}">
+      <div class="diagram-tier-badge"><span>{{ .badge }}</span><i aria-hidden="true"></i></div>
+      {{ partial "diagrams/part.html" (dict "part" . "id" $id) }}
+    </div>
+    {{ end }}
+  </div>
+{{- else if eq $p.kind "states" -}}
+  <div class="diagram-grid diagram-grid-3">{{ range $p.items }}{{ partial "diagrams/part.html" (dict "part" . "id" $id) }}{{ end }}</div>
+  <ul class="diagram-transitions" aria-label="Transitions représentées dans le schéma source">
+    {{ range $p.transitions }}
+      {{ $from := index (where $p.items "key" .source) 0 }}{{ $to := index (where $p.items "key" .target) 0 }}
+      <li><div><a href="#{{ $id }}-{{ .source }}">{{ $from.title }}</a><span aria-hidden="true"> → </span><span class="sr-only"> vers </span><a href="#{{ $id }}-{{ .target }}">{{ $to.title }}</a></div><p>{{ .label }}</p></li>
+    {{ end }}
+  </ul>
+{{- end -}}
