@@ -4,7 +4,7 @@
   "source_path": "tranches/A06-tests-et-preuves.md"
 }
 
-Statut : amorce. Cette fiche est prête pour une mission de rédaction ; le chapitre n'est pas déclaré terminé.
+Statut : redaction. Chapitre rédigé conformément au périmètre, harmonisé avec le miroir B06.
 
 ## Mission
 

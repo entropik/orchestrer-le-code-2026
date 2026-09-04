@@ -99,7 +99,7 @@
       "fichier": "manuscrit/01-lecture-accessible/06-tests-et-preuves.md",
       "miroir": "manuscrit/02-lecture-ingenieure/06-tests-et-preuves.md",
       "tranche": "tranches/A06-tests-et-preuves.md",
-      "statut": "amorce",
+      "statut": "redaction",
       "dependances": [
         "A05"
       ],
@@ -319,7 +319,7 @@
       "fichier": "manuscrit/02-lecture-ingenieure/06-tests-et-preuves.md",
       "miroir": "manuscrit/01-lecture-accessible/06-tests-et-preuves.md",
       "tranche": "tranches/B06-tests-et-preuves.md",
-      "statut": "amorce",
+      "statut": "redaction",
       "dependances": [
         "A06",
         "B05"
