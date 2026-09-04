@@ -27,7 +27,7 @@
       "fichier": "manuscrit/01-lecture-accessible/02-architecture-et-frontieres.md",
       "miroir": "manuscrit/02-lecture-ingenieure/02-architecture-et-frontieres.md",
       "tranche": "tranches/A02-architecture-et-frontieres.md",
-      "statut": "amorce",
+      "statut": "redaction",
       "dependances": [
         "A01"
       ],
@@ -243,7 +243,7 @@
       "fichier": "manuscrit/02-lecture-ingenieure/02-architecture-et-frontieres.md",
       "miroir": "manuscrit/01-lecture-accessible/02-architecture-et-frontieres.md",
       "tranche": "tranches/B02-architecture-et-frontieres.md",
-      "statut": "amorce",
+      "statut": "redaction",
       "dependances": [
         "A02",
         "B01"
