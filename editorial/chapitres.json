@@ -153,7 +153,7 @@
       "fichier": "manuscrit/01-lecture-accessible/09-livraison-et-production.md",
       "miroir": "manuscrit/02-lecture-ingenieure/09-livraison-et-production.md",
       "tranche": "tranches/A09-livraison-et-production.md",
-      "statut": "amorce",
+      "statut": "redaction",
       "dependances": [
         "A08"
       ],
@@ -376,7 +376,7 @@
       "fichier": "manuscrit/02-lecture-ingenieure/09-livraison-et-production.md",
       "miroir": "manuscrit/01-lecture-accessible/09-livraison-et-production.md",
       "tranche": "tranches/B09-livraison-et-production.md",
-      "statut": "amorce",
+      "statut": "redaction",
       "dependances": [
         "A09",
         "B08"

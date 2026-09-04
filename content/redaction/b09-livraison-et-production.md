@@ -4,7 +4,7 @@
   "source_path": "tranches/B09-livraison-et-production.md"
 }
 
-Statut : amorce. Cette fiche est prête pour une mission de rédaction ; le chapitre n'est pas déclaré terminé.
+Statut : redaction. Chapitre rédigé conformément au périmètre, harmonisé avec le miroir A09.
 
 ## Mission
 
