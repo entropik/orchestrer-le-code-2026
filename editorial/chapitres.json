@@ -135,7 +135,7 @@
       "fichier": "manuscrit/01-lecture-accessible/08-donnees-et-migrations.md",
       "miroir": "manuscrit/02-lecture-ingenieure/08-donnees-et-migrations.md",
       "tranche": "tranches/A08-donnees-et-migrations.md",
-      "statut": "amorce",
+      "statut": "redaction",
       "dependances": [
         "A07"
       ],
@@ -357,7 +357,7 @@
       "fichier": "manuscrit/02-lecture-ingenieure/08-donnees-et-migrations.md",
       "miroir": "manuscrit/01-lecture-accessible/08-donnees-et-migrations.md",
       "tranche": "tranches/B08-donnees-et-migrations.md",
-      "statut": "amorce",
+      "statut": "redaction",
       "dependances": [
         "A08",
         "B07"
