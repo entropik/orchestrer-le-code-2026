@@ -4,7 +4,7 @@
   "source_path": "tranches/A01-piloter-un-systeme.md"
 }
 
-Statut : amorce. Cette fiche est prête pour une mission de rédaction ; le chapitre n'est pas déclaré terminé.
+Statut : redaction. Chapitre rédigé conformément au périmètre, en attente de la finalisation du miroir B01 pour harmonisation de la paire.
 
 ## Mission
 
