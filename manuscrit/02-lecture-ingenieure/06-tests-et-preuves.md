@@ -19,7 +19,7 @@ Pour les courses critiques, préférer un dispositif qui force l'interleaving pe
 ## Déroulé prévu
 
 1. Tests unitaires, contractuels, intégration et parcours.
-2. TDD supervisé et revue des oracles (protocole détaillé dans le [Guide des workflows agentiques](../annexes/guide-des-workflows-agentiques.md)).
+2. TDD supervisé et revue des oracles (protocole détaillé dans le [Guide des workflows agentiques](../03-annexes/guide-des-workflows-agentiques.md)).
 3. Tests de propriétés, réduction des contre-exemples et mutations.
 4. Horloge, hasard, concurrence et reproductibilité.
 

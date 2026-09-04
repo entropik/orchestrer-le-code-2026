@@ -1,9 +1,4 @@
-{
-  "title": "Matrice des 37 skills et workflows",
-  "source_path": "manuscrit/03-annexes/guide-des-workflows-agentiques.md",
-  "weight": 2,
-  "description": "Index complet des compétences de Matt Pocock réparties en 6 familles et trames d'exécution."
-}
+# Matrice des 37 skills agentiques
 
 Ce document constitue l'index de référence des 37 compétences (*skills*) de l'écosystème d'ingénierie de Matt Pocock, adaptées pour une pratique agnostique et rigoureuse du code assisté par agents (Antigravity, Claude Code, Cursor, Codex, OpenCode).
 

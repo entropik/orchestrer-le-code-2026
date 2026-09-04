@@ -55,9 +55,9 @@ def build_files(root=ROOT):
         "editorial/CHARTE.md": ("/projet/charte", "Charte éditoriale"),
         "editorial/FIL_ROUGE.md": ("/projet/fil-rouge", "Le fil rouge"),
         "editorial/PLAN_REDACTION.md": ("/redaction/plan", "Plan des 24 tranches"),
-        "manuscrit/annexes/fiches-reflexes.md": ("/annexes/fiches-reflexes", "Fiches réflexes"),
-        "manuscrit/annexes/glossaire.md": ("/annexes/glossaire", "Glossaire partagé"),
-        "manuscrit/annexes/guide-des-workflows-agentiques.md": ("/annexes/workflows-agentiques", "Guide des workflows agentiques"),
+        "manuscrit/03-annexes/fiches-reflexes.md": ("/annexes/fiches-reflexes", "Fiches réflexes", 1, "Listes de contrôle communes pour lancer, vérifier et livrer."),
+        "manuscrit/03-annexes/guide-des-workflows-agentiques.md": ("/annexes/workflows-agentiques", "Matrice des 37 skills et workflows", 2, "Index complet des compétences de Matt Pocock réparties en 6 familles et trames d'exécution."),
+        "manuscrit/03-annexes/glossaire.md": ("/annexes/glossaire", "Glossaire partagé", 3, "Définitions des termes clés du domaine et de l'architecture."),
     }
     paths.update({name: item[0] for name, item in auxiliary.items()})
     paths.update({"manuscrit/SOMMAIRE.md": "/", "editorial/chapitres.json": "/redaction/plan", "sources/inventaire.json": "/projet/corpus"})
@@ -137,12 +137,20 @@ def build_files(root=ROOT):
         body = source.read_text(encoding="utf-8").split("\n", 1)[1]
         add(paths[c["tranche"]], {"title": f"{c['id']} — {c['titre']}", "weight": number + (0 if prefix == "A" else 12), "source_path": c["tranche"]}, rewrite(body, source))
 
-    for name, (route, title) in auxiliary.items():
+    for name, item in auxiliary.items():
+        route, title = item[0], item[1]
+        weight = item[2] if len(item) > 2 else None
+        description = item[3] if len(item) > 3 else None
         source = root / name
         body = source.read_text(encoding="utf-8").split("\n", 1)[1]
         if name.endswith("glossaire.md"):
             body = re.sub(r"^- \*\*(.+?)\*\*\s*:\s*(.+)$", lambda m: f"## {m[1]} {{#{slug(m[1])}}}\n\n{m[2]}", body, flags=re.M)
-        add(route, {"title": title, "source_path": name}, rewrite(body, source))
+        meta = {"title": title, "source_path": name}
+        if weight is not None:
+            meta["weight"] = weight
+        if description is not None:
+            meta["description"] = description
+        add(route, meta, rewrite(body, source))
 
     refs_body = "Les références servent à retrouver une origine, contrôler une affirmation et poursuivre la lecture. Les documents du corpus ne sont pas des normes.\n\n## Documents fournis\n\n[Parcourir les huit sources originales](/references/sources). [Lire l'analyse comparative](/projet/corpus).\n\n## Références externes\n\nDernière vérification consignée : " + mesh["date_verification"] + ". Les versions et capacités peuvent évoluer.\n"
     for ref in mesh["references"]:

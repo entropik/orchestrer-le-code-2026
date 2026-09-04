@@ -1,6 +1,8 @@
 {
   "title": "Glossaire partagé",
-  "source_path": "manuscrit/annexes/glossaire.md"
+  "source_path": "manuscrit/03-annexes/glossaire.md",
+  "weight": 3,
+  "description": "Définitions des termes clés du domaine et de l'architecture."
 }
 
 ## Agent {#agent}

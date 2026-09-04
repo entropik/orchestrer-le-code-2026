@@ -1,6 +1,8 @@
 {
   "title": "Fiches réflexes",
-  "source_path": "manuscrit/annexes/fiches-reflexes.md"
+  "source_path": "manuscrit/03-annexes/fiches-reflexes.md",
+  "weight": 1,
+  "description": "Listes de contrôle communes pour lancer, vérifier et livrer."
 }
 
 ## Lancer une tâche

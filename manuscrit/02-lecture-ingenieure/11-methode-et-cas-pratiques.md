@@ -19,7 +19,7 @@ Le cas de doublon exige un test d'intégration concurrent, une définition de l'
 ## Déroulé prévu
 
 1. Correspondance ORCHESTRE et six phases KISS.
-2. Tranches verticales et sous-étapes de réalisation (formalisation complète dans le [Guide des workflows agentiques](../annexes/guide-des-workflows-agentiques.md)).
+2. Tranches verticales et sous-étapes de réalisation (formalisation complète dans le [Guide des workflows agentiques](../03-annexes/guide-des-workflows-agentiques.md)).
 3. Upload : session, droits, finalisation et reprise.
 4. Doublon : reproduction causale, contrainte, migration et observation.
 

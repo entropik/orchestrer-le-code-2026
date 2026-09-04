@@ -21,7 +21,7 @@
   <header class="site-header">
     <a class="brand" href="{{ site.Home.RelPermalink }}"><span class="brand-mark">OC</span><span>Orchestrer le code <span class="brand-year">/ 2026</span></span></a>
     <nav aria-label="Navigation principale">
-      {{ range slice "accessible" "ingenieure" "references" "projet" }}
+      {{ range slice "accessible" "ingenieure" "annexes" "references" "projet" }}
         {{ with site.GetPage . }}<a href="{{ .RelPermalink }}"{{ if eq $.Section .Section }} aria-current="{{ if eq $.RelPermalink .RelPermalink }}page{{ else }}true{{ end }}"{{ end }}>{{ .LinkTitle }}</a>{{ end }}
       {{ end }}
       {{ with site.GetPage "/recherche" }}<a class="search-nav" data-search-link href="{{ .RelPermalink }}"{{ if eq $.RelPermalink .RelPermalink }} aria-current="page"{{ end }}>Rechercher <kbd aria-hidden="true">/</kbd></a>{{ end }}

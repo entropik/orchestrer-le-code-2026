@@ -55,7 +55,7 @@ def build(root=ROOT):
             source = root / c["fichier"]
             parts.append(relocate(source.read_text(encoding="utf-8"), source, destination))
         parts.append("## Annexes communes")
-        for source in sorted((root / "manuscrit/annexes").glob("*.md")):
+        for source in sorted((root / "manuscrit/03-annexes").glob("*.md")):
             parts.append(relocate(source.read_text(encoding="utf-8"), source, destination))
         destination.write_text("\n\n---\n\n".join(parts) + "\n", encoding="utf-8")
         print(f"Créé : {destination.relative_to(root)} ({len(selected)} chapitres, {validated} validés)")
