@@ -1,6 +1,6 @@
 # A07 - Faire travailler le système sans perdre les opérations
 
-Statut : amorce. Cette fiche est prête pour une mission de rédaction ; le chapitre n'est pas déclaré terminé.
+Statut : redaction. Chapitre rédigé conformément au périmètre, harmonisé avec le miroir B07.
 
 ## Mission
 

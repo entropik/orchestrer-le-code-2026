@@ -117,7 +117,7 @@
       "fichier": "manuscrit/01-lecture-accessible/07-asynchronisme-et-reprises.md",
       "miroir": "manuscrit/02-lecture-ingenieure/07-asynchronisme-et-reprises.md",
       "tranche": "tranches/A07-asynchronisme-et-reprises.md",
-      "statut": "amorce",
+      "statut": "redaction",
       "dependances": [
         "A06"
       ],
@@ -338,7 +338,7 @@
       "fichier": "manuscrit/02-lecture-ingenieure/07-asynchronisme-et-reprises.md",
       "miroir": "manuscrit/01-lecture-accessible/07-asynchronisme-et-reprises.md",
       "tranche": "tranches/B07-asynchronisme-et-reprises.md",
-      "statut": "amorce",
+      "statut": "redaction",
       "dependances": [
         "A07",
         "B06"
