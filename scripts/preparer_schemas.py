@@ -213,7 +213,8 @@ def main():
         if not dest.exists() or dest.read_text(encoding='utf-8') != data:
             raise SystemExit('Registre des schémas non synchronisé.')
     else:
-        dest.write_text(data,encoding='utf-8',newline='\n')
+        with open(dest, 'w', encoding='utf-8', newline='\n') as f:
+            f.write(data)
     print('OK : 17 schémas, libellés intégraux et empreintes vérifiés.')
 
 

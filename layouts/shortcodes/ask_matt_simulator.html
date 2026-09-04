@@ -9,35 +9,35 @@
 
   <div class="simulator-scenarios" role="tablist" aria-label="Situations de développement">
     <button type="button" class="scenario-btn active" data-scenario="feature" role="tab" aria-selected="true" aria-controls="sim-result">
-      <span class="btn-icon">🎯</span>
+      <span class="btn-icon" aria-hidden="true">{{ partial "icon.html" (dict "name" "target") }}</span>
       <span class="btn-text"><strong>Nouvelle fonctionnalité</strong><small>Une idée ou une évolution en tête</small></span>
     </button>
     <button type="button" class="scenario-btn" data-scenario="bug" role="tab" aria-selected="false" aria-controls="sim-result">
-      <span class="btn-icon">🐞</span>
+      <span class="btn-icon" aria-hidden="true">{{ partial "icon.html" (dict "name" "bug") }}</span>
       <span class="btn-text"><strong>Bug dur ou intermittent</strong><small>Une panne résistante en production</small></span>
     </button>
     <button type="button" class="scenario-btn" data-scenario="triage" role="tab" aria-selected="false" aria-controls="sim-result">
-      <span class="btn-icon">📥</span>
+      <span class="btn-icon" aria-hidden="true">{{ partial "icon.html" (dict "name" "inbox") }}</span>
       <span class="btn-text"><strong>Tickets & retours en vrac</strong><small>Bugs bruts et requêtes externes</small></span>
     </button>
     <button type="button" class="scenario-btn" data-scenario="fog" role="tab" aria-selected="false" aria-controls="sim-result">
-      <span class="btn-icon">🌫️</span>
+      <span class="btn-icon" aria-hidden="true">{{ partial "icon.html" (dict "name" "cloud-fog") }}</span>
       <span class="btn-text"><strong>Brouillard complet</strong><small>Chantier massif aux multiples inconnues</small></span>
     </button>
     <button type="button" class="scenario-btn" data-scenario="panic" role="tab" aria-selected="false" aria-controls="sim-result">
-      <span class="btn-icon">🛑</span>
+      <span class="btn-icon" aria-hidden="true">{{ partial "icon.html" (dict "name" "octagon-alert") }}</span>
       <span class="btn-text"><strong>L'agent s'égare / Jargon</strong><small>Réponse incompréhensible ou hors sujet</small></span>
     </button>
     <button type="button" class="scenario-btn" data-scenario="thirdparty" role="tab" aria-selected="false" aria-controls="sim-result">
-      <span class="btn-icon">👥</span>
+      <span class="btn-icon" aria-hidden="true">{{ partial "icon.html" (dict "name" "users") }}</span>
       <span class="btn-text"><strong>Bloqué par un tiers</strong><small>La réponse est chez le client ou collègue</small></span>
     </button>
     <button type="button" class="scenario-btn" data-scenario="manual" role="tab" aria-selected="false" aria-controls="sim-result">
-      <span class="btn-icon">🔐</span>
+      <span class="btn-icon" aria-hidden="true">{{ partial "icon.html" (dict "name" "key-round") }}</span>
       <span class="btn-text"><strong>Action humaine & Secrets</strong><small>OAuth, Stripe, Cloud, console web</small></span>
     </button>
     <button type="button" class="scenario-btn" data-scenario="gitconflict" role="tab" aria-selected="false" aria-controls="sim-result">
-      <span class="btn-icon">🔀</span>
+      <span class="btn-icon" aria-hidden="true">{{ partial "icon.html" (dict "name" "git-merge") }}</span>
       <span class="btn-text"><strong>Conflits Git</strong><small>Rebase ou merge bloqué par des conflits</small></span>
     </button>
   </div>
@@ -53,6 +53,7 @@
         <div class="command-box">
           <code id="sim-cmd-input">/grill-with-docs &quot;Votre intention ici&quot;</code>
           <button type="button" class="btn-copy" id="sim-copy-btn" title="Copier la commande">
+            <span class="btn-copy-icon" aria-hidden="true">{{ partial "icon.html" (dict "name" "copy") }}</span>
             <span class="copy-label">Copier</span>
           </button>
         </div>
@@ -138,8 +139,24 @@
   box-shadow: inset 3px 0 0 var(--accent);
 }
 .scenario-btn .btn-icon {
-  font-size: 1.2rem;
-  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 1.35rem;
+  height: 1.35rem;
+  color: var(--muted);
+  margin-top: .15rem;
+  transition: color .15s ease-in-out;
+}
+.scenario-btn .btn-icon svg {
+  width: 100%;
+  height: 100%;
+  stroke-width: 1.85;
+}
+.scenario-btn:hover .btn-icon,
+.scenario-btn.active .btn-icon {
+  color: var(--accent);
 }
 .scenario-btn strong {
   display: block;
@@ -201,6 +218,9 @@
   padding: 0;
 }
 .btn-copy {
+  display: inline-flex;
+  align-items: center;
+  gap: .35rem;
   background: var(--ink);
   color: var(--paper);
   border: none;
@@ -210,6 +230,15 @@
   font-weight: 600;
   cursor: pointer;
   transition: background .15s ease;
+}
+.btn-copy-icon {
+  display: inline-flex;
+  align-items: center;
+}
+.btn-copy-icon svg {
+  width: 12px;
+  height: 12px;
+  stroke-width: 2;
 }
 .btn-copy:hover {
   background: var(--accent);

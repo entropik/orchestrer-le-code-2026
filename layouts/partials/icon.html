@@ -1,0 +1,22 @@
+{{- $name := . -}}
+{{- $class := "" -}}
+{{- $size := "" -}}
+{{- if reflect.IsMap . -}}
+  {{- $name = .name -}}
+  {{- $class = .class | default "" -}}
+  {{- $size = .size | default "" -}}
+{{- end -}}
+{{- $path := printf "icons/%s.svg" $name -}}
+{{- with resources.Get $path -}}
+  {{- $content := .Content -}}
+  {{- if $class -}}
+    {{- $content = replaceRE `class="([^"]*)"` (printf `class="$1 %s"` $class) $content -}}
+  {{- end -}}
+  {{- if $size -}}
+    {{- $content = replaceRE `width="[^"]*"` (printf `width="%s"` $size) $content -}}
+    {{- $content = replaceRE `height="[^"]*"` (printf `height="%s"` $size) $content -}}
+  {{- end -}}
+  {{- $content | safeHTML -}}
+{{- else -}}
+  <!-- icon {{ $name }} introuvable -->
+{{- end -}}

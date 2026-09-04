@@ -24,7 +24,7 @@ Chaque fiche dispose d'une ancre d'URL directe (ex: `#grill-with-docs`) : vous p
   <div class="skill-expanded-body">
     <div class="skill-actions-bar">
       <button type="button" class="btn-copy-link" data-anchor="setup-matt-pocock-skills">
-        <span class="copy-icon">🔗</span> <span class="copy-text">Copier le lien direct</span>
+        <span class="copy-icon" aria-hidden="true">{{< icon "link-2" >}}</span> <span class="copy-text">Copier le lien direct</span>
       </button>
       <a href="https://github.com/mattpocock/skills/tree/main/skills/engineering/setup-matt-pocock-skills" target="_blank" rel="external noopener noreferrer" class="link-github">
         Code source sur GitHub ↗
@@ -50,7 +50,7 @@ Chaque fiche dispose d'une ancre d'URL directe (ex: `#grill-with-docs`) : vous p
   <div class="skill-expanded-body">
     <div class="skill-actions-bar">
       <button type="button" class="btn-copy-link" data-anchor="grill-with-docs">
-        <span class="copy-icon">🔗</span> <span class="copy-text">Copier le lien direct</span>
+        <span class="copy-icon" aria-hidden="true">{{< icon "link-2" >}}</span> <span class="copy-text">Copier le lien direct</span>
       </button>
       <a href="https://github.com/mattpocock/skills/tree/main/skills/engineering/grill-with-docs" target="_blank" rel="external noopener noreferrer" class="link-github">
         Code source sur GitHub ↗
@@ -76,7 +76,7 @@ Chaque fiche dispose d'une ancre d'URL directe (ex: `#grill-with-docs`) : vous p
   <div class="skill-expanded-body">
     <div class="skill-actions-bar">
       <button type="button" class="btn-copy-link" data-anchor="grill-me">
-        <span class="copy-icon">🔗</span> <span class="copy-text">Copier le lien direct</span>
+        <span class="copy-icon" aria-hidden="true">{{< icon "link-2" >}}</span> <span class="copy-text">Copier le lien direct</span>
       </button>
       <a href="https://github.com/mattpocock/skills/tree/main/skills/productivity/grill-me" target="_blank" rel="external noopener noreferrer" class="link-github">
         Code source sur GitHub ↗
@@ -102,7 +102,7 @@ Chaque fiche dispose d'une ancre d'URL directe (ex: `#grill-with-docs`) : vous p
   <div class="skill-expanded-body">
     <div class="skill-actions-bar">
       <button type="button" class="btn-copy-link" data-anchor="grilling">
-        <span class="copy-icon">🔗</span> <span class="copy-text">Copier le lien direct</span>
+        <span class="copy-icon" aria-hidden="true">{{< icon "link-2" >}}</span> <span class="copy-text">Copier le lien direct</span>
       </button>
       <a href="https://github.com/mattpocock/skills/tree/main/skills/productivity/grilling" target="_blank" rel="external noopener noreferrer" class="link-github">
         Code source sur GitHub ↗
@@ -127,7 +127,7 @@ Chaque fiche dispose d'une ancre d'URL directe (ex: `#grill-with-docs`) : vous p
   <div class="skill-expanded-body">
     <div class="skill-actions-bar">
       <button type="button" class="btn-copy-link" data-anchor="domain-modeling">
-        <span class="copy-icon">🔗</span> <span class="copy-text">Copier le lien direct</span>
+        <span class="copy-icon" aria-hidden="true">{{< icon "link-2" >}}</span> <span class="copy-text">Copier le lien direct</span>
       </button>
       <a href="https://github.com/mattpocock/skills/tree/main/skills/engineering/domain-modeling" target="_blank" rel="external noopener noreferrer" class="link-github">
         Code source sur GitHub ↗
@@ -153,7 +153,7 @@ Chaque fiche dispose d'une ancre d'URL directe (ex: `#grill-with-docs`) : vous p
   <div class="skill-expanded-body">
     <div class="skill-actions-bar">
       <button type="button" class="btn-copy-link" data-anchor="decision-mapping">
-        <span class="copy-icon">🔗</span> <span class="copy-text">Copier le lien direct</span>
+        <span class="copy-icon" aria-hidden="true">{{< icon "link-2" >}}</span> <span class="copy-text">Copier le lien direct</span>
       </button>
       <a href="https://github.com/mattpocock/skills/tree/main/skills/in-progress/decision-mapping" target="_blank" rel="external noopener noreferrer" class="link-github">
         Code source sur GitHub ↗
@@ -179,7 +179,7 @@ Chaque fiche dispose d'une ancre d'URL directe (ex: `#grill-with-docs`) : vous p
   <div class="skill-expanded-body">
     <div class="skill-actions-bar">
       <button type="button" class="btn-copy-link" data-anchor="loop-me">
-        <span class="copy-icon">🔗</span> <span class="copy-text">Copier le lien direct</span>
+        <span class="copy-icon" aria-hidden="true">{{< icon "link-2" >}}</span> <span class="copy-text">Copier le lien direct</span>
       </button>
       <a href="https://github.com/mattpocock/skills/tree/main/skills/in-progress/loop-me" target="_blank" rel="external noopener noreferrer" class="link-github">
         Code source sur GitHub ↗
@@ -212,7 +212,7 @@ Chaque fiche dispose d'une ancre d'URL directe (ex: `#grill-with-docs`) : vous p
   <div class="skill-expanded-body">
     <div class="skill-actions-bar">
       <button type="button" class="btn-copy-link" data-anchor="prototype">
-        <span class="copy-icon">🔗</span> <span class="copy-text">Copier le lien direct</span>
+        <span class="copy-icon" aria-hidden="true">{{< icon "link-2" >}}</span> <span class="copy-text">Copier le lien direct</span>
       </button>
       <a href="https://github.com/mattpocock/skills/tree/main/skills/engineering/prototype" target="_blank" rel="external noopener noreferrer" class="link-github">
         Code source sur GitHub ↗
@@ -238,7 +238,7 @@ Chaque fiche dispose d'une ancre d'URL directe (ex: `#grill-with-docs`) : vous p
   <div class="skill-expanded-body">
     <div class="skill-actions-bar">
       <button type="button" class="btn-copy-link" data-anchor="to-prd">
-        <span class="copy-icon">🔗</span> <span class="copy-text">Copier le lien direct</span>
+        <span class="copy-icon" aria-hidden="true">{{< icon "link-2" >}}</span> <span class="copy-text">Copier le lien direct</span>
       </button>
       <a href="https://github.com/mattpocock/skills/tree/main/skills/engineering/to-prd" target="_blank" rel="external noopener noreferrer" class="link-github">
         Code source sur GitHub ↗
@@ -264,7 +264,7 @@ Chaque fiche dispose d'une ancre d'URL directe (ex: `#grill-with-docs`) : vous p
   <div class="skill-expanded-body">
     <div class="skill-actions-bar">
       <button type="button" class="btn-copy-link" data-anchor="to-issues">
-        <span class="copy-icon">🔗</span> <span class="copy-text">Copier le lien direct</span>
+        <span class="copy-icon" aria-hidden="true">{{< icon "link-2" >}}</span> <span class="copy-text">Copier le lien direct</span>
       </button>
       <a href="https://github.com/mattpocock/skills/tree/main/skills/engineering/to-issues" target="_blank" rel="external noopener noreferrer" class="link-github">
         Code source sur GitHub ↗
@@ -290,7 +290,7 @@ Chaque fiche dispose d'une ancre d'URL directe (ex: `#grill-with-docs`) : vous p
   <div class="skill-expanded-body">
     <div class="skill-actions-bar">
       <button type="button" class="btn-copy-link" data-anchor="to-questionnaire">
-        <span class="copy-icon">🔗</span> <span class="copy-text">Copier le lien direct</span>
+        <span class="copy-icon" aria-hidden="true">{{< icon "link-2" >}}</span> <span class="copy-text">Copier le lien direct</span>
       </button>
       <a href="https://github.com/mattpocock/skills/tree/main/skills/productivity/to-questionnaire" target="_blank" rel="external noopener noreferrer" class="link-github">
         Code source sur GitHub ↗
@@ -323,7 +323,7 @@ Chaque fiche dispose d'une ancre d'URL directe (ex: `#grill-with-docs`) : vous p
   <div class="skill-expanded-body">
     <div class="skill-actions-bar">
       <button type="button" class="btn-copy-link" data-anchor="implement">
-        <span class="copy-icon">🔗</span> <span class="copy-text">Copier le lien direct</span>
+        <span class="copy-icon" aria-hidden="true">{{< icon "link-2" >}}</span> <span class="copy-text">Copier le lien direct</span>
       </button>
       <a href="https://github.com/mattpocock/skills/tree/main/skills/engineering/implement" target="_blank" rel="external noopener noreferrer" class="link-github">
         Code source sur GitHub ↗
@@ -349,7 +349,7 @@ Chaque fiche dispose d'une ancre d'URL directe (ex: `#grill-with-docs`) : vous p
   <div class="skill-expanded-body">
     <div class="skill-actions-bar">
       <button type="button" class="btn-copy-link" data-anchor="tdd">
-        <span class="copy-icon">🔗</span> <span class="copy-text">Copier le lien direct</span>
+        <span class="copy-icon" aria-hidden="true">{{< icon "link-2" >}}</span> <span class="copy-text">Copier le lien direct</span>
       </button>
       <a href="https://github.com/mattpocock/skills/tree/main/skills/engineering/tdd" target="_blank" rel="external noopener noreferrer" class="link-github">
         Code source sur GitHub ↗
@@ -375,7 +375,7 @@ Chaque fiche dispose d'une ancre d'URL directe (ex: `#grill-with-docs`) : vous p
   <div class="skill-expanded-body">
     <div class="skill-actions-bar">
       <button type="button" class="btn-copy-link" data-anchor="codebase-design">
-        <span class="copy-icon">🔗</span> <span class="copy-text">Copier le lien direct</span>
+        <span class="copy-icon" aria-hidden="true">{{< icon "link-2" >}}</span> <span class="copy-text">Copier le lien direct</span>
       </button>
       <a href="https://github.com/mattpocock/skills/tree/main/skills/engineering/codebase-design" target="_blank" rel="external noopener noreferrer" class="link-github">
         Code source sur GitHub ↗
@@ -400,7 +400,7 @@ Chaque fiche dispose d'une ancre d'URL directe (ex: `#grill-with-docs`) : vous p
   <div class="skill-expanded-body">
     <div class="skill-actions-bar">
       <button type="button" class="btn-copy-link" data-anchor="migrate-to-shoehorn">
-        <span class="copy-icon">🔗</span> <span class="copy-text">Copier le lien direct</span>
+        <span class="copy-icon" aria-hidden="true">{{< icon "link-2" >}}</span> <span class="copy-text">Copier le lien direct</span>
       </button>
       <a href="https://github.com/mattpocock/skills/tree/main/skills/misc/migrate-to-shoehorn" target="_blank" rel="external noopener noreferrer" class="link-github">
         Code source sur GitHub ↗
@@ -432,7 +432,7 @@ Chaque fiche dispose d'une ancre d'URL directe (ex: `#grill-with-docs`) : vous p
   <div class="skill-expanded-body">
     <div class="skill-actions-bar">
       <button type="button" class="btn-copy-link" data-anchor="review">
-        <span class="copy-icon">🔗</span> <span class="copy-text">Copier le lien direct</span>
+        <span class="copy-icon" aria-hidden="true">{{< icon "link-2" >}}</span> <span class="copy-text">Copier le lien direct</span>
       </button>
       <a href="https://github.com/mattpocock/skills/tree/main/skills/in-progress/review" target="_blank" rel="external noopener noreferrer" class="link-github">
         Code source sur GitHub ↗
@@ -460,7 +460,7 @@ Chaque fiche dispose d'une ancre d'URL directe (ex: `#grill-with-docs`) : vous p
   <div class="skill-expanded-body">
     <div class="skill-actions-bar">
       <button type="button" class="btn-copy-link" data-anchor="diagnosing-bugs">
-        <span class="copy-icon">🔗</span> <span class="copy-text">Copier le lien direct</span>
+        <span class="copy-icon" aria-hidden="true">{{< icon "link-2" >}}</span> <span class="copy-text">Copier le lien direct</span>
       </button>
       <a href="https://github.com/mattpocock/skills/tree/main/skills/engineering/diagnosing-bugs" target="_blank" rel="external noopener noreferrer" class="link-github">
         Code source sur GitHub ↗
@@ -492,7 +492,7 @@ Chaque fiche dispose d'une ancre d'URL directe (ex: `#grill-with-docs`) : vous p
   <div class="skill-expanded-body">
     <div class="skill-actions-bar">
       <button type="button" class="btn-copy-link" data-anchor="improve-codebase-architecture">
-        <span class="copy-icon">🔗</span> <span class="copy-text">Copier le lien direct</span>
+        <span class="copy-icon" aria-hidden="true">{{< icon "link-2" >}}</span> <span class="copy-text">Copier le lien direct</span>
       </button>
       <a href="https://github.com/mattpocock/skills/tree/main/skills/engineering/improve-codebase-architecture" target="_blank" rel="external noopener noreferrer" class="link-github">
         Code source sur GitHub ↗
@@ -518,7 +518,7 @@ Chaque fiche dispose d'une ancre d'URL directe (ex: `#grill-with-docs`) : vous p
   <div class="skill-expanded-body">
     <div class="skill-actions-bar">
       <button type="button" class="btn-copy-link" data-anchor="resolving-merge-conflicts">
-        <span class="copy-icon">🔗</span> <span class="copy-text">Copier le lien direct</span>
+        <span class="copy-icon" aria-hidden="true">{{< icon "link-2" >}}</span> <span class="copy-text">Copier le lien direct</span>
       </button>
       <a href="https://github.com/mattpocock/skills/tree/main/skills/engineering/resolving-merge-conflicts" target="_blank" rel="external noopener noreferrer" class="link-github">
         Code source sur GitHub ↗
@@ -543,7 +543,7 @@ Chaque fiche dispose d'une ancre d'URL directe (ex: `#grill-with-docs`) : vous p
   <div class="skill-expanded-body">
     <div class="skill-actions-bar">
       <button type="button" class="btn-copy-link" data-anchor="triage">
-        <span class="copy-icon">🔗</span> <span class="copy-text">Copier le lien direct</span>
+        <span class="copy-icon" aria-hidden="true">{{< icon "link-2" >}}</span> <span class="copy-text">Copier le lien direct</span>
       </button>
       <a href="https://github.com/mattpocock/skills/tree/main/skills/engineering/triage" target="_blank" rel="external noopener noreferrer" class="link-github">
         Code source sur GitHub ↗
@@ -576,7 +576,7 @@ Chaque fiche dispose d'une ancre d'URL directe (ex: `#grill-with-docs`) : vous p
   <div class="skill-expanded-body">
     <div class="skill-actions-bar">
       <button type="button" class="btn-copy-link" data-anchor="wait-what">
-        <span class="copy-icon">🔗</span> <span class="copy-text">Copier le lien direct</span>
+        <span class="copy-icon" aria-hidden="true">{{< icon "link-2" >}}</span> <span class="copy-text">Copier le lien direct</span>
       </button>
       <a href="https://github.com/mattpocock/skills/tree/main/skills/productivity/wait-what" target="_blank" rel="external noopener noreferrer" class="link-github">
         Code source sur GitHub ↗
@@ -602,7 +602,7 @@ Chaque fiche dispose d'une ancre d'URL directe (ex: `#grill-with-docs`) : vous p
   <div class="skill-expanded-body">
     <div class="skill-actions-bar">
       <button type="button" class="btn-copy-link" data-anchor="wizard">
-        <span class="copy-icon">🔗</span> <span class="copy-text">Copier le lien direct</span>
+        <span class="copy-icon" aria-hidden="true">{{< icon "link-2" >}}</span> <span class="copy-text">Copier le lien direct</span>
       </button>
       <a href="https://github.com/mattpocock/skills/tree/main/skills/in-progress/wizard" target="_blank" rel="external noopener noreferrer" class="link-github">
         Code source sur GitHub ↗
@@ -628,7 +628,7 @@ Chaque fiche dispose d'une ancre d'URL directe (ex: `#grill-with-docs`) : vous p
   <div class="skill-expanded-body">
     <div class="skill-actions-bar">
       <button type="button" class="btn-copy-link" data-anchor="git-guardrails-claude-code">
-        <span class="copy-icon">🔗</span> <span class="copy-text">Copier le lien direct</span>
+        <span class="copy-icon" aria-hidden="true">{{< icon "link-2" >}}</span> <span class="copy-text">Copier le lien direct</span>
       </button>
       <a href="https://github.com/mattpocock/skills/tree/main/skills/misc/git-guardrails-claude-code" target="_blank" rel="external noopener noreferrer" class="link-github">
         Code source sur GitHub ↗
@@ -652,7 +652,7 @@ Chaque fiche dispose d'une ancre d'URL directe (ex: `#grill-with-docs`) : vous p
   <div class="skill-expanded-body">
     <div class="skill-actions-bar">
       <button type="button" class="btn-copy-link" data-anchor="setup-pre-commit">
-        <span class="copy-icon">🔗</span> <span class="copy-text">Copier le lien direct</span>
+        <span class="copy-icon" aria-hidden="true">{{< icon "link-2" >}}</span> <span class="copy-text">Copier le lien direct</span>
       </button>
       <a href="https://github.com/mattpocock/skills/tree/main/skills/misc/setup-pre-commit" target="_blank" rel="external noopener noreferrer" class="link-github">
         Code source sur GitHub ↗
@@ -677,7 +677,7 @@ Chaque fiche dispose d'une ancre d'URL directe (ex: `#grill-with-docs`) : vous p
   <div class="skill-expanded-body">
     <div class="skill-actions-bar">
       <button type="button" class="btn-copy-link" data-anchor="handoff">
-        <span class="copy-icon">🔗</span> <span class="copy-text">Copier le lien direct</span>
+        <span class="copy-icon" aria-hidden="true">{{< icon "link-2" >}}</span> <span class="copy-text">Copier le lien direct</span>
       </button>
       <a href="https://github.com/mattpocock/skills/tree/main/skills/productivity/handoff" target="_blank" rel="external noopener noreferrer" class="link-github">
         Code source sur GitHub ↗
@@ -703,7 +703,7 @@ Chaque fiche dispose d'une ancre d'URL directe (ex: `#grill-with-docs`) : vous p
   <div class="skill-expanded-body">
     <div class="skill-actions-bar">
       <button type="button" class="btn-copy-link" data-anchor="writing-great-skills">
-        <span class="copy-icon">🔗</span> <span class="copy-text">Copier le lien direct</span>
+        <span class="copy-icon" aria-hidden="true">{{< icon "link-2" >}}</span> <span class="copy-text">Copier le lien direct</span>
       </button>
       <a href="https://github.com/mattpocock/skills/tree/main/skills/productivity/writing-great-skills" target="_blank" rel="external noopener noreferrer" class="link-github">
         Code source sur GitHub ↗
@@ -728,7 +728,7 @@ Chaque fiche dispose d'une ancre d'URL directe (ex: `#grill-with-docs`) : vous p
   <div class="skill-expanded-body">
     <div class="skill-actions-bar">
       <button type="button" class="btn-copy-link" data-anchor="find-skills">
-        <span class="copy-icon">🔗</span> <span class="copy-text">Copier le lien direct</span>
+        <span class="copy-icon" aria-hidden="true">{{< icon "link-2" >}}</span> <span class="copy-text">Copier le lien direct</span>
       </button>
       <a href="https://github.com/vercel-labs/skills/tree/main/skills/find-skills" target="_blank" rel="external noopener noreferrer" class="link-github">
         Code source sur GitHub ↗
@@ -758,7 +758,7 @@ Chaque fiche dispose d'une ancre d'URL directe (ex: `#grill-with-docs`) : vous p
   <div class="skill-expanded-body">
     <div class="skill-actions-bar">
       <button type="button" class="btn-copy-link" data-anchor="teach">
-        <span class="copy-icon">🔗</span> <span class="copy-text">Copier le lien direct</span>
+        <span class="copy-icon" aria-hidden="true">{{< icon "link-2" >}}</span> <span class="copy-text">Copier le lien direct</span>
       </button>
       <a href="https://github.com/mattpocock/skills/tree/main/skills/productivity/teach" target="_blank" rel="external noopener noreferrer" class="link-github">
         Code source sur GitHub ↗
@@ -781,7 +781,7 @@ Chaque fiche dispose d'une ancre d'URL directe (ex: `#grill-with-docs`) : vous p
   <div class="skill-expanded-body">
     <div class="skill-actions-bar">
       <button type="button" class="btn-copy-link" data-anchor="scaffold-exercises">
-        <span class="copy-icon">🔗</span> <span class="copy-text">Copier le lien direct</span>
+        <span class="copy-icon" aria-hidden="true">{{< icon "link-2" >}}</span> <span class="copy-text">Copier le lien direct</span>
       </button>
       <a href="https://github.com/mattpocock/skills/tree/main/skills/misc/scaffold-exercises" target="_blank" rel="external noopener noreferrer" class="link-github">
         Code source sur GitHub ↗
@@ -804,7 +804,7 @@ Chaque fiche dispose d'une ancre d'URL directe (ex: `#grill-with-docs`) : vous p
   <div class="skill-expanded-body">
     <div class="skill-actions-bar">
       <button type="button" class="btn-copy-link" data-anchor="writing-fragments">
-        <span class="copy-icon">🔗</span> <span class="copy-text">Copier le lien direct</span>
+        <span class="copy-icon" aria-hidden="true">{{< icon "link-2" >}}</span> <span class="copy-text">Copier le lien direct</span>
       </button>
       <a href="https://github.com/mattpocock/skills/tree/main/skills/in-progress/writing-fragments" target="_blank" rel="external noopener noreferrer" class="link-github">
         Code source sur GitHub ↗
@@ -827,7 +827,7 @@ Chaque fiche dispose d'une ancre d'URL directe (ex: `#grill-with-docs`) : vous p
   <div class="skill-expanded-body">
     <div class="skill-actions-bar">
       <button type="button" class="btn-copy-link" data-anchor="writing-beats">
-        <span class="copy-icon">🔗</span> <span class="copy-text">Copier le lien direct</span>
+        <span class="copy-icon" aria-hidden="true">{{< icon "link-2" >}}</span> <span class="copy-text">Copier le lien direct</span>
       </button>
       <a href="https://github.com/mattpocock/skills/tree/main/skills/in-progress/writing-beats" target="_blank" rel="external noopener noreferrer" class="link-github">
         Code source sur GitHub ↗
@@ -851,7 +851,7 @@ Chaque fiche dispose d'une ancre d'URL directe (ex: `#grill-with-docs`) : vous p
   <div class="skill-expanded-body">
     <div class="skill-actions-bar">
       <button type="button" class="btn-copy-link" data-anchor="writing-shape">
-        <span class="copy-icon">🔗</span> <span class="copy-text">Copier le lien direct</span>
+        <span class="copy-icon" aria-hidden="true">{{< icon "link-2" >}}</span> <span class="copy-text">Copier le lien direct</span>
       </button>
       <a href="https://github.com/mattpocock/skills/tree/main/skills/in-progress/writing-shape" target="_blank" rel="external noopener noreferrer" class="link-github">
         Code source sur GitHub ↗
@@ -874,7 +874,7 @@ Chaque fiche dispose d'une ancre d'URL directe (ex: `#grill-with-docs`) : vous p
   <div class="skill-expanded-body">
     <div class="skill-actions-bar">
       <button type="button" class="btn-copy-link" data-anchor="edit-article">
-        <span class="copy-icon">🔗</span> <span class="copy-text">Copier le lien direct</span>
+        <span class="copy-icon" aria-hidden="true">{{< icon "link-2" >}}</span> <span class="copy-text">Copier le lien direct</span>
       </button>
       <a href="https://github.com/mattpocock/skills/tree/main/skills/personal/edit-article" target="_blank" rel="external noopener noreferrer" class="link-github">
         Code source sur GitHub ↗
@@ -897,7 +897,7 @@ Chaque fiche dispose d'une ancre d'URL directe (ex: `#grill-with-docs`) : vous p
   <div class="skill-expanded-body">
     <div class="skill-actions-bar">
       <button type="button" class="btn-copy-link" data-anchor="obsidian-vault">
-        <span class="copy-icon">🔗</span> <span class="copy-text">Copier le lien direct</span>
+        <span class="copy-icon" aria-hidden="true">{{< icon "link-2" >}}</span> <span class="copy-text">Copier le lien direct</span>
       </button>
       <a href="https://github.com/mattpocock/skills/tree/main/skills/personal/obsidian-vault" target="_blank" rel="external noopener noreferrer" class="link-github">
         Code source sur GitHub ↗
@@ -927,7 +927,7 @@ Chaque fiche dispose d'une ancre d'URL directe (ex: `#grill-with-docs`) : vous p
   <div class="skill-expanded-body">
     <div class="skill-actions-bar">
       <button type="button" class="btn-copy-link" data-anchor="design-an-interface">
-        <span class="copy-icon">🔗</span> <span class="copy-text">Copier le lien direct</span>
+        <span class="copy-icon" aria-hidden="true">{{< icon "link-2" >}}</span> <span class="copy-text">Copier le lien direct</span>
       </button>
       <a href="https://github.com/mattpocock/skills/tree/main/skills/deprecated/design-an-interface" target="_blank" rel="external noopener noreferrer" class="link-github">
         Code source sur GitHub ↗
@@ -950,7 +950,7 @@ Chaque fiche dispose d'une ancre d'URL directe (ex: `#grill-with-docs`) : vous p
   <div class="skill-expanded-body">
     <div class="skill-actions-bar">
       <button type="button" class="btn-copy-link" data-anchor="request-refactor-plan">
-        <span class="copy-icon">🔗</span> <span class="copy-text">Copier le lien direct</span>
+        <span class="copy-icon" aria-hidden="true">{{< icon "link-2" >}}</span> <span class="copy-text">Copier le lien direct</span>
       </button>
       <a href="https://github.com/mattpocock/skills/tree/main/skills/deprecated/request-refactor-plan" target="_blank" rel="external noopener noreferrer" class="link-github">
         Code source sur GitHub ↗
@@ -973,7 +973,7 @@ Chaque fiche dispose d'une ancre d'URL directe (ex: `#grill-with-docs`) : vous p
   <div class="skill-expanded-body">
     <div class="skill-actions-bar">
       <button type="button" class="btn-copy-link" data-anchor="ubiquitous-language">
-        <span class="copy-icon">🔗</span> <span class="copy-text">Copier le lien direct</span>
+        <span class="copy-icon" aria-hidden="true">{{< icon "link-2" >}}</span> <span class="copy-text">Copier le lien direct</span>
       </button>
       <a href="https://github.com/mattpocock/skills/tree/main/skills/deprecated/ubiquitous-language" target="_blank" rel="external noopener noreferrer" class="link-github">
         Code source sur GitHub ↗
@@ -996,7 +996,7 @@ Chaque fiche dispose d'une ancre d'URL directe (ex: `#grill-with-docs`) : vous p
   <div class="skill-expanded-body">
     <div class="skill-actions-bar">
       <button type="button" class="btn-copy-link" data-anchor="qa">
-        <span class="copy-icon">🔗</span> <span class="copy-text">Copier le lien direct</span>
+        <span class="copy-icon" aria-hidden="true">{{< icon "link-2" >}}</span> <span class="copy-text">Copier le lien direct</span>
       </button>
       <a href="https://github.com/mattpocock/skills/tree/main/skills/deprecated/qa" target="_blank" rel="external noopener noreferrer" class="link-github">
         Code source sur GitHub ↗
@@ -1132,6 +1132,15 @@ Chaque fiche dispose d'une ancre d'URL directe (ex: `#grill-with-docs`) : vous p
   background: var(--accent);
   color: #ffffff;
   border-color: var(--accent);
+}
+.btn-copy-link .copy-icon {
+  display: inline-flex;
+  align-items: center;
+}
+.btn-copy-link .copy-icon svg {
+  width: 13px;
+  height: 13px;
+  stroke-width: 2;
 }
 .link-github {
   font-size: .78rem;

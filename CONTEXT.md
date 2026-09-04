@@ -44,9 +44,14 @@ _Avoid_: Validation visuelle, revue informelle, test manuel.
 Notice de décision d'architecture consignant un choix difficile à inverser, surprenant sans contexte, et issu d'un arbitrage réel, stocké dans `docs/adr/`.
 _Avoid_: Spécification technique, note de réunion, documentation d'implémentation.
 
+**Icônes Lucide**:
+Bibliothèque vectorielle minimale et épurée (tracé 24×24, stroke 1.5–2px) utilisée exclusivement pour l'ensemble des repères visuels, boutons et actions du site (`assets/icons/`, `layouts/partials/icon.html`, `layouts/shortcodes/icon.html`).
+_Avoid_: Émojis système (🎯, 🐞, 🔗, 🛑, 👥, etc.), icônes raster, polices d'icônes, scripts CDN tiers.
+
 ## Invariants Techniques
 
 - **Environnement Python** : Python 3.11 (`python3.11 -m unittest discover -s tests`).
 - **Générateur de site statique** : Hugo Extended v0.158+ (`hugo --minify`).
 - **Déploiement cible** : Cloudflare Pages (`npx wrangler pages deploy public --project-name savoirs --branch main`).
 - **Standard des compétences** : `.agents/skills/<name>/SKILL.md` à la racine du dépôt Git.
+- **Iconographie** : Lucide Icons exclusivement en SVG inline (zero-runtime, pas de CDN, zéro layout shift). Les émojis système sont formellement proscrits de l'interface et des fiches documentaires (voir ADR-0003).

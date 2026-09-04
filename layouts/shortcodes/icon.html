@@ -1,0 +1,4 @@
+{{- $name := .Get 0 | default (.Get "name") -}}
+{{- $class := .Get "class" | default "" -}}
+{{- $size := .Get "size" | default "" -}}
+{{- partial "icon.html" (dict "name" $name "class" $class "size" $size) -}}

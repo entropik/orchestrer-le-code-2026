@@ -200,7 +200,8 @@ def sync(root=ROOT, check=False):
             changed.append(name)
             if not check:
                 path.parent.mkdir(parents=True, exist_ok=True)
-                path.write_text(content, encoding="utf-8", newline="\n")
+                with open(path, "w", encoding="utf-8", newline="\n") as f:
+                    f.write(content)
     if check and changed:
         raise ValueError("Contenu Hugo non synchronisé : " + ", ".join(changed))
     print(f"Hugo : {sum(name.startswith('content/') for name in files)} pages de contenu ; {len(changed)} fichiers" + (" désynchronisés." if check else " synchronisés."))
