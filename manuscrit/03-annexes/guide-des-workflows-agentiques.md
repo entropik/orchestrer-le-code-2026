@@ -629,6 +629,70 @@ Situation de départ ?
 1. **Ateliers et cours** : `/scaffold-exercises` pour les arborescences d'exercices et `/teach` pour la guidance interactive.
 2. **Chaîne de publication** : `/writing-fragments` (matériau brut) $	o$ `/writing-beats` (progression rythmique) $	o$ `/writing-shape` (façonnage des paragraphes) $	o$ `/edit-article` (ciselage éditorial).
 
+### Cas 7 : Initialisation & Gouvernance Réelle d'un Dépôt (Le Jalon 1 Pas à Pas)
+
+Ce cas concret retrace l'exécution réelle du **Jalon 1** menée sur ce dépôt même (*dogfooding* d'ingénierie). Il illustre chronologiquement comment poser une gouvernance irréprochable avant de créer la moindre ligne de code de production.
+
+```text
+┌────────────────────────────────────────────────────────────────────────┐
+│               LE JALON 1 EN ACTION SUR CE DÉPÔT                        │
+│                                                                        │
+│ 1. Aiguillage initial ──────► /ask-matt (Constat : besoin de cadre)    │
+│                                       │                                │
+│ 2. Modélisation de domaine ─► CONTEXT.md (Glossaire strict & _Avoid_) │
+│                                       │                                │
+│ 3. Arbitrage engageant ─────► docs/adr/0001-harnais-en-trois-couches.md│
+│                                       │                                │
+│ 4. Outillage opérationnel ──► .agents/skills/ (37 skills déployés)     │
+│                                       │                                │
+│ 5. Preuves observables ─────► 26 tests unitaires OK + Build Hugo       │
+│                                       │                                │
+│ 6. Publication & Traçabilité► Git commit, push, Cloudflare Pages HTTP 200
+└────────────────────────────────────────────────────────────────────────┘
+```
+
+#### Étape 1 : Le Diagnostic Initial (`/ask-matt`)
+
+- **Constat** : Un dépôt sans cadre documentaire ni invariants explicites incite les agents à inventer leur propre vocabulaire, à mélanger les couches d'abstraction et à disperser les scripts dans des dossiers arbitraires.
+- **Orientation de l'aiguilleur** : Invocation immédiate des compétences de gouvernance amont : `setup-matt-pocock-skills` et `domain-modeling`.
+- **Règle d'or appliquée** : Aucune écriture de code tant que le lexique partagé et l'arborescence documentaire ne sont pas scellés.
+
+#### Étape 2 : Établir le Modèle de Domaine (`CONTEXT.md`)
+
+- **Principe DDD** : Rédaction du fichier racine `CONTEXT.md` respectant le format strict de Matt Pocock.
+- **Règles d'écriture** :
+  - Définir uniquement ce que le terme **est** (une à deux phrases maximum), jamais ce qu'il fait.
+  - Bannir impitoyablement les synonymes ambigus sous la clause `_Avoid_` :
+    - *Bon à Tirer (BAT)* : Épreuve contractuelle formelle validée par le client avant l'engagement des machines. `_Avoid_ : Validation client, signature, confirmation.`
+    - *Fond Perdu (Bleed)* : Zone de 3 mm extérieure à la boîte de découpe. `_Avoid_ : Marge de sécurité, débord, marge d'impression.`
+    - *Tranche Verticale (Tracer Bullet)* : Unité minimale traversant toutes les strates nécessaires. `_Avoid_ : Couche technique, ticket backend/frontend, module horizontal.`
+    - *Lecture Miroir* : Deux parcours parallèles interconnectés. `_Avoid_ : Version vulgarisée, version technique, niveau débutant/avancé.`
+  - Consigner les invariants techniques intouchables : Python 3.11 (`unittest`), Hugo Extended (`hugo --minify`), Cloudflare Pages (`wrangler`).
+  - **Interdiction absolue** : Zéro extrait de code, zéro spécification de ticket dans `CONTEXT.md`.
+
+#### Étape 3 : Acter la Première Décision Irréversible (`ADR 0001`)
+
+- **Création du répertoire** : `docs/adr/`.
+- **Notice formelle** : `docs/adr/0001-harnais-agentique-en-trois-couches.md`.
+- **Validation des 3 critères de Matt Pocock** :
+  1. *Difficile à inverser* : Revenir plus tard sur la structure du harnais ou sur le choix de l'emplacement des skills briserait l'autonomie des collaborateurs et apprenants.
+  2. *Surprenant sans contexte* : Un observateur externe pourrait se demander pourquoi le dépôt embarque 37 skills dans Git au lieu de laisser chaque développeur utiliser ses plugins locaux.
+  3. *Issu d'un arbitrage réel* : Choix d'une architecture hybride à trois couches avec standard agnostique `.agents/` et règle de précédence stricte (*shadowing* : le local à la racine du projet surcharge le global sur le poste).
+
+#### Étape 4 : Déploiement Local & Synchronisation Agnostique (`.agents/skills/`)
+
+- **Installation locale dans le dépôt** : Copie des 37 compétences sous `.agents/skills/<nom>/SKILL.md`. Le dépôt devient un *Repository-as-Code* immédiatement opérationnel après un simple `git clone`.
+- **Synchronisation multi-moteurs** : Exécution de `scripts/install_skills.py` pour connecter le même catalogue aux répertoires des différents agents du poste (`~/.claude/skills/`, `~/.gemini/skills/`, `~/.codex/skills/`). Claude Code, OpenAI Codex, Google Gemini/Antigravity, Cursor et Kimi partagent exactement le même référentiel.
+
+#### Étape 5 : Administration des Preuves Observables
+
+- **Épreuve 1 — Suite de tests** : Exécution de `python3.11 -m unittest discover -s tests` → 26 tests unitaires au vert en 0.15 s.
+- **Épreuve 2 — Compilation SSG** : Compilation Hugo avec minification → 76 pages rendues sans erreur de lien ni warning (175 ms).
+- **Épreuve 3 — Déploiement Cloud** : Publication Cloudflare Pages validée par inspection d'en-tête HTTP 200 en production.
+
+#### Bilan d'Ingénierie pour vos Projets :
+En réalisant ce Jalon 1 en une seule passe disciplinée, le projet ne repose plus sur la chance ou la mémoire volatile du développeur. N'importe quel agent démarré demain sur ce dépôt lira `CONTEXT.md`, consultera l'ADR 0001, appliquera les 37 skills locaux et produira du code directement conforme aux attentes.
+
 ---
 
 ## Les 3 Règles d'Or de l'Ingénierie Agnostique
