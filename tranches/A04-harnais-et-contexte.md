@@ -1,6 +1,6 @@
 # A04 - Donner du contexte et des limites à l'agent
 
-Statut : amorce. Cette fiche est prête pour une mission de rédaction ; le chapitre n'est pas déclaré terminé.
+Statut : redaction. Chapitre rédigé conformément au périmètre, harmonisé avec le miroir B04.
 
 ## Mission
 

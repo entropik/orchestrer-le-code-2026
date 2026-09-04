@@ -63,7 +63,7 @@
       "fichier": "manuscrit/01-lecture-accessible/04-harnais-et-contexte.md",
       "miroir": "manuscrit/02-lecture-ingenieure/04-harnais-et-contexte.md",
       "tranche": "tranches/A04-harnais-et-contexte.md",
-      "statut": "amorce",
+      "statut": "redaction",
       "dependances": [
         "A03"
       ],
@@ -281,7 +281,7 @@
       "fichier": "manuscrit/02-lecture-ingenieure/04-harnais-et-contexte.md",
       "miroir": "manuscrit/01-lecture-accessible/04-harnais-et-contexte.md",
       "tranche": "tranches/B04-harnais-et-contexte.md",
-      "statut": "amorce",
+      "statut": "redaction",
       "dependances": [
         "A04",
         "B03"
