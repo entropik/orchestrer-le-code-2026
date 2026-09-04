@@ -6,33 +6,42 @@
 
 ## Ce que tu sauras faire
 
-Raccorder la méthode de pilotage aux étapes techniques sans construire un cycle en cascade.
+Raccorder la méthode de pilotage ORCHESTRE aux étapes techniques et aux compétences d'ingénierie sans construire un cycle en cascade.
 
 ## Première synthèse
 
-Les six phases KISS du traité organisent la fabrication : spécification, contrats, tests, implémentation, intégration et livraison. ORCHESTRE organise la décision et la preuve. Les deux grilles se combinent à l'intérieur d'une tranche verticale ; elles ne justifient pas de construire toutes les tables avant tout parcours utilisateur.
+Les six phases KISS du traité organisent la fabrication : spécification, contrats, tests, implémentation, intégration et livraison. La méthode **ORCHESTRE** (Observation, Règle, Contrat, Harnais, Épreuve, Solution, Traçabilité, Révision, Évolution) organise la gouvernance cognitive, la décision et la preuve. Les deux grilles se combinent à l'intérieur d'une tranche verticale (*tracer bullet*) ; elles ne justifient jamais de construire toutes les couches horizontales avant le premier parcours utilisateur vérifiable.
 
-Le cas de réception de fichier doit conserver les mêmes acteurs, états et contraintes que la lecture accessible. La version ingénieure ajoute les contrats, fenêtres de crash, jeux d'essai et procédures de livraison. Elle ne doit pas changer de produit pour exhiber une architecture plus sophistiquée.
+Sur le plan opérationnel, ORCHESTRE s'articule directement avec le **Ruban Principal d'ingénierie agentique** (*Main Flow*) :
 
-Le cas de doublon exige un test d'intégration concurrent, une définition de l'intention et une migration compatible avec les clients existants. Le compte rendu final sépare démonstration sur fixture, test sur infrastructure réelle et observation de production. Une illustration dans un livre ne doit jamais être présentée comme une exécution effectivement menée.
+- **Observation & Règles (O & R)** : Pilotées par `/grill-with-docs`. L'agent refuse d'écrire du code : il fouille l'existant, pose une seule question contradictoire à la fois, stabilise le glossaire métier dans `CONTEXT.md` et consigne les choix structurants dans `docs/adr/`.
+- **Contrats vérifiables (C)** : Traduits par `/to-prd` (spécification univoque, User Stories, périmètre exclu) puis `/to-issues` (découpage en tranches verticales indépendantes avec dépendances bloquantes déclarées).
+- **Harnais & Frontières de phases (H)** : Discipline de la *Smart Zone* (~100k-120k tokens). Dès que les tickets sont émis, l'ingénieur vide la mémoire (`/clear`) ou génère une note temporaire (`/handoff`). Chaque ticket s'exécute dans une session vierge isolée.
+- **Épreuve & Solution (E & S)** : Orchestrées par `/implement` adossé à `/tdd`. L'agent ne livre pas du code présomptif : il formule d'abord une preuve observable (test unitaire ou d'intégration rouge à la frontière publique d'un module profond) avant de coder la solution minimale.
+- **Traçabilité & Révision (T & R)** : Barrière de péage `/review`. Un double audit automatisé et contradictoire (Axe 1 : Standards et sécurité ; Axe 2 : Respect scrupuleux de la spécification du ticket) précède impérativement tout commit ou fusion.
+- **Évolution & Incidents (E)** : En cas d'anomalie ou de régression, bascule sur `/diagnosing-bugs` (obligation d'une commande rouge déterministe) et passage de relais à `/improve-codebase-architecture` si l'absence d'une couture (*seam*) a favorisé le bug.
+
+Cette mécanique s'exécute de façon rigoureusement agnostique, que le moteur sous-jacent soit OpenAI Codex, Anthropic Claude, Google Gemini, Kimi ou les orchestrateurs locaux de Cursor.
+
+Le cas fil rouge de réception de fichier PDF préserve les mêmes acteurs, états et contraintes que la lecture accessible. La version ingénieure ajoute les contrats stricts, les fenêtres de crash, les jeux d'essai déterministes et les procédures de livraison sans régression.
 
 ## Déroulé prévu
 
-1. Correspondance ORCHESTRE et six phases KISS.
-2. Tranches verticales et sous-étapes de réalisation (formalisation complète dans le [Guide des workflows agentiques](../03-annexes/guide-des-workflows-agentiques.md)).
-3. Upload : session, droits, finalisation et reprise.
-4. Doublon : reproduction causale, contrainte, migration et observation.
+1. Correspondance détaillée entre ORCHESTRE, les six phases KISS et la chaîne d'outillage des agents.
+2. Le cycle vertical complet : cadrage (`/grill-with-docs`), spécification (`/to-prd`), tranches (`/to-issues`), fabrication sous preuve (`/implement` + `/tdd`) et audit (`/review`) (formalisation exhaustive dans le [Guide des workflows agentiques](../03-annexes/guide-des-workflows-agentiques.md)).
+3. Upload et devis d'impression : session, droits, validation de fond perdu (bleed), finalisation et reprise après incident.
+4. Détection de doublons : reproduction causale déterministe, contraintes d'intégrité, migration sans interruption et métriques de production.
 
 ## Mise en pratique
 
-Produire deux dossiers de réalisation avec SPEC, ADR, matrice de tests et plan de livraison.
+Produire deux dossiers de réalisation avec SPEC formelle, ADRs vivants, matrice de tests de frontière et plan de livraison orchestré.
 
 ## Critère de réussite
 
-Chaque décision de la partie accessible trouve sa justification technique, sans garantie ajoutée après coup.
+Chaque décision de la partie accessible trouve sa justification technique, chaque ligne de code produite est précédée d'un test rouge observable, et la trajectoire complète est reproductible quel que soit l'agent de code employé.
 
 ## Sources et limites
 
-[O-MD §5, §11, §12, §13, §14](../../sources/originaux/manuel_orchestration_logicielle.md) ; [I-MD §9, §10](../../sources/originaux/MANUEL_INGENIERIE_LOGICIELLE_2026_COMPLET.md).
+[O-MD §5, §11, §12, §13, §14](../../sources/originaux/manuel_orchestration_logicielle.md) ; [I-MD §9, §10](../../sources/originaux/MANUEL_INGENIERIE_LOGICIELLE_2026_COMPLET.md) ; [Guide des workflows agentiques](../03-annexes/guide-des-workflows-agentiques.md).
 
 Cette amorce est une synthèse éditoriale, pas la preuve d'une implémentation exécutée. Les rectifications et vérifications externes sont consignées dans le [registre critique](../../analyse/03-registre-critique.md). Les exemples techniques restent à développer et à tester dans la tranche.
