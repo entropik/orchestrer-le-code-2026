@@ -1,6 +1,6 @@
 # B11 - Appliquer ORCHESTRE du besoin à la résolution
 
-Statut : amorce. Cette fiche est prête pour une mission de rédaction ; le chapitre n'est pas déclaré terminé.
+Statut : redaction. Chapitre rédigé conformément au périmètre, harmonisé avec le miroir A11.
 
 ## Mission
 

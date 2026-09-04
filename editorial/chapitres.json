@@ -189,7 +189,7 @@
       "fichier": "manuscrit/01-lecture-accessible/11-methode-et-cas-pratiques.md",
       "miroir": "manuscrit/02-lecture-ingenieure/11-methode-et-cas-pratiques.md",
       "tranche": "tranches/A11-methode-et-cas-pratiques.md",
-      "statut": "amorce",
+      "statut": "redaction",
       "dependances": [
         "A10"
       ],
@@ -414,7 +414,7 @@
       "fichier": "manuscrit/02-lecture-ingenieure/11-methode-et-cas-pratiques.md",
       "miroir": "manuscrit/01-lecture-accessible/11-methode-et-cas-pratiques.md",
       "tranche": "tranches/B11-methode-et-cas-pratiques.md",
-      "statut": "amorce",
+      "statut": "redaction",
       "dependances": [
         "A11",
         "B10"
