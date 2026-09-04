@@ -207,7 +207,7 @@
       "fichier": "manuscrit/01-lecture-accessible/12-ecosysteme-et-independance.md",
       "miroir": "manuscrit/02-lecture-ingenieure/12-ecosysteme-et-independance.md",
       "tranche": "tranches/A12-ecosysteme-et-independance.md",
-      "statut": "amorce",
+      "statut": "redaction",
       "dependances": [
         "A11"
       ],
@@ -433,7 +433,7 @@
       "fichier": "manuscrit/02-lecture-ingenieure/12-ecosysteme-et-independance.md",
       "miroir": "manuscrit/01-lecture-accessible/12-ecosysteme-et-independance.md",
       "tranche": "tranches/B12-ecosysteme-et-independance.md",
-      "statut": "amorce",
+      "statut": "redaction",
       "dependances": [
         "A12",
         "B11"
