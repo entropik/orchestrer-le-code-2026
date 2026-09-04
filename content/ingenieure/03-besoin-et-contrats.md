@@ -43,7 +43,7 @@ Pour l'upload, documenter les unités, les identifiants, les erreurs, l'expirati
 
 ## Déroulé prévu
 
-1. SPEC, invariants et ADR.
+1. SPEC, invariants et ADR (voir l'outillage dans le [Guide des workflows agentiques](/annexes/workflows-agentiques)).
 2. Schémas d'entrée, sortie et erreurs.
 3. Typage statique versus parsing à l'exécution.
 4. Évolution additive et compatibilité des consommateurs.

@@ -57,6 +57,7 @@ def build_files(root=ROOT):
         "editorial/PLAN_REDACTION.md": ("/redaction/plan", "Plan des 24 tranches"),
         "manuscrit/annexes/fiches-reflexes.md": ("/annexes/fiches-reflexes", "Fiches réflexes"),
         "manuscrit/annexes/glossaire.md": ("/annexes/glossaire", "Glossaire partagé"),
+        "manuscrit/annexes/guide-des-workflows-agentiques.md": ("/annexes/workflows-agentiques", "Guide des workflows agentiques"),
     }
     paths.update({name: item[0] for name, item in auxiliary.items()})
     paths.update({"manuscrit/SOMMAIRE.md": "/", "editorial/chapitres.json": "/redaction/plan", "sources/inventaire.json": "/projet/corpus"})

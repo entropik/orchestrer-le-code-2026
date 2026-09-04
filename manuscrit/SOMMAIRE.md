@@ -23,4 +23,4 @@ Les 24 textes actuels sont des **amorces de synthèse**, accompagnées de fiches
 
 ## Annexes partagées
 
-[Fiches réflexes](annexes/fiches-reflexes.md) · [Glossaire](annexes/glossaire.md) · [Synthèse des approches](../analyse/02-synthese.md) · [Plan de rédaction](../editorial/PLAN_REDACTION.md)
+[Fiches réflexes](annexes/fiches-reflexes.md) · [Guide des workflows agentiques](annexes/guide-des-workflows-agentiques.md) · [Glossaire](annexes/glossaire.md) · [Synthèse des approches](../analyse/02-synthese.md) · [Plan de rédaction](../editorial/PLAN_REDACTION.md)

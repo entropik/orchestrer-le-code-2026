@@ -32,4 +32,4 @@
 - Flux sortants et droits des connecteurs examinés.
 - Possibilité de remplacement réellement testée.
 
-Adaptation éditoriale de O-MD §14 et I-MD §10/§12. Ces listes ne valent pas autorisation d'agir.
+Adaptation éditoriale de O-MD §14 et I-MD §10/§12. Ces listes ne valent pas autorisation d'agir. Pour l'enchaînement opérationnel détaillé des compétences agentiques, consulter le [Guide des workflows agentiques](guide-des-workflows-agentiques.md).
