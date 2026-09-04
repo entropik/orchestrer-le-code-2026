@@ -1,0 +1,497 @@
+<div class="ask-matt-simulator" id="ask-matt-simulator" aria-labelledby="simulator-heading">
+  <div class="simulator-header">
+    <p class="eyebrow">Aiguillage Dynamique</p>
+    <h3 id="simulator-heading">Simulateur d'Aiguillage : Quel skill appeler maintenant ?</h3>
+    <p class="simulator-lead">
+      Inutile de mémoriser les 37 compétences. Choisissez votre situation réelle ci-dessous : le simulateur vous indique immédiatement la commande à copier, le pipeline d’ingénierie et le piège mortel à éviter.
+    </p>
+  </div>
+
+  <div class="simulator-scenarios" role="tablist" aria-label="Situations de développement">
+    <button type="button" class="scenario-btn active" data-scenario="feature" role="tab" aria-selected="true" aria-controls="sim-result">
+      <span class="btn-icon">🎯</span>
+      <span class="btn-text"><strong>Nouvelle fonctionnalité</strong><small>Une idée ou une évolution en tête</small></span>
+    </button>
+    <button type="button" class="scenario-btn" data-scenario="bug" role="tab" aria-selected="false" aria-controls="sim-result">
+      <span class="btn-icon">🐞</span>
+      <span class="btn-text"><strong>Bug dur ou intermittent</strong><small>Une panne résistante en production</small></span>
+    </button>
+    <button type="button" class="scenario-btn" data-scenario="triage" role="tab" aria-selected="false" aria-controls="sim-result">
+      <span class="btn-icon">📥</span>
+      <span class="btn-text"><strong>Tickets & retours en vrac</strong><small>Bugs bruts et requêtes externes</small></span>
+    </button>
+    <button type="button" class="scenario-btn" data-scenario="fog" role="tab" aria-selected="false" aria-controls="sim-result">
+      <span class="btn-icon">🌫️</span>
+      <span class="btn-text"><strong>Brouillard complet</strong><small>Chantier massif aux multiples inconnues</small></span>
+    </button>
+    <button type="button" class="scenario-btn" data-scenario="panic" role="tab" aria-selected="false" aria-controls="sim-result">
+      <span class="btn-icon">🛑</span>
+      <span class="btn-text"><strong>L'agent s'égare / Jargon</strong><small>Réponse incompréhensible ou hors sujet</small></span>
+    </button>
+    <button type="button" class="scenario-btn" data-scenario="thirdparty" role="tab" aria-selected="false" aria-controls="sim-result">
+      <span class="btn-icon">👥</span>
+      <span class="btn-text"><strong>Bloqué par un tiers</strong><small>La réponse est chez le client ou collègue</small></span>
+    </button>
+    <button type="button" class="scenario-btn" data-scenario="manual" role="tab" aria-selected="false" aria-controls="sim-result">
+      <span class="btn-icon">🔐</span>
+      <span class="btn-text"><strong>Action humaine & Secrets</strong><small>OAuth, Stripe, Cloud, console web</small></span>
+    </button>
+    <button type="button" class="scenario-btn" data-scenario="gitconflict" role="tab" aria-selected="false" aria-controls="sim-result">
+      <span class="btn-icon">🔀</span>
+      <span class="btn-text"><strong>Conflits Git</strong><small>Rebase ou merge bloqué par des conflits</small></span>
+    </button>
+  </div>
+
+  <div class="simulator-result" id="sim-result" role="tabpanel">
+    <div class="result-top">
+      <div class="result-badge-wrap">
+        <span class="result-role">Skill recommandé</span>
+        <h4 id="sim-skill-name">/grill-with-docs</h4>
+      </div>
+      <div class="result-command-wrap">
+        <label for="sim-cmd-input" class="sr-only">Commande à copier</label>
+        <div class="command-box">
+          <code id="sim-cmd-input">/grill-with-docs &quot;Votre intention ici&quot;</code>
+          <button type="button" class="btn-copy" id="sim-copy-btn" title="Copier la commande">
+            <span class="copy-label">Copier</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="result-body">
+      <div class="result-section">
+        <span class="section-label">Pipeline d'exécution ordonné</span>
+        <ol class="flow-steps" id="sim-flow-steps">
+        </ol>
+      </div>
+
+      <div class="result-grid">
+        <div class="result-card card-action">
+          <h5>Ce que l'agent doit faire</h5>
+          <p id="sim-agent-action"></p>
+        </div>
+        <div class="result-card card-pitfall">
+          <h5>Le piège mortel à éviter</h5>
+          <p id="sim-pitfall"></p>
+        </div>
+      </div>
+
+      <div class="result-footer">
+        <a href="#grill-with-docs" id="sim-anchor-link" class="jump-link">Lire la fiche complète du skill ↓</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+.ask-matt-simulator {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  padding: 1.8rem;
+  margin: 2rem 0 3rem;
+}
+.simulator-header {
+  margin-bottom: 1.5rem;
+}
+.simulator-header h3 {
+  font-family: var(--serif);
+  font-size: 1.45rem;
+  margin: .3rem 0 .5rem;
+  color: var(--ink);
+}
+.simulator-lead {
+  font-size: .95rem;
+  color: var(--muted);
+  max-width: 68ch;
+  line-height: 1.5;
+  margin-bottom: 0;
+}
+.simulator-scenarios {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: .6rem;
+  margin-bottom: 1.5rem;
+}
+.scenario-btn {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  padding: .75rem .9rem;
+  text-align: left;
+  cursor: pointer;
+  display: flex;
+  align-items: flex-start;
+  gap: .7rem;
+  font-family: var(--sans);
+  color: var(--ink);
+  transition: all .15s ease-in-out;
+}
+.scenario-btn:hover {
+  border-color: var(--accent);
+  background: #ffffff;
+}
+.scenario-btn.active {
+  border-color: var(--accent);
+  background: #ffffff;
+  box-shadow: inset 3px 0 0 var(--accent);
+}
+.scenario-btn .btn-icon {
+  font-size: 1.2rem;
+  line-height: 1;
+}
+.scenario-btn strong {
+  display: block;
+  font-size: .83rem;
+  font-weight: 600;
+  color: var(--ink);
+  line-height: 1.3;
+}
+.scenario-btn small {
+  display: block;
+  font-size: .72rem;
+  color: var(--muted);
+  margin-top: .15rem;
+  line-height: 1.25;
+}
+.simulator-result {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  padding: 1.4rem;
+}
+.result-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 1.1rem;
+  margin-bottom: 1.2rem;
+}
+.result-role {
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  font-size: .65rem;
+  font-weight: 650;
+  color: var(--accent);
+}
+.result-top h4 {
+  font-family: ui-monospace, Consolas, monospace;
+  font-size: 1.25rem;
+  color: var(--ink);
+  margin: .2rem 0 0;
+}
+.command-box {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  padding: .35rem .6rem;
+  border-radius: 3px;
+}
+.command-box code {
+  font-family: ui-monospace, Consolas, monospace;
+  font-size: .82rem;
+  color: var(--ink);
+  background: transparent;
+  padding: 0;
+}
+.btn-copy {
+  background: var(--ink);
+  color: var(--paper);
+  border: none;
+  border-radius: 2px;
+  padding: .3rem .65rem;
+  font-size: .7rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background .15s ease;
+}
+.btn-copy:hover {
+  background: var(--accent);
+}
+.btn-copy.copied {
+  background: var(--accent);
+}
+.section-label {
+  display: block;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  font-size: .68rem;
+  font-weight: 600;
+  color: var(--muted);
+  margin-bottom: .6rem;
+}
+.flow-steps {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: .45rem;
+  margin: 0 0 1.3rem;
+}
+.flow-steps li {
+  display: inline-flex;
+  align-items: center;
+  font-family: ui-monospace, Consolas, monospace;
+  font-size: .76rem;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  padding: .25rem .55rem;
+  border-radius: 2px;
+  color: var(--ink);
+}
+.flow-steps li.step-arrow {
+  background: transparent;
+  border: none;
+  color: var(--muted);
+  font-family: var(--sans);
+  padding: 0;
+}
+.result-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.2rem;
+  margin-bottom: 1.2rem;
+}
+.result-card {
+  padding: .9rem 1.1rem;
+  border-radius: 3px;
+  background: var(--surface);
+}
+.result-card h5 {
+  font-family: var(--sans);
+  font-size: .8rem;
+  font-weight: 650;
+  margin: 0 0 .4rem;
+}
+.result-card p {
+  font-size: .84rem;
+  line-height: 1.45;
+  margin: 0;
+  color: var(--ink);
+}
+.card-action h5 {
+  color: var(--accent);
+}
+.card-pitfall {
+  background: #fdf5f2;
+  border: 1px solid #f0d5cc;
+}
+.card-pitfall h5 {
+  color: var(--rust);
+}
+.result-footer {
+  text-align: right;
+  border-top: 1px solid var(--line);
+  padding-top: .8rem;
+}
+.jump-link {
+  font-size: .82rem;
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 500;
+}
+.jump-link:hover {
+  text-decoration: underline;
+}
+@media(max-width: 760px) {
+  .result-grid {
+    grid-template-columns: 1fr;
+  }
+  .command-box {
+    width: 100%;
+    justify-content: space-between;
+  }
+  .command-box code {
+    word-break: break-all;
+  }
+}
+</style>
+
+<script>
+(function() {
+  const data = {
+    feature: {
+      skill: "/grill-with-docs",
+      command: '/grill-with-docs "Votre intention de fonctionnalité"',
+      anchor: "grill-with-docs",
+      flow: [
+        "/grill-with-docs", "→",
+        "Doute UI/Automate ? (/prototype)", "→",
+        "/to-prd", "→",
+        "/to-issues", "→",
+        "/clear", "→",
+        "/implement (avec /tdd)", "→",
+        "/review"
+      ],
+      action: "Pose des questions une par une avec sa réponse recommandée après avoir inspecté le code existant. Aligne les termes métier dans CONTEXT.md et formalise les décisions structurantes dans docs/adr/.",
+      pitfall: "Ne commencez pas à coder avant d'avoir traversé /to-prd et /to-issues. Un agent lancé sans ticket vertical dérive rapidement dans l'architecture horizontale."
+    },
+    bug: {
+      skill: "/diagnosing-bugs",
+      command: "/diagnosing-bugs",
+      anchor: "diagnosing-bugs",
+      flow: [
+        "1. Commande rouge déterministe", "→",
+        "2. Minimiser cas test", "→",
+        "3. 3-5 hypothèses falsifiables", "→",
+        "4. Sondes [DEBUG-xxx]", "→",
+        "5. Fix + Test de non-régression", "→",
+        "6. /improve-codebase-architecture (si couture absente)"
+      ],
+      action: "Refuse toute spéculation tant qu'une boucle de rétroaction courte et déterministe (une commande précise qui échoue) n'est pas acquise. Corrige à la frontière publique.",
+      pitfall: "Ne laissez jamais l'agent modifier du code au hasard pour 'voir si ça passe'. Exigez d'abord la preuve de la reproduction rouge."
+    },
+    triage: {
+      skill: "/triage",
+      command: "/triage",
+      anchor: "triage",
+      flow: [
+        "Issue brute", "→",
+        "Contrôle antériorité (.out-of-scope/)", "→",
+        "Reproduction minimale", "→",
+        "Attribution rôle (ready-for-agent / wontfix)", "→",
+        "/implement"
+      ],
+      action: "Passe au crible les tickets ou PRs soumis par des tiers. Contrôle la cohérence avec le périmètre exclu, reproduit la panne et formate le ticket pour qu'il soit directement traitable.",
+      pitfall: "Ne passez JAMAIS par /triage les tickets générés par /to-issues ! Les vôtres sont déjà agent-ready. /triage est exclusivement réservé aux tickets arrivant de l'extérieur."
+    },
+    fog: {
+      skill: "/wayfinder (decision-mapping)",
+      command: "/decision-mapping",
+      anchor: "decision-mapping",
+      flow: [
+        "DECISION_MAP.md", "→",
+        "Tickets (Research / Prototype / Grilling)", "→",
+        "1 session = 1 ticket résolu", "→",
+        "Clôture par /handoff", "→",
+        "Brouillard dissipé → /to-prd"
+      ],
+      action: "Établit une carte de tickets de décision ('decisions, not deliverables') sur l'issue tracker. Pousse le brouillard pas à pas, sans chercher à coder l'application finale en une fois.",
+      pitfall: "Ne cherchez pas à implémenter durant la cartographie. Ne résolvez qu'une seule décision par session, et clôturez obligatoirement par /handoff."
+    },
+    panic: {
+      skill: "/wait-what",
+      command: "/wait-what",
+      anchor: "wait-what",
+      flow: [
+        "Arrêt d'urgence immédiat", "→",
+        "Recadrage en français limpide", "→",
+        "Alignement sur CONTEXT.md", "→",
+        "Reprise sur base claire"
+      ],
+      action: "Stoppe la dérive cognitive de l'agent. Celui-ci s'arrête, analyse ce qui n'a pas été compris et ré-explique sa position sans jargon, en utilisant uniquement les termes validés dans CONTEXT.md.",
+      pitfall: "Ne tentez pas d'argumenter au milieu d'une explication confuse : le contexte continue de se polluer. Déclenchez immédiatement /wait-what pour réinitialiser la communication."
+    },
+    thirdparty: {
+      skill: "/to-questionnaire",
+      command: "/to-questionnaire",
+      anchor: "to-questionnaire",
+      flow: [
+        "Identification du gap de savoir", "→",
+        "Interview sur le destinataire", "→",
+        "Génération questionnaire ciblé", "→",
+        "Réponses réinjectées dans /grill-with-docs"
+      ],
+      action: "S'active quand l'inconnue se trouve dans la tête d'un client, d'un collègue ou d'un expert métier. Génère un questionnaire précis et percutant pour lever l'ambiguïté sans réunion inutile.",
+      pitfall: "Ne présumez pas de la réponse du client dans votre code. Quand un choix commercial ou métier est inconnu, produisez le questionnaire avant d'écrire la moindre ligne."
+    },
+    manual: {
+      skill: "/wizard",
+      command: "/wizard",
+      anchor: "wizard",
+      flow: [
+        "Étape humaine identifiée", "→",
+        "Génération script Bash interactif", "→",
+        "Ouverture des URLs dans le navigateur", "→",
+        "Saisie sécurisée des secrets", "→",
+        "Stockage dans .env / GitHub Secrets"
+      ],
+      action: "Prend le relais lorsque l'agent atteint une limite d'autonomie (cliquer dans une console AWS/Stripe, générer une clé API, basculer un DNS). Génère un script interactif qui vous guide pas à pas.",
+      pitfall: "Ne fournissez jamais vos identifiants administrateurs maîtres dans le chat. Utilisez /wizard pour que l'opération humaine reste cloisonnée et vos secrets sécurisés."
+    },
+    gitconflict: {
+      skill: "/resolving-merge-conflicts",
+      command: "/resolving-merge-conflicts",
+      anchor: "resolving-merge-conflicts",
+      flow: [
+        "Arrêt de tout git merge --abort", "→",
+        "Analyse de l'intention des deux branches", "→",
+        "Résolution hunk par hunk", "→",
+        "Vérification par la suite de tests", "→",
+        "Commit de merge propre"
+      ],
+      action: "Résout le conflit en remontant aux sources primaires (l'intention de chaque commit) plutôt qu'en arbitrant ligne par ligne. Ne valide la résolution qu'après passage au vert de la suite de tests.",
+      pitfall: "Ne faites jamais un git merge --abort par panique. Laissez le skill inspecter l'historique et valider la réconciliation par les tests unitaires."
+    }
+  };
+
+  const buttons = document.querySelectorAll('.scenario-btn');
+  const skillName = document.getElementById('sim-skill-name');
+  const cmdInput = document.getElementById('sim-cmd-input');
+  const copyBtn = document.getElementById('sim-copy-btn');
+  const flowSteps = document.getElementById('sim-flow-steps');
+  const agentAction = document.getElementById('sim-agent-action');
+  const pitfall = document.getElementById('sim-pitfall');
+  const anchorLink = document.getElementById('sim-anchor-link');
+
+  function renderScenario(key) {
+    const s = data[key];
+    if (!s) return;
+
+    buttons.forEach(btn => {
+      const active = btn.getAttribute('data-scenario') === key;
+      btn.classList.toggle('active', active);
+      btn.setAttribute('aria-selected', active);
+    });
+
+    skillName.textContent = s.skill;
+    cmdInput.textContent = s.command;
+    agentAction.textContent = s.action;
+    pitfall.textContent = s.pitfall;
+    anchorLink.href = '#' + s.anchor;
+    anchorLink.textContent = 'Consulter le billet détaillé de ' + s.skill + ' ↓';
+
+    flowSteps.innerHTML = '';
+    s.flow.forEach(item => {
+      const li = document.createElement('li');
+      if (item === '→') {
+        li.className = 'step-arrow';
+        li.textContent = '→';
+      } else {
+        li.textContent = item;
+      }
+      flowSteps.appendChild(li);
+    });
+  }
+
+  buttons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const key = btn.getAttribute('data-scenario');
+      renderScenario(key);
+    });
+  });
+
+  copyBtn.addEventListener('click', () => {
+    const text = cmdInput.textContent;
+    navigator.clipboard.writeText(text).then(() => {
+      copyBtn.classList.add('copied');
+      const label = copyBtn.querySelector('.copy-label');
+      const original = label.textContent;
+      label.textContent = 'Copié !';
+      setTimeout(() => {
+        copyBtn.classList.remove('copied');
+        label.textContent = original;
+      }, 2000);
+    });
+  });
+
+  renderScenario('feature');
+})();
+</script>

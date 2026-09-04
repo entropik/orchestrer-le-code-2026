@@ -6,15 +6,118 @@ Pour dissiper la charge mentale et rendre la pratique prévisible, ces compéten
 
 ---
 
-## 0. Le Routeur Universel
+{{< ask_matt_simulator >}}
+
+---
+
+## 0. Le Routeur Universel : ask-matt
 
 ### [ask-matt](https://github.com/mattpocock/skills/tree/main/skills/engineering/ask-matt)
 
-- **Rôle & Intention** : Aiguilleur universel de session. Quand vous démarrez une tâche ou que vous hésitez sur le bon enchaînement de travail, il analyse votre situation et vous oriente vers le skill ou le flux adapté.
-- **Invocation** : `user-invoked` (`disable-model-invocation: true`). Il ne charge pas inutilement le contexte de l'agent : vous l'appelez explicitement (`/ask-matt`).
-- **Quand l'invoquer** : Dès l'ouverture d'une session, en cas de doute méthodologique ou pour savoir comment aborder un problème imprévu.
-- **Entrées / Sorties** : Lit votre intention en langage naturel ; produit une recommandation d'enchaînement et nomme le prochain skill à invoquer.
-- **Règle d'or** : Ne commencez jamais une session dans le flou. Invoquez `/ask-matt` plutôt que de tenter des commandes ou des prompts au hasard.
+- **Rôle & Intention** : Aiguilleur universel de session. C'est le système d'exploitation mental de toute la collection. Face à une intention, une anomalie ou un doute, il diagnostique votre situation immédiate, détermine le flux à emprunter et formule la commande exacte à exécuter.
+- **Invocation** : `user-invoked` (`disable-model-invocation: true`). Il n'encombre pas le contexte de manière automatique : c'est vous qui l'invoquez explicitement (`/ask-matt [votre situation]`).
+- **Quand l'invoquer** : Dès l'ouverture d'une session, au moindre doute méthodologique, ou avant de taper une commande d'agent au hasard.
+- **Entrées / Sorties** : Lit votre situation formulée en langage naturel ; produit l'enchaînement ordonné des compétences à mobiliser, la commande immédiate et l'alerte sur le piège à éviter.
+- **Règle d'or** : Ne commencez jamais une session dans le flou. Invoquez `/ask-matt` plutôt que de tenter du code ou des prompts improvisés.
+
+---
+
+### La Doctrine d'ask-matt : Dépasser le Vibe Coding
+
+L'erreur la plus coûteuse avec les agents de code consiste à demander directement l'écriture d'une fonctionnalité dans une invite libre. L'agent produit du code plausible, mais sans contrat clair, sans frontières de modules et sans tests à l'interface publique. Dès que la base grandit, cette approche produit de l'entropie, des régressions croisées et une saturation du contexte.
+
+La doctrine d'**`ask-matt`** repose sur un principe cardinal : **toute tâche d'ingénierie emprunte un chemin formel balisé**. La quasi-totalité du travail suit un **ruban principal** (*The Main Flow*), alimenté par **trois voies d'insertion** (*On-ramps*), arbitré par **cinq choix aux frontières de phases** (*Phase boundaries*), et sécurisé par des **outils de déblocage d'urgence**.
+
+```text
+┌────────────────────────────────────────────────────────────────────────┐
+│                        LE RUBAN PRINCIPAL (Main Flow)                  │
+│                                                                        │
+│   Idée brute ───► /grill-with-docs ───┬───► /to-prd ───► /to-issues    │
+│                         │             │                     │          │
+│                         │ (Doute UI   │                     ▼          │
+│                         │  ou état)   │                  /clear        │
+│                         ▼             │                     │          │
+│                    /prototype ────────┘                     ▼          │
+│                                                     /implement + /tdd  │
+│                                                             │          │
+│                                                             ▼          │
+│                                                          /review       │
+└─────────────────────────────────────────────────────────────┼──────────┘
+                                                              │
+   VOIES D'INSERTION (On-Ramps) :                             ▼
+   - Bugs & retours externes ───► /triage ───────────► Ticket prêt (merge)
+   - Bug dur ou régression   ───► /diagnosing-bugs ──► Fix + Test rouge
+   - Brouillard complet      ───► /wayfinder ────────► Décisions ──► /to-prd
+```
+
+#### 1. Le Ruban Principal : De l'Idée à la Production (*Idea → Ship*)
+
+1. **Cadrage amont (`/grill-with-docs`)** : Point d'entrée systématique dans un dépôt Git. L'agent conduit une interview contradictoire, **une question à la fois** avec sa recommandation, après avoir inspecté le code existant. Il met à jour le vocabulaire dans `CONTEXT.md` et consigne les choix structurants dans `docs/adr/`.
+2. **Embranchement Prototype (si doute exécutable)** : Si une question ergonomique (UI) ou logique (automate d'états) ne peut être tranchée sur le papier, bifurcation immédiate :
+   - `/handoff` vers une session isolée.
+   - `/prototype` sur une branche éphémère `prototype/<nom>` pour répondre à la question par du code jetable lancé en une commande.
+   - `/handoff` retour pour consigner les acquis dans le fil de discussion principal.
+3. **Embranchement Granularité** :
+   - **Multi-sessions** : `/to-prd` (synthèse formelle sans ré-interviewer) → `/to-issues` (tranches verticales étanches avec graphe de blocage) → `/clear` pour vider le contexte → session neuve par ticket avec `/implement`.
+   - **Mono-session** : `/implement` directement dans la même fenêtre de contexte si la tâche est unitaire et tient largement sous la limite de saturation.
+4. **Implémentation sous preuve & Péage** : `/implement` pilote en interne `/tdd` (cycle rouge à la frontière publique → vert → refactor), puis déclenche la revue automatisée `/review` (axe standards + axe respect de la spécification) avant le commit.
+
+#### 2. Les Trois Voies d'Insertion (*On-Ramps*)
+
+Ces flux prennent naissance lors d'événements imprévus et rejoignent ensuite le ruban principal :
+
+- **Bugs et retours non sollicités (`/triage`)** : Utilisé **uniquement** pour les tickets créés par des tiers (utilisateurs, support, alertes). Il contrôle l'antériorité contre `.out-of-scope/`, tente une reproduction minimale et attribue le rôle (`ready-for-agent`, `needs-info`, `wontfix`).
+  > **Règle absolue** : Ne triez **jamais** les tickets issus de `/to-issues`. Vos propres tickets sont déjà prêts pour l'agent (*agent-ready*).
+- **Bug dur, régression ou test intermittent (`/diagnosing-bugs`)** : Interdiction formelle d'émettre des théories ou de toucher au code avant d'avoir isolé une **commande unique déterministe** qui échoue à 100% sur le bug. L'agent minimise le cas, pose des hypothèses falsifiables, injecte des sondes étiquetées `[DEBUG-xxxx]`, rédige un test de non-régression, corrige à la frontière publique, et passe la main à `/improve-codebase-architecture` si aucune couture (*seam*) n'existait pour isoler le bug.
+- **Brouillard complet sur chantier massif (`/wayfinder` / `decision-mapping`)** : Quand l'horizon est trop vaste pour une session, l'agent dresse `DECISION_MAP.md` avec des tickets de décisions (`Research`, `Prototype`, `Grilling`). On résout un ticket par session, clôturé par `/handoff`. Une fois le terrain dégagé, on rejoint le ruban principal à `/to-prd`.
+
+#### 3. L'Arbitrage aux Frontières de Phases (*Phase Boundaries*) & Hygiène de la Smart Zone
+
+La mémoire d'un agent n'est pas infinie. Au-delà de ~100k à 120k tokens (la **Smart Zone**), la précision de raisonnement du modèle s'érode. À la fin de chaque étape, l'ingénieur doit arbitrer entre 5 postures :
+
+| Arbitrage | Quand l'utiliser | Ce qu'il produit |
+| :--- | :--- | :--- |
+| **Continue** | La tâche courante est modeste et la session reste sous les ~40k-50k tokens. | Zéro friction, continuité immédiate. |
+| **`/clear`** | L'étape précédente est archivée dans un artefact pérenne (ex: PRD validé, tickets créés). | Contexte vidé à 100 %, session vierge prête pour `/implement`. |
+| **`/handoff`** | Changement de répertoire, de harnais d'agent, ou transmission à un collègue. | Note Markdown temporaire dans `/tmp/` résumant l'état exact et les compétences à appeler. |
+| **Sous-agent** | Recherche documentaire ou exploration de code isolée en arrière-plan. | Rapport synthétique injecté dans la session principale sans charger le contexte de tokens inutiles. |
+| **`/compact`** | La session approche des 100k tokens avant la fin du cadrage. | Résumé condensé de l'historique pour poursuivre sans dégradation cognitive. |
+
+---
+
+### Exemple Transcript : ask-matt en situation sur le Fil Rouge
+
+Voici une illustration concrète simulant l'aiguillage d'`ask-matt` au sein du domaine de ce manuel (l'atelier d'impression et son moteur de contrôle PDF) :
+
+```text
+> UTILISATEUR :
+/ask-matt Je veux ajouter un contrôle prépresse automatique des marges de découpe
+(bleed de 3 mm) avant de valider un devis d'impression. Par quoi je commence ?
+
+> AGENT (ask-matt) :
+Votre intention introduit une nouvelle règle métier bloquante sur un flux existant.
+Vous êtes dans un dépôt Git structuré. Vous devez rejoindre le Ruban Principal.
+
+1. PROCHAINE COMMANDE À EXÉCUTER :
+   /grill-with-docs "Contrôle prépresse des marges de découpe (bleed 3 mm) au devis"
+
+2. CE QUI VA SE PASSER :
+   - L'agent va inspecter votre domaine de devis actuel et vos entités de commande.
+   - Il va vous interroger UNE question à la fois : Que faire si le PDF n'a pas de zone
+     de fond perdu déclarée (TrimBox/BleedBox) ? Est-ce un rejet strict ou un avertissement
+     avec surcoût de massicotage ?
+   - Les réponses enrichiront CONTEXT.md (glossaire 'Fond perdu', 'Zone de découpe').
+   - Si la règle modifie le calcul du devis de façon irréversible, un ADR sera rédigé
+     dans docs/adr/.
+
+3. PIPELINE COMPLET DE VOTRE TÂCHE :
+   /grill-with-docs ──► /to-prd ──► /to-issues ──► /clear ──► /implement ──► /review
+
+4. PIÈGE MORTEL À ÉVITER :
+   Ne commencez pas à modifier le parseur PDF ni le calcul de devis maintenant.
+   Tant que la règle de rejet (strict vs warning) n'est pas tranchée dans l'interview,
+   toute implémentation sera contestée par le client.
+```
 
 ---
 
@@ -61,7 +164,7 @@ Cette entrée rassemble les compétences qui posent le cadre du projet, vérifie
 - **Entrées / Sorties** : Entretient `CONTEXT.md` (glossaire strict sans code ni spec) et `docs/adr/`.
 - **Règle d'or** : Un ADR n'est rédigé que s'il réunit trois critères stricts : difficile à inverser, surprenant sans contexte, et issu d'un compromis réel.
 
-### [decision-mapping](https://github.com/mattpocock/skills/tree/main/skills/in-progress/decision-mapping)
+### [decision-mapping / wayfinder](https://github.com/mattpocock/skills/tree/main/skills/in-progress/decision-mapping)
 
 - **Rôle & Intention** : Exploration méthodique du « brouillard de guerre » pour les chantiers complexes dépassant le cadre d'une seule session de cadrage.
 - **Invocation** : `user-invoked`.
@@ -106,6 +209,14 @@ Cette entrée regroupe les compétences qui convertissent la réflexion issue du
 - **Quand l'invoquer** : Immédiatement après `/to-prd`.
 - **Entrées / Sorties** : Publie les tickets sur l'issue tracker configuré (GitHub, GitLab, ou Markdown local).
 - **Règle d'or** : Chaque ticket est une **tranche verticale** (*tracer bullet* : traverse schéma, logique, API, UI et test de bout en bout), jamais une tranche horizontale par couche. Ordonnancement strict par dépendances bloquantes.
+
+### [to-questionnaire](https://github.com/mattpocock/skills/tree/main/skills/productivity/to-questionnaire)
+
+- **Rôle & Intention** : Lève les blocages d'exigences lorsque l'information n'est ni dans le code ni dans la tête du développeur, mais chez un tiers extérieur (client, expert métier, collègue).
+- **Invocation** : `user-invoked` (`/to-questionnaire`).
+- **Quand l'invoquer** : Dès qu'une question du grilling fait apparaître une zone d'ombre commerciale, juridique ou organisationnelle insoluble en interne.
+- **Entrées / Sorties** : L'agent vous interroge brièvement sur le destinataire et le besoin d'arbitrage, puis génère un questionnaire Markdown prêt à être transmis.
+- **Règle d'or** : Ne supposez jamais la réponse d'un tiers dans le code. Envoyez le questionnaire et attendez le retour pour réinjecter les faits dans `/grill-with-docs`.
 
 ---
 
@@ -200,7 +311,15 @@ Cette entrée réunit les barrières de péage qualité, le protocole de diagnos
 
 ## Entrée 5 : Outillage Opérationnel & Sécurité
 
-Cette entrée rassemble les garde-fous de sécurité, les assistants guidés pour les démarches manuelles délicates et l'outillage de contexte.
+Cette entrée rassemble les garde-fous de sécurité, les assistants guidés pour les démarches manuelles délicates, le recadrage anti-jargon et l'outillage de contexte.
+
+### [wait-what](https://github.com/mattpocock/skills/tree/main/skills/productivity/wait-what)
+
+- **Rôle & Intention** : Arrêt d'urgence et recadrage immédiat lorsque l'agent part dans du jargon, dérive ou produit une réponse incompréhensible.
+- **Invocation** : `user-invoked` (`/wait-what`).
+- **Quand l'invoquer** : En cours de session, à l'intérieur de n'importe quel autre skill, dès que vous perdez le fil de l'explication de l'agent.
+- **Entrées / Sorties** : L'agent s'arrête instantanément, examine ce qui a causé l'incompréhension, et ré-explique sa position en français simple et direct, en s'appuyant uniquement sur le vocabulaire validé dans `CONTEXT.md`.
+- **Règle d'or** : Ne débattez jamais avec un agent qui a commencé à halluciner ou à jargonner. Invoquez `/wait-what` pour rétablir une base saine avant de continuer.
 
 ### [wizard](https://github.com/mattpocock/skills/tree/main/skills/in-progress/wizard)
 
