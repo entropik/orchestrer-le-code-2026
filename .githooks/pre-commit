@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+set -e
+
+echo "🛡️  Vérification pré-commit (Garde-fous du dépôt)..."
+
+# 1. Vérifier l'absence de fichiers sensibles accidentels (.env, clés privées)
+FORBIDDEN_FILES=$(git diff --cached --name-only | grep -E '(\.env($|\.)|\.pem$|\.key$|id_rsa)' || true)
+if [ -n "$FORBIDDEN_FILES" ]; then
+  echo "❌ ERREUR : Tentative de committer un fichier sensible interdit :" >&2
+  echo "$FORBIDDEN_FILES" >&2
+  exit 1
+fi
+
+# 2. Vérification structurelle (intégrité des sources, manifestes, liens locaux)
+python3.11 scripts/verifier.py
+
+# 3. Vérification de synchronisation du contenu Hugo
+python3.11 scripts/preparer_hugo.py --check
+
+# 4. Exécution de la suite de tests unitaires
+python3.11 -m unittest discover -s tests
+
+echo "✅ Tous les contrôles de pré-commit sont validés."
