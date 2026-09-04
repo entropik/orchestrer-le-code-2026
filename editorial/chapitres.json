@@ -81,7 +81,7 @@
       "fichier": "manuscrit/01-lecture-accessible/05-git-et-collaboration.md",
       "miroir": "manuscrit/02-lecture-ingenieure/05-git-et-collaboration.md",
       "tranche": "tranches/A05-git-et-collaboration.md",
-      "statut": "amorce",
+      "statut": "redaction",
       "dependances": [
         "A04"
       ],
@@ -300,7 +300,7 @@
       "fichier": "manuscrit/02-lecture-ingenieure/05-git-et-collaboration.md",
       "miroir": "manuscrit/01-lecture-accessible/05-git-et-collaboration.md",
       "tranche": "tranches/B05-git-et-collaboration.md",
-      "statut": "amorce",
+      "statut": "redaction",
       "dependances": [
         "A05",
         "B04"

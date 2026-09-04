@@ -6,6 +6,7 @@
 - **Artefact** : résultat construit et identifiable que l'on peut livrer.
 - **CI** : vérifications automatiques déclenchées lors de changements.
 - **Contrat** : description des entrées, résultats, erreurs et garanties d'une interaction.
+- **Git** : système de contrôle de version distribué enregistrant l'historique des modifications sous forme de graphe d'instantanés immuables.
 - **Harnais** : contexte, outils, permissions et contrôles qui entourent le travail d'un agent.
 - **Idempotence** : répétition d'une même opération sans effet métier supplémentaire dans le périmètre défini.
 - **Invariant** : propriété que les opérations du système doivent préserver.

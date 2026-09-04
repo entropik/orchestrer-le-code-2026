@@ -23,6 +23,9 @@ vérifications automatiques déclenchées lors de changements.
 ## Contrat {#contrat}
 
 description des entrées, résultats, erreurs et garanties d'une interaction.
+## Git {#git}
+
+système de contrôle de version distribué enregistrant l'historique des modifications sous forme de graphe d'instantanés immuables.
 ## Harnais {#harnais}
 
 contexte, outils, permissions et contrôles qui entourent le travail d'un agent.
