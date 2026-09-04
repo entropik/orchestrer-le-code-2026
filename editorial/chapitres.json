@@ -171,7 +171,7 @@
       "fichier": "manuscrit/01-lecture-accessible/10-exploitation-et-evolution.md",
       "miroir": "manuscrit/02-lecture-ingenieure/10-exploitation-et-evolution.md",
       "tranche": "tranches/A10-exploitation-et-evolution.md",
-      "statut": "amorce",
+      "statut": "redaction",
       "dependances": [
         "A09"
       ],
@@ -395,7 +395,7 @@
       "fichier": "manuscrit/02-lecture-ingenieure/10-exploitation-et-evolution.md",
       "miroir": "manuscrit/01-lecture-accessible/10-exploitation-et-evolution.md",
       "tranche": "tranches/B10-exploitation-et-evolution.md",
-      "statut": "amorce",
+      "statut": "redaction",
       "dependances": [
         "A10",
         "B09"
