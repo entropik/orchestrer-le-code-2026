@@ -18,6 +18,7 @@ class Page(HTMLParser):
         self.h1 = 0
         self.language = None
         self.title = False
+        self.is_redirect = False
 
     def handle_starttag(self, tag, attrs):
         attrs = dict(attrs)
@@ -29,6 +30,8 @@ class Page(HTMLParser):
             self.language = attrs.get("lang")
         if tag == "title":
             self.title = True
+        if tag == "meta" and attrs.get("http-equiv", "").lower() == "refresh":
+            self.is_redirect = True
         if tag == "a" and "href" in attrs:
             self.links.append(attrs["href"])
             if urlsplit(attrs["href"]).scheme in {"http", "https"} or attrs["href"].startswith("//"):
@@ -51,7 +54,7 @@ def verify_html(directory, base_path="/"):
         pages[path.resolve()] = parsed
         for target in parsed.external_errors:
             errors.append(f"Lien externe sans nouvel onglet protégé : {path.relative_to(directory)} -> {target}")
-        if parsed.h1 != 1 or parsed.language != "fr" or not parsed.title:
+        if not parsed.is_redirect and (parsed.h1 != 1 or parsed.language != "fr" or not parsed.title):
             errors.append(f"Structure HTML incorrecte : {path.relative_to(directory)}")
         for ident, count in Counter(parsed.ids).items():
             if count > 1:

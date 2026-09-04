@@ -20,7 +20,7 @@ En ingénierie assistée par agents, le harnais d'orchestration ne doit jamais �
 
 Les moteurs d'agents appliquent une **règle de précédence stricte** : **le local surcharge toujours le global (*shadowing*)**. Si une compétence porte le même nom au niveau global et dans le dépôt, la version de la couche projet s'impose immédiatement avec ses invariants et ses commandes spécifiques. Cette structure garantit une portabilité totale : le même dossier `.agents/` guide indifféremment Codex, Claude Code, Gemini CLI, Kimi ou les sidecars de Cursor.
 
-La gestion de la mémoire impose enfin une hygiène stricte de la **Smart Zone** (~100k à 120k tokens) : franchir ce seuil de contexte dégrade le raisonnement du modèle. Aux frontières de phases (*Phase boundaries*), l'ingénieur arbitre explicitement entre la continuité, le vidage intégral (`/clear`), la passerelle portative hors dépôt (`/handoff`), la délégation à un sous-agent ou la compression ciblée (`/compact`) (voir la modélisation complète dans la [Matrice des 37 skills et workflows](../03-annexes/guide-des-workflows-agentiques.md)).
+La gestion de la mémoire impose enfin une hygiène stricte de la **Smart Zone** (~100k à 120k tokens) : franchir ce seuil de contexte dégrade le raisonnement du modèle. Aux frontières de phases (*Phase boundaries*), l'ingénieur arbitre explicitement entre la continuité, le vidage intégral (`/clear`), la passerelle portative hors dépôt (`/handoff`), la délégation à un sous-agent ou la compression ciblée (`/compact`) (voir la modélisation complète dans l'[Architecture du harnais](../03-annexes/03-architecture-du-harnais.md) et le [Guide des workflows](../03-annexes/02-guide-des-workflows.md)).
 
 ## Déroulé prévu
 
@@ -41,6 +41,6 @@ Une source périmée ou une instruction embarquée ne peut pas devenir silencieu
 
 ## Sources et limites
 
-[O-MD §4, §5](../../sources/originaux/manuel_orchestration_logicielle.md) ; [I-MD §1.2 à §1.5, §10, §11.5](../../sources/originaux/MANUEL_INGENIERIE_LOGICIELLE_2026_COMPLET.md) ; [Guide des workflows agentiques](../03-annexes/guide-des-workflows-agentiques.md).
+[O-MD §4, §5](../../sources/originaux/manuel_orchestration_logicielle.md) ; [I-MD §1.2 à §1.5, §10, §11.5](../../sources/originaux/MANUEL_INGENIERIE_LOGICIELLE_2026_COMPLET.md) ; [Guide des workflows](../03-annexes/02-guide-des-workflows.md).
 
 Cette amorce est une synthèse éditoriale, pas la preuve d'une implémentation exécutée. Les rectifications et vérifications externes sont consignées dans le [registre critique](../../analyse/03-registre-critique.md). Les exemples techniques restent à développer et à tester dans la tranche.

@@ -53,7 +53,7 @@ Le cas fil rouge de réception de fichier PDF préserve les mêmes acteurs, éta
 ## Déroulé prévu
 
 1. Correspondance détaillée entre ORCHESTRE, les six phases KISS et la chaîne d'outillage des agents.
-2. Le cycle vertical complet : cadrage (`/grill-with-docs`), spécification (`/to-prd`), tranches (`/to-issues`), fabrication sous preuve (`/implement` + `/tdd`) et audit (`/review`) (formalisation exhaustive dans le [Guide des workflows agentiques](/annexes/workflows-agentiques)).
+2. Le cycle vertical complet : cadrage (`/grill-with-docs`), spécification (`/to-prd`), tranches (`/to-issues`), fabrication sous preuve (`/implement` + `/tdd`) et audit (`/review`) (formalisation exhaustive dans le [Guide des workflows](/annexes/workflows)).
 3. Upload et devis d'impression : session, droits, validation de fond perdu (bleed), finalisation et reprise après incident.
 4. Détection de doublons : reproduction causale déterministe, contraintes d'intégrité, migration sans interruption et métriques de production.
 
@@ -67,7 +67,7 @@ Chaque décision de la partie accessible trouve sa justification technique, chaq
 
 ## Sources et limites
 
-[O-MD §5, §11, §12, §13, §14](/references/sources/o-md#section-5) ; [I-MD §9, §10](/references/sources/i-md#section-9) ; [Guide des workflows agentiques](/annexes/workflows-agentiques).
+[O-MD §5, §11, §12, §13, §14](/references/sources/o-md#section-5) ; [I-MD §9, §10](/references/sources/i-md#section-9) ; [Guide des workflows](/annexes/workflows).
 
 Cette amorce est une synthèse éditoriale, pas la preuve d'une implémentation exécutée. Les rectifications et vérifications externes sont consignées dans le [registre critique](/references/registre-critique). Les exemples techniques restent à développer et à tester dans la tranche.
 

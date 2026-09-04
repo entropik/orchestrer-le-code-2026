@@ -12,7 +12,7 @@ description = 'Des savoirs partagés pour apprendre à comprendre, vérifier et 
 repositoryURL = 'https://github.com/entropik/orchestrer-le-code-2026'
 
 [markup.goldmark.renderer]
-unsafe = false
+unsafe = true
 
 # Préserver aussi les apostrophes, guillemets et points des textes originaux.
 [markup.goldmark.extensions.typographer]

@@ -45,7 +45,7 @@ En ingénierie assistée par agents, le harnais d'orchestration ne doit jamais �
 
 Les moteurs d'agents appliquent une **règle de précédence stricte** : **le local surcharge toujours le global (*shadowing*)**. Si une compétence porte le même nom au niveau global et dans le dépôt, la version de la couche projet s'impose immédiatement avec ses invariants et ses commandes spécifiques. Cette structure garantit une portabilité totale : le même dossier `.agents/` guide indifféremment Codex, Claude Code, Gemini CLI, Kimi ou les sidecars de Cursor.
 
-La gestion de la mémoire impose enfin une hygiène stricte de la **Smart Zone** (~100k à 120k tokens) : franchir ce seuil de contexte dégrade le raisonnement du modèle. Aux frontières de phases (*Phase boundaries*), l'ingénieur arbitre explicitement entre la continuité, le vidage intégral (`/clear`), la passerelle portative hors dépôt (`/handoff`), la délégation à un sous-agent ou la compression ciblée (`/compact`) (voir la modélisation complète dans la [Matrice des 37 skills et workflows](/annexes/workflows-agentiques)).
+La gestion de la mémoire impose enfin une hygiène stricte de la **Smart Zone** (~100k à 120k tokens) : franchir ce seuil de contexte dégrade le raisonnement du modèle. Aux frontières de phases (*Phase boundaries*), l'ingénieur arbitre explicitement entre la continuité, le vidage intégral (`/clear`), la passerelle portative hors dépôt (`/handoff`), la délégation à un sous-agent ou la compression ciblée (`/compact`) (voir la modélisation complète dans l'[Architecture du harnais](/annexes/architecture-harnais) et le [Guide des workflows](/annexes/workflows)).
 
 ## Déroulé prévu
 
@@ -66,7 +66,7 @@ Une source périmée ou une instruction embarquée ne peut pas devenir silencieu
 
 ## Sources et limites
 
-[O-MD §4, §5](/references/sources/o-md#section-4) ; [I-MD §1.2 à §1.5, §10, §11.5](/references/sources/i-md#section-1-2) ; [Guide des workflows agentiques](/annexes/workflows-agentiques).
+[O-MD §4, §5](/references/sources/o-md#section-4) ; [I-MD §1.2 à §1.5, §10, §11.5](/references/sources/i-md#section-1-2) ; [Guide des workflows](/annexes/workflows).
 
 Cette amorce est une synthèse éditoriale, pas la preuve d'une implémentation exécutée. Les rectifications et vérifications externes sont consignées dans le [registre critique](/references/registre-critique). Les exemples techniques restent à développer et à tester dans la tranche.
 

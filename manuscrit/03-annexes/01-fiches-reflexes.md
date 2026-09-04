@@ -1,9 +1,4 @@
-{
-  "title": "Fiches réflexes",
-  "source_path": "manuscrit/03-annexes/01-fiches-reflexes.md",
-  "weight": 1,
-  "description": "Listes de contrôle communes pour lancer, vérifier et livrer."
-}
+# Fiches réflexes communes aux deux lectures
 
 Ces listes de contrôle fournissent les garde-fous partagés par le pilotage accessible et l'ingénierie approfondie avant chaque engagement d'action.
 
@@ -41,4 +36,4 @@ Ces listes de contrôle fournissent les garde-fous partagés par le pilotage acc
 
 ---
 
-*Adaptation éditoriale de O-MD §14 et I-MD §10/§12. Pour l'enchaînement opérationnel pas à pas, consulter le [Guide des workflows](/annexes/workflows), l'[Architecture du harnais](/annexes/architecture-harnais) et le [Catalogue des 37 skills](/annexes/catalogue-skills).*
+*Adaptation éditoriale de O-MD §14 et I-MD §10/§12. Pour l'enchaînement opérationnel pas à pas, consulter le [Guide des workflows](02-guide-des-workflows.md), l'[Architecture du harnais](03-architecture-du-harnais.md) et le [Catalogue des 37 skills](04-catalogue-des-skills.md).*

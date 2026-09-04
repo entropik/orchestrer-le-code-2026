@@ -78,7 +78,7 @@
       </div>
 
       <div class="result-footer">
-        <a href="#grill-with-docs" id="sim-anchor-link" class="jump-link">Lire la fiche complète du skill ↓</a>
+        <a href="/annexes/catalogue-skills/#grill-with-docs" id="sim-anchor-link" class="jump-link">Consulter la fiche dépliable du skill →</a>
       </div>
     </div>
   </div>
@@ -455,8 +455,8 @@
     cmdInput.textContent = s.command;
     agentAction.textContent = s.action;
     pitfall.textContent = s.pitfall;
-    anchorLink.href = '#' + s.anchor;
-    anchorLink.textContent = 'Consulter le billet détaillé de ' + s.skill + ' ↓';
+    anchorLink.href = '/annexes/catalogue-skills/#' + s.anchor;
+    anchorLink.textContent = 'Consulter la fiche dépliable de ' + s.skill + ' →';
 
     flowSteps.innerHTML = '';
     s.flow.forEach(item => {

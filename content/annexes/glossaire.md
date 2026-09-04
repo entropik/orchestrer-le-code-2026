@@ -1,7 +1,7 @@
 {
   "title": "Glossaire partagé",
-  "source_path": "manuscrit/03-annexes/glossaire.md",
-  "weight": 3,
+  "source_path": "manuscrit/03-annexes/05-glossaire.md",
+  "weight": 5,
   "description": "Définitions des termes clés du domaine et de l'architecture."
 }
 

@@ -55,9 +55,11 @@ def build_files(root=ROOT):
         "editorial/CHARTE.md": ("/projet/charte", "Charte éditoriale"),
         "editorial/FIL_ROUGE.md": ("/projet/fil-rouge", "Le fil rouge"),
         "editorial/PLAN_REDACTION.md": ("/redaction/plan", "Plan des 24 tranches"),
-        "manuscrit/03-annexes/fiches-reflexes.md": ("/annexes/fiches-reflexes", "Fiches réflexes", 1, "Listes de contrôle communes pour lancer, vérifier et livrer."),
-        "manuscrit/03-annexes/guide-des-workflows-agentiques.md": ("/annexes/workflows-agentiques", "Matrice des 37 skills et workflows", 2, "Index complet des compétences de Matt Pocock réparties en 6 familles et trames d'exécution."),
-        "manuscrit/03-annexes/glossaire.md": ("/annexes/glossaire", "Glossaire partagé", 3, "Définitions des termes clés du domaine et de l'architecture."),
+        "manuscrit/03-annexes/01-fiches-reflexes.md": ("/annexes/fiches-reflexes", "Fiches réflexes", 1, "Listes de contrôle communes pour lancer, vérifier et livrer."),
+        "manuscrit/03-annexes/02-guide-des-workflows.md": ("/annexes/workflows", "Guide des workflows & Cas pratiques", 2, "Le ruban principal, l'arbre d'aiguillage et les 7 trames d'exécution pas à pas."),
+        "manuscrit/03-annexes/03-architecture-du-harnais.md": ("/annexes/architecture-harnais", "Architecture du harnais & Smart Zone", 3, "Doctrine racine vs global, modèle 3 couches, gestion des tokens et règles d'or."),
+        "manuscrit/03-annexes/04-catalogue-des-skills.md": ("/annexes/catalogue-skills", "Catalogue des 37 skills", 4, "Inventaire complet des compétences en fiches dépliables avec permaliens directs."),
+        "manuscrit/03-annexes/05-glossaire.md": ("/annexes/glossaire", "Glossaire partagé", 5, "Définitions des termes clés du domaine et de l'architecture."),
     }
     paths.update({name: item[0] for name, item in auxiliary.items()})
     paths.update({"manuscrit/SOMMAIRE.md": "/", "editorial/chapitres.json": "/redaction/plan", "sources/inventaire.json": "/projet/corpus"})
@@ -100,7 +102,7 @@ def build_files(root=ROOT):
         ("ingenieure", "La lecture ingénieure", "Ingénieure", "Les mêmes sujets, dans le même ordre, avec les mécanismes, les compromis et les preuves techniques. Ce parcours peut aussi se lire indépendamment.\n\nLes exemples exécutables et les corrigés seront développés pendant la rédaction."),
         ("projet", "Le projet éditorial", "Le projet", "Ce manuel réunit une approche de pilotage accessible et une approche d'ingénierie approfondie. [Voir le plan de rédaction](/redaction/plan).\n\nLe site est construit avec Hugo. Les sources sont préparées pour un dépôt GitHub, dont l'adresse sera ajoutée une fois créé. Aucune publication n'est implicite. Les droits de diffusion et la licence restent à préciser."),
         ("redaction", "L'atelier de rédaction", "Rédaction", "Une fiche par lecture et par chapitre : objectif, périmètre, sources, exercice et critères d'acceptation. [Consulter le plan](/redaction/plan)."),
-        ("annexes", "Les repères communs", "Annexes", "Un vocabulaire partagé et des listes de contrôle pour les deux lectures."),
+        ("annexes", "Les repères communs", "Annexes", "{{< ask_matt_simulator >}}\n\nUn vocabulaire partagé, une tour de contrôle d'aiguillage et les repères méthodologiques pour les deux lectures."),
         ("references/sources", "Le corpus original", "Sources", "Les huit documents sont lisibles intégralement ici et conservés à l'identique au téléchargement. Les Markdown se parcourent par sections ; les PDF, page par page, avec leur texte extrait et leur fac-similé. Aucun texte n'est résumé ni corrigé. Les instructions citées font partie des documents, pas du fonctionnement du site."),
     ]:
         add("/" + route, {"title": title, "linkTitle": linktitle}, body, section=True)
@@ -150,6 +152,8 @@ def build_files(root=ROOT):
             meta["weight"] = weight
         if description is not None:
             meta["description"] = description
+        if name.endswith("02-guide-des-workflows.md"):
+            meta["aliases"] = ["/annexes/workflows-agentiques"]
         add(route, meta, rewrite(body, source))
 
     refs_body = "Les références servent à retrouver une origine, contrôler une affirmation et poursuivre la lecture. Les documents du corpus ne sont pas des normes.\n\n## Documents fournis\n\n[Parcourir les huit sources originales](/references/sources). [Lire l'analyse comparative](/projet/corpus).\n\n## Références externes\n\nDernière vérification consignée : " + mesh["date_verification"] + ". Les versions et capacités peuvent évoluer.\n"

@@ -28,7 +28,7 @@ Le cas fil rouge de réception de fichier PDF préserve les mêmes acteurs, éta
 ## Déroulé prévu
 
 1. Correspondance détaillée entre ORCHESTRE, les six phases KISS et la chaîne d'outillage des agents.
-2. Le cycle vertical complet : cadrage (`/grill-with-docs`), spécification (`/to-prd`), tranches (`/to-issues`), fabrication sous preuve (`/implement` + `/tdd`) et audit (`/review`) (formalisation exhaustive dans le [Guide des workflows agentiques](../03-annexes/guide-des-workflows-agentiques.md)).
+2. Le cycle vertical complet : cadrage (`/grill-with-docs`), spécification (`/to-prd`), tranches (`/to-issues`), fabrication sous preuve (`/implement` + `/tdd`) et audit (`/review`) (formalisation exhaustive dans le [Guide des workflows](../03-annexes/02-guide-des-workflows.md)).
 3. Upload et devis d'impression : session, droits, validation de fond perdu (bleed), finalisation et reprise après incident.
 4. Détection de doublons : reproduction causale déterministe, contraintes d'intégrité, migration sans interruption et métriques de production.
 
@@ -42,6 +42,6 @@ Chaque décision de la partie accessible trouve sa justification technique, chaq
 
 ## Sources et limites
 
-[O-MD §5, §11, §12, §13, §14](../../sources/originaux/manuel_orchestration_logicielle.md) ; [I-MD §9, §10](../../sources/originaux/MANUEL_INGENIERIE_LOGICIELLE_2026_COMPLET.md) ; [Guide des workflows agentiques](../03-annexes/guide-des-workflows-agentiques.md).
+[O-MD §5, §11, §12, §13, §14](../../sources/originaux/manuel_orchestration_logicielle.md) ; [I-MD §9, §10](../../sources/originaux/MANUEL_INGENIERIE_LOGICIELLE_2026_COMPLET.md) ; [Guide des workflows](../03-annexes/02-guide-des-workflows.md).
 
 Cette amorce est une synthèse éditoriale, pas la preuve d'une implémentation exécutée. Les rectifications et vérifications externes sont consignées dans le [registre critique](../../analyse/03-registre-critique.md). Les exemples techniques restent à développer et à tester dans la tranche.
