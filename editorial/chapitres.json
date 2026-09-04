@@ -45,7 +45,7 @@
       "fichier": "manuscrit/01-lecture-accessible/03-besoin-et-contrats.md",
       "miroir": "manuscrit/02-lecture-ingenieure/03-besoin-et-contrats.md",
       "tranche": "tranches/A03-besoin-et-contrats.md",
-      "statut": "amorce",
+      "statut": "redaction",
       "dependances": [
         "A02"
       ],
@@ -262,7 +262,7 @@
       "fichier": "manuscrit/02-lecture-ingenieure/03-besoin-et-contrats.md",
       "miroir": "manuscrit/01-lecture-accessible/03-besoin-et-contrats.md",
       "tranche": "tranches/B03-besoin-et-contrats.md",
-      "statut": "amorce",
+      "statut": "redaction",
       "dependances": [
         "A03",
         "B02"
