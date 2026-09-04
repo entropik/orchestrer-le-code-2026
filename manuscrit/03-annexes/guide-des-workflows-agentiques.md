@@ -121,6 +121,89 @@ Vous êtes dans un dépôt Git structuré. Vous devez rejoindre le Ruban Princip
 
 ---
 
+## Déploiement : Racine de Projet (.agents/) ou Configuration Globale (~/.) ?
+
+Une interrogation récurrente lors de l'adoption de ces 37 compétences concerne leur point d'ancrage physique : **faut-il installer les skills à la racine de chaque projet Git (sous `.agents/skills/` ou `.claude/`), ou globalement sur sa machine de travail (sous `~/.gemini/` ou `~/.claude/`) ?**
+
+En ingénierie logicielle appliquée aux agents, il ne s'agit pas d'opposer ces deux approches, mais de mettre en œuvre une **architecture hybride en couches** (*Layered Architecture*).
+
+### Tableau comparatif synthétique
+
+| Critère d'évaluation | À la racine du projet (`.agents/skills/`) | Globalement sur la machine (`~/.`) |
+| :--- | :--- | :--- |
+| **Partage en équipe & Étudiants** | **Immédiat** : un `git clone` suffit pour que tout le monde dispose exactement des mêmes skills. | **Nul** : chaque collaborateur ou apprenant doit installer et configurer sa machine à la main. |
+| **Reproductibilité & Versioning Git** | **Parfait** : les compétences évoluent avec les commits du projet et restent calées sur sa version. | **Risque de dérive** : une mise à jour globale non rétrocompatible peut casser un ancien projet. |
+| **Spécialisation au contexte** | **Totale** : les skills intègrent les commandes exactes du projet (`pytest`, `vitest`, Hugo, conventions d'ADR). | **Générique** : obligé de rester abstrait pour ne pas créer d'effets de bord sur d'autres projets. |
+| **Disponibilité sur nouveaux projets** | Nécessite d'initialiser le dossier `.agents/` sur chaque nouveau dépôt. | **Omniprésent** : disponible instantanément sur n'importe quel scratchpad ou dépôt tiers. |
+| **Maintenance multi-dépôts** | Demande un effort de synchronisation si vous gérez 20 dépôts distincts. | **Centralisée** : une seule mise à jour profite instantanément à tous vos terminaux locaux. |
+| **CI/CD & Agents autonomes** | Les runners distants (GitHub Actions) et conteneurs Docker y ont accès immédiatement. | Inexistant sur les machines distantes ou les serveurs d'intégration continue. |
+
+---
+
+### 1. Pourquoi l'installation à la racine (`.agents/`) est indispensable pour les équipes et les formations
+
+Dans le cadre d'un enseignement technique, de formations partagées (comme sur *savoirs.keredit.com*) ou d'un travail en équipe :
+
+1. **L'élimination radicale du syndrome « Ça marche sur ma machine »** :
+   Si vos compétences résident uniquement dans votre répertoire personnel `~/`, vous faites une démonstration fluide de `/grill-with-docs` en session. Mais dès qu'un apprenant ou un collègue clone le dépôt et tente la même instruction, son agent échoue : soit il ignore la commande, soit il improvise du code non encadré.
+2. **Le concept de « Repository-as-Code »** :
+   En 2026, un dépôt Git moderne ne se limite plus à héberger du code source passif : il embarque son propre **harnais d'orchestration** (`.agents/skills/`, `.agents/rules/`, `CONTEXT.md`). Quiconque rejoint le dépôt hérite instantanément de la discipline, des garde-fous et des rituels méthodologiques de l'équipe.
+3. **L'alignement sur les outils réels du projet** :
+   Chaque projet possède ses propres invariants techniques. Sur ce manuel, la validation repose sur `python3.11 -m unittest` et la compilation sur Hugo. Un skill local `/implement` sait précisément quelles commandes de test exécuter pour administrer la preuve, alors qu'un skill global devrait deviner ou interroger l'utilisateur.
+
+---
+
+### 2. Pourquoi la configuration globale (`~/.`) reste utile au quotidien
+
+Sur votre propre poste de développement personnel :
+
+1. **L'ancrage des réflexes cognitifs universels** :
+   Certaines compétences sont purement méthodologiques et indépendantes de tout langage ou framework :
+   - `/ask-matt` (l'aiguilleur réflexe pour choisir la bonne voie),
+   - `/grill-me` (l'interview exploratoire avant même la création d'un répertoire Git),
+   - `/wait-what` (le bouton d'arrêt d'urgence anti-jargon en cas d'égarement de l'agent),
+   - `/teach` (l'assistant interactif d'apprentissage personnel).
+2. **Le confort immédiat sur les projets ponctuels** :
+   Dès que vous ouvrez un terminal dans `/tmp/` pour tester une idée rapide ou que vous clonez une bibliothèque open-source tierce pour inspecter son code, vous conservez vos habitudes sans devoir initialiser une configuration locale.
+
+---
+
+### 3. La bonne pratique : Le Modèle Hybride en 3 Couches
+
+Les moteurs d'agents contemporains (Antigravity, Claude Code, Cursor, Codex) appliquent une **règle de précédence stricte** : **le local surcharge toujours le global (*shadowing*)**.
+
+Si une compétence `/ask-matt` est définie dans votre `~/.` mais qu'un fichier `.agents/skills/ask-matt/SKILL.md` est présent à la racine du dépôt actif, c'est la version locale du projet qui prend le dessus.
+
+```text
+┌────────────────────────────────────────────────────────────────────────┐
+│ 1. COUCHE GLOBALE (Machine développeur : ~/.gemini/ ou ~/.claude/)    │
+│    - Rôle : Vos réflexes personnels, navigation et apprentissage      │
+│    - Exemples : ask-matt, grill-me, wait-what, teach, obsidian-vault  │
+└───────────────────────────────────┬────────────────────────────────────┘
+                                    │
+                                    ▼ (Surcharge locale prioritaire)
+┌────────────────────────────────────────────────────────────────────────┐
+│ 2. COUCHE PROJET (Dépôt Git : .agents/skills/ à la racine)             │
+│    - Rôle : Gouvernance d'équipe, contrats et preuves de fabrication  │
+│    - Exemples : setup-skills, grill-with-docs, to-prd, to-issues,     │
+│                 implement, tdd, review, diagnosing-bugs, wizard       │
+└───────────────────────────────────┬────────────────────────────────────┘
+                                    │
+                                    ▼
+┌────────────────────────────────────────────────────────────────────────┐
+│ 3. COUCHE RUNTIME / MÉMOIRE VIVE (CONTEXT.md, docs/adr/, tickets)     │
+│    - Rôle : Les artefacts vivants produits par les agents et l'équipe │
+│    - Exemples : Modèle de domaine, ADRs actés, backlog d'issues       │
+└────────────────────────────────────────────────────────────────────────┘
+```
+
+#### En résumé pour votre pratique :
+
+- **Pour vos dépôts partagés, vos projets clients et vos formations** : Déposez systématiquement les compétences clés sous **`.agents/skills/` à la racine** du projet, versionnées dans Git.
+- **Pour votre poste individuel** : Installez la collection complète en global (`claude plugins install mattpocock-skills` ou dans votre dossier utilisateur). Vous profiterez du filet de sécurité partout, tout en laissant vos projets spécialiser leurs propres règles.
+
+---
+
 ## Entrée 1 : Gouvernance du Dépôt & Cadrage Amont
 
 Cette entrée rassemble les compétences qui posent le cadre du projet, vérifient l'existant avant toute création de code, et tiennent à jour la modélisation métier vivante.
