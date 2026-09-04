@@ -1,6 +1,6 @@
 # B01 - Piloter un système, pas une génération de code
 
-Statut : amorce. Cette fiche est prête pour une mission de rédaction ; le chapitre n'est pas déclaré terminé.
+Statut : redaction. Chapitre rédigé conformément au périmètre, harmonisé avec le miroir A01.
 
 ## Mission
 
