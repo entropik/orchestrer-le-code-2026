@@ -12,3 +12,4 @@ resources/_gen/
 .hugo_build.lock
 .wrangler/
 assets/jsconfig.json
+.scratch/
