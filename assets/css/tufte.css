@@ -90,16 +90,47 @@ h2 { font-size: 2rem; }
 }
 .reader-sidebar { font-size: .78rem; padding-right: 1.1rem; }
 .reader-sidebar .eyebrow { font-size: .65rem; }
-.reader-sidebar li a { padding: .5rem .55rem; gap: .65rem; }
+.reader-sidebar li a { display: block; padding: .35rem .5rem; color: var(--muted); text-decoration: none; line-height: 1.4; border-radius: 2px; }
+.reader-sidebar nav[aria-label="Chapitres de cette lecture"] li a,
+.reader-sidebar ol li a { display: flex; align-items: baseline; gap: .65rem; padding: .5rem .55rem; }
 .reader-sidebar a[aria-current=page] { background: transparent; box-shadow: inset 1px 0 var(--ink); color: var(--ink); }
+
+/* Sommaire dans la barre latérale (#TableOfContents) pour les annexes et références */
+.reader-sidebar #TableOfContents { font-size: .78rem; line-height: 1.42; margin-top: .4rem; }
+.reader-sidebar #TableOfContents ul { list-style: none; padding: 0; margin: 0; }
+.reader-sidebar #TableOfContents li { margin: 0 0 .32rem 0; }
+.reader-sidebar #TableOfContents li a { display: block; padding: .32rem .5rem; color: var(--muted); text-decoration: none; line-height: 1.4; border-radius: 2px; overflow-wrap: break-word; }
+.reader-sidebar #TableOfContents li a:hover { color: var(--accent); background: var(--surface); }
+.reader-sidebar #TableOfContents code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: .84em; background: rgba(0, 0, 0, .05); padding: .08rem .3rem; border-radius: 2px; vertical-align: baseline; }
+.reader-sidebar #TableOfContents em { font-style: italic; }
+.reader-sidebar #TableOfContents > ul > li > a { font-weight: 500; color: var(--ink); padding: .35rem .5rem; }
+.reader-sidebar #TableOfContents > ul > li > a:hover { color: var(--accent); }
+.reader-sidebar #TableOfContents ul ul { margin: .2rem 0 .35rem .35rem; padding-left: .75rem; border-left: 1.5px solid var(--line); }
+.reader-sidebar #TableOfContents ul ul li { margin-bottom: .22rem; }
+.reader-sidebar #TableOfContents ul ul li a { font-weight: 400; font-size: .73rem; line-height: 1.35; color: var(--muted); padding: .25rem .45rem; }
+.reader-sidebar #TableOfContents ul ul li a:hover { color: var(--accent); background: var(--surface); }
+.reader-sidebar #TableOfContents ul ul ul { margin: .15rem 0 .3rem .25rem; padding-left: .65rem; border-left: 1px dashed var(--line); }
+.reader-sidebar #TableOfContents ul ul ul li a { font-size: .7rem; color: #767268; }
+
 .breadcrumb { margin-bottom: 2.8rem; }
 .article-header { max-width: var(--reading-width); }
 .article-header h1 { margin-bottom: 1.7rem; }
 .article-header .eyebrow { margin-bottom: 1.4rem; }
 .status-badge { background: transparent; border: none; border-bottom: 1px solid var(--line); border-radius: 0; padding: 0 0 .1rem; }
 .mirror-link { font-family: var(--serif); font-size: 1.25rem; font-style: italic; color: var(--ink); margin-top: 1.3rem; }
-.local-toc { max-width: var(--reading-width); margin: 2.1rem 0 2.7rem; border-bottom: 0; padding-top: 1rem; }
-.local-toc summary { font-size: .78rem; }
+.local-toc { max-width: var(--reading-width); margin: 2.1rem 0 2.7rem; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: .9rem 0; }
+.local-toc summary { font-size: .78rem; cursor: pointer; font-family: var(--sans); font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--accent); }
+.local-toc #TableOfContents { margin-top: .8rem; font-size: .84rem; }
+.local-toc #TableOfContents ul { list-style: none; padding: 0; margin: 0; }
+.local-toc #TableOfContents li { margin: .3rem 0; }
+.local-toc #TableOfContents li a { display: block; color: var(--ink); text-decoration: none; line-height: 1.45; padding: .2rem 0; overflow-wrap: break-word; }
+.local-toc #TableOfContents li a:hover { color: var(--accent); text-decoration: underline; }
+.local-toc #TableOfContents code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: .84em; background: var(--surface); padding: .08rem .3rem; border-radius: 2px; }
+.local-toc #TableOfContents em { font-style: italic; }
+.local-toc #TableOfContents > ul > li > a { font-weight: 500; }
+.local-toc #TableOfContents ul ul { margin: .2rem 0 .4rem; padding-left: 1.1rem; border-left: 1.5px solid var(--line); }
+.local-toc #TableOfContents ul ul li a { font-size: .8rem; color: var(--muted); }
+.local-toc #TableOfContents ul ul li a:hover { color: var(--accent); }
 .reading-body { min-width: 0; }
 .prose { font-size: 1.4rem; line-height: 1.55; max-width: var(--reading-width); min-width: 0; }
 .prose p { margin-bottom: 1.35rem; }
