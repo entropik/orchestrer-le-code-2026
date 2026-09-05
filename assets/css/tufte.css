@@ -41,7 +41,7 @@ h2 { font-size: 2rem; }
 .eyebrow { font-weight: 500; letter-spacing: .16em; }
 
 /* Un titre courant discret, comme en tête d'un ouvrage. */
-.site-header { max-width: 1400px; padding: 1.4rem 2.5rem; }
+.site-header { max-width: 1540px; padding: 1.4rem 2.5rem; }
 .brand { font-weight: 400; }
 .brand-mark {
   width: auto;
@@ -83,14 +83,14 @@ h2 { font-size: 2rem; }
 
 /* Le corps du livre et, lorsqu'il y a la place, sa marge documentaire. */
 .reader-layout {
-  max-width: 1480px;
+  max-width: 1580px;
   padding: 3.5rem 2.5rem;
-  grid-template-columns: 205px minmax(0, 1040px);
-  gap: clamp(2rem, 4vw, 4.5rem);
+  grid-template-columns: 280px minmax(0, 1160px);
+  gap: clamp(2rem, 3.5vw, 4rem);
 }
-.reader-sidebar { font-size: .74rem; padding-right: .4rem; }
-.reader-sidebar .eyebrow { font-size: .62rem; }
-.reader-sidebar li a { padding: .48rem .45rem; }
+.reader-sidebar { font-size: .78rem; padding-right: 1.1rem; }
+.reader-sidebar .eyebrow { font-size: .65rem; }
+.reader-sidebar li a { padding: .5rem .55rem; gap: .65rem; }
 .reader-sidebar a[aria-current=page] { background: transparent; box-shadow: inset 1px 0 var(--ink); color: var(--ink); }
 .breadcrumb { margin-bottom: 2.8rem; }
 .article-header { max-width: var(--reading-width); }
@@ -153,7 +153,7 @@ h2 { font-size: 2rem; }
 .related a span { font-family: var(--sans); font-size: .67rem; }
 .chapter-pagination a { font-family: var(--serif); font-size: 1.2rem; line-height: 1.35; }
 .chapter-pagination small { font-family: var(--sans); font-size: .65rem; }
-.site-footer { max-width: 1320px; }
+.site-footer { max-width: 1540px; }
 
 /* Carmin éditorial : titres et états actifs, liens couleur encre au repos.
    L'impression conserve son rendu monochrome. */
@@ -174,13 +174,16 @@ h2 { font-size: 2rem; }
   .reader-sidebar a[aria-current=page]:hover { color: var(--accent); }
 }
 
-@media (min-width: 1200px) {
-  .with-margin { display: grid; grid-template-columns: minmax(0, 800px) minmax(140px, 170px); gap: 2rem; }
+@media (min-width: 1360px) {
+  .with-margin { display: grid; grid-template-columns: minmax(0, 800px) minmax(200px, 280px); gap: clamp(2rem, 3vw, 3.5rem); }
   .reading-notes { align-self: start; padding-top: .4rem; }
   .reading-notes .notions { margin-top: 0; border-top: 0; padding-top: 0; }
   .reading-notes .notions ul { display: block; }
   .reading-notes .notions li { margin: .4rem 0; }
   .margin-reference { margin-top: 2.4rem; }
+}
+@media (min-width: 961px) and (max-width: 1359px) {
+  .reader-layout { grid-template-columns: 240px minmax(0, 1fr); gap: 2.5rem; }
 }
 .reading-paths { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 @media (max-width: 960px) {
