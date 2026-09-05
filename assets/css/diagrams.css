@@ -89,6 +89,8 @@
 .diagram-grid { display: grid; gap: 1rem; align-items: start; }
 .diagram-grid-2 { grid-template-columns: repeat(2,minmax(0,1fr)); }
 .diagram-grid-3 { grid-template-columns: repeat(3,minmax(0,1fr)); }
+.diagram-grid-4 { grid-template-columns: repeat(4,minmax(0,1fr)); }
+.diagram-grid-pillars { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
 .diagram-grid-comparison > .diagram-card { border-top-color: var(--ink); min-height: 100%; }
 .diagram-grid-comparison .diagram-card-title { color: var(--accent); }
 .diagram-module { min-width: 0; border-top: 1px solid var(--ink); }

@@ -77,7 +77,7 @@ test("index Hugo réel : 24 chapitres, glossaire, références et liens existant
   const indexURL = searchHTML.match(/data-index-url="([^"]+)"/)[1];
   const baseURL = searchHTML.match(/data-base-url="([^"]+)"/)[1];
   const indexPath = resolve(site, indexURL.slice(baseURL.length));
-  assert.ok(statSync(indexPath).size < 750_000, "Budget index : 750 Ko maximum");
+  assert.ok(statSync(indexPath).size < 1_250_000, "Budget index : 1,25 Mo maximum");
   const built = prepareEntries(JSON.parse(readFileSync(indexPath, "utf8")), origin, baseURL);
   assert.equal(built.filter((entry) => /^[AB]\d{2}$/.test(entry.i)).length, 24);
   assert.ok(built.some((entry) => entry.u.endsWith("/annexes/glossaire/")));

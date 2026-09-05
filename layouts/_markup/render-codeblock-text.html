@@ -1,5 +1,10 @@
 {{- $digest := crypto.SHA256 (printf "%s\n" .Inner) -}}
 {{- $diagram := index hugo.Data.diagrams.registry $digest -}}
+{{- if not $diagram -}}
+  {{- with hugo.Data.diagrams.manuscrit -}}
+    {{- $diagram = index . $digest -}}
+  {{- end -}}
+{{- end -}}
 {{- if $diagram -}}
   {{- if eq $diagram.kind "harnais" -}}
     {{- partial "diagrams/harnais.html" (dict "diagram" hugo.Data.diagrams.harnais "original" .Inner) -}}

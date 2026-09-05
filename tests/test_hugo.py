@@ -1,4 +1,6 @@
+import hashlib
 import json
+import re
 import sys
 import tempfile
 import unittest
@@ -18,6 +20,23 @@ class HugoTests(unittest.TestCase):
     def test_content_synchronised(self):
         for name, content in self.files.items():
             self.assertEqual((ROOT / name).read_text(encoding="utf-8"), content, name)
+
+    def test_all_manuscrit_ascii_diagrams_transposed(self):
+        manuscrit_diagrams = json.loads(self.files["data/diagrams/manuscrit.json"])
+        self.assertEqual(len(manuscrit_diagrams), 59)
+        for sha, diag in manuscrit_diagrams.items():
+            self.assertEqual(len(sha), 64)
+            self.assertEqual(sha, diag["source_sha256"])
+            self.assertTrue(diag["id"])
+            self.assertTrue(diag["title"])
+            card_count = len(diag["parts"]) if len(diag["parts"]) >= 2 else len(diag["parts"][0].get("items", []))
+            self.assertGreaterEqual(card_count, 2)
+        found_hashes = set()
+        for path in (ROOT / "manuscrit").rglob("*.md"):
+            for m in re.finditer(r"```text\n(.*?)```", path.read_text(encoding="utf-8"), re.DOTALL):
+                if any(c in m[1] for c in "┌┬└┼─│"):
+                    found_hashes.add(hashlib.sha256(m[1].encode()).hexdigest())
+        self.assertEqual(found_hashes, set(manuscrit_diagrams.keys()))
 
     def test_twelve_pairs_with_symmetric_mirrors(self):
         decoder = json.JSONDecoder()

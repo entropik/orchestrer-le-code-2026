@@ -1,0 +1,2772 @@
+{
+  "5eee210ab69328fb576630df274349e5bf361e8e54e3b119b783e264fca8e6ad": {
+    "id": "01-piloter-un-systeme-5eee210a",
+    "title": "SCHÉMA DU SYSTÈME",
+    "source_sha256": "5eee210ab69328fb576630df274349e5bf361e8e54e3b119b783e264fca8e6ad",
+    "parts": [
+      {
+        "kind": "grid",
+        "items": [
+          {
+            "kind": "node",
+            "title": "1. RECEVOIR",
+            "lines": [
+              "Une intention qui entre"
+            ]
+          },
+          {
+            "kind": "node",
+            "title": "2. VALIDER",
+            "lines": [
+              "Le contrôle de légitimité"
+            ]
+          },
+          {
+            "kind": "node",
+            "title": "3. TRANSFORMER",
+            "lines": [
+              "Le calcul ou la recette"
+            ]
+          },
+          {
+            "kind": "node",
+            "title": "4. PERSISTER / RÉPONDRE",
+            "lines": [
+              "L'armoire forte ou la trace durable"
+            ]
+          }
+        ],
+        "style": "comparison"
+      }
+    ]
+  },
+  "f08e5f30756ae9cc5fbbd0917a9afab50c6355b510fbfaa8124b2a3aa01f21ce": {
+    "id": "1-le-guichet-presentation",
+    "title": "1. LE GUICHET (Présentation)",
+    "source_sha256": "f08e5f30756ae9cc5fbbd0917a9afab50c6355b510fbfaa8124b2a3aa01f21ce",
+    "parts": [
+      {
+        "kind": "node",
+        "title": "1. LE GUICHET (Présentation)",
+        "lines": [
+          "L'écran que l'utilisateur voit, touche et clique.",
+          "Rôle : Accueillir poliment, afficher les données, capter l'action."
+        ]
+      },
+      {
+        "kind": "arrow",
+        "label": "",
+        "direction": "down"
+      },
+      {
+        "kind": "node",
+        "title": "2. LE CHEF DE BUREAU (Application)",
+        "lines": [
+          "L'orchestrateur des démarches : \"Créer un devis\", \"Régler facture\".",
+          "Rôle : Coordonner les étapes sans faire les calculs lui-même."
+        ]
+      },
+      {
+        "kind": "arrow",
+        "label": "",
+        "direction": "down"
+      },
+      {
+        "kind": "node",
+        "title": "3. LE REGISTRE DES RÈGLES (Domaine)",
+        "lines": [
+          "Le cœur souverain de ton métier.",
+          "Rôle : Calculer, vérifier les règles d'or, appliquer les lois."
+        ]
+      },
+      {
+        "kind": "arrow",
+        "label": "",
+        "direction": "down"
+      },
+      {
+        "kind": "node",
+        "title": "4. L'ARMOIRE FORTE & LES COURSIERS (Infrastructure)",
+        "lines": [
+          "Le stockage physique et les liaisons avec le monde extérieur.",
+          "Rôle : Disque dur, base de données, envoi de SMS, terminaux bancaires"
+        ]
+      }
+    ]
+  },
+  "1918cedebb260b8ac9fc135f316d7d709bdad30a197f9a4fe3a5e2102022725a": {
+    "id": "piece-du-systeme-mission-attribuee-et-ce-qui-lui-est-interdit",
+    "title": "PIÈCE DU SYSTÈME        │ MISSION ATTRIBUÉE (ET CE QUI LUI EST INTERDIT)",
+    "source_sha256": "1918cedebb260b8ac9fc135f316d7d709bdad30a197f9a4fe3a5e2102022725a",
+    "parts": [
+      {
+        "kind": "node",
+        "title": "PIÈCE DU SYSTÈME        │ MISSION ATTRIBUÉE (ET CE QUI LUI EST INTERDIT)",
+        "lines": []
+      },
+      {
+        "kind": "arrow",
+        "label": "",
+        "direction": "down"
+      },
+      {
+        "kind": "node",
+        "title": "1. Guichet Web          │ Affiche la jauge de dépôt.",
+        "lines": [
+          "(Présentation)       │ INTERDIT : Ne calcule aucun tarif, ne touche pas au SQL"
+        ]
+      },
+      {
+        "kind": "arrow",
+        "label": "",
+        "direction": "down"
+      },
+      {
+        "kind": "node",
+        "title": "2. Scénario Déposer     │ Coordonne : réceptionne le flux, sollicite le devis,",
+        "lines": [
+          "(Application)        │ commande l'archivage, puis déclenche la confirmation."
+        ]
+      },
+      {
+        "kind": "arrow",
+        "label": "",
+        "direction": "down"
+      },
+      {
+        "kind": "node",
+        "title": "3. Règle Tarifaire      │ Calcule le montant exact selon la taille et le format.",
+        "lines": [
+          "(Domaine)            │ INTERDIT : Ne sait pas comment le fichier est stocké."
+        ]
+      },
+      {
+        "kind": "arrow",
+        "label": "",
+        "direction": "down"
+      },
+      {
+        "kind": "node",
+        "title": "4. Adaptateur Disque    │ Enregistre physiquement les octets et calcule le SHA.",
+        "lines": [
+          "(Infrastructure)     │ INTERDIT : N'a aucun avis sur le prix du document."
+        ]
+      }
+    ]
+  },
+  "ee71b22587299e22b519248ee3ff1fdeec063a1f930913ffe7709fe7de294466": {
+    "id": "conception-horizontale-a-proscrire-tranche-verticale-methode-du-pilote",
+    "title": "CONCEPTION HORIZONTALE (À PROSCRIRE)      TRANCHE VERTICALE (MÉTHODE DU PILOTE)",
+    "source_sha256": "ee71b22587299e22b519248ee3ff1fdeec063a1f930913ffe7709fe7de294466",
+    "parts": [
+      {
+        "kind": "grid",
+        "items": [
+          {
+            "kind": "node",
+            "title": "CONCEPTION HORIZONTALE (À PROSCRIRE)",
+            "lines": [
+              "Tous les écrans du site (Mois 1)",
+              "Tous les formulaires (Mois 2)",
+              "Toutes les tables SQL (Mois 3)",
+              "Effet tunnel : rien n'est testable ni démontrable avant la fin"
+            ]
+          },
+          {
+            "kind": "node",
+            "title": "TRANCHE VERTICALE (MÉTHODE DU PILOTE)",
+            "lines": [
+              "Un seul écran + sa validation + sa table",
+              "Livré et prouvé en 2 jours",
+              "Valeur immédiate et testable de bout en bout"
+            ]
+          }
+        ],
+        "style": "comparison"
+      }
+    ]
+  },
+  "700c2780ea681e82da1ca0790af9e8644686498e7d8b559f08d2224de25d8470": {
+    "id": "1-l-intention",
+    "title": "1. L'INTENTION",
+    "source_sha256": "700c2780ea681e82da1ca0790af9e8644686498e7d8b559f08d2224de25d8470",
+    "parts": [
+      {
+        "kind": "node",
+        "title": "1. L'INTENTION",
+        "lines": [
+          "Pour qui ce travail est-il fait ? Quel problème résout-il ?",
+          "Quel est le bénéfice concret et immédiat ?"
+        ]
+      },
+      {
+        "kind": "arrow",
+        "label": "",
+        "direction": "down"
+      },
+      {
+        "kind": "node",
+        "title": "2. LE SCÉNARIO NOMINAL",
+        "lines": [
+          "Le chemin idyllique par beau temps, étape par étape :",
+          "« L'utilisateur clique sur X -> Le système vérifie Y ->",
+          "Le document Z est créé »."
+        ]
+      },
+      {
+        "kind": "arrow",
+        "label": "",
+        "direction": "down"
+      },
+      {
+        "kind": "node",
+        "title": "3. LES RÈGLES D'OR",
+        "lines": [
+          "Les calculs précis, les plafonds, les autorisations et les formats.",
+          "(Chiffres exacts, unités sans ambiguïté)."
+        ]
+      },
+      {
+        "kind": "arrow",
+        "label": "",
+        "direction": "down"
+      },
+      {
+        "kind": "node",
+        "title": "4. LES CAS LIMITES & INCIDENTS",
+        "lines": [
+          "Que fait le système en cas de coupure de réseau, de fichier corrompu",
+          "ou de double-clic frénétique sur le bouton de paiement ?"
+        ]
+      },
+      {
+        "kind": "arrow",
+        "label": "",
+        "direction": "down"
+      },
+      {
+        "kind": "node",
+        "title": "5. LES CRITÈRES D'ACCEPTATION OBSERVABLES",
+        "lines": [
+          "La liste des tests que n'importe qui peut observer sur son écran",
+          "pour prouver que le travail est réellement achevé."
+        ]
+      },
+      {
+        "kind": "arrow",
+        "label": "",
+        "direction": "down"
+      },
+      {
+        "kind": "node",
+        "title": "6. LE HORS PÉRIMÈTRE EXPLICITE",
+        "lines": [
+          "La liste sacrée de ce que cette tranche NE DOIT PAS faire.",
+          "(Évite que l'agent ne passe sa nuit à inventer des options inutiles)"
+        ]
+      }
+    ]
+  },
+  "03a8537084b95c10765cea7466cb38194bf19699672459aa57db3532c642876f": {
+    "id": "les-trois-cercles-du-contexte",
+    "title": "LES TROIS CERCLES DU CONTEXTE",
+    "source_sha256": "03a8537084b95c10765cea7466cb38194bf19699672459aa57db3532c642876f",
+    "parts": [
+      {
+        "kind": "node",
+        "title": "1. LE CERCLE SACRÉ (Toujours présent, ultra-court)",
+        "lines": [
+          "Le glossaire des termes métier ([CONTEXT.md](05-glossaire.md))",
+          "Les trois règles d'or architecturales",
+          "La commande officielle de vérification"
+        ]
+      },
+      {
+        "kind": "arrow",
+        "label": "",
+        "direction": "down"
+      },
+      {
+        "kind": "node",
+        "title": "2. LE CERCLE DE LA MISSION (Spécifique à la tâche)",
+        "lines": [
+          "La fiche de tranche du jour (ex: réception devis)",
+          "Les deux ou trois fichiers directement impactés",
+          "Le critère de test attendu"
+        ]
+      },
+      {
+        "kind": "arrow",
+        "label": "",
+        "direction": "down"
+      },
+      {
+        "kind": "node",
+        "title": "3. LE CERCLE EXTÉRIEUR (Consultable à la demande)",
+        "lines": [
+          "Les manuels complets et documentations d'API",
+          "L'historique des anciennes versions",
+          "Les registres de décisions passées ([ADR](../03-annexes/03-architecture-du-harnais.md))"
+        ]
+      }
+    ]
+  },
+  "b091f3275dc2deebfadd889710ba2195ac305cd3641d377751ee9624fb0ce436": {
+    "id": "le-protocole-de-session-en-4-temps",
+    "title": "LE PROTOCOLE DE SESSION EN 4 TEMPS",
+    "source_sha256": "b091f3275dc2deebfadd889710ba2195ac305cd3641d377751ee9624fb0ce436",
+    "parts": [
+      {
+        "kind": "node",
+        "title": "1. L'ENQUÊTE SANS RETOUCHE ──────► « Analyse les fichiers A et B et explique-moi",
+        "lines": [
+          "(Zéro modification de code)      comment ils fonctionnent aujourd'hui. »"
+        ]
+      },
+      {
+        "kind": "arrow",
+        "label": "",
+        "direction": "down"
+      },
+      {
+        "kind": "node",
+        "title": "2. LA PROPOSITION DE PLAN  ──────► « Propose un plan de modification en trois étapes",
+        "lines": [
+          "(Arbitrage par le pilote)        avec la liste exacte des fichiers touchés. »"
+        ]
+      },
+      {
+        "kind": "arrow",
+        "label": "",
+        "direction": "down"
+      },
+      {
+        "kind": "node",
+        "title": "3. L'EXÉCUTION SOUS GARDE-FOUS ──► « Applique l'étape 1 du plan et lance le test",
+        "lines": [
+          "(Modification chirurgicale)      pour me prouver que rien n'est cassé. »"
+        ]
+      },
+      {
+        "kind": "arrow",
+        "label": "",
+        "direction": "down"
+      },
+      {
+        "kind": "node",
+        "title": "4. LE COMPTE RENDU HONNÊTE  ────► « Résume ce qui a changé, ce qui a été prouvé",
+        "lines": [
+          "(Acceptation finale)             et les limites qui restent à traiter. »"
+        ]
+      }
+    ]
+  },
+  "bd8c07b7c7260133807a5e030c5b3f7308ce68c428562e6bfc196ce5864447dd": {
+    "id": "la-chaine-des-quatre-actes-de-fabrication",
+    "title": "LA CHAÎNE DES QUATRE ACTES DE FABRICATION",
+    "source_sha256": "bd8c07b7c7260133807a5e030c5b3f7308ce68c428562e6bfc196ce5864447dd",
+    "parts": [
+      {
+        "kind": "node",
+        "title": "1. LE COMMIT (Enregistrer chez soi)",
+        "lines": [
+          "L'agent prend un Polaroïd daté de son travail sur son propre ordinateur.",
+          "► Visible UNIQUEMENT sur la machine locale. Rien n'a encore quitté le poste."
+        ]
+      },
+      {
+        "kind": "arrow",
+        "label": "",
+        "direction": "down"
+      },
+      {
+        "kind": "node",
+        "title": "2. LE PUSH (Déposer au coffre partagé)",
+        "lines": [
+          "L'agent envoie ses Polaroïds vers le serveur central (GitHub, GitLab).",
+          "► Le travail est sauvegardé et visible par l'équipe, mais PAS par les clients."
+        ]
+      },
+      {
+        "kind": "arrow",
+        "label": "",
+        "direction": "down"
+      },
+      {
+        "kind": "node",
+        "title": "3. LA PULL REQUEST (Le dossier de plaidoirie)",
+        "lines": [
+          "L'agent dépose son dossier sur ton bureau : \"Voici mes changements et mes preuves\".",
+          "► C'est la table d'arbitrage où l'humain lit, commente, valide ou rejette."
+        ]
+      },
+      {
+        "kind": "arrow",
+        "label": "",
+        "direction": "down"
+      },
+      {
+        "kind": "node",
+        "title": "4. LE DÉPLOIEMENT (Mettre en service pour le monde)",
+        "lines": [
+          "Une fois le dossier accepté (fusionné / merged), le code part sur les serveurs réels.",
+          "► C'est le SEUL moment où tes clients voient le nouveau bouton sur leurs écrans."
+        ]
+      }
+    ]
+  },
+  "eaccf9483bfd2de831351d4c1f51317c6cb00279fef62fbf549c7b6fad98fc88": {
+    "id": "l-angle-mort-des-tests-incomplets",
+    "title": "L'ANGLE MORT DES TESTS INCOMPLETS",
+    "source_sha256": "eaccf9483bfd2de831351d4c1f51317c6cb00279fef62fbf549c7b6fad98fc88",
+    "parts": [
+      {
+        "kind": "node",
+        "title": "[✓] Le bouton \"Payer\" est cliquable.",
+        "lines": [
+          "[✓] La page affiche un accusé de réception."
+        ]
+      },
+      {
+        "kind": "arrow",
+        "label": "",
+        "direction": "down"
+      },
+      {
+        "kind": "node",
+        "title": "[!] Si le client double-clique, est-il débité deux fois ?",
+        "lines": [
+          "[!] Le paiement est-il enregistré si la connexion coupe à la 99e milliseconde ?",
+          "[!] L'utilisateur B peut-il consulter la commande de l'utilisateur A ?"
+        ]
+      }
+    ]
+  },
+  "a297aa6b82fe29ef156fc5a45a90adfbcf55bac8bf9161b08be9511249572f05": {
+    "id": "la-boucle-rouge-verte-du-pilote",
+    "title": "LA BOUCLE ROUGE - VERTE DU PILOTE",
+    "source_sha256": "a297aa6b82fe29ef156fc5a45a90adfbcf55bac8bf9161b08be9511249572f05",
+    "parts": [
+      {
+        "kind": "node",
+        "title": "ÉTAPE 1 : PROUVER LA PANNE (LE ROUGE)",
+        "lines": [
+          "L'agent écrit un test qui reproduit fidèlement le problème signalé.",
+          "► Le test doit ÉCHOUER.",
+          "(Preuve formelle que le système est actuellement défaillant)."
+        ]
+      },
+      {
+        "kind": "arrow",
+        "label": "",
+        "direction": "down"
+      },
+      {
+        "kind": "node",
+        "title": "ÉTAPE 2 : APPLIQUER LA RÉPARATION (LE VERT)",
+        "lines": [
+          "L'agent modifie la logique interne pour corriger le comportement.",
+          "► Le test doit RÉUSSIR.",
+          "(Preuve mécanique que la défaillance est éliminée)."
+        ]
+      },
+      {
+        "kind": "arrow",
+        "label": "",
+        "direction": "down"
+      },
+      {
+        "kind": "node",
+        "title": "ÉTAPE 3 : GARDER LE GARDE-FOU PERMANENT",
+        "lines": [
+          "Le test reste définitivement dans le projet.",
+          "(Si un futur agent réintroduit le même bug dans six mois, le test hurlera immédiatement)."
+        ]
+      }
+    ]
+  },
+  "06bd4c70611a713ad3fa6e5feaa194f51fb3ac26eafea1ba72b6af197102582d": {
+    "id": "le-cycle-de-vie-d-une-tache-differee",
+    "title": "LE CYCLE DE VIE D'UNE TÂCHE DIFFÉRÉE",
+    "source_sha256": "06bd4c70611a713ad3fa6e5feaa194f51fb3ac26eafea1ba72b6af197102582d",
+    "parts": [
+      {
+        "kind": "node",
+        "title": "1. REÇU (Ticket créé en 1 seconde)",
+        "lines": [
+          "« Votre document de 45 Mo a bien été réceptionné sous la référence #892. »",
+          "► L'utilisateur est rassuré immédiatement et peut quitter la page."
+        ]
+      },
+      {
+        "kind": "arrow",
+        "label": "",
+        "direction": "down"
+      },
+      {
+        "kind": "node",
+        "title": "2. EN COURS DE TRAITEMENT (En cuisine)",
+        "lines": [
+          "« Notre atelier vérifie la conformité des polices et des marges... »",
+          "► Une jauge ou un message signale que le système travaille activement."
+        ]
+      },
+      {
+        "kind": "arrow",
+        "label": "",
+        "direction": "down"
+      },
+      {
+        "kind": "node",
+        "title": "3. VALIDÉ (Succès)      4. EN DIFFICULTÉ / REJETÉ (Échec documenté)",
+        "lines": [
+          "« Document certifié ! » « Erreur : Le fichier dépasse le format autorisé. »"
+        ]
+      }
+    ]
+  },
+  "95b5cd60099baf9824f1fdeff823c0636252ec552f057960bf0b1d2e6b0d3f05": {
+    "id": "les-trois-phases-d-une-migration-sans-coupure-expand-contract",
+    "title": "LES TROIS PHASES D'UNE MIGRATION SANS COUPURE (EXPAND-CONTRACT)",
+    "source_sha256": "95b5cd60099baf9824f1fdeff823c0636252ec552f057960bf0b1d2e6b0d3f05",
+    "parts": [
+      {
+        "kind": "node",
+        "title": "PHASE 1 : ÉLARGIR (EXPAND)",
+        "lines": [
+          "On ajoute les nouvelles colonnes (\"prenom\", \"nom\") à côté de l'ancienne.",
+          "► L'application actuelle continue de tourner sans s'apercevoir de rien."
+        ]
+      },
+      {
+        "kind": "arrow",
+        "label": "",
+        "direction": "down"
+      },
+      {
+        "kind": "node",
+        "title": "PHASE 2 : TRANSITER (DOUBLE ÉCRITURE & REMPLISSAGE)",
+        "lines": [
+          "La nouvelle version du code est déployée :",
+          "Tout nouveau client est écrit dans l'ANCIEN ET le NOUVEAU format.",
+          "Un petit robot d'arrière-plan recopie tranquillement les 50 000 anciens dossiers."
+        ]
+      },
+      {
+        "kind": "arrow",
+        "label": "",
+        "direction": "down"
+      },
+      {
+        "kind": "node",
+        "title": "PHASE 3 : CONTRACTER (CONTRACT)",
+        "lines": [
+          "Une fois que 100 % des données sont vérifiées dans le nouveau format :",
+          "L'application bascule exclusivement sur le nouveau rangement.",
+          "On supprime proprement l'ancienne colonne devenue inutile."
+        ]
+      }
+    ]
+  },
+  "ceb3e065401b34ff480b609076953dd4427739c0cc07f63cf649d52a1fcb64a4": {
+    "id": "les-deux-cadrans-de-la-securite-des-donnees",
+    "title": "LES DEUX CADRANS DE LA SÉCURITÉ DES DONNÉES",
+    "source_sha256": "ceb3e065401b34ff480b609076953dd4427739c0cc07f63cf649d52a1fcb64a4",
+    "parts": [
+      {
+        "kind": "grid",
+        "items": [
+          {
+            "kind": "node",
+            "title": "RPO (Recovery Point Objective)",
+            "lines": [
+              "« Combien de données puis-je me permettre de perdre ? »",
+              "Sauvegarde continue WAL : perte maximale = 0 à 1 seconde."
+            ]
+          },
+          {
+            "kind": "node",
+            "title": "RTO (Recovery Time Objective)",
+            "lines": [
+              "« Combien de temps puis-je rester en panne ? »",
+              "Restauration automatique PITR : retour en ligne en < 15 minutes."
+            ]
+          }
+        ],
+        "style": "comparison"
+      }
+    ]
+  },
+  "4eaef664e9b520dc04a6d84f764e43d296731ac34ac6607135922e774026c126": {
+    "id": "les-trois-mondes-d-une-application",
+    "title": "LES TROIS MONDES D'UNE APPLICATION",
+    "source_sha256": "4eaef664e9b520dc04a6d84f764e43d296731ac34ac6607135922e774026c126",
+    "parts": [
+      {
+        "kind": "node",
+        "title": "1. L'ATELIER LOCAL (Ton ordinateur)",
+        "lines": [
+          "► Zone de création libre, essais, brouillons.",
+          "► Données : Fausses données de test, aucun risque."
+        ]
+      },
+      {
+        "kind": "arrow",
+        "label": "",
+        "direction": "down"
+      },
+      {
+        "kind": "node",
+        "title": "2. LA RÉPÉTITION GÉNÉRALE (Staging / Pré-production)",
+        "lines": [
+          "► Copie miroir exacte du serveur réel (même machine, même Linux).",
+          "► Données : Données anonymisées. Les vrais clients n'y ont pas accès.",
+          "► Objectif : Vérifier que l'installation automatique fonctionne à 100 %."
+        ]
+      },
+      {
+        "kind": "arrow",
+        "label": "",
+        "direction": "down"
+      },
+      {
+        "kind": "node",
+        "title": "3. LA SALLE OFFICIELLE (Production)",
+        "lines": [
+          "► Le serveur officiel accessible au monde entier.",
+          "► Données : Les vraies cartes bancaires, les vrais contrats clients.",
+          "► Règle absolue : Aucune modification directe n'y est tolérée."
+        ]
+      }
+    ]
+  },
+  "923df1a7c12971cbd5ec79261f658fd3d69aa3524460c165230274c4724247a7": {
+    "id": "du-signal-brut-au-parcours-metier",
+    "title": "DU SIGNAL BRUT AU PARCOURS MÉTIER",
+    "source_sha256": "923df1a7c12971cbd5ec79261f658fd3d69aa3524460c165230274c4724247a7",
+    "parts": [
+      {
+        "kind": "node",
+        "title": "CPU : 85 %",
+        "lines": []
+      },
+      {
+        "kind": "arrow",
+        "label": "",
+        "direction": "down"
+      },
+      {
+        "kind": "node",
+        "title": "CPU : 3 %",
+        "lines": []
+      },
+      {
+        "kind": "arrow",
+        "label": "",
+        "direction": "down"
+      },
+      {
+        "kind": "node",
+        "title": "Taux de succès des dépôts PDF",
+        "lines": []
+      },
+      {
+        "kind": "arrow",
+        "label": "",
+        "direction": "down"
+      },
+      {
+        "kind": "node",
+        "title": "Délai médian d'apparition atelier",
+        "lines": []
+      },
+      {
+        "kind": "arrow",
+        "label": "",
+        "direction": "down"
+      },
+      {
+        "kind": "node",
+        "title": "Fichiers bloqués en attente > 5 min",
+        "lines": []
+      }
+    ]
+  },
+  "f8931b55490de77a3e38491367fbf94505019bcd324394bfc0232f1e72ec8275": {
+    "id": "le-protocole-d-intervention-en-six-temps",
+    "title": "LE PROTOCOLE D'INTERVENTION EN SIX TEMPS",
+    "source_sha256": "f8931b55490de77a3e38491367fbf94505019bcd324394bfc0232f1e72ec8275",
+    "parts": [
+      {
+        "kind": "node",
+        "title": "1. DÉTECTER   ► L'alerte automatique ou le signal client qualifié sonne.",
+        "lines": []
+      },
+      {
+        "kind": "arrow",
+        "label": "",
+        "direction": "down"
+      },
+      {
+        "kind": "node",
+        "title": "2. STABILISER ► Couper l'aggravation : mode dégradé, retour arrière ou coupe-circuit.",
+        "lines": []
+      },
+      {
+        "kind": "arrow",
+        "label": "",
+        "direction": "down"
+      },
+      {
+        "kind": "node",
+        "title": "3. COMMUNIQUER► Dire la vérité aux usagers : accusé de réception, impact, délai d'info.",
+        "lines": []
+      },
+      {
+        "kind": "arrow",
+        "label": "",
+        "direction": "down"
+      },
+      {
+        "kind": "node",
+        "title": "4. DIAGNOSTIQUER► Enquêter au calme sur les copies d'écran, logs et métriques figés.",
+        "lines": []
+      },
+      {
+        "kind": "arrow",
+        "label": "",
+        "direction": "down"
+      },
+      {
+        "kind": "node",
+        "title": "5. RÉTABLIR   ► Déployer le correctif testé ou restaurer les données saines.",
+        "lines": []
+      },
+      {
+        "kind": "arrow",
+        "label": "",
+        "direction": "down"
+      },
+      {
+        "kind": "node",
+        "title": "6. APPRENDRE  ► Rédiger l'autopsie sans blâme et sceller les tests anti-récidive.",
+        "lines": []
+      }
+    ]
+  },
+  "c9ecdf2e97eefa6233c512bda9e6a89a7f4f2fbceee109d37ec0c727936c9d6b": {
+    "id": "le-sas-de-controle-humain",
+    "title": "LE SAS DE CONTRÔLE HUMAIN",
+    "source_sha256": "c9ecdf2e97eefa6233c512bda9e6a89a7f4f2fbceee109d37ec0c727936c9d6b",
+    "parts": [
+      {
+        "kind": "node",
+        "title": "1. Observation & Cartographie",
+        "lines": []
+      },
+      {
+        "kind": "arrow",
+        "label": "",
+        "direction": "down"
+      },
+      {
+        "kind": "node",
+        "title": "2. Proposition de l'Agent",
+        "lines": []
+      },
+      {
+        "kind": "arrow",
+        "label": "",
+        "direction": "down"
+      },
+      {
+        "kind": "node",
+        "title": "Refus ou Recadrage",
+        "lines": []
+      },
+      {
+        "kind": "arrow",
+        "label": "",
+        "direction": "down"
+      },
+      {
+        "kind": "node",
+        "title": "Feu vert formel (ADR)",
+        "lines": []
+      },
+      {
+        "kind": "arrow",
+        "label": "",
+        "direction": "down"
+      },
+      {
+        "kind": "node",
+        "title": "3. Implémentation sous preuve (Tranche par tranche)",
+        "lines": []
+      }
+    ]
+  },
+  "5d7a6cbffa4cad664ca841de18e1753b046e4082e6b082e0e155f512a0926606": {
+    "id": "les-quatre-etages-d-un-environnement-de-travail-agentique",
+    "title": "LES QUATRE ÉTAGES D'UN ENVIRONNEMENT DE TRAVAIL AGENTIQUE",
+    "source_sha256": "5d7a6cbffa4cad664ca841de18e1753b046e4082e6b082e0e155f512a0926606",
+    "parts": [
+      {
+        "kind": "node",
+        "title": "1. L'AGENT (Le copilote de développement)",
+        "lines": [
+          "Exemples : Claude Code, Aider, Roo Code, Goose.",
+          "Son rôle : Lit tes instructions, planifie les étapes,",
+          "navigue dans tes fichiers et prépare des modifications."
+        ]
+      },
+      {
+        "kind": "arrow",
+        "label": "",
+        "direction": "down"
+      },
+      {
+        "kind": "node",
+        "title": "2. LE CONNECTEUR / PROTOCOLE (La prise standard)",
+        "lines": [
+          "Standard : Model Context Protocol (MCP), JSON-RPC.",
+          "Son rôle : Définit comment l'agent communique avec",
+          "l'extérieur (base de données, dépôt Git, terminal)."
+        ]
+      },
+      {
+        "kind": "arrow",
+        "label": "",
+        "direction": "down"
+      },
+      {
+        "kind": "node",
+        "title": "3. LE [RUNTIME D'INFÉRENCE](../03-annexes/05-glossaire.md) (Le moteur d'exécution)",
+        "lines": [
+          "Exemples : Ollama, vLLM, API cloud distante.",
+          "Son rôle : Le logiciel qui charge le modèle et calcule",
+          "les probabilités des mots (en local sur GPU ou cloud)."
+        ]
+      },
+      {
+        "kind": "arrow",
+        "label": "",
+        "direction": "down"
+      },
+      {
+        "kind": "node",
+        "title": "4. LE MODÈLE (Le cerveau linguistique)",
+        "lines": [
+          "Exemples : Claude 3.7, GPT-4o, DeepSeek-R1, Qwen 2.5.",
+          "Son rôle : Le fichier de milliards de paramètres qui",
+          "génère le raisonnement et le texte."
+        ]
+      }
+    ]
+  },
+  "4ff452c3047e1d100dd7af46390e38dd3e04cc192b99f1b801ac899b4aa9e73b": {
+    "id": "1-etat-state",
+    "title": "1. ÉTAT (State)",
+    "source_sha256": "4ff452c3047e1d100dd7af46390e38dd3e04cc192b99f1b801ac899b4aa9e73b",
+    "parts": [
+      {
+        "kind": "node",
+        "title": "1. ÉTAT (State)",
+        "lines": [
+          "La configuration instantanée et exhaustive du système à l'instant t.",
+          "Exemple : \"Session #42 créée, en attente de flux binaire\"."
+        ]
+      },
+      {
+        "kind": "arrow",
+        "label": "",
+        "direction": "down"
+      },
+      {
+        "kind": "node",
+        "title": "2. DONNÉE (Data)",
+        "lines": [
+          "La représentation persistante et immuable de l'état sur disque ou base.",
+          "Exemple : Enregistrement SQL horodaté avec empreinte SHA-256."
+        ]
+      },
+      {
+        "kind": "arrow",
+        "label": "",
+        "direction": "down"
+      },
+      {
+        "kind": "node",
+        "title": "3. COMPORTEMENT & TRANSITION (Behavior)",
+        "lines": [
+          "La fonction pure qui calcule l'état t+1 à partir de l'état t et d'un flux.",
+          "Exemple : Ingestion binaire validant l'invariant de taille maximale."
+        ]
+      }
+    ]
+  },
+  "5dab7eaca0f9b5e229cf4ec24017b7328066eecedb832ff4c15118f9ca9045b4": {
+    "id": "01-piloter-un-systeme-5dab7eac",
+    "title": "SCHÉMA DU SYSTÈME",
+    "source_sha256": "5dab7eaca0f9b5e229cf4ec24017b7328066eecedb832ff4c15118f9ca9045b4",
+    "parts": [
+      {
+        "kind": "node",
+        "title": "1. CADRAGE & MISSION",
+        "lines": [
+          "Contexte, SPEC, Invariants",
+          "Périmètre strict et critères de terminaison"
+        ]
+      },
+      {
+        "kind": "arrow",
+        "label": "",
+        "direction": "down"
+      },
+      {
+        "kind": "node",
+        "title": "2. ACTION STOCHASTIQUE",
+        "lines": [
+          "L'agent inspecte le dépôt et produit le code"
+        ]
+      },
+      {
+        "kind": "arrow",
+        "label": "",
+        "direction": "down"
+      },
+      {
+        "kind": "node",
+        "title": "3. ORACLE INDÉPENDANT",
+        "lines": [
+          "Tests, Typage AST, Linter",
+          "(Exécuté hors du modèle, dans l'environnement hôte)"
+        ]
+      },
+      {
+        "kind": "arrow",
+        "label": "",
+        "direction": "down"
+      },
+      {
+        "kind": "grid",
+        "items": [
+          {
+            "kind": "branch",
+            "parts": [
+              {
+                "kind": "node",
+                "title": "Erreur détectée",
+                "lines": []
+              },
+              {
+                "kind": "arrow",
+                "label": "",
+                "direction": "down"
+              },
+              {
+                "kind": "node",
+                "title": "Réinjection de la trace pure",
+                "lines": [
+                  "Trace d'erreur sans bavardage ──► Boucle suivante"
+                ]
+              }
+            ]
+          },
+          {
+            "kind": "branch",
+            "parts": [
+              {
+                "kind": "node",
+                "title": "Succès déterministe",
+                "lines": []
+              },
+              {
+                "kind": "arrow",
+                "label": "",
+                "direction": "down"
+              },
+              {
+                "kind": "node",
+                "title": "Gel de l'artefact",
+                "lines": [
+                  "Revue humaine & signature de commit"
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "b0fad7e852a943f7d7214734e92f32ca70ff0e55623d7330883ebc6a951efe44": {
+    "id": "01-piloter-un-systeme-b0fad7e8",
+    "title": "SCHÉMA DU SYSTÈME",
+    "source_sha256": "b0fad7e852a943f7d7214734e92f32ca70ff0e55623d7330883ebc6a951efe44",
+    "parts": [
+      {
+        "kind": "node",
+        "title": "Agent (LLM)",
+        "lines": [
+          "Propose une commande : git push -f"
+        ]
+      },
+      {
+        "kind": "arrow",
+        "label": "",
+        "direction": "down"
+      },
+      {
+        "kind": "node",
+        "title": "BARRIÈRE D'INTERCEPTION (PreToolUse Hook)",
+        "lines": [
+          "Script : .claude/hooks/block-dangerous-git.sh (ADR-0004)",
+          "Action : Analyse syntaxique de la commande AVANT transmission au shell."
+        ]
+      },
+      {
+        "kind": "arrow",
+        "label": "",
+        "direction": "down"
+      },
+      {
+        "kind": "node",
+        "title": "Évaluation du filtre de sécurité",
+        "lines": [
+          "Correspondance 'git push' ou '--force' ?\n• OUI ──► Interception immédiate (Exit Code 2). Message : 'BLOCKED: Opération interdite.'\n• NON ──► Autorisation d'exécution dans le bac à sable isolé."
+        ]
+      }
+    ]
+  },
+  "ae472019d8b0b89ff741d9c83c846c63d5cef43e5bd1332adabada0998e18df3": {
+    "id": "comparaison-de-profondeur-architecturale",
+    "title": "COMPARAISON DE PROFONDEUR ARCHITECTURALE",
+    "source_sha256": "ae472019d8b0b89ff741d9c83c846c63d5cef43e5bd1332adabada0998e18df3",
+    "parts": [
+      {
+        "kind": "grid",
+        "items": [
+          {
+            "kind": "module",
+            "title": "MODULE PROFOND (Idéal pour l'IA)",
+            "parts": [
+              {
+                "kind": "node",
+                "title": "INTERFACE MINIMALE : 2 FONCTIONS",
+                "lines": [
+                  "read(id), write(id, payload)"
+                ]
+              },
+              {
+                "kind": "node",
+                "title": "COMPLEXITÉ INTERNE FORTE (MASQUÉE)",
+                "lines": [
+                  "Gestion des pools de connexion DB",
+                  "Mise en cache LRU mémoire",
+                  "Détection des collisions & Locks",
+                  "Retry exponentiel sur panne",
+                  "Chiffrement AES-256 au vol"
+                ]
+              }
+            ]
+          },
+          {
+            "kind": "module",
+            "title": "MODULE SUPERFICIEL (Anti-pattern)",
+            "parts": [
+              {
+                "kind": "node",
+                "title": "INTERFACE LARGE : 12 MÉTHODES",
+                "lines": [
+                  "init(), config(), setBuff(), auth(), lock(), flush(), verify(), clear()..."
+                ]
+              },
+              {
+                "kind": "node",
+                "title": "COMPLEXITÉ INTERNE MINIME",
+                "lines": [
+                  "(Ne fait que relayer les paramètres vers un autre composant sans véritable transformation)"
+                ]
+              }
+            ]
+          }
+        ],
+        "style": "comparison"
+      }
+    ]
+  },
+  "55526c8467eb3efe97edd0788d0b6398fb7afdc70f99ad3648946259b96f929e": {
+    "id": "topologie-hexagonale-du-systeme",
+    "title": "TOPOLOGIE HEXAGONALE DU SYSTÈME",
+    "source_sha256": "55526c8467eb3efe97edd0788d0b6398fb7afdc70f99ad3648946259b96f929e",
+    "parts": [
+      {
+        "kind": "grid",
+        "items": [
+          {
+            "kind": "node",
+            "title": "REQUÊTE HTTP",
+            "lines": []
+          },
+          {
+            "kind": "node",
+            "title": "APPEL CLI",
+            "lines": []
+          },
+          {
+            "kind": "node",
+            "title": "WEBHOOK TIERS",
+            "lines": []
+          }
+        ]
+      },
+      {
+        "kind": "arrow",
+        "label": "",
+        "direction": "down"
+      },
+      {
+        "kind": "node",
+        "title": "ADAPTATEURS PRIMAIRES (DRIVING)",
+        "lines": [
+          "(Fastify Controller, CLI Command, Message Consumer)"
+        ]
+      },
+      {
+        "kind": "arrow",
+        "label": "",
+        "direction": "down"
+      },
+      {
+        "kind": "node",
+        "title": "DOMAINE MÉTIER PUR (HEXAGONE CENTRAL)",
+        "lines": [
+          "Entités, Invariants, Règles métier immuables",
+          "(ZÉRO dépendance vers Fastify, SQL, Réseau ou Disque)"
+        ]
+      },
+      {
+        "kind": "arrow",
+        "label": "",
+        "direction": "down"
+      },
+      {
+        "kind": "node",
+        "title": "ADAPTATEURS SECONDAIRES (DRIVEN)",
+        "lines": [
+          "(PostgresRepository, S3BlobStorage, SendgridMailer)"
+        ]
+      }
+    ]
+  },
+  "db50b2e271bf12bb9731e6771090dc7b8c0ebb2017842d3b691eb3976687a459": {
+    "id": "le-piege-de-l-effacement-de-type-aux-frontieres",
+    "title": "LE PIÈGE DE L'EFFACEMENT DE TYPE AUX FRONTIÈRES",
+    "source_sha256": "db50b2e271bf12bb9731e6771090dc7b8c0ebb2017842d3b691eb3976687a459",
+    "parts": [
+      {
+        "kind": "node",
+        "title": "Client Web / Tiers non maîtrisé",
+        "lines": [
+          "Envoie un payload brut non vérifié : { \"taille\": \"500Mo\" }"
+        ]
+      },
+      {
+        "kind": "arrow",
+        "label": "",
+        "direction": "down"
+      },
+      {
+        "kind": "node",
+        "title": "Contrôleur applicatif (interface Document)",
+        "lines": [
+          "TypeScript compile sans erreur : interface Document { taille_octets: number; }",
+          "Illusion de sécurité : le compilateur croit au type mais le runtime contient une String."
+        ]
+      },
+      {
+        "kind": "arrow",
+        "label": "",
+        "direction": "down"
+      },
+      {
+        "kind": "node",
+        "title": "Domaine Métier (Calcul arithmétique)",
+        "lines": [
+          "Crash à l'exécution : NaN ou TypeError.",
+          "Garantie violée : la donnée corrompue a traversé la frontière."
+        ]
+      }
+    ]
+  },
+  "b9d18a319dab667936d27be3571b54f85a466dd8332d137d37fb98a9d16fa149": {
+    "id": "cycle-schema-first",
+    "title": "CYCLE SCHEMA-FIRST",
+    "source_sha256": "b9d18a319dab667936d27be3571b54f85a466dd8332d137d37fb98a9d16fa149",
+    "parts": [
+      {
+        "kind": "node",
+        "title": "SCHÉMA RUNTIME UNIQUE",
+        "lines": [
+          "(JSON Schema, OpenAPI, TypeBox, Pydantic)"
+        ]
+      },
+      {
+        "kind": "arrow",
+        "label": "",
+        "direction": "down"
+      },
+      {
+        "kind": "grid",
+        "items": [
+          {
+            "kind": "branch",
+            "parts": [
+              {
+                "kind": "node",
+                "title": "Génération statique",
+                "lines": []
+              },
+              {
+                "kind": "arrow",
+                "label": "",
+                "direction": "down"
+              },
+              {
+                "kind": "node",
+                "title": "Types TypeScript / Python",
+                "lines": [
+                  "Compilation, Intellisense & vérification AST"
+                ]
+              }
+            ]
+          },
+          {
+            "kind": "branch",
+            "parts": [
+              {
+                "kind": "node",
+                "title": "Exécution dynamique",
+                "lines": []
+              },
+              {
+                "kind": "arrow",
+                "label": "",
+                "direction": "down"
+              },
+              {
+                "kind": "node",
+                "title": "Validation aux frontières",
+                "lines": [
+                  "Parse, Don't Validate & RFC 9457"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "arrow",
+        "label": "",
+        "direction": "down"
+      },
+      {
+        "kind": "node",
+        "title": "Code Métier Inviolable",
+        "lines": [
+          "Invariants mathématiquement garantis sans code défensif parasite."
+        ]
+      }
+    ]
+  },
+  "6208c89658c2e4e688f5ca7a4413ce15d32aebbba27725a6ddaa964d1aff8edf": {
+    "id": "architecture-du-harnais-en-trois-couches",
+    "title": "ARCHITECTURE DU HARNAIS EN TROIS COUCHES",
+    "source_sha256": "6208c89658c2e4e688f5ca7a4413ce15d32aebbba27725a6ddaa964d1aff8edf",
+    "parts": [
+      {
+        "kind": "node",
+        "title": "COUCHE 1 : GLOBALE (Machine développeur : ~/.config/ ou ~/.gemini/)",
+        "lines": [
+          "Réflexes universels indépendants du code : /ask-matt, /wait-what",
+          "Métarègles cognitives, posture de dialogue, sécurité utilisateur"
+        ]
+      },
+      {
+        "kind": "arrow",
+        "label": "",
+        "direction": "down"
+      },
+      {
+        "kind": "node",
+        "title": "COUCHE 2 : PROJET (Dépôt Git : .agents/skills/ & CONTEXT.md)",
+        "lines": [
+          "Repository-as-Code : 37 skills portables (/tdd, /review, /verify)",
+          "Règles d'architecture, commandes de build et oracles de test locaux"
+        ]
+      },
+      {
+        "kind": "arrow",
+        "label": "",
+        "direction": "down"
+      },
+      {
+        "kind": "node",
+        "title": "COUCHE 3 : RUNTIME & MÉMOIRE ÉPHÉMÈRE (.scratch/ & Session courante)",
+        "lines": [
+          "Fiche de tranche du cycle (A04/B04), journal d'ADR temporaire",
+          "Snapshots d'inspection AST, journaux d'erreurs et compte rendu honnête"
+        ]
+      }
+    ]
+  },
+  "6dcfce4275fdf35942caa6377fe05adf62e5cd6ec33d2b3385977a940eb74be7": {
+    "id": "comparaison-d-inspection-de-code",
+    "title": "COMPARAISON D'INSPECTION DE CODE",
+    "source_sha256": "6dcfce4275fdf35942caa6377fe05adf62e5cd6ec33d2b3385977a940eb74be7",
+    "parts": [
+      {
+        "kind": "grid",
+        "items": [
+          {
+            "kind": "node",
+            "title": "LECTURE NAÏVE (Textuelle brute)",
+            "lines": [
+              "650 lignes de code injectées",
+              "Détails d'implémentation parasites",
+              "Variables temporaires et bruit syntaxique",
+              "Gaspillage massif de la fenêtre de contexte"
+            ]
+          },
+          {
+            "kind": "node",
+            "title": "EXTRACTION PAR AST (Chirurgicale)",
+            "lines": [
+              "18 lignes d'index structurel",
+              "Signatures de fonctions et types exportés",
+              "Zéro corps de méthode superflu",
+              "Économie de 97 % de tokens de contexte"
+            ]
+          }
+        ],
+        "style": "comparison"
+      }
+    ]
+  },
+  "01f675754c858fe60bdf114710387ff66596986915146667525fd8047eee3d91": {
+    "id": "degradation-cognitive-au-dela-de-la-smart-zone",
+    "title": "DÉGRADATION COGNITIVE AU-DELÀ DE LA SMART ZONE",
+    "source_sha256": "01f675754c858fe60bdf114710387ff66596986915146667525fd8047eee3d91",
+    "parts": [
+      {
+        "kind": "grid",
+        "items": [
+          {
+            "kind": "node",
+            "title": "SMART ZONE (0 - 120k tokens)",
+            "lines": [
+              "Raisonnement logique optimal",
+              "Rigueur de typage et respect des invariants",
+              "Précision maximale : 80 % à 100 %"
+            ]
+          },
+          {
+            "kind": "node",
+            "title": "DÉGRADATION HORS ZONE (> 120k tokens)",
+            "lines": [
+              "Zone d'hallucinations statistiques",
+              "Oubli des consignes initiales et régressions silencieuses",
+              "Chute brutale de la précision vers 0 %"
+            ]
+          }
+        ],
+        "style": "comparison"
+      }
+    ]
+  },
+  "6680e9fd655b83b8c9ffd088be34ff251935e9267eed88f081b8f341d739a843": {
+    "id": "le-graphe-d-objets-git-dag",
+    "title": "LE GRAPHE D'OBJETS GIT (DAG)",
+    "source_sha256": "6680e9fd655b83b8c9ffd088be34ff251935e9267eed88f081b8f341d739a843",
+    "parts": [
+      {
+        "kind": "node",
+        "title": "Commit: feat(upload)",
+        "lines": [
+          "Pointe vers Parent Commit"
+        ]
+      },
+      {
+        "kind": "arrow",
+        "label": "",
+        "direction": "down"
+      },
+      {
+        "kind": "node",
+        "title": "Root Tree (Arborescence racine)",
+        "lines": []
+      },
+      {
+        "kind": "arrow",
+        "label": "",
+        "direction": "down"
+      },
+      {
+        "kind": "grid",
+        "items": [
+          {
+            "kind": "node",
+            "title": "Tree: /app",
+            "lines": [
+              "Blob: parseur.py (SHA: e89f02...)"
+            ]
+          },
+          {
+            "kind": "node",
+            "title": "Blob: CONTEXT.md",
+            "lines": [
+              "Documentation contractuelle (SHA: 4a2b1c...)"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "b10e92b4223b4349a04641cb3a09ac2e980700cc96d220c67091d91310228164": {
+    "id": "topologie-multi-agents-avec-git-worktrees",
+    "title": "TOPOLOGIE MULTI-AGENTS AVEC GIT WORKTREES",
+    "source_sha256": "b10e92b4223b4349a04641cb3a09ac2e980700cc96d220c67091d91310228164",
+    "parts": [
+      {
+        "kind": "node",
+        "title": "DÉPÔT CENTRAL (.git)",
+        "lines": [
+          "Base d'objets immuable, Refs, Index partagé"
+        ]
+      },
+      {
+        "kind": "arrow",
+        "label": "",
+        "direction": "down"
+      },
+      {
+        "kind": "grid",
+        "items": [
+          {
+            "kind": "node",
+            "title": "WORKTREE MAIN",
+            "lines": [
+              "~/src/projet-main",
+              "(Branche main, Staging stable)"
+            ]
+          },
+          {
+            "kind": "node",
+            "title": "WORKTREE AGENT-01",
+            "lines": [
+              "~/src/worktrees/feat-upload",
+              "(Branche feat/upload, tâche 1)"
+            ]
+          },
+          {
+            "kind": "node",
+            "title": "WORKTREE AGENT-02",
+            "lines": [
+              "~/src/worktrees/fix-auth",
+              "(Branche fix/auth, tâche 2)"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "cdef48154ca2a3bf5e11ad0184a595f752b455ac4eef1c5ee9fa9e84f358e6cf": {
+    "id": "chaine-lineaire-de-stacked-pull-requests-150-lignes-chacune",
+    "title": "CHAÎNE LINÉAIRE DE STACKED PULL REQUESTS (< 150 LIGNES CHACUNE)",
+    "source_sha256": "cdef48154ca2a3bf5e11ad0184a595f752b455ac4eef1c5ee9fa9e84f358e6cf",
+    "parts": [
+      {
+        "kind": "node",
+        "title": "main (Production stable)",
+        "lines": []
+      },
+      {
+        "kind": "arrow",
+        "label": "",
+        "direction": "down"
+      },
+      {
+        "kind": "node",
+        "title": "PR 1 : feat(schema)",
+        "lines": [
+          "Contrats et objets-valeurs purs (60 lignes)"
+        ]
+      },
+      {
+        "kind": "arrow",
+        "label": "",
+        "direction": "down"
+      },
+      {
+        "kind": "node",
+        "title": "PR 2 : feat(parseur)",
+        "lines": [
+          "Parseur aux frontières et erreurs RFC 9457 (85 lignes)"
+        ]
+      },
+      {
+        "kind": "arrow",
+        "label": "",
+        "direction": "down"
+      },
+      {
+        "kind": "node",
+        "title": "PR 3 : feat(metier)",
+        "lines": [
+          "Machine à états et règles d'invariants (110 lignes)"
+        ]
+      },
+      {
+        "kind": "arrow",
+        "label": "",
+        "direction": "down"
+      },
+      {
+        "kind": "node",
+        "title": "PR 4 : feat(api)",
+        "lines": [
+          "Route HTTP et adaptateur Fastify (75 lignes)"
+        ]
+      }
+    ]
+  },
+  "5e1dab2ae46a5f0231d1bf6b29c85f26c250b49ebeff200599233ecf140ff992": {
+    "id": "contrat-de-code-retour-pour-l-oracle-de-bisect",
+    "title": "CONTRAT DE CODE RETOUR POUR L'ORACLE DE BISECT",
+    "source_sha256": "5e1dab2ae46a5f0231d1bf6b29c85f26c250b49ebeff200599233ecf140ff992",
+    "parts": [
+      {
+        "kind": "grid",
+        "items": [
+          {
+            "kind": "node",
+            "title": "Code retour = 0",
+            "lines": [
+              "Le commit est SAIN (Good / Old)."
+            ]
+          },
+          {
+            "kind": "node",
+            "title": "Code retour = 1",
+            "lines": [
+              "Le commit est DÉFAILLANT (Bad / New). La régression est présente."
+            ]
+          },
+          {
+            "kind": "node",
+            "title": "Code retour = 125",
+            "lines": [
+              "Le commit est INÉVALUABLE (Skip). Dépendance cassée, code non compilable."
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "aa7a2b8ac47216d2c1d3d2aa0c3cb5fded19e0e0718aa9437f8b8ef69745d656": {
+    "id": "pyramide-de-verification-deterministe",
+    "title": "PYRAMIDE DE VÉRIFICATION DÉTERMINISTE",
+    "source_sha256": "aa7a2b8ac47216d2c1d3d2aa0c3cb5fded19e0e0718aa9437f8b8ef69745d656",
+    "parts": [
+      {
+        "kind": "pyramid",
+        "items": [
+          {
+            "kind": "node",
+            "title": "NIVEAU 3 : TESTS E2E SYSTÈME (Playwright / Cypress)",
+            "lines": [
+              "Volume : < 5 % | Durée : 1 à 3 min | Coût : Élevé",
+              "Parcours complets des flux nominaux critiques."
+            ],
+            "badge": "E2E"
+          },
+          {
+            "kind": "node",
+            "title": "NIVEAU 2 : TESTS DE CONTRAT & INTÉGRATION (Seams)",
+            "lines": [
+              "Volume : ~20 % | Durée : 2 à 10 s | Coût : Moyen",
+              "Validation de la coopération entre Domaine et Infrastructure."
+            ],
+            "badge": "INTÉG."
+          },
+          {
+            "kind": "node",
+            "title": "NIVEAU 1 : TESTS UNITAIRES BOÎTE NOIRE (Mypy / Pytest)",
+            "lines": [
+              "Volume : > 75 % | Durée : < 500 ms | Coût : Négligeable",
+              "Vérification exhaustive des règles d'invariants métier."
+            ],
+            "badge": "UNITAIRES"
+          },
+          {
+            "kind": "node",
+            "title": "NIVEAU 0 : ANALYSE STATIQUE, TYPES STRICTS & LINTER",
+            "lines": [
+              "Volume : 100 % du code | Durée : Instantanée",
+              "Preuve syntaxique, AST, absence d'effets de bord occultes."
+            ],
+            "badge": "ANALYSE STATIQUE"
+          }
+        ]
+      }
+    ]
+  },
+  "1b5fbc10b3f356a62ea134cab2198cb43309c3834d88e4e658d94872d6c571cb": {
+    "id": "le-protocole-du-tdd-inverse-supervise",
+    "title": "LE PROTOCOLE DU TDD INVERSÉ SUPERVISÉ",
+    "source_sha256": "1b5fbc10b3f356a62ea134cab2198cb43309c3834d88e4e658d94872d6c571cb",
+    "parts": [
+      {
+        "kind": "node",
+        "title": "1. SPÉCIFICATION FORMELLE ───► L'architecte humain définit les invariants,",
+        "lines": [
+          "(Par l'Humain)              les entrées/sorties et les erreurs (A03/B03)."
+        ]
+      },
+      {
+        "kind": "arrow",
+        "label": "",
+        "direction": "down"
+      },
+      {
+        "kind": "node",
+        "title": "2. GÉNÉRATION DES TESTS   ───► L'agent IA génère EXCLUSIVEMENT la suite de tests",
+        "lines": [
+          "(Par l'Agent)               (tests/test_quota.py). Interdiction d'écrire du code métier."
+        ]
+      },
+      {
+        "kind": "arrow",
+        "label": "",
+        "direction": "down"
+      },
+      {
+        "kind": "node",
+        "title": "3. VERROUILLAGE LECTURE   ───► L'humain audite le test (60 secondes) et le verrouille",
+        "lines": [
+          "(Par l'Humain)              en lecture seule (chmod 444 / pre-commit hook)."
+        ]
+      },
+      {
+        "kind": "arrow",
+        "label": "",
+        "direction": "down"
+      },
+      {
+        "kind": "node",
+        "title": "4. IMPLÉMENTATION STRICTE ───► L'agent reçoit l'ordre de coder la logique métier",
+        "lines": [
+          "(Par l'Agent)               jusqu'à ce que la suite retourne le code de sortie 0."
+        ]
+      }
+    ]
+  },
+  "9799af31f626065ee5039ddd8118503a8b39641edc12d099c52920d41862c885": {
+    "id": "mecanique-du-mutation-testing",
+    "title": "MÉCANIQUE DU MUTATION TESTING",
+    "source_sha256": "9799af31f626065ee5039ddd8118503a8b39641edc12d099c52920d41862c885",
+    "parts": [
+      {
+        "kind": "node",
+        "title": "Code source de production",
+        "lines": []
+      },
+      {
+        "kind": "arrow",
+        "label": "",
+        "direction": "down"
+      },
+      {
+        "kind": "node",
+        "title": "Suite de Tests",
+        "lines": []
+      },
+      {
+        "kind": "arrow",
+        "label": "",
+        "direction": "down"
+      },
+      {
+        "kind": "node",
+        "title": "Suite de Tests",
+        "lines": []
+      }
+    ]
+  },
+  "7a34c1767eb923bb7943db55aba7279c5561ef56e6ab52f0fca9d0ecbca21fe6": {
+    "id": "le-cycle-de-repetition-inevitable-en-reseau-faillible",
+    "title": "LE CYCLE DE RÉPÉTITION INÉVITABLE EN RÉSEAU FAILLIBLE",
+    "source_sha256": "7a34c1767eb923bb7943db55aba7279c5561ef56e6ab52f0fca9d0ecbca21fe6",
+    "parts": [
+      {
+        "kind": "node",
+        "title": "Broker de Messages",
+        "lines": []
+      },
+      {
+        "kind": "arrow",
+        "label": "",
+        "direction": "down"
+      },
+      {
+        "kind": "node",
+        "title": "Worker A",
+        "lines": []
+      },
+      {
+        "kind": "arrow",
+        "label": "",
+        "direction": "down"
+      },
+      {
+        "kind": "node",
+        "title": "Broker de Messages",
+        "lines": []
+      },
+      {
+        "kind": "arrow",
+        "label": "",
+        "direction": "down"
+      },
+      {
+        "kind": "node",
+        "title": "Worker B",
+        "lines": []
+      }
+    ]
+  },
+  "d5852eae412a47d6bc56f01697d19ff7132fa714e6809206c88ac81c13a70a2e": {
+    "id": "fonctionnement-du-transactional-outbox-pattern",
+    "title": "FONCTIONNEMENT DU TRANSACTIONAL OUTBOX PATTERN",
+    "source_sha256": "d5852eae412a47d6bc56f01697d19ff7132fa714e6809206c88ac81c13a70a2e",
+    "parts": [
+      {
+        "kind": "node",
+        "title": "TRANSACTION ACID LOCALE UNIQUE",
+        "lines": [
+          "1. INSERT INTO commandes (id, montant, statut) VALUES ('cmd-1', ...);",
+          "2. INSERT INTO outbox (id, canal, payload) VALUES ('evt-1', ...);",
+          "COMMIT TRANSACTION; ◄── Atomicité parfaite : Tout réussit ou tout échoue"
+        ]
+      },
+      {
+        "kind": "arrow",
+        "label": "",
+        "direction": "down"
+      },
+      {
+        "kind": "node",
+        "title": "RELAIS ASYNCHRONE (Poller ou CDC / Debezium)",
+        "lines": [
+          "Lit la table outbox et publie sur le broker"
+        ]
+      }
+    ]
+  },
+  "81f9b485f57b8f86d92321765bca3ef8cea1a9c85f6b3bbca37327683f8832c0": {
+    "id": "machine-a-etats-d-un-verrou-d-idempotence",
+    "title": "MACHINE À ÉTATS D'UN VERROU D'IDEMPOTENCE",
+    "source_sha256": "81f9b485f57b8f86d92321765bca3ef8cea1a9c85f6b3bbca37327683f8832c0",
+    "parts": [
+      {
+        "kind": "node",
+        "title": "Requête entrante avec clé d'idempotence",
+        "lines": [
+          "Clé UUIDv4 transmise par le client"
+        ]
+      },
+      {
+        "kind": "arrow",
+        "label": "",
+        "direction": "down"
+      },
+      {
+        "kind": "node",
+        "title": "Vérification dans le registre (Redis / DB)",
+        "lines": [
+          "La clé existe-t-elle déjà ?"
+        ]
+      },
+      {
+        "kind": "arrow",
+        "label": "",
+        "direction": "down"
+      },
+      {
+        "kind": "grid",
+        "items": [
+          {
+            "kind": "branch",
+            "parts": [
+              {
+                "kind": "node",
+                "title": "Clé absente (Nouveau traitement)",
+                "lines": []
+              },
+              {
+                "kind": "arrow",
+                "label": "",
+                "direction": "down"
+              },
+              {
+                "kind": "node",
+                "title": "Acquisition du verrou (LOCK)",
+                "lines": [
+                  "1. INSERT INTO locks (key, status='IN_PROGRESS', ttl=60s)",
+                  "2. Exécution du traitement de paiement",
+                  "3. Stockage de la réponse scellée (status='SUCCESS')",
+                  "4. Libération du verrou"
+                ]
+              }
+            ]
+          },
+          {
+            "kind": "branch",
+            "parts": [
+              {
+                "kind": "node",
+                "title": "Clé présente (Doublon détecté)",
+                "lines": []
+              },
+              {
+                "kind": "arrow",
+                "label": "",
+                "direction": "down"
+              },
+              {
+                "kind": "node",
+                "title": "Vérification du statut",
+                "lines": [
+                  "• Si statut 'IN_PROGRESS' : 409 Conflict ou 425 Too Early",
+                  "• Si statut 'SUCCESS' : Renvoi immédiat de la réponse en cache sans réexécuter"
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "41f3366e0bf72f08ff374336dc94916985576377a143a866acbee89e8a96e369": {
+    "id": "comparaison-des-charges-de-reessais-sur-un-service-en-reprise",
+    "title": "COMPARAISON DES CHARGES DE RÉESSAIS SUR UN SERVICE EN REPRISE",
+    "source_sha256": "41f3366e0bf72f08ff374336dc94916985576377a143a866acbee89e8a96e369",
+    "parts": [
+      {
+        "kind": "grid",
+        "items": [
+          {
+            "kind": "node",
+            "title": "Sans Jitter (Pulsations synchrones destructrices)",
+            "lines": [
+              "Pics brutaux à 1000 req/s synchronisés à t=5s, t=10s, t=15s",
+              "Thundering Herd : le service s'effondre à chaque réessai collectif"
+            ]
+          },
+          {
+            "kind": "node",
+            "title": "Avec Full Jitter (Dispersion uniforme de Poisson)",
+            "lines": [
+              "Charge lissée à ~200 req/s sur l'intervalle",
+              "Le service absorbe la charge et retrouve son équilibre sans saturer"
+            ]
+          }
+        ],
+        "style": "comparison"
+      }
+    ]
+  },
+  "e1d48bb5306169a0c06fadd956bea79498602e3977c2b27b3f580b67f29a4c3e": {
+    "id": "matrice-d-isolation-et-d-anomalies-sql",
+    "title": "MATRICE D'ISOLATION ET D'ANOMALIES SQL",
+    "source_sha256": "e1d48bb5306169a0c06fadd956bea79498602e3977c2b27b3f580b67f29a4c3e",
+    "parts": [
+      {
+        "kind": "node",
+        "title": "Niveau d'Isolation│ Dirty Reads  │ Non-Repeatable Reads │ Phantom Reads │ Write Skew",
+        "lines": []
+      },
+      {
+        "kind": "arrow",
+        "label": "",
+        "direction": "down"
+      },
+      {
+        "kind": "node",
+        "title": "Read Uncommitted  │   TOLÉRÉ     │       TOLÉRÉ         │    TOLÉRÉ     │   TOLÉRÉ",
+        "lines": [
+          "Read Committed    │   INTERDIT   │       TOLÉRÉ         │    TOLÉRÉ     │   TOLÉRÉ",
+          "Repeatable Read   │   INTERDIT   │       INTERDIT       │   INTERDIT*   │   TOLÉRÉ",
+          "Serializable      │   INTERDIT   │       INTERDIT       │   INTERDIT    │  INTERDIT"
+        ]
+      }
+    ]
+  },
+  "b76c1a23a5a3099e4d4fb5f712f8fa8606f09d08ac5320f80944249b1c9da686": {
+    "id": "comparaison-des-strategies-de-verrouillage",
+    "title": "COMPARAISON DES STRATÉGIES DE VERROUILLAGE",
+    "source_sha256": "b76c1a23a5a3099e4d4fb5f712f8fa8606f09d08ac5320f80944249b1c9da686",
+    "parts": [
+      {
+        "kind": "grid",
+        "items": [
+          {
+            "kind": "node",
+            "title": "VERROUILLAGE OPTIMISTE (OCC)",
+            "lines": [
+              "Contrôle par numéro de version (colonne version_id)",
+              "Zéro lock pendant la phase de lecture",
+              "Rejet avec 409 Conflict si la version a changé au moment du commit",
+              "Idéal pour fort trafic en lecture et faible taux de collision"
+            ]
+          },
+          {
+            "kind": "node",
+            "title": "VERROUILLAGE PESSIMISTE (Pessimistic Locking)",
+            "lines": [
+              "SELECT ... FOR UPDATE",
+              "Verrou exclusif posé sur la ligne en base de données",
+              "Les autres transactions attendent la fin de la transaction",
+              "Indispensable pour décrémenter un quota ou un solde critique"
+            ]
+          }
+        ],
+        "style": "comparison"
+      }
+    ]
+  },
+  "80504796594c293b22162d7af04a166ac66b93aa7446d40c4e460ed93891e84c": {
+    "id": "sequence-complete-du-pattern-expand-contract",
+    "title": "SÉQUENCE COMPLÈTE DU PATTERN EXPAND-CONTRACT",
+    "source_sha256": "80504796594c293b22162d7af04a166ac66b93aa7446d40c4e460ed93891e84c",
+    "parts": [
+      {
+        "kind": "node",
+        "title": "PHASE 1 : ÉLARGISSEMENT (EXPAND)",
+        "lines": [
+          "Migration SQL : ALTER TABLE devis ADD COLUMN statut_code VARCHAR(30) NULL;",
+          "Application V1 (Active) : Continue de lire et d'écrire sur l'ancienne colonne 'statut'."
+        ]
+      },
+      {
+        "kind": "arrow",
+        "label": "",
+        "direction": "down"
+      },
+      {
+        "kind": "node",
+        "title": "PHASE 2 : TRANSITION & DOUBLE ÉCRITURE (TRANSITION)",
+        "lines": [
+          "Déploiement Application V2 :",
+          "Écriture double : Écrit à la fois sur 'statut' ET 'statut_code'.",
+          "Lecture tolérante : Lit 'statut_code' avec fallback immédiat sur 'statut'.",
+          "Script de Backfill (Par lots) :",
+          "UPDATE devis SET statut_code = ... WHERE id BETWEEN 1 AND 1000 AND statut_code IS NULL;",
+          "(Exécuté en tâches de fond cadencées pour ne pas saturer le journal WAL)."
+        ]
+      },
+      {
+        "kind": "arrow",
+        "label": "",
+        "direction": "down"
+      },
+      {
+        "kind": "node",
+        "title": "PHASE 3 : CONTRACTION (CONTRACT)",
+        "lines": [
+          "Déploiement Application V3 : Lit et écrit exclusivement sur 'statut_code'.",
+          "Migration SQL finale : ALTER TABLE devis DROP COLUMN statut;"
+        ]
+      }
+    ]
+  },
+  "519cff9752af8a79ff0b76ad433c870e15d81c667085f96fef4fc311605e2289": {
+    "id": "architecture-point-in-time-recovery-pitr",
+    "title": "ARCHITECTURE POINT-IN-TIME RECOVERY (PITR)",
+    "source_sha256": "519cff9752af8a79ff0b76ad433c870e15d81c667085f96fef4fc311605e2289",
+    "parts": [
+      {
+        "kind": "node",
+        "title": "Base PostgreSQL",
+        "lines": []
+      },
+      {
+        "kind": "arrow",
+        "label": "",
+        "direction": "down"
+      },
+      {
+        "kind": "node",
+        "title": "Coffre S3 / R2 distant",
+        "lines": []
+      },
+      {
+        "kind": "arrow",
+        "label": "",
+        "direction": "down"
+      },
+      {
+        "kind": "node",
+        "title": "Nouvelle Instance",
+        "lines": []
+      }
+    ]
+  },
+  "1891672dfb72d81d1257919f0c3870532b224057080b8e974559dfdc4e0423a8": {
+    "id": "construction-conteneurisee-multi-stage-reproductible",
+    "title": "CONSTRUCTION CONTENEURISÉE MULTI-STAGE REPRODUCTIBLE",
+    "source_sha256": "1891672dfb72d81d1257919f0c3870532b224057080b8e974559dfdc4e0423a8",
+    "parts": [
+      {
+        "kind": "node",
+        "title": "ÉTAPE 1 : BUILDER (Environnement de compilation lourd)",
+        "lines": [
+          "Image de base : python:3.11-slim",
+          "Compilateurs C, headers, dépendances de dev",
+          "Compilation des modules natifs et vérification des types"
+        ]
+      },
+      {
+        "kind": "arrow",
+        "label": "",
+        "direction": "down"
+      },
+      {
+        "kind": "node",
+        "title": "ÉTAPE 2 : RUNNER FINAL (Environnement d'exécution durci)",
+        "lines": [
+          "Image minimale sans compilateur ni outils de packaging",
+          "Création d'un utilisateur sans privilèges : USER appuser (UID 10001)",
+          "Système de fichiers racine monté en lecture seule (read-only rootfs)",
+          "Surface d'attaque divisée par dix."
+        ]
+      }
+    ]
+  },
+  "d5effaedc3eeb8a09ddac06ab30503f6a5ccc85aaea6b88a517fb7f3a090f5d6": {
+    "id": "topologie-reseau-avec-reverse-proxy-et-sondes-de-sante",
+    "title": "TOPOLOGIE RÉSEAU AVEC REVERSE PROXY ET SONDES DE SANTÉ",
+    "source_sha256": "d5effaedc3eeb8a09ddac06ab30503f6a5ccc85aaea6b88a517fb7f3a090f5d6",
+    "parts": [
+      {
+        "kind": "node",
+        "title": "REVERSE PROXY (Caddy / Envoy)",
+        "lines": [
+          "Terminaison TLS, Let's Encrypt, Rate Limiting, Port 443"
+        ]
+      },
+      {
+        "kind": "arrow",
+        "label": "",
+        "direction": "down"
+      },
+      {
+        "kind": "grid",
+        "items": [
+          {
+            "kind": "node",
+            "title": "INSTANCE ACTIVE (Conteneur A)",
+            "lines": [
+              "Sonde /healthz : HTTP 200 (OK)",
+              "Trafic de production acheminé"
+            ]
+          },
+          {
+            "kind": "node",
+            "title": "INSTANCE CANDIDATE (Conteneur B)",
+            "lines": [
+              "Sonde /readyz : Attente réchauffement cache",
+              "Zéro trafic tant que le statut n'est pas prêt"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "aab926365ba2881580363d4905f7a40c60e99b71775e509b1bb4709bb979e268": {
+    "id": "les-trois-piliers-de-la-telemetrie-industrielle",
+    "title": "LES TROIS PILIERS DE LA TÉLÉMÉTRIE INDUSTRIELLE",
+    "source_sha256": "aab926365ba2881580363d4905f7a40c60e99b71775e509b1bb4709bb979e268",
+    "parts": [
+      {
+        "kind": "node",
+        "title": "1. LOGS STRUCTURÉS     │   │  2. MÉTRIQUES RED / USE │   │  3. TRACING DISTRIBUÉ",
+        "lines": [
+          "(JSON Contextualisé)│   │     (Séries temporelles)│   │     (W3C Trace Context)"
+        ]
+      },
+      {
+        "kind": "arrow",
+        "label": "",
+        "direction": "down"
+      },
+      {
+        "kind": "node",
+        "title": "Événements discrets     │   │ Compteurs et jauges     │   │ Graphe orienté de spans",
+        "lines": [
+          "formatés en JSON sur    │   │ numériques scalaires    │   │ propageant trace_id et",
+          "stdout (horodatage ISO, │   │ sans cardinalité        │   │ span_id à travers les",
+          "niveau, trace_id, PID). │   │ explosive.              │   │ frontières réseau."
+        ]
+      }
+    ]
+  },
+  "b13aa19fdd1bfb0f02a01ec4bc34e2c145dfd50351533d1845dd61f144c3982b": {
+    "id": "contrat-de-fiabilite-et-arbitrage-du-pilote",
+    "title": "CONTRAT DE FIABILITÉ ET ARBITRAGE DU PILOTE",
+    "source_sha256": "b13aa19fdd1bfb0f02a01ec4bc34e2c145dfd50351533d1845dd61f144c3982b",
+    "parts": [
+      {
+        "kind": "node",
+        "title": "Budget d'erreur restant > 20 %",
+        "lines": [
+          "► Déploiements autorisés de nouvelles fonctionnalités.",
+          "► Prise de risque contrôlée par les équipes de dev."
+        ]
+      },
+      {
+        "kind": "arrow",
+        "label": "",
+        "direction": "down"
+      },
+      {
+        "kind": "node",
+        "title": "Budget d'erreur épuisé (Consommation > 100 %)",
+        "lines": [
+          "► GEL IMMÉDIAT des livraisons de nouvelles fonctionnalités.",
+          "► Priorité absolue : stabilisation, refactoring, tests de",
+          "non-régression et optimisation de la résilience."
+        ]
+      }
+    ]
+  },
+  "ab021123fa8342d00e0a9479ddf1a6d1175a86b5ed3ea0a14a0f6026d7e6688e": {
+    "id": "transitions-d-etats-du-circuit-breaker",
+    "title": "TRANSITIONS D'ÉTATS DU CIRCUIT BREAKER",
+    "source_sha256": "ab021123fa8342d00e0a9479ddf1a6d1175a86b5ed3ea0a14a0f6026d7e6688e",
+    "parts": [
+      {
+        "kind": "states",
+        "items": [
+          {
+            "kind": "node",
+            "title": "FERMÉ",
+            "lines": [
+              "(Nominal) : Requêtes transmises au service distant, mesure du taux d'échec"
+            ],
+            "key": "closed"
+          },
+          {
+            "kind": "node",
+            "title": "OUVERT",
+            "lines": [
+              "(Protection) : Appels coupés net (Fail-fast), temporisation cooldown"
+            ],
+            "key": "open"
+          },
+          {
+            "kind": "node",
+            "title": "SEMI-OUVERT",
+            "lines": [
+              "(Sondage) : Sonde d'essai, 1 requête de test autorisée"
+            ],
+            "key": "half"
+          }
+        ],
+        "transitions": [
+          {
+            "source": "closed",
+            "target": "open",
+            "label": "Taux d'échec > Seuil critique"
+          },
+          {
+            "source": "open",
+            "target": "half",
+            "label": "Délai de cooldown expiré"
+          },
+          {
+            "source": "half",
+            "target": "closed",
+            "label": "Succès de la sonde d'essai"
+          },
+          {
+            "source": "half",
+            "target": "open",
+            "label": "Échec de la sonde d'essai"
+          }
+        ]
+      }
+    ]
+  },
+  "176c34c326016051eda05be1b7e3b9e10b7b2342cba251c2cf5dcaf77ae270c4": {
+    "id": "cycle-d-isolement-en-file-de-rebut-dead-letter-queue",
+    "title": "CYCLE D'ISOLEMENT EN FILE DE REBUT (DEAD LETTER QUEUE)",
+    "source_sha256": "176c34c326016051eda05be1b7e3b9e10b7b2342cba251c2cf5dcaf77ae270c4",
+    "parts": [
+      {
+        "kind": "node",
+        "title": "File Principale : prepresse-jobs",
+        "lines": []
+      },
+      {
+        "kind": "arrow",
+        "label": "",
+        "direction": "down"
+      },
+      {
+        "kind": "node",
+        "title": "Quarantaine : Dead Letter Queue (DLQ)",
+        "lines": []
+      }
+    ]
+  },
+  "128c022b05d757bf5fe644ef8e4bcadd8f99daba8d8ca39399b7d6ad2e24ad57": {
+    "id": "matrice-d-alignement-des-protocoles",
+    "title": "MATRICE D'ALIGNEMENT DES PROTOCOLES",
+    "source_sha256": "128c022b05d757bf5fe644ef8e4bcadd8f99daba8d8ca39399b7d6ad2e24ad57",
+    "parts": [
+      {
+        "kind": "node",
+        "title": "1. SPÉCIFICATION (O & R)",
+        "lines": [
+          "ORCHESTRE : Observer & Résultat",
+          "Outils : /grill-with-docs, /to-prd",
+          "Contrôle : Audit de l'existant, User Stories et critères"
+        ]
+      },
+      {
+        "kind": "arrow",
+        "label": "",
+        "direction": "down"
+      },
+      {
+        "kind": "node",
+        "title": "2. CONTRATS (C & H)",
+        "lines": [
+          "ORCHESTRE : Cartographier & Hypothèse",
+          "Outils : /to-issues, ADR formel (docs/adr)",
+          "Contrôle : Tranches verticales, architecture minimale"
+        ]
+      },
+      {
+        "kind": "arrow",
+        "label": "",
+        "direction": "down"
+      },
+      {
+        "kind": "node",
+        "title": "POINT D'ARRÊT DÉCISIONNEL",
+        "lines": [
+          "Gel mémoire (/clear), purge du contexte et handoff humain"
+        ]
+      },
+      {
+        "kind": "arrow",
+        "label": "",
+        "direction": "down"
+      },
+      {
+        "kind": "node",
+        "title": "3. TESTS & 4. IMPLÉMENTATION (E, S, T)",
+        "lines": [
+          "ORCHESTRE : Expérimenter, Sécuriser, Tracer",
+          "Outils : /tdd (Preuve rouge), /implement (Code vert), Commits atomiques",
+          "Contrôle : Test frontière, code minimal sans parasite"
+        ]
+      },
+      {
+        "kind": "arrow",
+        "label": "",
+        "direction": "down"
+      },
+      {
+        "kind": "node",
+        "title": "5. INTÉGRATION & 6. LIVRAISON (R & E)",
+        "lines": [
+          "ORCHESTRE : Relire & Exposer",
+          "Outils : /review (Double audit), Staging / Blue-Green",
+          "Contrôle : Standards & Spécification, surveillance SLO"
+        ]
+      }
+    ]
+  },
+  "5ab61b05b0677019fec6d80596aada4ec7873f508adc44b8169a650336958db6": {
+    "id": "decoupage-horizontal-dangereux-tranche-verticale-robuste",
+    "title": "DÉCOUPAGE HORIZONTAL (DANGEREUX)      TRANCHE VERTICALE (ROBUSTE)",
+    "source_sha256": "5ab61b05b0677019fec6d80596aada4ec7873f508adc44b8169a650336958db6",
+    "parts": [
+      {
+        "kind": "grid",
+        "items": [
+          {
+            "kind": "node",
+            "title": "DÉCOUPAGE HORIZONTAL (DANGEREUX)",
+            "lines": [
+              "Couche 1 : Tous les DTOs",
+              "Couche 2 : Tous les contrôleurs",
+              "Couche 3 : Tous les repositories",
+              "Intégration tardive, effet tunnel, risque d'incohérence élevé"
+            ]
+          },
+          {
+            "kind": "node",
+            "title": "TRANCHE VERTICALE (ROBUSTE)",
+            "lines": [
+              "Tranche 1 : Upload de document complet (UI + Métier + DB)",
+              "Tranche 2 : Consultation de document",
+              "Chaque tranche traverse toutes les couches",
+              "Prouvée par tests end-to-end dès le premier jour"
+            ]
+          }
+        ],
+        "style": "comparison"
+      }
+    ]
+  },
+  "7a4f125f5702ed70195c43ee705629e2fe68426443201dc75966195522eec670": {
+    "id": "sequence-d-upload-direct-multipart-avec-reprise",
+    "title": "SÉQUENCE D'UPLOAD DIRECT MULTIPART AVEC REPRISE",
+    "source_sha256": "7a4f125f5702ed70195c43ee705629e2fe68426443201dc75966195522eec670",
+    "parts": [
+      {
+        "kind": "node",
+        "title": "1. Déclaration initiale",
+        "lines": [
+          "Client ──► Serveur API : POST /uploads/sessions (taille: 450 Mo, checksum)",
+          "Serveur API vérifie droits et quota"
+        ]
+      },
+      {
+        "kind": "arrow",
+        "label": "",
+        "direction": "down"
+      },
+      {
+        "kind": "node",
+        "title": "2. Réservation & URLs signées",
+        "lines": [
+          "Serveur API ──► S3/R2 : InitiateMultipartUpload",
+          "Retour au client des URLs pré-signées par chunk"
+        ]
+      },
+      {
+        "kind": "arrow",
+        "label": "",
+        "direction": "down"
+      },
+      {
+        "kind": "node",
+        "title": "3. Transfert direct parallèle",
+        "lines": [
+          "Client ──► S3/R2 : PUT direct des chunks 1..45",
+          "La mémoire vive du serveur API n'est jamais sollicitée"
+        ]
+      },
+      {
+        "kind": "arrow",
+        "label": "",
+        "direction": "down"
+      },
+      {
+        "kind": "node",
+        "title": "4. Finalisation & Scellement",
+        "lines": [
+          "Client ──► Serveur API : POST /uploads/complete",
+          "Calcul et vérification de l'empreinte SHA-256 finale"
+        ]
+      }
+    ]
+  },
+  "7ae1f55e5b523bd27f0a426be275847648b1d02cac1eb025b633517483e1ed05": {
+    "id": "interleaving-temporel-creant-le-doublon",
+    "title": "INTERLEAVING TEMPOREL CRÉANT LE DOUBLON",
+    "source_sha256": "7ae1f55e5b523bd27f0a426be275847648b1d02cac1eb025b633517483e1ed05",
+    "parts": [
+      {
+        "kind": "grid",
+        "items": [
+          {
+            "kind": "node",
+            "title": "Thread A (Requête 1)",
+            "lines": [
+              "SELECT id FROM commandes WHERE panier_id = 42; (NULL)",
+              "INSERT INTO commandes; (Commit réussi : Commande #1042 créée)"
+            ]
+          },
+          {
+            "kind": "node",
+            "title": "Thread B (Requête 2)",
+            "lines": [
+              "SELECT id FROM commandes WHERE panier_id = 42; (NULL)",
+              "INSERT INTO commandes; (Commit réussi : Commande #1043 créée !)"
+            ]
+          }
+        ],
+        "style": "comparison"
+      }
+    ]
+  },
+  "d42f946b6243d168f3f445ac4a42851ab5e571cd484b8a05211d862a9dc57a0e": {
+    "id": "architecture-de-routage-agnostique-et-souveraine",
+    "title": "ARCHITECTURE DE ROUTAGE AGNOSTIQUE ET SOUVERAINE",
+    "source_sha256": "d42f946b6243d168f3f445ac4a42851ab5e571cd484b8a05211d862a9dc57a0e",
+    "parts": [
+      {
+        "kind": "node",
+        "title": "HARNAIS AGENTIQUE SOUVERAIN",
+        "lines": [
+          "Aider / Claude Code / Roo Code / OpenHands"
+        ]
+      },
+      {
+        "kind": "arrow",
+        "label": "(Standard OpenAI / OpenTelemetry)",
+        "direction": "down"
+      },
+      {
+        "kind": "node",
+        "title": "COUCHE DE ROUTAGE UNIFIÉE",
+        "lines": [
+          "LiteLLM Proxy / Ollama / Local Gateway"
+        ]
+      },
+      {
+        "kind": "arrow",
+        "label": "",
+        "direction": "down"
+      },
+      {
+        "kind": "grid",
+        "items": [
+          {
+            "kind": "node",
+            "title": "Moteurs Propriétaires",
+            "lines": [
+              "Claude (Anthropic API)",
+              "OpenAI (o-series / GPT-4o)",
+              "Gemini (Google AI)"
+            ]
+          },
+          {
+            "kind": "node",
+            "title": "Inférence Dédiée / VPS",
+            "lines": [
+              "vLLM / SGLang (GPU Nvidia)",
+              "Modèles Open Weights hébergés"
+            ]
+          },
+          {
+            "kind": "node",
+            "title": "Inférence Locale",
+            "lines": [
+              "Ollama / llama.cpp (Apple Silicon / CPU)",
+              "Qwen2.5, DeepSeek, Codestral"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "8dca180358df12d4c1e2e222d8a4d9c8e50372bf1d3323a7c01b6e2b206e6a74": {
+    "id": "flux-du-protocole-model-context-protocol-mcp",
+    "title": "FLUX DU PROTOCOLE MODEL CONTEXT PROTOCOL (MCP)",
+    "source_sha256": "8dca180358df12d4c1e2e222d8a4d9c8e50372bf1d3323a7c01b6e2b206e6a74",
+    "parts": [
+      {
+        "kind": "node",
+        "title": "Agent / Client Hôte",
+        "lines": []
+      },
+      {
+        "kind": "arrow",
+        "label": "",
+        "direction": "down"
+      },
+      {
+        "kind": "node",
+        "title": "Serveur MCP Git",
+        "lines": []
+      },
+      {
+        "kind": "arrow",
+        "label": "",
+        "direction": "down"
+      },
+      {
+        "kind": "node",
+        "title": "Dépôt Git",
+        "lines": []
+      },
+      {
+        "kind": "arrow",
+        "label": "",
+        "direction": "down"
+      },
+      {
+        "kind": "node",
+        "title": "git_diff, git_log, ...",
+        "lines": []
+      }
+    ]
+  },
+  "a6f3f955d7d5c1edeccee531cc9c48fcad43635d29ee4c5f39c39d82170e50aa": {
+    "id": "le-ruban-principal-main-flow",
+    "title": "LE RUBAN PRINCIPAL (Main Flow)",
+    "source_sha256": "a6f3f955d7d5c1edeccee531cc9c48fcad43635d29ee4c5f39c39d82170e50aa",
+    "parts": [
+      {
+        "kind": "node",
+        "title": "Cadrage & Spécification",
+        "lines": [
+          "Idée brute ──► /grill-with-docs ──► /to-prd ──► /to-issues",
+          "En cas de doute UI : /prototype"
+        ]
+      },
+      {
+        "kind": "arrow",
+        "label": "",
+        "direction": "down"
+      },
+      {
+        "kind": "node",
+        "title": "Purge de Contexte",
+        "lines": [
+          "Commande /clear : réinitialisation de la fenêtre"
+        ]
+      },
+      {
+        "kind": "arrow",
+        "label": "",
+        "direction": "down"
+      },
+      {
+        "kind": "node",
+        "title": "Développement sous Preuve",
+        "lines": [
+          "/implement + /tdd (cycle TDD inversé)"
+        ]
+      },
+      {
+        "kind": "arrow",
+        "label": "",
+        "direction": "down"
+      },
+      {
+        "kind": "node",
+        "title": "Contrôle Qualité",
+        "lines": [
+          "/review (Double audit : Standards + Spécification)"
+        ]
+      },
+      {
+        "kind": "arrow",
+        "label": "",
+        "direction": "down"
+      },
+      {
+        "kind": "node",
+        "title": "Voies d'Insertion (On-Ramps)",
+        "lines": [
+          "Bugs & retours externes ──► /triage ──► Ticket prêt",
+          "Bug dur ou régression ──► /diagnosing-bugs ──► Fix + Test rouge",
+          "Brouillard complet ──► /wayfinder ──► Décisions ──► /to-prd"
+        ]
+      }
+    ]
+  },
+  "89fc56cf90813e47bc7f228df5818e521679677e7d124b7bde7806ff4028d6a1": {
+    "id": "vous-demarrez-une-session-quelle-est-la-situation",
+    "title": "Vous démarrez une session : quelle est la situation ?",
+    "source_sha256": "89fc56cf90813e47bc7f228df5818e521679677e7d124b7bde7806ff4028d6a1",
+    "parts": [
+      {
+        "kind": "grid",
+        "items": [
+          {
+            "kind": "node",
+            "title": "Idée nouvelle ou fonctionnalité",
+            "lines": [
+              "/grill-with-docs (avec dépôt Git) ou /grill-me (sans dépôt)"
+            ]
+          },
+          {
+            "kind": "node",
+            "title": "Incertitude sur le point de départ",
+            "lines": [
+              "/ask-matt (l'aiguilleur universel de session)"
+            ]
+          },
+          {
+            "kind": "node",
+            "title": "Jargon ou confusion de l'agent",
+            "lines": [
+              "/wait-what (arrêt d'urgence et recadrage)"
+            ]
+          },
+          {
+            "kind": "node",
+            "title": "Action humaine requise (secrets, OAuth)",
+            "lines": [
+              "/wizard (script interactif) ou /to-questionnaire"
+            ]
+          },
+          {
+            "kind": "node",
+            "title": "Chantier immense (brouillard)",
+            "lines": [
+              "/wayfinder (carte de tickets de décision)"
+            ]
+          },
+          {
+            "kind": "node",
+            "title": "Panne, régression ou lenteur",
+            "lines": [
+              "/diagnosing-bugs (boucle rouge déterministe)"
+            ]
+          },
+          {
+            "kind": "node",
+            "title": "Dette technique ou code rigide",
+            "lines": [
+              "/improve-codebase-architecture (modules profonds)"
+            ]
+          },
+          {
+            "kind": "node",
+            "title": "Signalements externes ou conflits Git",
+            "lines": [
+              "/triage ou /resolving-merge-conflicts"
+            ]
+          }
+        ],
+        "style": "pillars"
+      }
+    ]
+  },
+  "424ff6aa11d8a449a7041141c92eb9d52348a7d8f18de5a270c77308cf395494": {
+    "id": "le-jalon-1-en-action-sur-ce-depot",
+    "title": "LE JALON 1 EN ACTION SUR CE DÉPÔT",
+    "source_sha256": "424ff6aa11d8a449a7041141c92eb9d52348a7d8f18de5a270c77308cf395494",
+    "parts": [
+      {
+        "kind": "node",
+        "title": "1. Aiguillage initial",
+        "lines": [
+          "/ask-matt (Constat : besoin de cadre formel)"
+        ]
+      },
+      {
+        "kind": "arrow",
+        "label": "",
+        "direction": "down"
+      },
+      {
+        "kind": "node",
+        "title": "2. Modélisation de domaine",
+        "lines": [
+          "CONTEXT.md (Glossaire strict & _Avoid_)"
+        ]
+      },
+      {
+        "kind": "arrow",
+        "label": "",
+        "direction": "down"
+      },
+      {
+        "kind": "node",
+        "title": "3. Arbitrage engageant",
+        "lines": [
+          "docs/adr/0001-harnais-en-trois-couches.md"
+        ]
+      },
+      {
+        "kind": "arrow",
+        "label": "",
+        "direction": "down"
+      },
+      {
+        "kind": "node",
+        "title": "4. Outillage opérationnel",
+        "lines": [
+          ".agents/skills/ (37 skills déployés)"
+        ]
+      },
+      {
+        "kind": "arrow",
+        "label": "",
+        "direction": "down"
+      },
+      {
+        "kind": "node",
+        "title": "5. Preuves observables",
+        "lines": [
+          "26 tests unitaires OK + Build Hugo"
+        ]
+      },
+      {
+        "kind": "arrow",
+        "label": "",
+        "direction": "down"
+      },
+      {
+        "kind": "node",
+        "title": "6. Publication & Traçabilité",
+        "lines": [
+          "Git commit, push, Cloudflare Pages HTTP 200"
+        ]
+      }
+    ]
+  },
+  "2aefbf49b8b44938f00a8e2983ac4673c04271cfef7bd3ed4098cc3fe55cd98f": {
+    "id": "1-couche-globale-machine-developpeur-gemini-ou-claude",
+    "title": "1. COUCHE GLOBALE (Machine développeur : ~/.gemini/ ou ~/.claude/)",
+    "source_sha256": "2aefbf49b8b44938f00a8e2983ac4673c04271cfef7bd3ed4098cc3fe55cd98f",
+    "parts": [
+      {
+        "kind": "node",
+        "title": "1. COUCHE GLOBALE (Machine développeur : ~/.gemini/ ou ~/.claude/)",
+        "lines": [
+          "- Rôle : Vos réflexes personnels, navigation et apprentissage",
+          "- Exemples : ask-matt, grill-me, wait-what, teach, obsidian-vault"
+        ]
+      },
+      {
+        "kind": "arrow",
+        "label": "",
+        "direction": "down"
+      },
+      {
+        "kind": "node",
+        "title": "2. COUCHE PROJET (Dépôt Git : .agents/skills/ à la racine)",
+        "lines": [
+          "- Rôle : Gouvernance d'équipe, contrats et preuves de fabrication",
+          "- Exemples : setup-skills, grill-with-docs, to-prd, to-issues,",
+          "implement, tdd, review, diagnosing-bugs, wizard"
+        ]
+      },
+      {
+        "kind": "arrow",
+        "label": "",
+        "direction": "down"
+      },
+      {
+        "kind": "node",
+        "title": "3. COUCHE RUNTIME / MÉMOIRE VIVE (CONTEXT.md, docs/adr/, tickets)",
+        "lines": [
+          "- Rôle : Les artefacts vivants produits par les agents et l'équipe",
+          "- Exemples : Modèle de domaine, ADRs actés, backlog d'issues"
+        ]
+      }
+    ]
+  }
+}

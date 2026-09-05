@@ -8,6 +8,7 @@ from urllib.parse import unquote, quote, urlsplit
 
 from verifier import LINK, ROOT, verify
 from lecture_sources import markdown_integral, pdf_pages
+from preparer_schemas_manuscrit import build_manuscrit_registry
 
 
 def slug(text):
@@ -186,6 +187,7 @@ def build_files(root=ROOT):
         else:
             body += "\nVersion d'archive ou export ; les citations de rédaction privilégient O-MD et I-MD. [Voir les relations entre versions](/projet/corpus).\n"
         add(f"/references/sources/{doc['id'].lower()}", {"title": f"{doc['id']} — {doc['fichier']}", "weight": index, "source_document": True}, body)
+    files["data/diagrams/manuscrit.json"] = json.dumps(build_manuscrit_registry(root), ensure_ascii=False, indent=2) + "\n"
     return files
 
 
