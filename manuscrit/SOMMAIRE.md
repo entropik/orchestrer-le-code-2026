@@ -4,7 +4,7 @@
 
 La première partie explique pour comprendre et décider. La seconde reprend exactement les mêmes sujets, dans le même ordre, pour concevoir, mettre en œuvre et vérifier. Le lecteur peut lire une partie entière ou passer directement d'un chapitre à son miroir.
 
-Les 24 textes actuels sont des **amorces de synthèse**, accompagnées de fiches de rédaction ; ce n'est pas encore le manuscrit final.
+Les 24 chapitres sont entièrement rédigés et organisés en miroir. Tu peux lire la Partie I accessible d'une traite comme un livre, ou approfondir chaque sujet avec son chapitre miroir.
 
 | Sujet | Partie I : accessible | Partie II : ingénieure |
 |---|---|---|

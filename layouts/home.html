@@ -12,7 +12,7 @@
   </section>
   <section class="contents-section" aria-labelledby="chapitres">
     <div class="section-heading"><h2 id="chapitres">Douze sujets. Deux portes d’entrée.</h2><span>24 chapitres miroirs</span></div>
-    <p class="status-note">Les textes actuels sont des amorces de synthèse, pas encore les chapitres définitifs.</p>
+    <p class="status-note">Le livre est entièrement rédigé : douze chapitres accessibles pour décider et douze chapitres d'ingénierie en miroir.</p>
     <ol class="chapter-matrix">
       {{ range (where site.RegularPages "Section" "accessible").ByWeight }}
       <li><span class="chapter-number">{{ .Params.theme }}</span><h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3><div class="chapter-choices"><a href="{{ .RelPermalink }}"><span class="sr-only">{{ .Title }} : </span>Accessible</a>{{ with site.GetPage .Params.mirror }}<a href="{{ .RelPermalink }}"><span class="sr-only">{{ .Title }} : </span>Approfondir ↗</a>{{ end }}</div></li>
