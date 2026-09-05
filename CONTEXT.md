@@ -56,3 +56,4 @@ _Avoid_: Émojis système (🎯, 🐞, 🔗, 🛑, 👥, etc.), icônes raster, 
 - **Standard des compétences** : `.agents/skills/<name>/SKILL.md` à la racine du dépôt Git.
 - **Iconographie** : Lucide Icons exclusivement en SVG inline (zero-runtime, pas de CDN, zéro layout shift). Les émojis système sont formellement proscrits de l'interface et des fiches documentaires (voir ADR-0003).
 - **Garde-fous Git** : Protection active via `.githooks/pre-commit` (contrôle des tests, structure des sources, refus des secrets) et `.claude/hooks/block-dangerous-git.sh` (interception des commandes destructrices pour agents, voir ADR-0004).
+- **Design Responsive & Mobile** : En-tête avec navigation tactile accessible (`aria-expanded`), mini-sommaire mobile interactif en tête d'article (`.mobile-reader-menu`), typographie fluide (`clamp()`) et `overflow-x: clip` sur le body (voir ADR-0005).

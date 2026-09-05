@@ -22,9 +22,15 @@
 </head>
 <body>
   <a class="skip-link" href="#contenu">Aller au contenu</a>
-  <header class="site-header">
-    <a class="brand" href="{{ site.Home.RelPermalink }}"><span class="brand-mark">OC</span><span>Orchestrer le code <span class="brand-year">/ 2026</span></span></a>
-    <nav aria-label="Navigation principale">
+  <header class="site-header" id="site-header">
+    <div class="site-header-bar">
+      <a class="brand" href="{{ site.Home.RelPermalink }}"><span class="brand-mark">OC</span><span>Orchestrer le code <span class="brand-year">/ 2026</span></span></a>
+      <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Ouvrir le menu de navigation">
+        <span class="nav-toggle-icon icon-menu" aria-hidden="true">{{ partial "icon.html" (dict "name" "menu") }}</span>
+        <span class="nav-toggle-icon icon-close" aria-hidden="true">{{ partial "icon.html" (dict "name" "x") }}</span>
+      </button>
+    </div>
+    <nav id="site-nav" class="site-nav" aria-label="Navigation principale">
       {{ range slice "accessible" "ingenieure" "annexes" "references" "projet" }}
         {{ with site.GetPage . }}<a href="{{ .RelPermalink }}"{{ if eq $.Section .Section }} aria-current="{{ if eq $.RelPermalink .RelPermalink }}page{{ else }}true{{ end }}"{{ end }}>{{ .LinkTitle }}</a>{{ end }}
       {{ end }}
@@ -44,5 +50,7 @@
   </footer>
   {{ $search := resources.Get "js/search.js" | js.Build (dict "target" "es2020") | minify | fingerprint }}
   <script type="module" src="{{ $search.RelPermalink }}" integrity="{{ $search.Data.Integrity }}"></script>
+  {{ $nav := resources.Get "js/nav.js" | js.Build (dict "target" "es2020") | minify | fingerprint }}
+  <script type="module" src="{{ $nav.RelPermalink }}" integrity="{{ $nav.Data.Integrity }}"></script>
 </body>
 </html>

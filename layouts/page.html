@@ -14,6 +14,46 @@
   </aside>
   <article class="reader-article">
     <nav class="breadcrumb" aria-label="Fil d’Ariane"><a href="{{ site.Home.RelPermalink }}">Le manuel</a><span aria-hidden="true">/</span>{{ with .CurrentSection }}<a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>{{ end }}</nav>
+    {{ if .Params.chapter_id }}
+    <details class="mobile-reader-menu" aria-label="Parcours de lecture et sommaire">
+      <summary class="mobile-reader-summary">
+        <span class="mrm-badge">{{ if eq .Section "accessible" }}Lecture Accessible{{ else }}Lecture Ingénieure{{ end }}</span>
+        <span class="mrm-title"><strong>Chapitre {{ .Params.chapter_id }}</strong> · {{ .Title }}</span>
+        <span class="mrm-chevron" aria-hidden="true">{{ partial "icon.html" (dict "name" "chevron-down") }}</span>
+      </summary>
+      <div class="mobile-reader-dropdown">
+        <p class="mrm-label">Les 12 chapitres de cette lecture :</p>
+        <ol class="mrm-chapters-list">
+          {{ range (where site.RegularPages "Section" .Section).ByWeight }}
+          <li>
+            <a href="{{ .RelPermalink }}"{{ if eq $.RelPermalink .RelPermalink }} aria-current="page" class="active"{{ end }}>
+              <span class="mrm-ch-num">{{ .Params.theme }}</span>
+              <span class="mrm-ch-title">{{ .Title }}</span>
+              {{ if eq $.RelPermalink .RelPermalink }}<span class="mrm-ch-current">En cours</span>{{ end }}
+            </a>
+          </li>
+          {{ end }}
+        </ol>
+        {{ if .TableOfContents }}
+        <div class="mrm-toc-section">
+          <p class="mrm-label">Dans ce chapitre :</p>
+          {{ replace .TableOfContents "id=\"TableOfContents\"" "id=\"MobileTableOfContents\"" | safeHTML }}
+        </div>
+        {{ end }}
+      </div>
+    </details>
+    {{ else if .TableOfContents }}
+    <details class="mobile-reader-menu" aria-label="Table des matières de la page">
+      <summary class="mobile-reader-summary">
+        <span class="mrm-badge">Dans cette page</span>
+        <span class="mrm-title">Table des matières</span>
+        <span class="mrm-chevron" aria-hidden="true">{{ partial "icon.html" (dict "name" "chevron-down") }}</span>
+      </summary>
+      <div class="mobile-reader-dropdown">
+        {{ replace .TableOfContents "id=\"TableOfContents\"" "id=\"MobileTableOfContents\"" | safeHTML }}
+      </div>
+    </details>
+    {{ end }}
     <header class="article-header">
       <p class="eyebrow">{{ with .Params.chapter_id }}Chapitre {{ . }}{{ else }}Document de référence{{ end }}</p>
       <h1>{{ .Title }}</h1>
