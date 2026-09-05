@@ -17,7 +17,9 @@ python3.11 scripts/verifier.py
 # 3. Vérification de synchronisation du contenu Hugo
 python3.11 scripts/preparer_hugo.py --check
 
-# 4. Exécution de la suite de tests unitaires
+# 4. Exécution de la suite de tests unitaires (Python & Node.js)
 python3.11 -m unittest discover -s tests
+node tests/test_search.mjs
+node tests/test_typo.mjs
 
 echo "✅ Tous les contrôles de pré-commit sont validés."

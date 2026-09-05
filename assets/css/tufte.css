@@ -135,11 +135,19 @@ h2 { font-size: 2rem; }
 .local-toc #TableOfContents ul ul li a { font-size: .8rem; color: var(--muted); }
 .local-toc #TableOfContents ul ul li a:hover { color: var(--accent); }
 .reading-body { min-width: 0; }
-.prose { font-size: 1.4rem; line-height: 1.55; max-width: var(--reading-width); min-width: 0; }
+.prose {
+  font-size: 1.4rem;
+  line-height: 1.55;
+  max-width: var(--reading-width);
+  min-width: 0;
+  hyphens: auto;
+  -webkit-hyphens: auto;
+  text-wrap: pretty;
+}
 .prose p { margin-bottom: 1.35rem; }
-.prose h2 { font-size: 2rem; font-style: italic; line-height: 1.15; margin-top: 2.5rem; margin-bottom: 1.2rem; }
+.prose h2 { font-size: 2rem; font-style: italic; line-height: 1.15; margin-top: 2.5rem; margin-bottom: 1.2rem; text-wrap: balance; }
 .prose h2:first-child { margin-top: 0; }
-.prose h3 { font-family: var(--serif); font-size: 1.5rem; font-weight: 400; font-style: italic; }
+.prose h3 { font-family: var(--serif); font-size: 1.5rem; font-weight: 400; font-style: italic; text-wrap: balance; }
 .prose a { color: inherit; text-decoration-color: #928e81; text-decoration-thickness: 1px; }
 .prose a:hover { color: var(--rust); text-decoration-color: currentColor; }
 .prose strong { font-weight: 700; }
@@ -471,6 +479,37 @@ h2 { font-size: 2rem; }
   }
 
   .home-main, .section-main { padding-top: 2.8rem; }
+
+  /* Justification du texte et contrôle typographique en responsive */
+  .prose p,
+  .prose li,
+  .prose blockquote,
+  .lead,
+  .intro-note,
+  .home-about p,
+  .section-intro,
+  .reading-notes p {
+    text-align: justify;
+    text-justify: inter-word;
+    hyphens: auto;
+    -webkit-hyphens: auto;
+    text-wrap: pretty;
+  }
+
+  /* Préservation de l'alignement à gauche pour le code, tableaux et titres */
+  .prose pre,
+  .prose code,
+  .prose table,
+  .prose table th,
+  .prose table td,
+  .prose h1,
+  .prose h2,
+  .prose h3,
+  .prose h4,
+  .prose h5,
+  .prose h6 {
+    text-align: left;
+  }
 }
 
 @media (max-width: 680px) {

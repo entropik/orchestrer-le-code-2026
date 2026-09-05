@@ -1,3 +1,7 @@
+import { initTypography } from './typo.js';
+
+initTypography();
+
 (function () {
   const toggle = document.getElementById('nav-toggle');
   const header = document.getElementById('site-header');
