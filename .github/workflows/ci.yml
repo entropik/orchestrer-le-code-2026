@@ -25,4 +25,4 @@ jobs:
       - name: Vérifier les sources et le contenu généré
         run: python -X utf8 scripts/verifier.py && python -X utf8 scripts/preparer_hugo.py --check && python -X utf8 -m unittest discover -s tests
       - name: Construire et contrôler Hugo
-        run: hugo --panicOnWarning && python -X utf8 scripts/verifier_html.py public && python -X utf8 scripts/verifier_lecture_sources.py public && node --test tests/test_search.mjs
+        run: hugo --panicOnWarning && python -X utf8 scripts/verifier_html.py public && python -X utf8 scripts/verifier_lecture_sources.py public && node --test tests/test_search.mjs && node --test tests/test_typo.mjs
