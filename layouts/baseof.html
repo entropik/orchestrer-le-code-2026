@@ -6,6 +6,10 @@
   <meta name="color-scheme" content="light">
   <title>{{ if not .IsHome }}{{ .Title }} · {{ end }}{{ site.Title }}</title>
   <meta name="description" content="{{ .Description | default site.Params.description }}">
+  <meta name="author" content="Marc Tallec">
+  <meta name="copyright" content="© 2026 Marc Tallec">
+  <meta name="robots" content="index, follow, noai, noimageai">
+  <meta name="tdm-reservation" content="1">
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <meta property="og:title" content="{{ .Title }}">
   <meta property="og:description" content="{{ .Description | default site.Params.description }}">
@@ -29,10 +33,11 @@
   </header>
   {{ block "main" . }}{{ end }}
   <footer class="site-footer">
-    <span>Un manuel en construction. Des décisions avant des outils.</span>
+    <span>© 2026 Marc Tallec · Licence CC BY-NC-ND 4.0</span>
     <nav aria-label="Pied de page">
       {{ with site.GetPage "/annexes/glossaire" }}<a href="{{ .RelPermalink }}">Glossaire</a>{{ end }}
       {{ with site.GetPage "/projet/charte" }}<a href="{{ .RelPermalink }}">Charte</a>{{ end }}
+      {{ with site.GetPage "/projet/droits" }}<a href="{{ .RelPermalink }}">Droits & Licence</a>{{ end }}
       {{ with site.Params.repositoryURL }}<a href="{{ . }}" target="_blank" rel="external noopener noreferrer">Dépôt GitHub ↗<span class="sr-only"> (nouvel onglet)</span></a>{{ end }}
       <a href="#contenu">Haut de page ↑</a>
     </nav>

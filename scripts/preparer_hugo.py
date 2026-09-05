@@ -53,6 +53,7 @@ def build_files(root=ROOT):
         "analyse/02-synthese.md": ("/projet/synthese", "Synthèse des deux approches"),
         "analyse/03-registre-critique.md": ("/references/registre-critique", "Registre critique"),
         "editorial/CHARTE.md": ("/projet/charte", "Charte éditoriale"),
+        "editorial/DROITS_ET_LICENCE.md": ("/projet/droits", "Droits d'auteur & Licence"),
         "editorial/FIL_ROUGE.md": ("/projet/fil-rouge", "Le fil rouge"),
         "editorial/PLAN_REDACTION.md": ("/redaction/plan", "Plan des 24 tranches"),
         "manuscrit/03-annexes/01-fiches-reflexes.md": ("/annexes/fiches-reflexes", "Fiches réflexes", 1, "Listes de contrôle communes pour lancer, vérifier et livrer."),
