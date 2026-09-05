@@ -6,6 +6,7 @@
     <p class="lead">Comprendre pour décider.<br>Approfondir pour concevoir et vérifier.</p>
     <p class="intro-note">Le même sujet, le même exemple et deux profondeurs de lecture.</p>
     <div class="reading-paths">
+      {{ with site.GetPage "/accessible/avant-propos" }}<a class="path-choice" href="{{ .RelPermalink }}" style="grid-column: 1 / -1; border-top: 2px solid var(--rust);"><span>AVANT LA PREMIÈRE LIGNE</span><strong>Avant-propos : L’art de l’introspection et du choix des armes <span aria-hidden="true">↗</span></strong><small>Deux mois de réflexion avant le premier prompt : cadrage du besoin, cas vécu du carnet photo et stack sobre.</small></a>{{ end }}
       {{ with site.GetPage "/accessible" }}<a class="path-choice" href="{{ .RelPermalink }}"><span>PARTIE I</span><strong>La lecture accessible <span aria-hidden="true">↗</span></strong><small>Comprendre, questionner, décider.</small></a>{{ end }}
       {{ with site.GetPage "/ingenieure" }}<a class="path-choice" href="{{ .RelPermalink }}"><span>PARTIE II</span><strong>La lecture ingénieure <span aria-hidden="true">↗</span></strong><small>Concevoir, éprouver, approfondir.</small></a>{{ end }}
     </div>
@@ -15,7 +16,9 @@
     <p class="status-note">Le livre est entièrement rédigé : douze chapitres accessibles pour décider et douze chapitres d'ingénierie en miroir.</p>
     <ol class="chapter-matrix">
       {{ range (where site.RegularPages "Section" "accessible").ByWeight }}
+      {{ if ne .Params.theme "00" }}
       <li><span class="chapter-number">{{ .Params.theme }}</span><h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3><div class="chapter-choices"><a href="{{ .RelPermalink }}"><span class="sr-only">{{ .Title }} : </span>Accessible</a>{{ with site.GetPage .Params.mirror }}<a href="{{ .RelPermalink }}"><span class="sr-only">{{ .Title }} : </span>Approfondir ↗</a>{{ end }}</div></li>
+      {{ end }}
       {{ end }}
     </ol>
   </section>

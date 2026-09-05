@@ -2,7 +2,7 @@
 
 > Lecture accessible · Chapitre rédigé.
 
-[Sommaire](../SOMMAIRE.md) · [Approfondir le même chapitre](../02-lecture-ingenieure/01-piloter-un-systeme.md) · [Fiche de rédaction](../../tranches/A01-piloter-un-systeme.md)
+[Sommaire](../SOMMAIRE.md) · [Avant-propos : Avant la première ligne](00-avant-la-premiere-ligne.md) · [Approfondir le même chapitre](../02-lecture-ingenieure/01-piloter-un-systeme.md) · [Fiche de rédaction](../../tranches/A01-piloter-un-systeme.md)
 
 ## Ce que tu sauras faire
 

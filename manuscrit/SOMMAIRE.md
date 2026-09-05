@@ -6,6 +6,8 @@ La première partie explique pour comprendre et décider. La seconde reprend exa
 
 Les 24 chapitres sont entièrement rédigés et organisés en miroir. Tu peux lire la Partie I accessible d'une traite comme un livre, ou approfondir chaque sujet avec son chapitre miroir.
 
+> 💡 **Avant d'écrire la moindre ligne de code ou le premier prompt** : Découvre l'étape fondatrice d'introspection, de cadrage du besoin et de choix des armes dans l'[Avant-propos — Avant la première ligne : L'art de l'introspection, du terrain et du choix des armes](01-lecture-accessible/00-avant-la-premiere-ligne.md).
+
 | Sujet | Partie I : accessible | Partie II : ingénieure |
 |---|---|---|
 | 01 - Piloter un système, pas une génération de code | [A01](01-lecture-accessible/01-piloter-un-systeme.md) | [B01](02-lecture-ingenieure/01-piloter-un-systeme.md) |

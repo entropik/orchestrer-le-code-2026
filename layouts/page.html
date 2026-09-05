@@ -55,7 +55,7 @@
     </details>
     {{ end }}
     <header class="article-header">
-      <p class="eyebrow">{{ with .Params.chapter_id }}Chapitre {{ . }}{{ else }}Document de référence{{ end }}</p>
+      <p class="eyebrow">{{ with .Params.chapter_id }}Chapitre {{ . }}{{ else }}{{ .Params.eyebrow | default "Document de référence" }}{{ end }}</p>
       <h1>{{ .Title }}</h1>
       <div class="article-meta">{{ with .Params.status }}<span class="status-badge">{{ . }}</span>{{ end }}<span>{{ .ReadingTime }} min de lecture</span>{{ with .Params.chapter_id }}<span>Même sujet, deux profondeurs</span>{{ end }}</div>
       {{ with .Params.mirror }}{{ with site.GetPage . }}<a class="mirror-link" href="{{ .RelPermalink }}">{{ if eq .Section "ingenieure" }}Approfondir ce chapitre{{ else }}Revenir à la lecture accessible{{ end }} <span aria-hidden="true">↗</span></a>{{ end }}{{ end }}
@@ -73,7 +73,7 @@
     {{ with .Params.related }}
     <section class="related" aria-labelledby="connexes"><p class="eyebrow">Continuer l’exploration</p><h2 id="connexes">Les sujets se répondent.</h2><ul>{{ range . }}{{ with site.GetPage . }}<li><a href="{{ .RelPermalink }}"><span>{{ .Params.chapter_id }}</span> {{ .Title }} →</a></li>{{ end }}{{ end }}</ul></section>
     {{ end }}
-    {{ if .Params.chapter_id }}
+    {{ if or .Params.chapter_id .Params.next .Params.previous }}
     <nav class="chapter-pagination" aria-label="Chapitre précédent et suivant">
       <div>{{ with .Params.previous }}{{ with site.GetPage . }}<a rel="prev" href="{{ .RelPermalink }}"><small>← Précédent{{ with .Params.chapter_id }} · {{ . }}{{ end }}</small>{{ .Title }}</a>{{ end }}{{ end }}</div>
       <div>{{ with .Params.next }}{{ with site.GetPage . }}<a rel="next" href="{{ .RelPermalink }}"><small>Suivant{{ with .Params.chapter_id }} · {{ . }}{{ end }} →</small>{{ .Title }}</a>{{ end }}{{ else }}<a href="{{ site.Home.RelPermalink }}"><small>Parcours terminé</small>Retour au sommaire →</a>{{ end }}</div>

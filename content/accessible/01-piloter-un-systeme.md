@@ -25,6 +25,7 @@
       "anchor": "invariant"
     }
   ],
+  "previous": "/accessible/avant-propos",
   "next": "/accessible/02-architecture-et-frontieres"
 }
 

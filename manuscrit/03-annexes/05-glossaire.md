@@ -20,6 +20,7 @@
 - **RTO** : objectif de durée maximale de rétablissement.
 - **Runtime d'inférence** : logiciel qui exécute le modèle.
 - **SLO** : objectif mesurable de niveau de service.
+- **Terminal** : interface textuelle permettant de piloter directement le système d'exploitation par des lignes de commande.
 - **Tranche verticale** : petit comportement utilisateur complet traversant les composants nécessaires.
 - **Worktree** : répertoire de travail supplémentaire lié à un dépôt Git ; pas une sandbox de sécurité.
 

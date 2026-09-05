@@ -65,6 +65,9 @@ logiciel qui exécute le modèle.
 ## SLO {#slo}
 
 objectif mesurable de niveau de service.
+## Terminal {#terminal}
+
+interface textuelle permettant de piloter directement le système d'exploitation par des lignes de commande.
 ## Tranche verticale {#tranche-verticale}
 
 petit comportement utilisateur complet traversant les composants nécessaires.

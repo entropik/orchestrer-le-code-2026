@@ -57,6 +57,12 @@ def build_files(root=ROOT):
         "editorial/DROITS_ET_LICENCE.md": ("/projet/droits", "Droits d'auteur & Licence"),
         "editorial/FIL_ROUGE.md": ("/projet/fil-rouge", "Le fil rouge"),
         "editorial/PLAN_REDACTION.md": ("/redaction/plan", "Plan des 24 tranches"),
+        "manuscrit/01-lecture-accessible/00-avant-la-premiere-ligne.md": (
+            "/accessible/avant-propos",
+            "Avant la première ligne : L'art de l'introspection, du terrain et du choix des armes",
+            0,
+            "Avant le premier prompt : introspection, cadrage du besoin, choix d'une stack sobre et cas vécu du moteur de carnet photo.",
+        ),
         "manuscrit/03-annexes/01-fiches-reflexes.md": ("/annexes/fiches-reflexes", "Fiches réflexes", 1, "Listes de contrôle communes pour lancer, vérifier et livrer."),
         "manuscrit/03-annexes/02-guide-des-workflows.md": ("/annexes/workflows", "Guide des workflows & Cas pratiques", 2, "Le ruban principal, l'arbre d'aiguillage et les 7 trames d'exécution pas à pas."),
         "manuscrit/03-annexes/03-architecture-du-harnais.md": ("/annexes/architecture-harnais", "Architecture du harnais & Smart Zone", 3, "Doctrine racine vs global, modèle 3 couches, gestion des tokens et règles d'or."),
@@ -134,6 +140,8 @@ def build_files(root=ROOT):
                 "notions": [{"label": name, "anchor": slug(name)} for name in theme["notions"]]}
         if number > 1:
             meta["previous"] = routes[f"{prefix}{number-1:02d}"]
+        elif prefix == "A" and number == 1:
+            meta["previous"] = "/accessible/avant-propos"
         if number < 12:
             meta["next"] = routes[f"{prefix}{number+1:02d}"]
         add(routes[c["id"]], meta, text)
@@ -156,6 +164,10 @@ def build_files(root=ROOT):
             meta["description"] = description
         if name.endswith("02-guide-des-workflows.md"):
             meta["aliases"] = ["/annexes/workflows-agentiques"]
+        if name.endswith("00-avant-la-premiere-ligne.md"):
+            meta["next"] = routes["A01"]
+            meta["eyebrow"] = "Avant-propos opérationnel"
+            meta["theme"] = "00"
         add(route, meta, rewrite(body, source))
 
     refs_body = "Les références servent à retrouver une origine, contrôler une affirmation et poursuivre la lecture. Les documents du corpus ne sont pas des normes.\n\n## Documents fournis\n\n[Parcourir les huit sources originales](/references/sources). [Lire l'analyse comparative](/projet/corpus).\n\n## Références externes\n\nDernière vérification consignée : " + mesh["date_verification"] + ". Les versions et capacités peuvent évoluer.\n"
