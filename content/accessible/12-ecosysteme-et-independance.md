@@ -226,16 +226,16 @@ Pour garantir la pérennité et la liberté de ton projet technologique, vérifi
 ## Sources et limites
 
 Ce chapitre s'appuie sur les principes de souveraineté technologique et de gouvernance des systèmes :
-- **O-MD §2 et §4** ([Manuel d'Orchestration Logicielle](/references/sources/o-md)) : La posture du pilote face aux outils, l'indépendance technologique, l'évaluation des coûts et la prévention de l'enfermement propriétaire.
-- **[I-MD §12.1 à §12.6](/references/sources/i-md#section-12-1)** ([Manuel d'Ingénierie Logicielle](/references/sources/i-md)) : L'écosystème agnostique, le panorama des modèles à poids ouverts, les runtimes d'inférence, le standard MCP et la matrice d'arbitrage éthique et technique.
+- **O-MD §2 et §4** ([Manuel d'Orchestration Logicielle](/projet/references/sources/o-md)) : La posture du pilote face aux outils, l'indépendance technologique, l'évaluation des coûts et la prévention de l'enfermement propriétaire.
+- **[I-MD §12.1 à §12.6](/projet/references/sources/i-md#section-12-1)** ([Manuel d'Ingénierie Logicielle](/projet/references/sources/i-md)) : L'écosystème agnostique, le panorama des modèles à poids ouverts, les runtimes d'inférence, le standard MCP et la matrice d'arbitrage éthique et technique.
 
 Pour maîtriser l'architecture technique des serveurs MCP sécurisés en lecture seule, le calcul rigoureux de la mémoire VRAM pour l'inférence locale et la mise en œuvre d'un adaptateur de modèle agnostique en Python 3.11, poursuis vers le chapitre miroir : **[B12 — Choisir ses outils et préserver son indépendance](/ingenieure/12-ecosysteme-et-independance)**.
 
 ## Références pour approfondir
 
-- [Mistral — fiche Codestral 24.05](https://docs.mistral.ai/models/codestral-24-05) — Exemple historique de licence MNPL, pas une recommandation de modèle actuel. [Notice et chapitres associés](/references#ref-codestral).
-- [MCP — autorisation, spécification 2025-11-25](https://modelcontextprotocol.io/specification/2025-11-25/basic/authorization) — Distinguer transport, autorisation et permissions effectives. [Notice et chapitres associés](/references#ref-mcp).
-- [OpenAI — construire une évaluation](https://developers.openai.com/api/docs/guides/evals) — Définir tâches, données et critères ; cette référence n'établit aucun classement. [Notice et chapitres associés](/references#ref-evals).
+- [Mistral — fiche Codestral 24.05](https://docs.mistral.ai/models/codestral-24-05) — Exemple historique de licence MNPL, pas une recommandation de modèle actuel. [Notice et chapitres associés](/projet/references#ref-codestral).
+- [MCP — autorisation, spécification 2025-11-25](https://modelcontextprotocol.io/specification/2025-11-25/basic/authorization) — Distinguer transport, autorisation et permissions effectives. [Notice et chapitres associés](/projet/references#ref-mcp).
+- [OpenAI — construire une évaluation](https://developers.openai.com/api/docs/guides/evals) — Définir tâches, données et critères ; cette référence n'établit aucun classement. [Notice et chapitres associés](/projet/references#ref-evals).
 
 ## Rédaction de ce chapitre
 

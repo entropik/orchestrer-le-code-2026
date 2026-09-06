@@ -15,7 +15,7 @@ Rédiger la lecture ingénieure du thème 08 : Choisir contraintes, transactions
 - [Chapitre à développer](/ingenieure/08-donnees-et-migrations).
 - [Chapitre miroir](/accessible/08-donnees-et-migrations).
 - [Charte éditoriale](/projet/charte) et [fil rouge](/projet/fil-rouge).
-- [Registre critique](/references/registre-critique).
+- [Registre critique](/projet/references/registre-critique).
 - Sources : O-MD §2, §3, §8, §10, §13 ; I-MD §7. Les identifiants sont résolus dans l'[inventaire commenté](/projet/corpus).
 - Prérequis de rédaction : A08, B07 ; une amorce existante permet de commencer, une harmonisation des deux niveaux est exigée à la relecture.
 

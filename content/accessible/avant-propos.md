@@ -283,7 +283,7 @@ Avant d'écrire ton tout premier prompt de génération de code, vérifie que ch
 ## Sources et limites
 
 Ce chapitre puise ses racines dans les principes fondamentaux de l'ingénierie et de la maïeutique logicielle :
-- **O-MD §1 et §4** ([Manuel d'Orchestration Logicielle](/references/sources/o-md)) : L'art du mandat délimité, le refus du code spontané et la supériorité du modèle mental sur la frappe brute.
-- **I-MD §1 et §2** ([Manuel d'Ingénierie Logicielle](/references/sources/i-md)) : La thermodynamique du logiciel, la dette technique précoce et l'importance des invariants de domaine.
+- **O-MD §1 et §4** ([Manuel d'Orchestration Logicielle](/projet/references/sources/o-md)) : L'art du mandat délimité, le refus du code spontané et la supériorité du modèle mental sur la frappe brute.
+- **I-MD §1 et §2** ([Manuel d'Ingénierie Logicielle](/projet/references/sources/i-md)) : La thermodynamique du logiciel, la dette technique précoce et l'importance des invariants de domaine.
 
 Pour passer de cette phase d'amont à la mise en œuvre pratique de ton système, poursuis ta lecture avec le **[Chapitre 01 — Piloter un système, pas une génération de code](/accessible/01-piloter-un-systeme)**.

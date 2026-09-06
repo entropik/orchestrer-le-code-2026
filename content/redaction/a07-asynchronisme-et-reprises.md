@@ -15,7 +15,7 @@ Rédiger la lecture accessible du thème 07 : Comprendre les traitements différ
 - [Chapitre à développer](/accessible/07-asynchronisme-et-reprises).
 - [Chapitre miroir](/ingenieure/07-asynchronisme-et-reprises).
 - [Charte éditoriale](/projet/charte) et [fil rouge](/projet/fil-rouge).
-- [Registre critique](/references/registre-critique).
+- [Registre critique](/projet/references/registre-critique).
 - Sources : O-MD §1, §2, §12, §13 ; I-MD §6, §11.2, §11.3. Les identifiants sont résolus dans l'[inventaire commenté](/projet/corpus).
 - Prérequis de rédaction : A06 ; une amorce existante permet de commencer, une harmonisation des deux niveaux est exigée à la relecture.
 

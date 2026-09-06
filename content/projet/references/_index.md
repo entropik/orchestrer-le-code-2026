@@ -1,13 +1,17 @@
 {
   "title": "Sources et références",
-  "linkTitle": "Références"
+  "linkTitle": "Références",
+  "description": "Retrouver l'origine d'une affirmation, parcourir les sources originales et les lectures d'approfondissement.",
+  "aliases": [
+    "/references"
+  ]
 }
 
 Les références servent à retrouver une origine, contrôler une affirmation et poursuivre la lecture. Les documents du corpus ne sont pas des normes.
 
 ## Documents fournis
 
-[Parcourir les huit sources originales](/references/sources). [Lire l'analyse comparative](/projet/corpus).
+[Parcourir les huit sources originales](/projet/references/sources). [Lire l'analyse comparative](/projet/corpus).
 
 ## Références externes
 
@@ -63,4 +67,4 @@ Utilisée dans : [A12](/accessible/12-ecosysteme-et-independance) · [B12](/inge
 
 ## Lire avec esprit critique
 
-[Consulter les corrections, nuances et vérifications restantes](/references/registre-critique).
+[Consulter les corrections, nuances et vérifications restantes](/projet/references/registre-critique).

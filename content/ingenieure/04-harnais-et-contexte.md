@@ -411,8 +411,8 @@ Avant de déléguer une tranche de développement à un agent, assure-toi de vé
 ## Sources et limites
 
 Ce chapitre s'appuie sur les standards d'ingénierie de harnais et d'orchestration agentique :
-- **O-MD §4 et §5** ([Manuel d'Orchestration Logicielle](/references/sources/o-md)) : La structure du harnais, les prompts de cadrage, les rôles opérationnels et le protocole en sept messages.
-- **I-MD §1.2 à §1.5, §10 et §11.5** ([Manuel d'Ingénierie Logicielle](/references/sources/i-md)) : L'architecture en trois couches, la préservation de la Smart Zone, l'analyse statique par AST et la gouvernance par ADR.
+- **O-MD §4 et §5** ([Manuel d'Orchestration Logicielle](/projet/references/sources/o-md)) : La structure du harnais, les prompts de cadrage, les rôles opérationnels et le protocole en sept messages.
+- **I-MD §1.2 à §1.5, §10 et §11.5** ([Manuel d'Ingénierie Logicielle](/projet/references/sources/i-md)) : L'architecture en trois couches, la préservation de la Smart Zone, l'analyse statique par AST et la gouvernance par ADR.
 - **[Architecture du harnais](/annexes/architecture-harnais)** et **[Catalogue des 37 skills](/annexes/catalogue-skills)** : Le catalogue d'outillage complet et la politique de précédence.
 
 Pour maîtriser les flux de branches Git, les Git Worktrees pour flottes d'agents et les Pull Requests empilées, poursuis vers le chapitre suivant : **[B05 — Git sans folklore et collaboration agentique](/ingenieure/05-git-et-collaboration)**. Pour réviser les concepts fondamentaux sans outillage de programmation, consulte le miroir accessible : **[A04 — Donner du contexte et des limites à l'agent](/accessible/04-harnais-et-contexte)**.

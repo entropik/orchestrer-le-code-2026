@@ -266,14 +266,14 @@ Avant de donner le feu vert à un agent pour coder une fonctionnalité, vérifie
 ## Sources et limites
 
 Ce chapitre approfondit les méthodologies d'expression du besoin et de formalisation contractuelle :
-- **O-MD §3 et §12** ([Manuel d'Orchestration Logicielle](/references/sources/o-md)) : La conception de la tranche verticale, la fiche de fonctionnalité, les ADR et les invariants produit.
-- **I-MD §3, §9.3 et §10.2** ([Manuel d'Ingénierie Logicielle](/references/sources/i-md)) : L'échec du langage naturel non contraint, l'isomorphisme de Curry-Howard, le parsing runtime aux frontières réseau et la formalisation des erreurs selon la RFC 7807/9457.
+- **O-MD §3 et §12** ([Manuel d'Orchestration Logicielle](/projet/references/sources/o-md)) : La conception de la tranche verticale, la fiche de fonctionnalité, les ADR et les invariants produit.
+- **I-MD §3, §9.3 et §10.2** ([Manuel d'Ingénierie Logicielle](/projet/references/sources/i-md)) : L'échec du langage naturel non contraint, l'isomorphisme de Curry-Howard, le parsing runtime aux frontières réseau et la formalisation des erreurs selon la RFC 7807/9457.
 
 Pour comprendre la traduction mathématique de ces contrats dans les compilateurs, le typage statique strict et la validation hermétique aux frontières en Python, poursuis vers le chapitre miroir : **[B03 — Transformer le besoin en contrat vérifiable](/ingenieure/03-besoin-et-contrats)**.
 
 ## Références pour approfondir
 
-- [TypeScript — assertions de type](https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#type-assertions) — Les assertions de type ne vérifient pas les données à l'exécution. [Notice et chapitres associés](/references#ref-typescript).
+- [TypeScript — assertions de type](https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#type-assertions) — Les assertions de type ne vérifient pas les données à l'exécution. [Notice et chapitres associés](/projet/references#ref-typescript).
 
 ## Rédaction de ce chapitre
 

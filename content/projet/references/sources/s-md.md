@@ -1,7 +1,10 @@
 {
   "title": "S-MD — MANUEL_ARCHITECTURE_SYSTEMIQUE_COMPLET.md",
   "weight": 3,
-  "source_document": true
+  "source_document": true,
+  "aliases": [
+    "/references/sources/s-md"
+  ]
 }
 
 Lecture intégrale · **S-MD**. [Télécharger l'original inchangé](/sources/MANUEL_ARCHITECTURE_SYSTEMIQUE_COMPLET.md).
@@ -1106,6 +1109,6 @@ Rédige les 3 scripts de migration distincts selon le pattern Expand-Contract :
 
 **Empreinte SHA-256 de l'original** : `1864bc3916b0b98eea53711acac0bb4e53e40ce9bb06f13026bf46e282abecd2`.
 
-Les affirmations et prompts sont reproduits comme éléments du document, sans validation ni exécution. [Consulter le registre critique](/references/registre-critique).
+Les affirmations et prompts sont reproduits comme éléments du document, sans validation ni exécution. [Consulter le registre critique](/projet/references/registre-critique).
 
 Version d'archive ou export ; les citations de rédaction privilégient O-MD et I-MD. [Voir les relations entre versions](/projet/corpus).

@@ -1,7 +1,10 @@
 {
   "title": "S-PDF — manuel_architecture_systemique_complet.pdf",
   "weight": 5,
-  "source_document": true
+  "source_document": true,
+  "aliases": [
+    "/references/sources/s-pdf"
+  ]
 }
 
 Lecture intégrale · **S-PDF**. [Télécharger l'original inchangé](/sources/manuel_architecture_systemique_complet.pdf).
@@ -116,6 +119,6 @@ Tout le texte extrait du PDF est reproduit ci-dessous, page par page, sans netto
 
 **Empreinte SHA-256 de l'original** : `fda6214e021086c155ba16d206921815c9240053178c98fed672617d3a57eeed`.
 
-Les affirmations et prompts sont reproduits comme éléments du document, sans validation ni exécution. [Consulter le registre critique](/references/registre-critique).
+Les affirmations et prompts sont reproduits comme éléments du document, sans validation ni exécution. [Consulter le registre critique](/projet/references/registre-critique).
 
 Version d'archive ou export ; les citations de rédaction privilégient O-MD et I-MD. [Voir les relations entre versions](/projet/corpus).

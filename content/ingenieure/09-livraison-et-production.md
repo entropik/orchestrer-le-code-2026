@@ -373,14 +373,14 @@ Avant de signer l'autorisation de mise en production d'une version logicielle, v
 ## Sources et limites
 
 Ce chapitre approfondit les pratiques de livraison continue et de résilience d'infrastructure :
-- **O-MD §8** ([Manuel d'Orchestration Logicielle](/references/sources/o-md)) : La transition du poste local au service réel, les configurations hors code, les artefacts immuables et le protocole Go/No-Go.
-- **I-MD §8 et §10.2** ([Manuel d'Ingénierie Logicielle](/references/sources/i-md)) : L'ingénierie CI/CD, les conteneurs multi-stage durcis, la terminaison TLS par reverse proxy et les déploiements Blue-Green avec sondes de santé.
+- **O-MD §8** ([Manuel d'Orchestration Logicielle](/projet/references/sources/o-md)) : La transition du poste local au service réel, les configurations hors code, les artefacts immuables et le protocole Go/No-Go.
+- **I-MD §8 et §10.2** ([Manuel d'Ingénierie Logicielle](/projet/references/sources/i-md)) : L'ingénierie CI/CD, les conteneurs multi-stage durcis, la terminaison TLS par reverse proxy et les déploiements Blue-Green avec sondes de santé.
 
 Pour maîtriser l'observabilité en production, les métriques Prometheus, la centralisation des logs et la gestion des incidents, poursuis vers le chapitre suivant : **[B10 — Exploiter, observer et faire évoluer](/ingenieure/10-exploitation-et-evolution)**. Pour réviser les concepts sans outillage de programmation, consulte le miroir accessible : **[A09 — Passer du poste local à un service réel](/accessible/09-livraison-et-production)**.
 
 ## Références pour approfondir
 
-- [Caddy — module de limitation de débit](https://caddyserver.com/docs/modules/http.handlers.rate_limit) — Module non standard : sa présence doit être vérifiée. [Notice et chapitres associés](/references#ref-caddy).
+- [Caddy — module de limitation de débit](https://caddyserver.com/docs/modules/http.handlers.rate_limit) — Module non standard : sa présence doit être vérifiée. [Notice et chapitres associés](/projet/references#ref-caddy).
 
 ## Rédaction de ce chapitre
 

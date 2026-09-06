@@ -1,7 +1,10 @@
 {
   "title": "SF-MD — MANUEL_ARCHITECTURE_SYSTEMIQUE_COMPLET_EDITION_FINALE.md",
   "weight": 4,
-  "source_document": true
+  "source_document": true,
+  "aliases": [
+    "/references/sources/sf-md"
+  ]
 }
 
 Lecture intégrale · **SF-MD**. [Télécharger l'original inchangé](/sources/MANUEL_ARCHITECTURE_SYSTEMIQUE_COMPLET_EDITION_FINALE.md).
@@ -1265,6 +1268,6 @@ SÉQUENCE DU PLAN DE REPRISE D'ACTIVITÉ EN 4 PHASES :
 
 **Empreinte SHA-256 de l'original** : `9beea7e3db71b4c7a11161f4e6ba61556e56cfc1c7e425bd9e0f313b0da8eb27`.
 
-Les affirmations et prompts sont reproduits comme éléments du document, sans validation ni exécution. [Consulter le registre critique](/references/registre-critique).
+Les affirmations et prompts sont reproduits comme éléments du document, sans validation ni exécution. [Consulter le registre critique](/projet/references/registre-critique).
 
 Version d'archive ou export ; les citations de rédaction privilégient O-MD et I-MD. [Voir les relations entre versions](/projet/corpus).

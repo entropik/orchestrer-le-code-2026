@@ -224,14 +224,14 @@ Avant de considérer une modification comme achevée, vérifie ces cinq règles 
 ## Sources et limites
 
 Ce chapitre approfondit les principes de gestion de versions et de sécurité collaborative :
-- **O-MD §6** ([Manuel d'Orchestration Logicielle](/references/sources/o-md)) : Le modèle mental de Git, les verbes essentiels, l'anatomie d'une PR, la résolution sémantique des conflits et la traçabilité par tags et releases.
-- **I-MD §4** ([Manuel d'Ingénierie Logicielle](/references/sources/i-md)) : L'ingénierie Git industrielle, les Git Worktrees pour flottes d'agents concurrents, les Stacked PRs et l'oracle de bisect déterministe.
+- **O-MD §6** ([Manuel d'Orchestration Logicielle](/projet/references/sources/o-md)) : Le modèle mental de Git, les verbes essentiels, l'anatomie d'une PR, la résolution sémantique des conflits et la traçabilité par tags et releases.
+- **I-MD §4** ([Manuel d'Ingénierie Logicielle](/projet/references/sources/i-md)) : L'ingénierie Git industrielle, les Git Worktrees pour flottes d'agents concurrents, les Stacked PRs et l'oracle de bisect déterministe.
 
 Pour explorer l'implémentation de Git Worktrees isolés, la gestion des collisions de ports et l'automatisation de `git bisect run` en Python, poursuis vers le chapitre miroir : **[B05 — Git sans folklore et collaboration agentique](/ingenieure/05-git-et-collaboration)**.
 
 ## Références pour approfondir
 
-- [Git — arbres de travail](https://git-scm.com/docs/git-worktree) — Fonctionnement et partage des ressources entre worktrees. [Notice et chapitres associés](/references#ref-git).
+- [Git — arbres de travail](https://git-scm.com/docs/git-worktree) — Fonctionnement et partage des ressources entre worktrees. [Notice et chapitres associés](/projet/references#ref-git).
 
 ## Rédaction de ce chapitre
 

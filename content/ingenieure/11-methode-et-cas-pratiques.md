@@ -485,8 +485,8 @@ Avant d'autoriser la mise en œuvre d'une tranche verticale ou d'un correctif d'
 ## Sources et limites
 
 Ce chapitre s'appuie sur les standards d'ingénierie logicielle et de découpage de projets :
-- **O-MD §5, §11, §12, §13 et §14** ([Manuel d'Orchestration Logicielle](/references/sources/o-md)) : La méthode ORCHESTRE, le point d'arrêt, la décomposition des cas pratiques et l'analyse de cause racine.
-- **I-MD §9 et §10** ([Manuel d'Ingénierie Logicielle](/references/sources/i-md)) : Le cadre KISS en six phases séquentielles, la bibliothèque opérationnelle de prompts et les matrices d'audit de Pull Requests.
+- **O-MD §5, §11, §12, §13 et §14** ([Manuel d'Orchestration Logicielle](/projet/references/sources/o-md)) : La méthode ORCHESTRE, le point d'arrêt, la décomposition des cas pratiques et l'analyse de cause racine.
+- **I-MD §9 et §10** ([Manuel d'Ingénierie Logicielle](/projet/references/sources/i-md)) : Le cadre KISS en six phases séquentielles, la bibliothèque opérationnelle de prompts et les matrices d'audit de Pull Requests.
 - [Guide des workflows agentiques](/annexes/workflows) : Formalisation des protocoles d'exécution et outillage des agents.
 
 Pour étudier les arbitrages de souveraineté technologique, la gestion des modèles ouverts versus propriétaires, les protocoles MCP et l'optimisation du coût total de possession (TCO), poursuis vers le chapitre final : **[B12 — Choisir ses outils et préserver son indépendance](/ingenieure/12-ecosysteme-et-independance)**. Pour réviser les principes sans code, consulte le miroir accessible : **[A11 — Appliquer ORCHESTRE du besoin à la résolution](/accessible/11-methode-et-cas-pratiques)**.

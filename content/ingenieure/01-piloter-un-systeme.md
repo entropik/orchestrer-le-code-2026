@@ -418,9 +418,9 @@ Avant de signer une revue de code ou d'autoriser la fusion d'une branche produit
 ## Sources et limites
 
 Ce chapitre approfondit les principes fondamentaux de conception et d'architecture formalisés dans les corpus d'ingénierie logicielle :
-- **I-MD §1.1 à §1.5** ([Manuel d'Ingénierie Logicielle](/references/sources/i-md)) : Thermodynamique du code IA, dissipation d'attention (*The Haystack Hazard*), analyse statique (AST) et protocoles d'isolation d'exécution.
-- **I-MD §9.5** ([Manuel d'Ingénierie Logicielle](/references/sources/i-md)) : Les quatre compétences souveraines de l'orchestrateur (pensée modulaire, rigueur schema-first, acuité visuelle du diff, refus de l'approximation).
-- **O-MD §1, §4 et §5** ([Manuel d'Orchestration Logicielle](/references/sources/o-md)) : Organisation systémique de l'atelier logiciel, protocole de dialogue en sept messages et l'ordre juste pour construire sous preuve.
+- **I-MD §1.1 à §1.5** ([Manuel d'Ingénierie Logicielle](/projet/references/sources/i-md)) : Thermodynamique du code IA, dissipation d'attention (*The Haystack Hazard*), analyse statique (AST) et protocoles d'isolation d'exécution.
+- **I-MD §9.5** ([Manuel d'Ingénierie Logicielle](/projet/references/sources/i-md)) : Les quatre compétences souveraines de l'orchestrateur (pensée modulaire, rigueur schema-first, acuité visuelle du diff, refus de l'approximation).
+- **O-MD §1, §4 et §5** ([Manuel d'Orchestration Logicielle](/projet/references/sources/o-md)) : Organisation systémique de l'atelier logiciel, protocole de dialogue en sept messages et l'ordre juste pour construire sous preuve.
 
 Pour explorer l'organisation des frontières logiques et la conception des modules profonds, poursuis vers le chapitre suivant : **[B02 — Organiser l'architecture et les responsabilités](/ingenieure/02-architecture-et-frontieres)**. Pour revoir les concepts sans prérequis de code, consulte le miroir accessible : **[A01 — Piloter un système, pas une génération de code](/accessible/01-piloter-un-systeme)**.
 

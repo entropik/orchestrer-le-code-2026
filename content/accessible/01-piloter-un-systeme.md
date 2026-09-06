@@ -204,8 +204,8 @@ Avant de valider une étape produite par un agent, coche systématiquement ces c
 ## Sources et limites
 
 Ce chapitre synthétise les principes de gouvernance logicielle issus des ouvrages de référence du domaine :
-- **O-MD §1, §4 et §5** ([Manuel d'Orchestration Logicielle](/references/sources/o-md)) : L'application vue comme une organisation, le protocole de conversation sous mandat et l'ordre juste pour construire sans dérive.
-- **I-MD §1 et §9.5** ([Manuel d'Ingénierie Logicielle](/references/sources/i-md)) : L'illusion thermodynamique de la vitesse brute et les quatre compétences fondamentales du décideur moderne.
+- **O-MD §1, §4 et §5** ([Manuel d'Orchestration Logicielle](/projet/references/sources/o-md)) : L'application vue comme une organisation, le protocole de conversation sous mandat et l'ordre juste pour construire sans dérive.
+- **I-MD §1 et §9.5** ([Manuel d'Ingénierie Logicielle](/projet/references/sources/i-md)) : L'illusion thermodynamique de la vitesse brute et les quatre compétences fondamentales du décideur moderne.
 
 Pour découvrir les rouages d'ingénierie formels (machines à états, interfaces strictes et preuves par le code), poursuis ta lecture avec le chapitre miroir : **[B01 — Piloter un système, pas une génération de code](/ingenieure/01-piloter-un-systeme)**.
 

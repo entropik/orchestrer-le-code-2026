@@ -1,7 +1,10 @@
 {
   "title": "O1-PDF — manuel_orchestration_logicielle (1).pdf",
   "weight": 7,
-  "source_document": true
+  "source_document": true,
+  "aliases": [
+    "/references/sources/o1-pdf"
+  ]
 }
 
 Lecture intégrale · **O1-PDF**. [Télécharger l'original inchangé](/sources/manuel_orchestration_logicielle%20%281%29.pdf).
@@ -236,6 +239,6 @@ Tout le texte extrait du PDF est reproduit ci-dessous, page par page, sans netto
 
 **Empreinte SHA-256 de l'original** : `4a0ab1fc24975c67d6d641c2d24c454527f1258742eb1014ced814d616faa856`.
 
-Les affirmations et prompts sont reproduits comme éléments du document, sans validation ni exécution. [Consulter le registre critique](/references/registre-critique).
+Les affirmations et prompts sont reproduits comme éléments du document, sans validation ni exécution. [Consulter le registre critique](/projet/references/registre-critique).
 
 Version d'archive ou export ; les citations de rédaction privilégient O-MD et I-MD. [Voir les relations entre versions](/projet/corpus).

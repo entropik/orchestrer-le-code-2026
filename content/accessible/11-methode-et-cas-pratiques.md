@@ -255,8 +255,8 @@ Cette autorité ferme rappelle que **le pilote commande, et que l'IA exécute so
 ## Sources et limites
 
 Ce chapitre formalise la méthode de gouvernance de projets assistés par IA et la conduite de tranches verticales :
-- **O-MD §5, §11, §12, §13 et §14** ([Manuel d'Orchestration Logicielle](/references/sources/o-md)) : La méthode ORCHESTRE en 9 points, le point d'arrêt décisionnel, les cas pratiques de création de fonctionnalité et de diagnostic de bug.
-- **I-MD §9 et §10** ([Manuel d'Ingénierie Logicielle](/references/sources/i-md)) : Le minimalisme radical (KISS), les six phases séquentielles de livraison, la bibliothèque de prompts déterministes et la grille d'audit de PR.
+- **O-MD §5, §11, §12, §13 et §14** ([Manuel d'Orchestration Logicielle](/projet/references/sources/o-md)) : La méthode ORCHESTRE en 9 points, le point d'arrêt décisionnel, les cas pratiques de création de fonctionnalité et de diagnostic de bug.
+- **I-MD §9 et §10** ([Manuel d'Ingénierie Logicielle](/projet/references/sources/i-md)) : Le minimalisme radical (KISS), les six phases séquentielles de livraison, la bibliothèque de prompts déterministes et la grille d'audit de PR.
 
 Pour découvrir l'implémentation technique des tranches verticales avec exécution concurrente multithreadée sous barrière, simulation d'upload multipart et gestion des courses critiques en Python 3.11, poursuis vers le chapitre miroir : **[B11 — Appliquer ORCHESTRE du besoin à la résolution](/ingenieure/11-methode-et-cas-pratiques)**.
 

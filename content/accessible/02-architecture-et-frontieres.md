@@ -216,8 +216,8 @@ Avant de valider l'architecture proposée par un agent, vérifie ces cinq règle
 ## Sources et limites
 
 Ce chapitre s'appuie sur les principes fondamentaux de conception logicielle et de séparation des responsabilités :
-- **O-MD §1 et §2** ([Manuel d'Orchestration Logicielle](/references/sources/o-md)) : L'organisation en couches fonctionnelles, la primauté du monolithe modulaire et la gestion rigoureuse des dépendances.
-- **I-MD §2** ([Manuel d'Ingénierie Logicielle](/references/sources/i-md)) : La théorie des modules profonds de John Ousterhout, les points de couture (*Seams*) de Michael Feathers et l'architecture hexagonale d'Alistair Cockburn.
+- **O-MD §1 et §2** ([Manuel d'Orchestration Logicielle](/projet/references/sources/o-md)) : L'organisation en couches fonctionnelles, la primauté du monolithe modulaire et la gestion rigoureuse des dépendances.
+- **I-MD §2** ([Manuel d'Ingénierie Logicielle](/projet/references/sources/i-md)) : La théorie des modules profonds de John Ousterhout, les points de couture (*Seams*) de Michael Feathers et l'architecture hexagonale d'Alistair Cockburn.
 
 Pour explorer les mécanismes mathématiques de modularité, les interfaces minimales et l'injection de dépendances exécutable en Python, poursuis vers le chapitre miroir : **[B02 — Organiser l'architecture et les responsabilités](/ingenieure/02-architecture-et-frontieres)**.
 

@@ -366,8 +366,8 @@ Avant de valider une stratégie de test ou d'approuver une PR sur le harnais de 
 ## Sources et limites
 
 Ce chapitre approfondit les standards de preuve et d'ingénierie de vérification :
-- **O-MD §7** ([Manuel d'Orchestration Logicielle](/references/sources/o-md)) : La pyramide des tests, les oracles de comportement, le rôle de la CI et les priorités de couverture.
-- **I-MD §5** ([Manuel d'Ingénierie Logicielle](/references/sources/i-md)) : La pyramide déterministe, le protocole du TDD inversé, le Property-Based Testing (Hypothesis) et le Mutation Testing (Stryker/mutmut).
+- **O-MD §7** ([Manuel d'Orchestration Logicielle](/projet/references/sources/o-md)) : La pyramide des tests, les oracles de comportement, le rôle de la CI et les priorités de couverture.
+- **I-MD §5** ([Manuel d'Ingénierie Logicielle](/projet/references/sources/i-md)) : La pyramide déterministe, le protocole du TDD inversé, le Property-Based Testing (Hypothesis) et le Mutation Testing (Stryker/mutmut).
 
 Pour maîtriser les architectures asynchrones, les files de messages et la résilience aux pannes, poursuis vers le chapitre suivant : **[B07 — Gérer l'asynchronisme et les reprises](/ingenieure/07-asynchronisme-et-reprises)**. Pour réviser les concepts sans syntaxe de programmation, consulte le miroir accessible : **[A06 — Demander des preuves, pas seulement du code](/accessible/06-tests-et-preuves)**.
 

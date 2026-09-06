@@ -15,7 +15,7 @@ Rédiger la lecture accessible du thème 08 : Comprendre pourquoi les données d
 - [Chapitre à développer](/accessible/08-donnees-et-migrations).
 - [Chapitre miroir](/ingenieure/08-donnees-et-migrations).
 - [Charte éditoriale](/projet/charte) et [fil rouge](/projet/fil-rouge).
-- [Registre critique](/references/registre-critique).
+- [Registre critique](/projet/references/registre-critique).
 - Sources : O-MD §2, §3, §8, §10, §13 ; I-MD §7. Les identifiants sont résolus dans l'[inventaire commenté](/projet/corpus).
 - Prérequis de rédaction : A07 ; une amorce existante permet de commencer, une harmonisation des deux niveaux est exigée à la relecture.
 

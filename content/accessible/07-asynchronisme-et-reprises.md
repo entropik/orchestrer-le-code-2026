@@ -212,14 +212,14 @@ Avant d'autoriser la mise en production d'une tâche lourde, vérifie ces cinq r
 ## Sources et limites
 
 Ce chapitre approfondit les mécanismes de découplage temporel et de tolérance aux pannes :
-- **O-MD §1, §2, §12 et §13** ([Manuel d'Orchestration Logicielle](/references/sources/o-md)) : L'idempotence, les quatre mouvements fondamentaux, les files de messages et la résilience opérationnelle.
-- **I-MD §6, §11.2 et §11.3** ([Manuel d'Ingénierie Logicielle](/references/sources/i-md)) : Les limites du modèle synchrone, le Transactional Outbox Pattern, les clés d'idempotence strictes et les stratégies de réessais avec Full Jitter.
+- **O-MD §1, §2, §12 et §13** ([Manuel d'Orchestration Logicielle](/projet/references/sources/o-md)) : L'idempotence, les quatre mouvements fondamentaux, les files de messages et la résilience opérationnelle.
+- **I-MD §6, §11.2 et §11.3** ([Manuel d'Ingénierie Logicielle](/projet/references/sources/i-md)) : Les limites du modèle synchrone, le Transactional Outbox Pattern, les clés d'idempotence strictes et les stratégies de réessais avec Full Jitter.
 
 Pour explorer l'implémentation formelle du Transactional Outbox Pattern, les algorithmes de backoff exponentiel et la manipulation des files de rebut en Python 3.11, poursuis vers le chapitre miroir : **[B07 — Gérer l'asynchronisme et les reprises](/ingenieure/07-asynchronisme-et-reprises)**.
 
 ## Références pour approfondir
 
-- [PostgreSQL — NOTIFY](https://www.postgresql.org/docs/current/sql-notify.html) — Notifications de sessions ; à distinguer d'une file durable de travaux. [Notice et chapitres associés](/references#ref-notify).
+- [PostgreSQL — NOTIFY](https://www.postgresql.org/docs/current/sql-notify.html) — Notifications de sessions ; à distinguer d'une file durable de travaux. [Notice et chapitres associés](/projet/references#ref-notify).
 
 ## Rédaction de ce chapitre
 

@@ -488,14 +488,14 @@ Avant de valider une spécification ou une PR touchant aux contrats d'échange, 
 ## Sources et limites
 
 Ce chapitre approfondit les fondements du typage et de la conception de contrats aux frontières :
-- **O-MD §3 et §12** ([Manuel d'Orchestration Logicielle](/references/sources/o-md)) : L'ingénierie des tranches verticales, l'expression formelle des invariants et la traçabilité des ADR.
-- **I-MD §3, §9.3 et §10.2** ([Manuel d'Ingénierie Logicielle](/references/sources/i-md)) : L'échec du langage naturel, l'isomorphisme de Curry-Howard, le parsing runtime aux frontières réseau et la formalisation des erreurs selon la RFC 9457.
+- **O-MD §3 et §12** ([Manuel d'Orchestration Logicielle](/projet/references/sources/o-md)) : L'ingénierie des tranches verticales, l'expression formelle des invariants et la traçabilité des ADR.
+- **I-MD §3, §9.3 et §10.2** ([Manuel d'Ingénierie Logicielle](/projet/references/sources/i-md)) : L'échec du langage naturel, l'isomorphisme de Curry-Howard, le parsing runtime aux frontières réseau et la formalisation des erreurs selon la RFC 9457.
 
 Pour étudier la mise en place du harnais agentique, l'isolation des contextes et la configuration des rôles de pilotage, poursuis vers le chapitre suivant : **[B04 — Structurer le contexte et le harnais d'agent](/ingenieure/04-harnais-et-contexte)**. Pour réviser la démarche sans code, consulte le miroir accessible : **[A03 — Transformer le besoin en contrat vérifiable](/accessible/03-besoin-et-contrats)**.
 
 ## Références pour approfondir
 
-- [TypeScript — assertions de type](https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#type-assertions) — Les assertions de type ne vérifient pas les données à l'exécution. [Notice et chapitres associés](/references#ref-typescript).
+- [TypeScript — assertions de type](https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#type-assertions) — Les assertions de type ne vérifient pas les données à l'exécution. [Notice et chapitres associés](/projet/references#ref-typescript).
 
 ## Rédaction de ce chapitre
 

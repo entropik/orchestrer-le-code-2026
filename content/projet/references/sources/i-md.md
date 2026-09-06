@@ -1,7 +1,10 @@
 {
   "title": "I-MD — MANUEL_INGENIERIE_LOGICIELLE_2026_COMPLET.md",
   "weight": 1,
-  "source_document": true
+  "source_document": true,
+  "aliases": [
+    "/references/sources/i-md"
+  ]
 }
 
 Lecture intégrale · **I-MD**. [Télécharger l'original inchangé](/sources/MANUEL_INGENIERIE_LOGICIELLE_2026_COMPLET.md).
@@ -1354,7 +1357,7 @@ Le protocole **Model Context Protocol (MCP)** permet d'exécuter des outils d'in
 
 **Empreinte SHA-256 de l'original** : `26a9359d96595daa72da4f01626df2fdd14691c13f6481dae0c86725a54c5ee1`.
 
-Les affirmations et prompts sont reproduits comme éléments du document, sans validation ni exécution. [Consulter le registre critique](/references/registre-critique).
+Les affirmations et prompts sont reproduits comme éléments du document, sans validation ni exécution. [Consulter le registre critique](/projet/references/registre-critique).
 
 ## Chapitres qui utilisent cette source
 

@@ -15,7 +15,7 @@ Rédiger la lecture accessible du thème 03 : Écrire une demande que deux perso
 - [Chapitre à développer](/accessible/03-besoin-et-contrats).
 - [Chapitre miroir](/ingenieure/03-besoin-et-contrats).
 - [Charte éditoriale](/projet/charte) et [fil rouge](/projet/fil-rouge).
-- [Registre critique](/references/registre-critique).
+- [Registre critique](/projet/references/registre-critique).
 - Sources : O-MD §3, §12 ; I-MD §3, §9.3, §10.2. Les identifiants sont résolus dans l'[inventaire commenté](/projet/corpus).
 - Prérequis de rédaction : A02 ; une amorce existante permet de commencer, une harmonisation des deux niveaux est exigée à la relecture.
 

@@ -421,8 +421,8 @@ Avant de valider une refonte architecturale proposée par un agent, contrôle ce
 ## Sources et limites
 
 Ce chapitre approfondit les principes majeurs de l'architecture logicielle moderne :
-- **O-MD §1 et §2** ([Manuel d'Orchestration Logicielle](/references/sources/o-md)) : Les quatre couches applicatives, la doctrine du monolithe modulaire et l'inversion des dépendances.
-- **I-MD §2** ([Manuel d'Ingénierie Logicielle](/references/sources/i-md)) : La métrique de profondeur des modules de John Ousterhout, les points de couture (*Seams*) de Michael Feathers et les agrégats du Domain-Driven Design d'Eric Evans.
+- **O-MD §1 et §2** ([Manuel d'Orchestration Logicielle](/projet/references/sources/o-md)) : Les quatre couches applicatives, la doctrine du monolithe modulaire et l'inversion des dépendances.
+- **I-MD §2** ([Manuel d'Ingénierie Logicielle](/projet/references/sources/i-md)) : La métrique de profondeur des modules de John Ousterhout, les points de couture (*Seams*) de Michael Feathers et les agrégats du Domain-Driven Design d'Eric Evans.
 
 Pour concevoir la formalisation des schémas d'entrée-sortie et le typage invariant avant l'écriture algorithmique, poursuis vers le chapitre suivant : **[B03 — Transformer le besoin en contrat vérifiable](/ingenieure/03-besoin-et-contrats)**. Pour réviser les concepts sans syntaxe de programmation, consulte le miroir accessible : **[A02 — Organiser l'architecture et les responsabilités](/accessible/02-architecture-et-frontieres)**.
 

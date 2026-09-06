@@ -1,7 +1,10 @@
 {
   "title": "O-MD — manuel_orchestration_logicielle.md",
   "weight": 2,
-  "source_document": true
+  "source_document": true,
+  "aliases": [
+    "/references/sources/o-md"
+  ]
 }
 
 Lecture intégrale · **O-MD**. [Télécharger l'original inchangé](/sources/manuel_orchestration_logicielle.md).
@@ -821,7 +824,7 @@ Fin de la première édition. Ce manuel est conçu pour être annoté, challeng�
 
 **Empreinte SHA-256 de l'original** : `954ff2070627813ab49b36bfc55df92c387edb0f98f6f0a3741c4d5ffbf702f6`.
 
-Les affirmations et prompts sont reproduits comme éléments du document, sans validation ni exécution. [Consulter le registre critique](/references/registre-critique).
+Les affirmations et prompts sont reproduits comme éléments du document, sans validation ni exécution. [Consulter le registre critique](/projet/references/registre-critique).
 
 ## Chapitres qui utilisent cette source
 

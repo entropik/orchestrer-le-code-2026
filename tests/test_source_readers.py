@@ -89,7 +89,7 @@ class IntegralSourcesTests(unittest.TestCase):
             pages = pdf_pages(text, doc['pages'])
             self.assertEqual(json.loads(files[f"data/source_pages/{doc['id'].lower()}.json"]), pages)
             canonical = next(d['id'].lower() for d in inventory['documents'] if d['sha256'] == doc['sha256'])
-            content = files[f"content/references/sources/{doc['id'].lower()}.md"]
+            content = files[f"content/projet/references/sources/{doc['id'].lower()}.md"]
             for n, body in enumerate(pages, 1):
                 self.assertTrue(body.strip(), f"{doc['id']} page {n} vide")
                 self.assertIn(f'{{#page-{n}}}', content)

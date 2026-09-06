@@ -371,14 +371,14 @@ Avant de valider une migration de schéma ou une refonte de persistance, contrô
 ## Sources et limites
 
 Ce chapitre approfondit les méthodologies d'ingénierie relationnelle et de haute disponibilité :
-- **O-MD §2, §3, §8, §10 et §13** ([Manuel d'Orchestration Logicielle](/references/sources/o-md)) : L'intégrité de schéma, l'idempotence des transactions, les migrations versionnées et la reprise d'activité.
-- **I-MD §7** ([Manuel d'Ingénierie Logicielle](/references/sources/i-md)) : Les anomalies transactionnelles ANSI SQL, le contrôle de concurrence optimiste, le cycle Expand-Contract et la réplication continue par WAL.
+- **O-MD §2, §3, §8, §10 et §13** ([Manuel d'Orchestration Logicielle](/projet/references/sources/o-md)) : L'intégrité de schéma, l'idempotence des transactions, les migrations versionnées et la reprise d'activité.
+- **I-MD §7** ([Manuel d'Ingénierie Logicielle](/projet/references/sources/i-md)) : Les anomalies transactionnelles ANSI SQL, le contrôle de concurrence optimiste, le cycle Expand-Contract et la réplication continue par WAL.
 
 Pour maîtriser l'automatisation de la chaîne CI/CD, la conteneurisation déterministe et le déploiement sur infrastructure VPS, poursuis vers le chapitre suivant : **[B09 — Automatiser la livraison et la production](/ingenieure/09-livraison-et-production)**. Pour réviser les concepts sans code, consulte le miroir accessible : **[A08 — Protéger les données et faire évoluer leur structure](/accessible/08-donnees-et-migrations)**.
 
 ## Références pour approfondir
 
-- [PostgreSQL — NOTIFY](https://www.postgresql.org/docs/current/sql-notify.html) — Notifications de sessions ; à distinguer d'une file durable de travaux. [Notice et chapitres associés](/references#ref-notify).
+- [PostgreSQL — NOTIFY](https://www.postgresql.org/docs/current/sql-notify.html) — Notifications de sessions ; à distinguer d'une file durable de travaux. [Notice et chapitres associés](/projet/references#ref-notify).
 
 ## Rédaction de ce chapitre
 

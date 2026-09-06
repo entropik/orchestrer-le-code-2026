@@ -240,8 +240,8 @@ Avant et après chaque session de travail avec un agent, passe en revue ces cinq
 ## Sources et limites
 
 Ce chapitre approfondit les principes de cadrage du travail agentique et de gestion des fenêtres d'attention :
-- **O-MD §4 et §5** ([Manuel d'Orchestration Logicielle](/references/sources/o-md)) : L'architecture du harnais, les prompts opératoires, le protocole de conversation en sept messages et les critères de coupure d'une session.
-- **I-MD §1.2 à §1.5, §10 et §11.5** ([Manuel d'Ingénierie Logicielle](/references/sources/i-md)) : L'ingénierie de contexte progressive, l'inspection par arbre syntaxique abstrait (AST) et l'architecture de harnais en trois couches.
+- **O-MD §4 et §5** ([Manuel d'Orchestration Logicielle](/projet/references/sources/o-md)) : L'architecture du harnais, les prompts opératoires, le protocole de conversation en sept messages et les critères de coupure d'une session.
+- **I-MD §1.2 à §1.5, §10 et §11.5** ([Manuel d'Ingénierie Logicielle](/projet/references/sources/i-md)) : L'ingénierie de contexte progressive, l'inspection par arbre syntaxique abstrait (AST) et l'architecture de harnais en trois couches.
 - **[Architecture du harnais](/annexes/architecture-harnais)** et **[Guide des workflows](/annexes/workflows)** : La topologie complète des 37 compétences, la règle de précédence et les commandes de cycle de vie.
 
 Pour comprendre la mécanique d'isolation des contextes, l'analyse d'AST en Python et la formalisation des budgets de tokens dans les harnais industriels, poursuis vers le chapitre miroir : **[B04 — Donner du contexte et des limites à l'agent](/ingenieure/04-harnais-et-contexte)**.

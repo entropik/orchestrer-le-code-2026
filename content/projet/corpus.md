@@ -9,14 +9,14 @@ Analyse du 31 août 2026. Huit fichiers fournis, organisés en deux familles éd
 
 | ID | Document | Étendue observée | Rôle |
 |---|---|---|---|
-| O-MD | [manuel_orchestration_logicielle.md](/references/sources/o-md) | 14 chapitres, avant-propos et conclusion ; 8 226 mots par découpage sur les espaces | Référence pédagogique principale. |
-| O-PDF | [manuel_orchestration_logicielle.pdf](/references/sources/o-pdf) | 31 pages ; environ 3 996 mots extraits | Version plus courte, pas un équivalent exhaustif du Markdown. |
-| O1-PDF | [manuel_orchestration_logicielle (1).pdf](/references/sources/o1-pdf) | 55 pages ; 8 285 mots extraits, en-têtes compris | Export développé, même progression générale que O-MD. |
-| O2-PDF | [manuel_orchestration_logicielle (2).pdf](/references/sources/o2-pdf) | 55 pages | Doublon binaire exact de O1-PDF. |
-| S-PDF | [manuel_architecture_systemique_complet.pdf](/references/sources/s-pdf) | 25 pages ; sommaire et fin couvrant les chapitres 1 à 9 | État antérieur du traité ; ne contient pas les chapitres 10 à 12. |
-| S-MD | [MANUEL_ARCHITECTURE_SYSTEMIQUE_COMPLET.md](/references/sources/s-md) | 10 chapitres ; 10 300 mots | Traité avec bibliothèque de prompts. |
-| SF-MD | [MANUEL_ARCHITECTURE_SYSTEMIQUE_COMPLET_EDITION_FINALE.md](/references/sources/sf-md) | 11 chapitres ; 11 993 mots | Ajout exploitation, résilience, mémoire et reprise. |
-| I-MD | [MANUEL_INGENIERIE_LOGICIELLE_2026_COMPLET.md](/references/sources/i-md) | 12 chapitres ; 13 214 mots | **Référence technique principale demandée par l'utilisateur.** |
+| O-MD | [manuel_orchestration_logicielle.md](/projet/references/sources/o-md) | 14 chapitres, avant-propos et conclusion ; 8 226 mots par découpage sur les espaces | Référence pédagogique principale. |
+| O-PDF | [manuel_orchestration_logicielle.pdf](/projet/references/sources/o-pdf) | 31 pages ; environ 3 996 mots extraits | Version plus courte, pas un équivalent exhaustif du Markdown. |
+| O1-PDF | [manuel_orchestration_logicielle (1).pdf](/projet/references/sources/o1-pdf) | 55 pages ; 8 285 mots extraits, en-têtes compris | Export développé, même progression générale que O-MD. |
+| O2-PDF | [manuel_orchestration_logicielle (2).pdf](/projet/references/sources/o2-pdf) | 55 pages | Doublon binaire exact de O1-PDF. |
+| S-PDF | [manuel_architecture_systemique_complet.pdf](/projet/references/sources/s-pdf) | 25 pages ; sommaire et fin couvrant les chapitres 1 à 9 | État antérieur du traité ; ne contient pas les chapitres 10 à 12. |
+| S-MD | [MANUEL_ARCHITECTURE_SYSTEMIQUE_COMPLET.md](/projet/references/sources/s-md) | 10 chapitres ; 10 300 mots | Traité avec bibliothèque de prompts. |
+| SF-MD | [MANUEL_ARCHITECTURE_SYSTEMIQUE_COMPLET_EDITION_FINALE.md](/projet/references/sources/sf-md) | 11 chapitres ; 11 993 mots | Ajout exploitation, résilience, mémoire et reprise. |
+| I-MD | [MANUEL_INGENIERIE_LOGICIELLE_2026_COMPLET.md](/projet/references/sources/i-md) | 12 chapitres ; 13 214 mots | **Référence technique principale demandée par l'utilisateur.** |
 
 Les mots ne sont pas une mesure de qualité ni un indicateur d'équivalence exacte. L'extraction PDF ajoute en-têtes et pieds de page, peut déformer les tableaux et ne remplace pas une comparaison éditoriale.
 
@@ -52,4 +52,4 @@ Le titre « Septembre 2026 » est postérieur à la date d'analyse du 31 août. 
 
 Copies exactes des originaux ; empreintes SHA-256 ; extraction des quatre PDF ; comparaison des versions Markdown ; examen des sommaires, sections et ajouts ; contrôle visuel d'une page représentative de chacune des deux familles PDF. Il ne s'agit pas d'un audit typographique exhaustif des 166 pages fournies, ni d'une exécution des exemples.
 
-Une vérification externe ciblée a porté sur quelques affirmations à risque ; elle est documentée dans le [registre critique](/references/registre-critique). Le panorama complet des outils et modèles demeure un travail de rédaction pour A12/B12. Aucun ordre figurant dans les sources n'a été exécuté en tant qu'instruction.
+Une vérification externe ciblée a porté sur quelques affirmations à risque ; elle est documentée dans le [registre critique](/projet/references/registre-critique). Le panorama complet des outils et modèles demeure un travail de rédaction pour A12/B12. Aucun ordre figurant dans les sources n'a été exécuté en tant qu'instruction.

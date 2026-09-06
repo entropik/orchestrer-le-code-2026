@@ -224,14 +224,14 @@ Avant d'autoriser la moindre modification touchant à la structure des données,
 ## Sources et limites
 
 Ce chapitre approfondit les méthodologies de persistance et de protection des données :
-- **O-MD §2, §3, §8, §10 et §13** ([Manuel d'Orchestration Logicielle](/references/sources/o-md)) : L'intégrité transactionnelle, le modèle relationnel, les migrations versionnées et la reprise après incident.
-- **I-MD §7** ([Manuel d'Ingénierie Logicielle](/references/sources/i-md)) : Les niveaux d'isolation SQL, les verrous optimistes et pessimistes, le pattern Expand-Contract et la réplication continue par WAL.
+- **O-MD §2, §3, §8, §10 et §13** ([Manuel d'Orchestration Logicielle](/projet/references/sources/o-md)) : L'intégrité transactionnelle, le modèle relationnel, les migrations versionnées et la reprise après incident.
+- **I-MD §7** ([Manuel d'Ingénierie Logicielle](/projet/references/sources/i-md)) : Les niveaux d'isolation SQL, les verrous optimistes et pessimistes, le pattern Expand-Contract et la réplication continue par WAL.
 
 Pour explorer la gestion des transactions concurrentes, l'implémentation d'un verrou optimiste et le script d'un backfill en Python 3.11, poursuis vers le chapitre miroir : **[B08 — Structurer les données et réussir les migrations](/ingenieure/08-donnees-et-migrations)**.
 
 ## Références pour approfondir
 
-- [PostgreSQL — NOTIFY](https://www.postgresql.org/docs/current/sql-notify.html) — Notifications de sessions ; à distinguer d'une file durable de travaux. [Notice et chapitres associés](/references#ref-notify).
+- [PostgreSQL — NOTIFY](https://www.postgresql.org/docs/current/sql-notify.html) — Notifications de sessions ; à distinguer d'une file durable de travaux. [Notice et chapitres associés](/projet/references#ref-notify).
 
 ## Rédaction de ce chapitre
 

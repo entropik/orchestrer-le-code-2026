@@ -236,8 +236,8 @@ Avant de valider une fonctionnalité sur la foi de ses tests, passe en revue ces
 ## Sources et limites
 
 Ce chapitre s'appuie sur les principes fondamentaux de vérification et d'assurance qualité logicielle :
-- **O-MD §7** ([Manuel d'Orchestration Logicielle](/references/sources/o-md)) : La pyramide pragmatique des tests, les cinq priorités de test, le rôle de la CI et les protocoles de validation.
-- **I-MD §5** ([Manuel d'Ingénierie Logicielle](/references/sources/i-md)) : La pyramide de vérification déterministe, le TDD inversé supervisé, les tests de propriétés génératifs et les tests de mutation contre les faux positifs.
+- **O-MD §7** ([Manuel d'Orchestration Logicielle](/projet/references/sources/o-md)) : La pyramide pragmatique des tests, les cinq priorités de test, le rôle de la CI et les protocoles de validation.
+- **I-MD §5** ([Manuel d'Ingénierie Logicielle](/projet/references/sources/i-md)) : La pyramide de vérification déterministe, le TDD inversé supervisé, les tests de propriétés génératifs et les tests de mutation contre les faux positifs.
 
 Pour maîtriser le protocole du TDD inversé, les tests de propriétés avec Hypothesis et la gestion déterministe des courses concurrentes en Python 3.11, poursuis vers le chapitre miroir : **[B06 — Tester et prouver le comportement](/ingenieure/06-tests-et-preuves)**.
 

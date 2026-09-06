@@ -224,14 +224,14 @@ Avant d'autoriser une livraison en production, contrôle ces cinq points de gouv
 ## Sources et limites
 
 Ce chapitre approfondit les méthodologies de mise en production et de contrôle opérationnel :
-- **O-MD §8** ([Manuel d'Orchestration Logicielle](/references/sources/o-md)) : La transition du poste local au service réel, les artefacts scellés, la gestion des secrets et la procédure Go/No-Go.
-- **I-MD §8 et §10.2** ([Manuel d'Ingénierie Logicielle](/references/sources/i-md)) : L'ingénierie CI/CD, les builds conteneurisés déterministes, la terminaison TLS par reverse proxy et les déploiements Blue-Green sans coupure.
+- **O-MD §8** ([Manuel d'Orchestration Logicielle](/projet/references/sources/o-md)) : La transition du poste local au service réel, les artefacts scellés, la gestion des secrets et la procédure Go/No-Go.
+- **I-MD §8 et §10.2** ([Manuel d'Ingénierie Logicielle](/projet/references/sources/i-md)) : L'ingénierie CI/CD, les builds conteneurisés déterministes, la terminaison TLS par reverse proxy et les déploiements Blue-Green sans coupure.
 
 Pour maîtriser la conteneurisation multi-stage, la configuration d'un reverse proxy Caddy avec sondes de santé et l'orchestration Blue-Green en Python 3.11, poursuis vers le chapitre miroir : **[B09 — Passer du poste local à un service réel](/ingenieure/09-livraison-et-production)**.
 
 ## Références pour approfondir
 
-- [Caddy — module de limitation de débit](https://caddyserver.com/docs/modules/http.handlers.rate_limit) — Module non standard : sa présence doit être vérifiée. [Notice et chapitres associés](/references#ref-caddy).
+- [Caddy — module de limitation de débit](https://caddyserver.com/docs/modules/http.handlers.rate_limit) — Module non standard : sa présence doit être vérifiée. [Notice et chapitres associés](/projet/references#ref-caddy).
 
 ## Rédaction de ce chapitre
 

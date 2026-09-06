@@ -369,14 +369,14 @@ Avant de valider une opération Git ou d'autoriser une fusion dans la branche pr
 ## Sources et limites
 
 Ce chapitre approfondit les pratiques industrielles de gestion de versions et de revue de code :
-- **O-MD §6** ([Manuel d'Orchestration Logicielle](/references/sources/o-md)) : Le modèle mental de Git, les verbes essentiels, la séquence Commit-Push-PR-Merge et la résolution sémantique des conflits.
-- **I-MD §4** ([Manuel d'Ingénierie Logicielle](/references/sources/i-md)) : La structure du DAG Git, les Git Worktrees pour flottes d'agents, les Stacked Pull Requests et l'automatisation de `git bisect run`.
+- **O-MD §6** ([Manuel d'Orchestration Logicielle](/projet/references/sources/o-md)) : Le modèle mental de Git, les verbes essentiels, la séquence Commit-Push-PR-Merge et la résolution sémantique des conflits.
+- **I-MD §4** ([Manuel d'Ingénierie Logicielle](/projet/references/sources/i-md)) : La structure du DAG Git, les Git Worktrees pour flottes d'agents, les Stacked Pull Requests et l'automatisation de `git bisect run`.
 
 Pour concevoir la pyramide des tests, l'ingénierie TDD et les oracles de preuve formelle, poursuis vers le chapitre suivant : **[B06 — Tester et prouver le comportement](/ingenieure/06-tests-et-preuves)**. Pour réviser les concepts fondamentaux sans outillage de programmation, consulte le miroir accessible : **[A05 — Garder une histoire fiable avec Git](/accessible/05-git-et-collaboration)**.
 
 ## Références pour approfondir
 
-- [Git — arbres de travail](https://git-scm.com/docs/git-worktree) — Fonctionnement et partage des ressources entre worktrees. [Notice et chapitres associés](/references#ref-git).
+- [Git — arbres de travail](https://git-scm.com/docs/git-worktree) — Fonctionnement et partage des ressources entre worktrees. [Notice et chapitres associés](/projet/references#ref-git).
 
 ## Rédaction de ce chapitre
 

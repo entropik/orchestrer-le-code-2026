@@ -1,11 +1,11 @@
 {{ define "main" }}
 {{ $entries := slice }}
-{{ $pages := site.RegularPages | append (site.GetPage "/references") }}
+{{ $pages := site.RegularPages | append (site.GetPage "/projet/references") }}
 {{ range $pages }}
   {{ if ne .Layout "search" }}
     {{ $scope := .Section }}
-    {{ if eq .Section "annexes" }}{{ $scope = "references" }}{{ end }}
-    {{ if eq .Section "projet" }}{{ $scope = "redaction" }}{{ end }}
+    {{ if or (eq .Section "annexes") (in .RelPermalink "/references/") }}{{ $scope = "references" }}{{ end }}
+    {{ if and (eq .Section "projet") (not (in .RelPermalink "/references/")) }}{{ $scope = "redaction" }}{{ end }}
     {{ $notions := slice }}
     {{ range .Params.notions }}{{ $notions = $notions | append .label }}{{ end }}
     {{/* Le dessin et son ASCII ont les mêmes libellés : indexer une seule fois. */}}

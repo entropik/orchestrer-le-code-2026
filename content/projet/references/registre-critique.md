@@ -1,6 +1,9 @@
 {
   "title": "Registre critique",
-  "source_path": "analyse/03-registre-critique.md"
+  "source_path": "analyse/03-registre-critique.md",
+  "aliases": [
+    "/references/registre-critique"
+  ]
 }
 
 Date de consultation externe : 31 août 2026. Ce registre sépare corrections étayées, arbitrages éditoriaux et points encore à vérifier. Les sources du corpus ne sont pas assimilées à des références normatives.

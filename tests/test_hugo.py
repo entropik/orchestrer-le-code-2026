@@ -59,11 +59,11 @@ class HugoTests(unittest.TestCase):
         self.assertEqual(set(sections), {"1", "1.2"})
 
     def test_source_12_is_linkable(self):
-        self.assertIn("{#section-12-6}", self.files["content/references/sources/i-md.md"])
+        self.assertIn("{#section-12-6}", self.files["content/projet/references/sources/i-md.md"])
         for prefix in ("accessible", "ingenieure"):
             content = self.files[f"content/{prefix}/12-ecosysteme-et-independance.md"]
-            self.assertIn("/references/sources/i-md#section-12-1", content)
-            self.assertIn("/references#ref-codestral", content)
+            self.assertIn("/projet/references/sources/i-md#section-12-1", content)
+            self.assertIn("/projet/references#ref-codestral", content)
 
     def test_glossary_anchors(self):
         mesh = json.loads((ROOT / "editorial/maillage.json").read_text(encoding="utf-8"))

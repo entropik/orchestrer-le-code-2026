@@ -462,14 +462,14 @@ Avant de déployer un traitement distribué ou une file d'arrière-plan, contrô
 ## Sources et limites
 
 Ce chapitre approfondit les standards de résilience et d'architecture événementielle :
-- **O-MD §1, §2, §12 et §13** ([Manuel d'Orchestration Logicielle](/references/sources/o-md)) : L'idempotence, les transactions distribuées, les files de messages et la continuité de service.
-- **I-MD §6, §11.2 et §11.3** ([Manuel d'Ingénierie Logicielle](/references/sources/i-md)) : L'analyse des modes de panne, le Transactional Outbox Pattern, l'algorithme de Full Jitter et l'exploitation des Dead Letter Queues.
+- **O-MD §1, §2, §12 et §13** ([Manuel d'Orchestration Logicielle](/projet/references/sources/o-md)) : L'idempotence, les transactions distribuées, les files de messages et la continuité de service.
+- **I-MD §6, §11.2 et §11.3** ([Manuel d'Ingénierie Logicielle](/projet/references/sources/i-md)) : L'analyse des modes de panne, le Transactional Outbox Pattern, l'algorithme de Full Jitter et l'exploitation des Dead Letter Queues.
 
 Pour concevoir la modélisation des bases relationnelles, les migrations de schéma sans coupure et l'intégrité transactionnelle, poursuis vers le chapitre suivant : **[B08 — Structurer les données et réussir les migrations](/ingenieure/08-donnees-et-migrations)**. Pour réviser les concepts sans outillage de programmation, consulte le miroir accessible : **[A07 — Faire travailler le système sans perdre les opérations](/accessible/07-asynchronisme-et-reprises)**.
 
 ## Références pour approfondir
 
-- [PostgreSQL — NOTIFY](https://www.postgresql.org/docs/current/sql-notify.html) — Notifications de sessions ; à distinguer d'une file durable de travaux. [Notice et chapitres associés](/references#ref-notify).
+- [PostgreSQL — NOTIFY](https://www.postgresql.org/docs/current/sql-notify.html) — Notifications de sessions ; à distinguer d'une file durable de travaux. [Notice et chapitres associés](/projet/references#ref-notify).
 
 ## Rédaction de ce chapitre
 

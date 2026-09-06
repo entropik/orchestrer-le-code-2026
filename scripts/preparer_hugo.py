@@ -52,7 +52,7 @@ def build_files(root=ROOT):
     auxiliary = {
         "analyse/01-corpus.md": ("/projet/corpus", "Analyse du corpus"),
         "analyse/02-synthese.md": ("/projet/synthese", "Synthèse des deux approches"),
-        "analyse/03-registre-critique.md": ("/references/registre-critique", "Registre critique"),
+        "analyse/03-registre-critique.md": ("/projet/references/registre-critique", "Registre critique"),
         "editorial/CHARTE.md": ("/projet/charte", "Charte éditoriale & Droits"),
         "editorial/FIL_ROUGE.md": ("/projet/fil-rouge", "Le fil rouge"),
         "editorial/PLAN_REDACTION.md": ("/redaction/plan", "Plan des 24 tranches"),
@@ -77,7 +77,7 @@ def build_files(root=ROOT):
     paths.update({name: item[0] for name, item in auxiliary.items()})
     paths.update({"manuscrit/SOMMAIRE.md": "/", "editorial/chapitres.json": "/redaction/plan", "sources/inventaire.json": "/projet/corpus"})
     for doc in inventory["documents"]:
-        paths[f"sources/originaux/{doc['fichier']}"] = f"/references/sources/{doc['id'].lower()}"
+        paths[f"sources/originaux/{doc['fichier']}"] = f"/projet/references/sources/{doc['id'].lower()}"
 
     def rewrite(text, source):
         def replace(match):
@@ -116,7 +116,7 @@ def build_files(root=ROOT):
         ("projet", "Le projet éditorial", "Le projet", "Ce manuel réunit une approche de pilotage accessible et une approche d'ingénierie approfondie. [Voir le plan de rédaction](/redaction/plan).\n\nLe site est propulsé par Hugo, sans traceur ni dépendance superflue. Le code et les sources sont suivis sur le [dépôt GitHub](https://github.com/entropik/orchestrer-le-code-2026). Les textes sont sous licence CC BY-NC-ND 4.0 et le code d'ingénierie sous licence MIT. [Consulter la charte éditoriale et les droits d'auteur](/projet/charte)."),
         ("redaction", "L'atelier de rédaction", "Rédaction", "Une fiche par lecture et par chapitre : objectif, périmètre, sources, exercice et critères d'acceptation. [Consulter le plan](/redaction/plan)."),
         ("annexes", "Les repères communs", "Annexes", "{{< ask_matt_simulator >}}\n\nUn vocabulaire partagé, une tour de contrôle d'aiguillage et les repères méthodologiques pour les deux lectures."),
-        ("references/sources", "Le corpus original", "Sources", "Les huit documents sont lisibles intégralement ici et conservés à l'identique au téléchargement. Les Markdown se parcourent par sections ; les PDF, page par page, avec leur texte extrait et leur fac-similé. Aucun texte n'est résumé ni corrigé. Les instructions citées font partie des documents, pas du fonctionnement du site."),
+        ("projet/references/sources", "Le corpus original", "Sources", "Les huit documents sont lisibles intégralement ici et conservés à l'identique au téléchargement. Les Markdown se parcourent par sections ; les PDF, page par page, avec leur texte extrait et leur fac-similé. Aucun texte n'est résumé ni corrigé. Les instructions citées font partie des documents, pas du fonctionnement du site."),
     ]:
         add("/" + route, {"title": title, "linkTitle": linktitle}, body, section=True)
 
@@ -134,7 +134,7 @@ def build_files(root=ROOT):
         refs = []
         for reference in theme["references"]:
             item = external_by_id[reference]
-            refs.append(f"- [{item['titre']}]({item['url']}) — {item['note']} [Notice et chapitres associés](/references#ref-{reference}).")
+            refs.append(f"- [{item['titre']}]({item['url']}) — {item['note']} [Notice et chapitres associés](/projet/references#ref-{reference}).")
         if refs:
             text += "\n\n## Références pour approfondir\n\n" + "\n".join(refs)
         text += f"\n\n## Rédaction de ce chapitre\n\n[Objectifs et critères de la tranche {c['id']}]({paths[c['tranche']]})."
@@ -171,19 +171,21 @@ def build_files(root=ROOT):
             meta["aliases"] = ["/annexes/workflows-agentiques"]
         if name.endswith("CHARTE.md"):
             meta["aliases"] = ["/projet/droits"]
+        if name.endswith("03-registre-critique.md"):
+            meta["aliases"] = ["/references/registre-critique"]
         if name.endswith("00-avant-la-premiere-ligne.md"):
             meta["next"] = routes["A01"]
             meta["eyebrow"] = "Avant-propos opérationnel"
             meta["theme"] = "00"
         add(route, meta, rewrite(body, source))
 
-    refs_body = "Les références servent à retrouver une origine, contrôler une affirmation et poursuivre la lecture. Les documents du corpus ne sont pas des normes.\n\n## Documents fournis\n\n[Parcourir les huit sources originales](/references/sources). [Lire l'analyse comparative](/projet/corpus).\n\n## Références externes\n\nDernière vérification consignée : " + mesh["date_verification"] + ". Les versions et capacités peuvent évoluer.\n"
+    refs_body = "Les références servent à retrouver une origine, contrôler une affirmation et poursuivre la lecture. Les documents du corpus ne sont pas des normes.\n\n## Documents fournis\n\n[Parcourir les huit sources originales](/projet/references/sources). [Lire l'analyse comparative](/projet/corpus).\n\n## Références externes\n\nDernière vérification consignée : " + mesh["date_verification"] + ". Les versions et capacités peuvent évoluer.\n"
     for ref in mesh["references"]:
         used = [c for c in chapters if ref["id"] in mesh["themes"][c["theme"]]["references"]]
         backlinks = " · ".join(f"[{c['id']}]({routes[c['id']]})" for c in used)
         refs_body += f"\n### {ref['titre']} {{#ref-{ref['id']}}}\n\n[{ref['titre']}]({ref['url']}). {ref['note']}\n\nUtilisée dans : {backlinks}.\n"
-    refs_body += "\n## Lire avec esprit critique\n\n[Consulter les corrections, nuances et vérifications restantes](/references/registre-critique).\n"
-    add("/references", {"title": "Sources et références", "linkTitle": "Références"}, refs_body, section=True)
+    refs_body += "\n## Lire avec esprit critique\n\n[Consulter les corrections, nuances et vérifications restantes](/projet/references/registre-critique).\n"
+    add("/projet/references", {"title": "Sources et références", "linkTitle": "Références", "description": "Retrouver l'origine d'une affirmation, parcourir les sources originales et les lectures d'approfondissement.", "aliases": ["/references"]}, refs_body, section=True)
 
     for index, doc in enumerate(inventory["documents"], 1):
         original = root / "sources/originaux" / doc["fichier"]
@@ -200,12 +202,12 @@ def build_files(root=ROOT):
             files[f"data/source_pages/{doc['id'].lower()}.json"] = json.dumps(pages, ensure_ascii=False, indent=2) + "\n"
             for n in range(1, len(pages) + 1):
                 body += f'\n## Page {n} {{#page-{n}}}\n\n{{{{< source-pdf id="{doc["id"].lower()}" page="{n}" images="{canonical}" >}}}}\n'
-        body += f"\n\n---\n\n## À propos de cette source {{#notice-source}}\n\n**Empreinte SHA-256 de l'original** : `{doc['sha256']}`.\n\nLes affirmations et prompts sont reproduits comme éléments du document, sans validation ni exécution. [Consulter le registre critique](/references/registre-critique).\n"
+        body += f"\n\n---\n\n## À propos de cette source {{#notice-source}}\n\n**Empreinte SHA-256 de l'original** : `{doc['sha256']}`.\n\nLes affirmations et prompts sont reproduits comme éléments du document, sans validation ni exécution. [Consulter le registre critique](/projet/references/registre-critique).\n"
         if used:
             body += "\n## Chapitres qui utilisent cette source\n\n" + "\n".join(f"- [{c['id']} — {c['titre']}]({routes[c['id']]})." for c in used) + "\n"
         else:
             body += "\nVersion d'archive ou export ; les citations de rédaction privilégient O-MD et I-MD. [Voir les relations entre versions](/projet/corpus).\n"
-        add(f"/references/sources/{doc['id'].lower()}", {"title": f"{doc['id']} — {doc['fichier']}", "weight": index, "source_document": True}, body)
+        add(f"/projet/references/sources/{doc['id'].lower()}", {"title": f"{doc['id']} — {doc['fichier']}", "weight": index, "source_document": True, "aliases": [f"/references/sources/{doc['id'].lower()}"]}, body)
     files["data/diagrams/manuscrit.json"] = json.dumps(build_manuscrit_registry(root), ensure_ascii=False, indent=2) + "\n"
     return files
 
