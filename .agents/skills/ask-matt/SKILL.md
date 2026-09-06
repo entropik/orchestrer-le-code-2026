@@ -1,7 +1,6 @@
 ---
 name: ask-matt
 description: Aiguilleur de session universel pour orchestrer le code avec des agents. Détermine le skill ou le flux adapté à votre situation (idée, bug, triage, brouillard, jargon, secrets).
-disable-model-invocation: true
 ---
 
 # Ask Matt — Routeur d'ingénierie agentique
