@@ -25,4 +25,4 @@ Les 24 chapitres sont entièrement rédigés et organisés en miroir. Tu peux li
 
 ## Annexes partagées
 
-[Fiches réflexes](03-annexes/01-fiches-reflexes.md) · [Guide des workflows](03-annexes/02-guide-des-workflows.md) · [Architecture du harnais](03-annexes/03-architecture-du-harnais.md) · [Catalogue des skills](03-annexes/04-catalogue-des-skills.md) · [Glossaire](03-annexes/05-glossaire.md) · [Synthèse des approches](../analyse/02-synthese.md) · [Plan de rédaction](../editorial/PLAN_REDACTION.md)
+[Fiches réflexes](03-annexes/01-fiches-reflexes.md) · [Guide des workflows](03-annexes/02-guide-des-workflows.md) · [Architecture du harnais](03-annexes/03-architecture-du-harnais.md) · [Catalogue des skills](03-annexes/04-catalogue-des-skills.md) · [Glossaire](03-annexes/05-glossaire.md) · [Ressources utiles](03-annexes/06-ressources-utiles.md) · [Synthèse des approches](../analyse/02-synthese.md) · [Plan de rédaction](../editorial/PLAN_REDACTION.md)

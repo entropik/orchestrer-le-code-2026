@@ -68,6 +68,12 @@ def build_files(root=ROOT):
         "manuscrit/03-annexes/03-architecture-du-harnais.md": ("/annexes/architecture-harnais", "Architecture du harnais & Smart Zone", 3, "Doctrine racine vs global, modèle 3 couches, gestion des tokens et règles d'or."),
         "manuscrit/03-annexes/04-catalogue-des-skills.md": ("/annexes/catalogue-skills", "Catalogue des 37 skills", 4, "Inventaire complet des compétences en fiches dépliables avec permaliens directs."),
         "manuscrit/03-annexes/05-glossaire.md": ("/annexes/glossaire", "Glossaire partagé", 5, "Définitions des termes clés du domaine et de l'architecture."),
+        "manuscrit/03-annexes/06-ressources-utiles.md": (
+            "/annexes/ressources-utiles",
+            "Ressources utiles & Observatoire des modèles",
+            6,
+            "Bancs d'essai, comparateurs de modèles, observatoires de prix et outils de référence pour orchestrer le code.",
+        ),
     }
     paths.update({name: item[0] for name, item in auxiliary.items()})
     paths.update({"manuscrit/SOMMAIRE.md": "/", "editorial/chapitres.json": "/redaction/plan", "sources/inventaire.json": "/projet/corpus"})
