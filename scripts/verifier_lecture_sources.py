@@ -59,7 +59,7 @@ def verify(site):
     formulas = 0
     for doc in inventory['documents']:
         parsed = ReaderText()
-        parsed.feed((site / f"references/sources/{doc['id'].lower()}/index.html").read_text(encoding='utf-8'))
+        parsed.feed((site / f"projet/references/sources/{doc['id'].lower()}/index.html").read_text(encoding='utf-8'))
         if 'pages' in doc:
             pages = pdf_pages((ROOT / doc['extrait']).read_text(encoding='utf-8'), doc['pages'])
             expected = dict(enumerate(pages, 1))

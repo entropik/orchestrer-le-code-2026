@@ -42,7 +42,7 @@ Toujours exécuter ces commandes avec `python3.11` et l'interpréteur Hugo éten
 | **Suite de tests unitaires** | `python3.11 -m unittest discover -s tests` |
 | **Tests typographiques & recherche** | `node tests/test_typo.mjs && node tests/test_search.mjs` |
 | **Compilation du site statique** | `/opt/homebrew/bin/hugo --panicOnWarning` |
-| **Validation HTML & liens internes** | `python3.11 scripts/verifier_html.py public` |
+| **Validation HTML & liens internes** | `python3.11 scripts/verifier_html.py public && python3.11 scripts/verifier_lecture_sources.py public` |
 | **Déploiement Cloudflare Pages** | `npx wrangler pages deploy public --project-name savoirs --branch main` |
 
 ---
