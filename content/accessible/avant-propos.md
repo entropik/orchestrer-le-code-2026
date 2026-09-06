@@ -175,6 +175,13 @@ Pour bâtir un projet avec une IA en tant que créateur indépendant, privilégi
 
 [^2]: SQLite est sans doute le logiciel le plus déployé au monde (présent dans chaque smartphone, chaque navigateur web, chaque voiture). C'est le joyau absolu de l'artisan autonome.
 
+> [!NOTE]
+> **Dans l'atelier de l'auteur : le setup réel qui a forgé ce manuel**  
+> Pour concevoir, éprouver et orchestrer la fabrication de cet ouvrage, l'auteur Marc Tallec n'a pas utilisé un simple chatbot solitaire dans un onglet de navigateur. Ce livre est lui-même le produit d'un atelier agentique moderne et rigoureux :
+> - **L'ADE (*Agentic Development Environment*)** : [Orca](/annexes/ressources-utiles#1-orca--lade-agentic-development-environment-multi-agents), qui permet de piloter une flotte d'agents en parallèle, chacun enfermé dans un [Git worktree](/annexes/glossaire#worktree) strictement isolé, avec son propre terminal et son navigateur d'inspection (zéro collision de branches et exécution concurrente fluide).
+> - **La spécialisation des modèles** : **Google Gemini** pour la maïeutique, la vue synoptique d'ensemble et l'absorption de corpus massifs ; **OpenAI Codex** pour la rigueur d'implémentation algorithmique, l'exactitude syntaxique et la couverture par les tests.
+> - **Le harnais de gouvernance** : L'intégration de la doctrine en trois couches et des compétences méthodologiques de Matt Pocock (accessibles via `.agents/skills/` et documentées dans l'[architecture du harnais](/annexes/architecture-harnais)), un fichier `AGENTS.md` contraignant la mémoire vive et une suite de tests unitaires déterministes validant chaque génération.
+
 ---
 
 ## 5. La jauge de faisabilité en solo

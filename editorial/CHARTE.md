@@ -36,3 +36,19 @@ Situation concrète ; objectif ; raisonnement ; exemple du fil rouge ; limites e
 ## Publication
 
 Valider les droits sur les textes fournis et choisir une licence explicitement. Aucune attribution d'auteur ou autorisation de republication n'est déduite du simple dépôt local.
+
+## Colophon de fabrication : le harnais de l'artisan
+
+Ce manuel et son site web ne sont pas le produit d'un chatbot solitaire interrogé au fil de l'eau, mais d'un atelier logiciel orchestré selon les principes mêmes enseignés dans ces pages (*dogfooding* intégral). La chaîne de production combine quatre couches complémentaires :
+
+1. **L'environnement de développement agentique (ADE)** : **Orca**. Les agents s'exécutent en parallèle, chacun dans un Git worktree strictement cloisonné doté de son propre terminal et d'un navigateur d'inspection dédié. Cette isolation garantit l'absence totale de collisions sur l'arbre Git et permet d'explorer des hypothèses concurrentes sans pollution du tronc principal.
+2. **Le tandem des modèles d'inférence** :
+   - **Google Gemini** : mobilisé pour la maïeutique, l'analyse synoptique du corpus volumineux, la cohérence trans-chapitres et la dialectique contradictoire.
+   - **OpenAI Codex** : sollicité pour la précision syntaxique, l'implémentation fine des algorithmes de transposition, les scripts déterministes et la génération de tests unitaires rigoureux.
+3. **La gouvernance et les compétences de Matt Pocock** : Le harnais de pilotage applique la doctrine en trois couches (réflexes universels d'aiguillage, compétences locales de dépôt sous `.agents/skills/` telles que `writing-for-agents`, `diagnosing-bugs`, `tdd`, `code-review`, `domain-modeling`, et mémoire vive persistante via `AGENTS.md`).
+4. **La chaîne de compilation et les oracles déterministes** :
+   - Génération de contenu Hugo sans dépendance externe tierce (`python3.11`).
+   - Moteur de rendu typographique respectant les normes de l'Imprimerie nationale (espaces insécables, anti-solitaires, ligatures).
+   - Validation géométrique intégrale des schémas ASCII déterministes transposés en planches vectorielles responsive (`tests/test_hugo.py`).
+   - Compilation statique stricte avec Hugo étendu (`--panicOnWarning`), audit de tous les hyperliens internes (`scripts/verifier_html.py`), et distribution mondiale sur Cloudflare Pages à latence minimale, sans traceurs ni cookies.
+
