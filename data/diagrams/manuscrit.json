@@ -1,4 +1,77 @@
 {
+  "54e78bf0ac49d13731a606ead3f8e4d36e995e889fd64a0b5ccfabec23611cc3": {
+    "id": "cycle-de-l-avant-code-du-terrain-au-contrat",
+    "title": "CYCLE DE L'AVANT-CODE : DU TERRAIN AU CONTRAT",
+    "source_sha256": "54e78bf0ac49d13731a606ead3f8e4d36e995e889fd64a0b5ccfabec23611cc3",
+    "parts": [
+      {
+        "kind": "node",
+        "title": "1. INTROSPECTION (L'Artisan et son terrain)",
+        "lines": [
+          "Notes de terrain, écoute de la douleur réelle, refus délibérés"
+        ]
+      },
+      {
+        "kind": "arrow",
+        "label": "",
+        "direction": "down"
+      },
+      {
+        "kind": "node",
+        "title": "2. MIROIR SOCRATIQUE (L'Agent en contradicteur)",
+        "lines": [
+          "Interdiction de coder, attaque du plan, traque des angles morts"
+        ]
+      },
+      {
+        "kind": "arrow",
+        "label": "",
+        "direction": "down"
+      },
+      {
+        "kind": "node",
+        "title": "3. ARCHITECTURE VALIDÉE (Le contrat du système)",
+        "lines": [
+          "Contrats d'interface posés, choix de la stack sobre, code prêt"
+        ]
+      }
+    ]
+  },
+  "1b531e474090f247969b4ef34b413b79ed836563d607c066bb11138ef5dcb413": {
+    "id": "jauge-de-faisabilite-projet-solo-vs-equipe-specialisee",
+    "title": "JAUGE DE FAISABILITÉ : PROJET SOLO VS ÉQUIPE SPÉCIALISÉE",
+    "source_sha256": "1b531e474090f247969b4ef34b413b79ed836563d607c066bb11138ef5dcb413",
+    "parts": [
+      {
+        "kind": "grid",
+        "items": [
+          {
+            "kind": "node",
+            "title": "FAISABILITÉ IMMÉDIATE EN SOLO",
+            "lines": [
+              "Outils internes d'automatisation",
+              "Portails de gestion de dossiers clients",
+              "Moteurs de génération documentaire (PDF)",
+              "Tableaux de bord métier & métriques",
+              "Petits commerces & catalogues locaux"
+            ]
+          },
+          {
+            "kind": "node",
+            "title": "EXIGE UNE ÉQUIPE SPÉCIALISÉE",
+            "lines": [
+              "Systèmes bancaires directs (cœur de banque)",
+              "Moteurs de jeux vidéo 3D temps réel",
+              "Applications à haute fréquence boursière",
+              "Algorithmes de cryptographie sur mesure",
+              "Systèmes médicaux à pilotage d'organes"
+            ]
+          }
+        ],
+        "style": "comparison"
+      }
+    ]
+  },
   "5eee210ab69328fb576630df274349e5bf361e8e54e3b119b783e264fca8e6ad": {
     "id": "01-piloter-un-systeme-5eee210a",
     "title": "SCHÉMA DU SYSTÈME",

@@ -23,7 +23,7 @@ class HugoTests(unittest.TestCase):
 
     def test_all_manuscrit_ascii_diagrams_transposed(self):
         manuscrit_diagrams = json.loads(self.files["data/diagrams/manuscrit.json"])
-        self.assertEqual(len(manuscrit_diagrams), 59)
+        self.assertEqual(len(manuscrit_diagrams), 61)
         for sha, diag in manuscrit_diagrams.items():
             self.assertEqual(len(sha), 64)
             self.assertEqual(sha, diag["source_sha256"])

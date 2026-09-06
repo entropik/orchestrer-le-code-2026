@@ -103,11 +103,24 @@ Lorsque tu abordes une tâche complexe, l'agent ne doit surtout pas coder. Tu do
 En 2026, la quasi-totalité des environnements de développement modernes propose un mode « Plan » (ou un rôle de consultant en amont). Dans ce mode, l'agent a accès à tous tes documents, mais ses outils de modification de code sont verrouillés. Il ne peut qu'analyser, questionner et structurer.
 
 ```text
-+-----------------------+      +-------------------------+      +--------------------------+
-| 1. INTROSPECTION      | ---> | 2. MIROIR SOCRATIQUE    | ---> | 3. ARCHITECTURE VALIDÉE  |
-| Tes notes de terrain, |      | L'agent attaque le plan |      | Les contrats sont fixés, |
-| tes refus délibérés   |      | et traque les failles   |      | le code peut démarrer    |
-+-----------------------+      +-------------------------+      +--------------------------+
+CYCLE DE L'AVANT-CODE : DU TERRAIN AU CONTRAT
+
+┌────────────────────────────────────────────────────────────────────────┐
+│ 1. INTROSPECTION (L'Artisan et son terrain)                             │
+│    • Notes de terrain, écoute de la douleur réelle, refus délibérés    │
+└───────────────────────────────────┬────────────────────────────────────┘
+                                    │
+                                    ▼
+┌────────────────────────────────────────────────────────────────────────┐
+│ 2. MIROIR SOCRATIQUE (L'Agent en contradicteur)                        │
+│    • Interdiction de coder, attaque du plan, traque des angles morts   │
+└───────────────────────────────────┬────────────────────────────────────┘
+                                    │
+                                    ▼
+┌────────────────────────────────────────────────────────────────────────┐
+│ 3. ARCHITECTURE VALIDÉE (Le contrat du système)                        │
+│    • Contrats d'interface posés, choix de la stack sobre, code prêt    │
+└────────────────────────────────────────────────────────────────────────┘
 ```
 
 ### Transformer le commis en avocat du diable
@@ -161,13 +174,16 @@ Pour bâtir un projet avec une IA en tant que créateur indépendant, privilégi
 Avant d'investir ton temps, sache mesurer ce qui est à ta portée avec un agent en tant que pilote solo, et ce qui réclame encore une armée d'ingénieurs spécialisés :
 
 ```text
-FAISABILITÉ IMMÉDIATE EN SOLO               EXIGE UNE ÉQUIPE SPÉCIALISÉE
-[====================================]      [====================================]
-- Outils internes d'automatisation          - Systèmes bancaires directs (cœur de banque)
-- Portails de gestion de dossiers clients   - Moteurs de jeux vidéo 3D temps réel
-- Moteurs de génération documentaire (PDF)  - Applications à haute fréquence boursière
-- Tableaux de bord métier et métriques      - Algorithmes de cryptographie sur mesure
-- Petits commerces et catalogues locaux     - Systèmes médicaux à pilotage d'organes
+JAUGE DE FAISABILITÉ : PROJET SOLO VS ÉQUIPE SPÉCIALISÉE
+
+┌──────────────────────────────────────┐    ┌──────────────────────────────────────┐
+│ FAISABILITÉ IMMÉDIATE EN SOLO        │    │ EXIGE UNE ÉQUIPE SPÉCIALISÉE         │
+│ • Outils internes d'automatisation   │    │ • Systèmes bancaires directs         │
+│ • Portails de dossiers clients       │    │ • Moteurs de jeux 3D temps réel      │
+│ • Génération documentaire (PDF)      │    │ • Applications haute fréquence       │
+│ • Tableaux de bord & métriques       │    │ • Cryptographie sur mesure           │
+│ • Petits commerces & catalogues      │    │ • Systèmes médicaux critiques        │
+└──────────────────────────────────────┘    └──────────────────────────────────────┘
 ```
 
 Si ton projet se situe dans la colonne de gauche, tu disposes aujourd'hui de tous les leviers pour le mener à bien, de la première étincelle jusqu'à la mise en ligne opérationnelle.

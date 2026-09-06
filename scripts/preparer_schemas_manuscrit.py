@@ -136,6 +136,26 @@ def parse_custom(h, lines, title):
         ]
         return sequence(nodes)
 
+    # 2b. Avant-propos : Jauge de faisabilité en solo vs équipe
+    if h.startswith("1b531e47"):
+        nodes = [
+            node("FAISABILITÉ IMMÉDIATE EN SOLO", [
+                "Outils internes d'automatisation",
+                "Portails de gestion de dossiers clients",
+                "Moteurs de génération documentaire (PDF)",
+                "Tableaux de bord métier & métriques",
+                "Petits commerces & catalogues locaux",
+            ]),
+            node("EXIGE UNE ÉQUIPE SPÉCIALISÉE", [
+                "Systèmes bancaires directs (cœur de banque)",
+                "Moteurs de jeux vidéo 3D temps réel",
+                "Applications à haute fréquence boursière",
+                "Algorithmes de cryptographie sur mesure",
+                "Systèmes médicaux à pilotage d'organes",
+            ]),
+        ]
+        return [grid(nodes, style="comparison")]
+
     # 3. A01 : Quatre mouvements fondamentaux
     if h.startswith("5eee210a"):
         nodes = [
