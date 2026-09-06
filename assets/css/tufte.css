@@ -119,6 +119,7 @@ h2 { font-size: 2rem; }
   background: var(--surface);
   border-bottom: 1px solid var(--line);
   line-height: 1.2;
+  text-align: center;
 }
 .text-scale-legend {
   display: block;
@@ -182,7 +183,8 @@ h2 { font-size: 2rem; }
   letter-spacing: .02em;
 }
 .mobile-reader-dropdown .text-scale-widget {
-  margin: 0 0 1rem;
+  margin: 0 auto 1.2rem;
+  max-width: 320px;
   background: var(--paper);
 }
 .mobile-reader-text-scale,
@@ -421,9 +423,11 @@ h2 { font-size: 2rem; }
 
   .nav-text-scale {
     display: block;
-    margin-top: .9rem;
+    margin: .9rem auto 0;
     padding-top: .75rem;
     border-top: 1px solid var(--line);
+    max-width: 320px;
+    width: 100%;
   }
   .nav-text-scale .text-scale-widget {
     margin-bottom: 0;
@@ -431,8 +435,9 @@ h2 { font-size: 2rem; }
 
   .mobile-reader-text-scale {
     display: block;
-    margin: 1.2rem 0 1.6rem;
+    margin: 1.6rem auto 1.8rem;
     max-width: 320px;
+    width: 100%;
   }
   .mobile-reader-text-scale .text-scale-widget {
     margin-bottom: 0;
