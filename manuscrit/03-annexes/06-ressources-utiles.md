@@ -1,12 +1,15 @@
 # Ressources utiles & Observatoire des modèles
 
-> Repères communs · Comparateurs, bancs d'essai et observatoires indépendants.
+> Repères communs · Comparateurs, bancs d'essai, postes de pilotage et observatoires indépendants.
 
 [Sommaire](../SOMMAIRE.md) · [Guide des workflows](02-guide-des-workflows.md) · [Glossaire partagé](05-glossaire.md) · [Chapitre 12 : Écosystème & Indépendance](../01-lecture-accessible/12-ecosysteme-et-independance.md)
 
-Face à la multiplication effrénée des modèles d'intelligence artificielle et aux promesses marketing des laboratoires, le maître d'ouvrage et l'ingénieur doivent s'appuyer sur des **mesures empiriques, indépendantes et reproductibles**.
+Face à la prolifération des modèles d'intelligence artificielle et au battage publicitaire (*hype*) des laboratoires, le maître d'ouvrage et l'ingénieur doivent s'appuyer sur des **mesures empiriques, indépendantes et reproductibles**.
 
-Cette annexe recense les observatoires de référence pour évaluer la qualité de raisonnement, l'aptitude au code, la rapidité d'exécution et le coût réel d'inférence des modèles en 2026.
+Cette annexe recense les outils de référence pour évaluer la qualité de raisonnement, choisir son environnement de développement agentique, isoler l'exécution dans des bacs à sable étanches, éprouver le code par des oracles déterministes et préserver sa souveraineté numérique.
+
+> 💡 **Le carnet de veille continue de l'auteur**  
+> Pour suivre au fil de l'eau les nouveaux modèles, les bancs d'essai de terrain et les expérimentations sans complaisance, l'auteur Marc Tallec tient à jour [Digest by Ooblik](https://digest.ooblik.com/), un observatoire resserré réunissant plus de 2 000 ressources sélectionnées sur l'IA, le code, l'architecture logicielle et l'artisanat numérique.
 
 ---
 
@@ -66,7 +69,7 @@ Au-delà des classements généralistes, plusieurs initiatives indépendantes me
 
 ### LiveBench
 - **Accès direct** : [livebench.ai](https://livebench.ai/)
-- **Rôle** : Benchmark sans contamination dont les questions sont mensuellement mises à jour à partir de problèmes de concours récents, de publications scientifiques et d'actualités de code.
+- **Rôle** : Benchmark sans contamination dont les questions sont mensuellement renouvelées à partir de problèmes de concours récents, de publications scientifiques et d'actualités logicielles.
 - **Pourquoi c'est précieux** : Élimine le phénomène de « bachotage » où les laboratoires entraînent leurs modèles sur les questions des anciens benchmarks pour gonfler artificiellement leurs scores.
 
 ### BigCodeBench
@@ -75,34 +78,144 @@ Au-delà des classements généralistes, plusieurs initiatives indépendantes me
 
 ---
 
-## 3. Observatoires de routage et agrégateurs de flux API
+## 3. Les postes de pilotage agentique (IDE, ADE & Outils CLI)
 
-Pour les systèmes logiciels en production qui pilotent des agents via des passerelles multi-modèles :
+L'environnement de travail ne se limite plus à un simple traitement de texte coloré. En 2026, l'ingénieur opère depuis des postes de commande conçus pour l'orchestration sous mandat :
 
-| Ressource | Rôle & Usage | Ce qu'elle apporte au pilote |
+### 1. Orca : l'ADE (*Agentic Development Environment*) multi-agents
+- **Accès direct** : [stablyai/orca](https://github.com/stablyai/orca) (ou [onorca.dev](https://onorca.dev/))
+- **Le concept d'ADE** : Contrairement à l'IDE classique centré sur la saisie manuelle de code par l'humain, l'ADE (*Agentic Development Environment*) est conçu pour piloter une **flotte d'agents autonomes en parallèle**.
+- **Forces opérationnelles** :
+  - **Isolation par Git Worktree** : chaque agent tourne dans son propre répertoire de travail isolé (*worktree*), avec son propre terminal et son onglet de navigation dédié. Aucun risque de collision de fichiers ou de conflit de branche intempestif.
+  - **Exécution concurrente et arbitrage** : tu peux soumettre la même tâche à deux modèles ou prompts distincts (par exemple Claude Code d'un côté et Aider de l'autre), observer leurs démarches respectives en temps réel et fusionner la meilleure solution.
+  - **Visualisation des parcours** : inspection visuelle de l'état du navigateur et des artefacts produits par chaque agent.
+
+### 2. Claude Code : le terminal-first rigoureux
+- **Éditeur** : Anthropic
+- **Rôle** : Outil en ligne de commande fonctionnant directement dans le terminal hôte. Conçu pour explorer les dépôts profonds, lancer des sous-agents spécialisés et appliquer des garde-fous programmatiques via des hooks d'interception matérielle (`PreToolUse`).
+
+### 3. Cursor : l'IDE natif agent le plus fluide
+- **Éditeur** : Anysphere
+- **Rôle** : Fork de VS Code profondément remanié. Excelle dans l'indexation vectorielle locale du code (`codebase indexing`), permettant à l'agent de comprendre les dépendances lointaines à travers des centaines de fichiers sans saturer son contexte.
+
+### 4. Roo Code & Cline : les extensions libres et transparentes
+- **Accès direct** : Extensions open-source pour VS Code / VSCodium
+- **Rôle** : Permettent de basculer entre des modes étanches (*Architect*, *Coder*, *Ask*), d'imposer une validation humaine bouton par bouton avant chaque écriture sur le disque et de brancher n'importe quel fournisseur d'inférence (API propriétaire ou modèle local).
+
+### 5. Aider : l'artisan du pair-programming en console
+- **Accès direct** : [aider.chat](https://aider.chat/)
+- **Rôle** : Outil CLI d'une sobriété exemplaire. Force l'agent à valider son travail par des commits Git atomiques et des messages de commit descriptifs.
+
+---
+
+## 4. Le protocole MCP (Model Context Protocol) & Catalogues de serveurs
+
+Considéré comme le « standard USB-C » de l'intelligence artificielle, le **Model Context Protocol (MCP)** standardise la façon dont un agent lit des données et déclenche des actions dans le monde réel, en séparant strictement l'intelligence du modèle de l'infrastructure hôte.
+
+En 2026, la spécification stateless permet d'exécuter des serveurs MCP sur des conteneurs légers ou des fonctions HTTP serverless sans maintenir de connexions persistantes complexes.
+
+### Annuaires et registres de serveurs MCP
+- **MCP Registry officiel** : [github.com/modelcontextprotocol/servers](https://github.com/modelcontextprotocol/servers) (serveurs de référence maintenus : Git, SQLite, PostgreSQL, Filesystem, GitHub, Brave Search).
+- **Smithery.ai** : [smithery.ai](https://smithery.ai/) (catalogue communautaire avec installation en une ligne de commande et statistiques d'utilisation).
+- **MCP Finder** : Moteur de recherche fédéré agrégeant le registre officiel, npm et Smithery pour identifier des capacités précises (ex. connecteur Stripe, Slack, Notion ou Docker).
+- **PulseMCP** : [pulsemcp.com](https://www.pulsemcp.com/) (veille continue sur les nouveaux serveurs et les bibliothèques d'outils émergentes).
+
+> [!CAUTION]
+> **Règle de sécurité du pilote : l'empoisonnement d'outil (*Tool Poisoning*)**  
+> Ne branche jamais un serveur MCP inconnu avec des droits d'écriture sans avoir audité son code source. Un serveur malveillant ou mal conçu peut exposer tes variables d'environnement ou exécuter des requêtes destructrices à l'insu de l'agent. Applique toujours le principe de moindre privilège (accès en lecture seule par défaut).
+
+---
+
+## 5. Bacs à sable, conteneurisation & Docker Desktop
+
+Donner à un agent le droit d'exécuter du code et de lancer des commandes shell sur ton ordinateur personnel présente un risque industriel majeur. En 2026, l'isolation ne relève plus du confort : c'est une condition de survie.
+
+### 1. Docker Desktop : le standard du poste de travail
+- **Accès direct** : [docker.com/products/docker-desktop/](https://www.docker.com/products/docker-desktop/)
+- **Rôle pour le pilote** : Docker Desktop reste la solution la plus répandue sur macOS, Windows et Linux pour orchestrer des conteneurs locaux, faire tourner des bases de données de test (PostgreSQL, Redis) et isoler des environnements d'exécution.
+- **Les Devcontainers (`.devcontainer.json`)** :
+  - Norme ouverte ([containers.dev](https://containers.dev/)) permettant de décrire l'intégralité de l'atelier logiciel (versions de Python, bibliothèques C, outils de build, extensions) dans un fichier texte versionné dans Git.
+  - L'agent et le développeur travaillent à l'intérieur du conteneur sans jamais modifier ni polluer le système d'exploitation de la machine hôte.
+- **Consommation & Alternatives légères** :
+  - Sur macOS, Docker Desktop virtualise un noyau Linux qui peut mobiliser beaucoup de mémoire vive.
+  - Pour les machines plus modestes ou les licences strictes en entreprise, des alternatives légères existent : **OrbStack** (ultra-rapide et économe en batterie sur macOS), **Podman Desktop** (open-source sans daemon root) ou **Colima**.
+
+### 2. Bacs à sable matériels (MicroVMs) : l'étanchéité absolue
+Lorsqu'un agent exécute du code complexe ou manipule des paquets non fiables, le conteneur partagé présente des risques d'évasion de noyau (*sandbox escape*). Les solutions modernes reposent sur des micro-machines virtuelles matérielles :
+- **E2B (`e2b.dev`)** : la référence pour l'exécution agentique. Fournit des microVMs Firecracker isolées au niveau du noyau, capables de démarrer en quelques centaines de millisecondes, avec système de fichiers éphémère et filtrage strict des flux réseau sortants.
+- **Daytona (`daytona.io`)** : plateforme open-source d'environnements de développement standardisés, permettant de créer et détruire des postes de travail virtuels en une commande CLI.
+
+---
+
+## 6. Les oracles déterministes : tester le code produit par l'IA
+
+L'agent génère du code de manière probabiliste. Pour valider son travail, l'humain ne doit jamais se fier à ses promesses textuelles : il doit lui opposer des **oracles mathématiquement déterministes**.
+
+### 1. Les tests de mutation (Mutation Testing)
+*Le problème* : un agent peut très bien écrire 20 tests unitaires qui passent tous au vert... simplement parce que ses assertions sont triviales (`assert result is not None`).
+*La solution* : l'outil de mutation injecte automatiquement des fautes dans le code (inversion de condition, modification de constante arithmétique). Si les tests de l'agent restent verts malgré ces fautes, les tests sont déclarés invalides (*mutants survivants*).
+- **Mutmut** (Python) : [mutmut.readthedocs.io](https://mutmut.readthedocs.io/)
+- **Stryker Mutator** (TypeScript, JavaScript, C#) : [stryker-mutator.io](https://stryker-mutator.io/)
+
+### 2. Les tests basés sur les propriétés (Property-Based Testing)
+Plutôt que de tester un seul exemple prévisible, ces outils génèrent des centaines de cas d'essai extrêmes (chaînes vides, entiers négatifs géants, caractères Unicode rares, fuseaux horaires invalides) pour débusquer les angles morts :
+- **Hypothesis** (Python) : [hypothesis.readthedocs.io](https://hypothesis.readthedocs.io/)
+- **fast-check** (TypeScript/JavaScript) : [fast-check.dev](https://fast-check.dev/)
+
+### 3. La validation stricte aux frontières du système
+Pour s'assurer qu'aucune donnée mal formée ne traverse les interfaces :
+- **Pydantic** (Python) : validation runtime par schémas et typage statique.
+- **Zod** ou **TypeBox** (TypeScript) : dérivation automatique des types statiques à partir de contrats runtime infranchissables.
+
+---
+
+## 7. Runtimes d'inférence locale : souveraineté et secret d'atelier
+
+Pour traiter des données confidentielles, des secrets médicaux ou des brevets sans émettre le moindre paquet sur Internet :
+
+| Outil | Cible principale | Point fort |
 |---|---|---|
-| **[OpenRouter Rankings](https://openrouter.ai/rankings)** | Observatoire en temps réel du volume de tokens réellement consommé par modèle dans le monde. | Indicateur direct de l'adoption opérationnelle par les développeurs (la popularité de terrain face aux déclarations marketing). |
-| **[CanAiCode (MultiPL-E)](https://huggingface.co/spaces/VHellendoorn/can-ai-code-results)** | Comparatif multilingue de complétion de code (Python, TypeScript, Go, Rust, C++, PHP). | Mesure si le modèle excelle dans un langage spécifique plutôt qu'en Python standard. |
-| **[Ollama Model Library](https://ollama.com/library)** | Catalogue des modèles exécutables en une ligne de commande sur son propre poste de travail. | Démarrage immédiat d'un agent local sans abonnement ni clé API externe. |
+| **[Ollama](https://ollama.com/)** | Poste de travail local (Mac, Linux, Windows) | Téléchargement et exécution en une commande (`ollama run qwen2.5-coder`). API compatible OpenAI. |
+| **[vLLM](https://vllm.ai/)** | Serveurs de production & GPU dédiés | Débit d'inférence record grâce à l'algorithme *PagedAttention*. Idéal pour héberger son propre modèle d'équipe. |
+| **[llama.cpp](https://github.com/ggerganov/llama.cpp)** | Tout processeur CPU / GPU / Apple Silicon | Moteur universel ultra-optimisé en C++, sans dépendance Python, base de presque tout l'écosystème local. |
+| **[LM Studio](https://lmstudio.ai/)** | Expérimentation visuelle sur poste local | Interface graphique soignée pour tester les invites, ajuster la quantification (GGUF) et exposer un serveur local. |
 
 ---
 
-## 4. La grille d'arbitrage du pilote : comment lire un benchmark
+## 8. Observabilité, traçabilité et contrôle des coûts
 
-Un benchmark n'est jamais une vérité absolue ; c'est une mesure partielle prise dans un cadre artificiel. Pour éviter les erreurs d'aiguillage dans ton projet, applique ces quatre principes critiques :
+Piloter un système agentique exige de pouvoir auditer chaque décision de l'agent : quel prompt a été envoyé ? Combien de tokens ont été consommés ? Quel outil a échoué ?
 
-### 1. La contamination des données (*Data Contamination*)
-Si un problème d'évaluation est public depuis plus de six mois, il y a de fortes chances qu'il fasse partie des milliards de pages web ingérées lors du pré-entraînement du modèle. Le modèle ne « réfléchit » pas à la solution : il s'en souvient. Privilégie toujours les benchmarks dynamiques (*LiveBench*, *Chatbot Arena*) aux classements statiques anciens.
-
-### 2. Le ratio Raisonnement / Vitesse / Coût
-Un modèle classé premier à SWE-bench mais qui met quarante secondes à générer chaque bloc et facture 30 $ par million de tokens est un excellent outil d'audit ponctuel ou de revue de code critique, mais un très mauvais compagnon d'autocomplétion ou de tri rapide de fichiers. Définis l'usage avant de choisir le champion.
-
-### 3. La réduction de coût par le cache de contexte (*Prompt Caching*)
-En 2026, les fournisseurs d'API proposent des remises majeures (jusqu'à 80 % ou 90 %) lorsque le contexte initial (harnais, `AGENTS.md`, règles et documentation du projet) est mis en cache. Consulte systématiquement les conditions de mise en cache sur *Artificial Analysis* avant de calibrer ton budget.
-
-### 4. La primauté du harnais sur la puissance brute
-Un modèle moyen (ex. modèle compact à 8 ou 14 milliards de paramètres) enfermé dans un **harnais strict** (tests automatisés, linter, validation de types et `AGENTS.md` déterministe) produira un logiciel infiniment plus fiable qu'un modèle surpuissant lâché dans un dépôt sans garde-fous.
+- **Langfuse** ([langfuse.com](https://langfuse.com/)) : plateforme d'observabilité open-source dédiée aux applications LLM et agents. Permet d'inspecter visuellement l'arbre d'exécution complet des agents, de tracer la consommation de tokens et de mesurer la latence.
+- **OpenTelemetry GenAI Semantic Conventions** : la norme industrielle ouverte pour standardiser les métriques et les traces d'appels d'IA sans s'enfermer chez un éditeur de monitoring propriétaire.
+- **Helicone** ([helicone.ai](https://www.helicone.ai/)) : proxy d'inférence léger permettant de mettre en cache les requêtes répétitives, d'alerter sur les dépassements de budget et d'analyser les coûts par utilisateur ou par tâche.
 
 ---
 
-*Pour approfondir la sélection des briques logicielles et l'indépendance vis-à-vis des fournisseurs, consulte le [Chapitre 12 : Choisir ses outils et préserver son indépendance](../01-lecture-accessible/12-ecosysteme-et-independance.md). Pour la mise en place des garde-fous sur ton poste local, consulte l'[Architecture du harnais](03-architecture-du-harnais.md).*
+## 9. La grille d'arbitrage du pilote : comment lire un benchmark
+
+Un classement n'est jamais une vérité absolue ; c'est une photographie artificielle à un instant donné. Applique systématiquement ces quatre principes d'hygiène mentale :
+
+1. **Le risque de contamination des données** : si un exercice de test est public depuis plus de six mois, le modèle l'a très probablement ingéré lors de son entraînement. Privilégie toujours les benchmarks dynamiques ou à l'aveugle (*LMSYS*, *LiveBench*).
+2. **Le compromis Raisonnement / Vitesse / Coût** : un modèle champion à SWE-bench mais facturant 30 $ le million de tokens et mettant une minute par réponse est parfait pour un audit d'architecture ou une revue critique, mais totalement inadapté à l'assistance de frappe au fil de l'eau.
+3. **L'effet multiplicateur du cache de contexte (*Prompt Caching*)** : les fournisseurs d'API accordent des remises allant jusqu'à 80 % ou 90 % lorsque le contexte initial (`AGENTS.md`, règles, documentation) est conservé en mémoire vive chez l'hébergeur. Mesure toujours le coût réel avec cache activé.
+4. **La primauté du harnais sur la puissance brute** : un modèle compact à 14 milliards de paramètres guidé par un `AGENTS.md` rigoureux et des tests automatisés produira toujours un logiciel plus pérenne qu'un modèle géant lâché en roue libre sans garde-fous.
+
+---
+
+## 10. Matrice de synthèse : deux trousses types selon ton profil
+
+| Composant | Profil 1 : Créateur solo / Solopreneur / Béotien | Profil 2 : Ingénieur / Lead Tech / Équipe |
+|---|---|---|
+| **Poste de pilotage** | Claude Code (CLI) ou Cursor | Orca (ADE multi-agents) + Claude Code + Roo Code |
+| **Garde-fous** | `AGENTS.md` + Tests pytest basiques | PreToolUse Hooks + Git Guardrails + Bacs MicroVMs |
+| **Isolation locale** | Docker Desktop (Devcontainers) | Docker Desktop / OrbStack + MicroVMs E2B |
+| **Modèle distant** | Claude Sonnet / OpenAI o-series via API | Routage multi-fournisseurs (OpenRouter / AWS Bedrock) |
+| **Modèle souverain local** | Ollama (Qwen 2.5 Coder 7B / Mistral 7B) | vLLM sur cluster GPU interne (Llama 70B / Mistral Large) |
+| **Vérification du code** | Linters + Suite de tests fonctionnels | Tests de mutation (Mutmut/Stryker) + Hypothesis |
+| **Capacités & Outils** | Serveurs MCP standards (Filesystem, SQLite) | Serveurs MCP audités avec OAuth et portée restreinte |
+| **Observabilité** | Tableau de bord fournisseur (facturation) | Langfuse auto-hébergé + OpenTelemetry |
+
+---
+
+*Pour approfondir la sélection des briques logicielles et l'indépendance vis-à-vis des fournisseurs, consulte le [Chapitre 12 : Choisir ses outils et préserver son indépendance](../01-lecture-accessible/12-ecosysteme-et-independance.md). Pour la mise en place concrète des garde-fous, consulte l'[Architecture du harnais](03-architecture-du-harnais.md). Pour continuer la veille au jour le jour, explore [Digest by Ooblik](https://digest.ooblik.com/).*
