@@ -14,7 +14,7 @@ Rédiger la lecture ingénieure du thème 04 : Construire un contexte progressif
 
 - [Chapitre à développer](/ingenieure/04-harnais-et-contexte).
 - [Chapitre miroir](/accessible/04-harnais-et-contexte).
-- [Charte éditoriale](/projet/charte) et [fil rouge](/projet/fil-rouge).
+- [Charte éditoriale](/projet/charte).
 - [Registre critique](/projet/references/registre-critique).
 - Sources : O-MD §4, §5 ; I-MD §1.2 à §1.5, §10, §11.5. Les identifiants sont résolus dans l'[inventaire commenté](/projet/corpus).
 - Prérequis de rédaction : A04, B03 ; une amorce existante permet de commencer, une harmonisation des deux niveaux est exigée à la relecture.

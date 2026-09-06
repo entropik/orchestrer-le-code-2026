@@ -10,7 +10,7 @@ Rédiger la lecture ingénieure du thème 06 : Construire des oracles utiles et 
 
 - [Chapitre à développer](../manuscrit/02-lecture-ingenieure/06-tests-et-preuves.md).
 - [Chapitre miroir](../manuscrit/01-lecture-accessible/06-tests-et-preuves.md).
-- [Charte éditoriale](../editorial/CHARTE.md) et [fil rouge](../editorial/FIL_ROUGE.md).
+- [Charte éditoriale](../editorial/CHARTE.md).
 - [Registre critique](../analyse/03-registre-critique.md).
 - Sources : O-MD §7 ; I-MD §5. Les identifiants sont résolus dans l'[inventaire commenté](../analyse/01-corpus.md).
 - Prérequis de rédaction : A06, B05 ; une amorce existante permet de commencer, une harmonisation des deux niveaux est exigée à la relecture.

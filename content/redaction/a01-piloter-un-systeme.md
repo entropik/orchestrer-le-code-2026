@@ -14,7 +14,7 @@ Rédiger la lecture accessible du thème 01 : Savoir ce que l'on délègue à un
 
 - [Chapitre à développer](/accessible/01-piloter-un-systeme).
 - [Chapitre miroir](/ingenieure/01-piloter-un-systeme).
-- [Charte éditoriale](/projet/charte) et [fil rouge](/projet/fil-rouge).
+- [Charte éditoriale](/projet/charte).
 - [Registre critique](/projet/references/registre-critique).
 - Sources : O-MD §1, §4, §5 ; I-MD §1, §9.5. Les identifiants sont résolus dans l'[inventaire commenté](/projet/corpus).
 - Prérequis de rédaction : aucun ; une amorce existante permet de commencer, une harmonisation des deux niveaux est exigée à la relecture.

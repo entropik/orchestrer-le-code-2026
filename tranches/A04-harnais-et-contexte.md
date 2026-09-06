@@ -10,7 +10,7 @@ Rédiger la lecture accessible du thème 04 : Préparer une session utile sans n
 
 - [Chapitre à développer](../manuscrit/01-lecture-accessible/04-harnais-et-contexte.md).
 - [Chapitre miroir](../manuscrit/02-lecture-ingenieure/04-harnais-et-contexte.md).
-- [Charte éditoriale](../editorial/CHARTE.md) et [fil rouge](../editorial/FIL_ROUGE.md).
+- [Charte éditoriale](../editorial/CHARTE.md).
 - [Registre critique](../analyse/03-registre-critique.md).
 - Sources : O-MD §4, §5 ; I-MD §1.2 à §1.5, §10, §11.5. Les identifiants sont résolus dans l'[inventaire commenté](../analyse/01-corpus.md).
 - Prérequis de rédaction : A03 ; une amorce existante permet de commencer, une harmonisation des deux niveaux est exigée à la relecture.

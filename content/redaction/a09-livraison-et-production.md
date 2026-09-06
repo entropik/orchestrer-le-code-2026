@@ -14,7 +14,7 @@ Rédiger la lecture accessible du thème 09 : Autoriser une livraison en sachant
 
 - [Chapitre à développer](/accessible/09-livraison-et-production).
 - [Chapitre miroir](/ingenieure/09-livraison-et-production).
-- [Charte éditoriale](/projet/charte) et [fil rouge](/projet/fil-rouge).
+- [Charte éditoriale](/projet/charte).
 - [Registre critique](/projet/references/registre-critique).
 - Sources : O-MD §8 ; I-MD §8, §10.2. Les identifiants sont résolus dans l'[inventaire commenté](/projet/corpus).
 - Prérequis de rédaction : A08 ; une amorce existante permet de commencer, une harmonisation des deux niveaux est exigée à la relecture.

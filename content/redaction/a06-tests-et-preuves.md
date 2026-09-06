@@ -14,7 +14,7 @@ Rédiger la lecture accessible du thème 06 : Savoir ce qu'un test démontre et 
 
 - [Chapitre à développer](/accessible/06-tests-et-preuves).
 - [Chapitre miroir](/ingenieure/06-tests-et-preuves).
-- [Charte éditoriale](/projet/charte) et [fil rouge](/projet/fil-rouge).
+- [Charte éditoriale](/projet/charte).
 - [Registre critique](/projet/references/registre-critique).
 - Sources : O-MD §7 ; I-MD §5. Les identifiants sont résolus dans l'[inventaire commenté](/projet/corpus).
 - Prérequis de rédaction : A05 ; une amorce existante permet de commencer, une harmonisation des deux niveaux est exigée à la relecture.

@@ -1,6 +1,9 @@
 {
   "title": "Le projet éditorial",
-  "linkTitle": "Le projet"
+  "linkTitle": "Le projet",
+  "aliases": [
+    "/projet/fil-rouge"
+  ]
 }
 
 Ce manuel réunit une approche de pilotage accessible et une approche d'ingénierie approfondie. [Voir le plan de rédaction](/redaction/plan).

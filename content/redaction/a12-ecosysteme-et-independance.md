@@ -14,7 +14,7 @@ Rédiger la lecture accessible du thème 12 : Comparer cloud et local selon l'us
 
 - [Chapitre à développer](/accessible/12-ecosysteme-et-independance).
 - [Chapitre miroir](/ingenieure/12-ecosysteme-et-independance).
-- [Charte éditoriale](/projet/charte) et [fil rouge](/projet/fil-rouge).
+- [Charte éditoriale](/projet/charte).
 - [Registre critique](/projet/references/registre-critique).
 - Sources : O-MD §2, §4 ; I-MD §12.1 à §12.6. Les identifiants sont résolus dans l'[inventaire commenté](/projet/corpus).
 - Prérequis de rédaction : A11 ; une amorce existante permet de commencer, une harmonisation des deux niveaux est exigée à la relecture.

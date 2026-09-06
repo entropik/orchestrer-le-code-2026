@@ -54,7 +54,6 @@ def build_files(root=ROOT):
         "analyse/02-synthese.md": ("/projet/synthese", "Synthèse des deux approches"),
         "analyse/03-registre-critique.md": ("/projet/references/registre-critique", "Registre critique"),
         "editorial/CHARTE.md": ("/projet/charte", "Charte éditoriale & Droits"),
-        "editorial/FIL_ROUGE.md": ("/projet/fil-rouge", "Le fil rouge"),
         "editorial/PLAN_REDACTION.md": ("/redaction/plan", "Plan des 24 tranches"),
         "manuscrit/01-lecture-accessible/00-avant-la-premiere-ligne.md": (
             "/accessible/avant-propos",
@@ -118,7 +117,10 @@ def build_files(root=ROOT):
         ("annexes", "Les repères communs", "Annexes", "{{< ask_matt_simulator >}}\n\nUn vocabulaire partagé, une tour de contrôle d'aiguillage et les repères méthodologiques pour les deux lectures."),
         ("projet/references/sources", "Le corpus original", "Sources", "Les huit documents sont lisibles intégralement ici et conservés à l'identique au téléchargement. Les Markdown se parcourent par sections ; les PDF, page par page, avec leur texte extrait et leur fac-similé. Aucun texte n'est résumé ni corrigé. Les instructions citées font partie des documents, pas du fonctionnement du site."),
     ]:
-        add("/" + route, {"title": title, "linkTitle": linktitle}, body, section=True)
+        meta = {"title": title, "linkTitle": linktitle}
+        if route == "projet":
+            meta["aliases"] = ["/projet/fil-rouge"]
+        add("/" + route, meta, body, section=True)
 
     external_by_id = {r["id"]: r for r in mesh["references"]}
     for c in chapters:

@@ -14,7 +14,7 @@ Rédiger la lecture accessible du thème 05 : Distinguer enregistrer, partager, 
 
 - [Chapitre à développer](/accessible/05-git-et-collaboration).
 - [Chapitre miroir](/ingenieure/05-git-et-collaboration).
-- [Charte éditoriale](/projet/charte) et [fil rouge](/projet/fil-rouge).
+- [Charte éditoriale](/projet/charte).
 - [Registre critique](/projet/references/registre-critique).
 - Sources : O-MD §6 ; I-MD §4. Les identifiants sont résolus dans l'[inventaire commenté](/projet/corpus).
 - Prérequis de rédaction : A04 ; une amorce existante permet de commencer, une harmonisation des deux niveaux est exigée à la relecture.

@@ -14,7 +14,7 @@ Rédiger la lecture ingénieure du thème 03 : Relier invariants, schémas, vali
 
 - [Chapitre à développer](/ingenieure/03-besoin-et-contrats).
 - [Chapitre miroir](/accessible/03-besoin-et-contrats).
-- [Charte éditoriale](/projet/charte) et [fil rouge](/projet/fil-rouge).
+- [Charte éditoriale](/projet/charte).
 - [Registre critique](/projet/references/registre-critique).
 - Sources : O-MD §3, §12 ; I-MD §3, §9.3, §10.2. Les identifiants sont résolus dans l'[inventaire commenté](/projet/corpus).
 - Prérequis de rédaction : A03, B02 ; une amorce existante permet de commencer, une harmonisation des deux niveaux est exigée à la relecture.

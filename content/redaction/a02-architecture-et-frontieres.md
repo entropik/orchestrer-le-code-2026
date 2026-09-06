@@ -14,7 +14,7 @@ Rédiger la lecture accessible du thème 02 : Reconnaître un découpage compré
 
 - [Chapitre à développer](/accessible/02-architecture-et-frontieres).
 - [Chapitre miroir](/ingenieure/02-architecture-et-frontieres).
-- [Charte éditoriale](/projet/charte) et [fil rouge](/projet/fil-rouge).
+- [Charte éditoriale](/projet/charte).
 - [Registre critique](/projet/references/registre-critique).
 - Sources : O-MD §1, §2 ; I-MD §2. Les identifiants sont résolus dans l'[inventaire commenté](/projet/corpus).
 - Prérequis de rédaction : A01 ; une amorce existante permet de commencer, une harmonisation des deux niveaux est exigée à la relecture.

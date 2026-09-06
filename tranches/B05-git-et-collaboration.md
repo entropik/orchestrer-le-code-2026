@@ -10,7 +10,7 @@ Rédiger la lecture ingénieure du thème 05 : Organiser branches, worktrees et 
 
 - [Chapitre à développer](../manuscrit/02-lecture-ingenieure/05-git-et-collaboration.md).
 - [Chapitre miroir](../manuscrit/01-lecture-accessible/05-git-et-collaboration.md).
-- [Charte éditoriale](../editorial/CHARTE.md) et [fil rouge](../editorial/FIL_ROUGE.md).
+- [Charte éditoriale](../editorial/CHARTE.md).
 - [Registre critique](../analyse/03-registre-critique.md).
 - Sources : O-MD §6 ; I-MD §4. Les identifiants sont résolus dans l'[inventaire commenté](../analyse/01-corpus.md).
 - Prérequis de rédaction : A05, B04 ; une amorce existante permet de commencer, une harmonisation des deux niveaux est exigée à la relecture.

@@ -14,7 +14,7 @@ Rédiger la lecture accessible du thème 11 : Piloter une fonctionnalité puis u
 
 - [Chapitre à développer](/accessible/11-methode-et-cas-pratiques).
 - [Chapitre miroir](/ingenieure/11-methode-et-cas-pratiques).
-- [Charte éditoriale](/projet/charte) et [fil rouge](/projet/fil-rouge).
+- [Charte éditoriale](/projet/charte).
 - [Registre critique](/projet/references/registre-critique).
 - Sources : O-MD §5, §11, §12, §13, §14 ; I-MD §9, §10. Les identifiants sont résolus dans l'[inventaire commenté](/projet/corpus).
 - Prérequis de rédaction : A10 ; une amorce existante permet de commencer, une harmonisation des deux niveaux est exigée à la relecture.
