@@ -185,6 +185,10 @@ h2 { font-size: 2rem; }
   margin: 0 0 1rem;
   background: var(--paper);
 }
+.mobile-reader-text-scale,
+.nav-text-scale {
+  display: none;
+}
 
 /* Sommaire dans la barre latérale (#TableOfContents) pour les annexes et références */
 .reader-sidebar #TableOfContents { font-size: .78rem; line-height: 1.42; margin-top: .4rem; }
@@ -413,6 +417,25 @@ h2 { font-size: 2rem; }
     background: var(--surface);
     border: 1px solid var(--line);
     font-weight: 500;
+  }
+
+  .nav-text-scale {
+    display: block;
+    margin-top: .9rem;
+    padding-top: .75rem;
+    border-top: 1px solid var(--line);
+  }
+  .nav-text-scale .text-scale-widget {
+    margin-bottom: 0;
+  }
+
+  .mobile-reader-text-scale {
+    display: block;
+    margin: 1.2rem 0 1.6rem;
+    max-width: 320px;
+  }
+  .mobile-reader-text-scale .text-scale-widget {
+    margin-bottom: 0;
   }
 
   .reader-layout {

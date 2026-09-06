@@ -62,6 +62,9 @@
       <h1>{{ .Title }}</h1>
       <div class="article-meta">{{ with .Params.status }}<span class="status-badge">{{ . }}</span>{{ end }}<span>{{ .ReadingTime }} min de lecture</span>{{ with .Params.chapter_id }}<span>Même sujet, deux profondeurs</span>{{ end }}</div>
       {{ with .Params.mirror }}{{ with site.GetPage . }}<a class="mirror-link" href="{{ .RelPermalink }}">{{ if eq .Section "ingenieure" }}Approfondir ce chapitre{{ else }}Revenir à la lecture accessible{{ end }} <span aria-hidden="true">↗</span></a>{{ end }}{{ end }}
+      <div class="mobile-reader-text-scale">
+        {{ partial "text_size_control.html" (dict "id" "article") }}
+      </div>
     </header>
     {{ if .Params.chapter_id }}<details class="local-toc"><summary>Dans ce chapitre</summary>{{ .TableOfContents }}</details>{{ end }}
     <div class="reading-body{{ if .Params.chapter_id }} with-margin{{ end }}">

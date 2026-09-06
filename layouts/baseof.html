@@ -36,6 +36,9 @@
         {{ with site.GetPage . }}<a href="{{ .RelPermalink }}"{{ if eq $.Section .Section }} aria-current="{{ if eq $.RelPermalink .RelPermalink }}page{{ else }}true{{ end }}"{{ end }}>{{ .LinkTitle }}</a>{{ end }}
       {{ end }}
       {{ with site.GetPage "/recherche" }}<a class="search-nav" data-search-link href="{{ .RelPermalink }}"{{ if eq $.RelPermalink .RelPermalink }} aria-current="page"{{ end }}>Rechercher <kbd aria-hidden="true">/</kbd></a>{{ end }}
+      <div class="nav-text-scale">
+        {{ partial "text_size_control.html" (dict "id" "nav") }}
+      </div>
     </nav>
   </header>
   {{ block "main" . }}{{ end }}
