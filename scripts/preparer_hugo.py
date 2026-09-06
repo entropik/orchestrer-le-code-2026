@@ -53,8 +53,7 @@ def build_files(root=ROOT):
         "analyse/01-corpus.md": ("/projet/corpus", "Analyse du corpus"),
         "analyse/02-synthese.md": ("/projet/synthese", "Synthèse des deux approches"),
         "analyse/03-registre-critique.md": ("/references/registre-critique", "Registre critique"),
-        "editorial/CHARTE.md": ("/projet/charte", "Charte éditoriale"),
-        "editorial/DROITS_ET_LICENCE.md": ("/projet/droits", "Droits d'auteur & Licence"),
+        "editorial/CHARTE.md": ("/projet/charte", "Charte éditoriale & Droits"),
         "editorial/FIL_ROUGE.md": ("/projet/fil-rouge", "Le fil rouge"),
         "editorial/PLAN_REDACTION.md": ("/redaction/plan", "Plan des 24 tranches"),
         "manuscrit/01-lecture-accessible/00-avant-la-premiere-ligne.md": (
@@ -114,7 +113,7 @@ def build_files(root=ROOT):
     for route, title, linktitle, body in [
         ("accessible", "La lecture accessible", "Accessible", "Douze chapitres pour comprendre, poser les bonnes questions et décider. Aucun prérequis en programmation. Chaque chapitre renvoie à son miroir approfondi."),
         ("ingenieure", "La lecture ingénieure", "Ingénieure", "Les mêmes sujets, dans le même ordre, avec les mécanismes, les compromis et les preuves techniques. Ce parcours peut aussi se lire indépendamment."),
-        ("projet", "Le projet éditorial", "Le projet", "Ce manuel réunit une approche de pilotage accessible et une approche d'ingénierie approfondie. [Voir le plan de rédaction](/redaction/plan).\n\nLe site est construit avec Hugo. Les sources sont préparées pour un dépôt GitHub, dont l'adresse sera ajoutée une fois créé. Aucune publication n'est implicite. Les droits de diffusion et la licence restent à préciser."),
+        ("projet", "Le projet éditorial", "Le projet", "Ce manuel réunit une approche de pilotage accessible et une approche d'ingénierie approfondie. [Voir le plan de rédaction](/redaction/plan).\n\nLe site est propulsé par Hugo, sans traceur ni dépendance superflue. Le code et les sources sont suivis sur le [dépôt GitHub](https://github.com/entropik/orchestrer-le-code-2026). Les textes sont sous licence CC BY-NC-ND 4.0 et le code d'ingénierie sous licence MIT. [Consulter la charte éditoriale et les droits d'auteur](/projet/charte)."),
         ("redaction", "L'atelier de rédaction", "Rédaction", "Une fiche par lecture et par chapitre : objectif, périmètre, sources, exercice et critères d'acceptation. [Consulter le plan](/redaction/plan)."),
         ("annexes", "Les repères communs", "Annexes", "{{< ask_matt_simulator >}}\n\nUn vocabulaire partagé, une tour de contrôle d'aiguillage et les repères méthodologiques pour les deux lectures."),
         ("references/sources", "Le corpus original", "Sources", "Les huit documents sont lisibles intégralement ici et conservés à l'identique au téléchargement. Les Markdown se parcourent par sections ; les PDF, page par page, avec leur texte extrait et leur fac-similé. Aucun texte n'est résumé ni corrigé. Les instructions citées font partie des documents, pas du fonctionnement du site."),
@@ -170,6 +169,8 @@ def build_files(root=ROOT):
             meta["description"] = description
         if name.endswith("02-guide-des-workflows.md"):
             meta["aliases"] = ["/annexes/workflows-agentiques"]
+        if name.endswith("CHARTE.md"):
+            meta["aliases"] = ["/projet/droits"]
         if name.endswith("00-avant-la-premiere-ligne.md"):
             meta["next"] = routes["A01"]
             meta["eyebrow"] = "Avant-propos opérationnel"

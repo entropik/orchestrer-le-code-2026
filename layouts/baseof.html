@@ -46,8 +46,7 @@
     <span>© 2026 Marc Tallec · Licence CC BY-NC-ND 4.0</span>
     <nav aria-label="Pied de page">
       {{ with site.GetPage "/annexes/glossaire" }}<a href="{{ .RelPermalink }}">Glossaire</a>{{ end }}
-      {{ with site.GetPage "/projet/charte" }}<a href="{{ .RelPermalink }}">Charte</a>{{ end }}
-      {{ with site.GetPage "/projet/droits" }}<a href="{{ .RelPermalink }}">Droits & Licence</a>{{ end }}
+      {{ with site.GetPage "/projet/charte" }}<a href="{{ .RelPermalink }}">Charte & Droits</a>{{ end }}
       {{ with site.Params.repositoryURL }}<a href="{{ . }}" target="_blank" rel="external noopener noreferrer">Dépôt GitHub ↗<span class="sr-only"> (nouvel onglet)</span></a>{{ end }}
       <a href="#contenu">Haut de page ↑</a>
     </nav>
