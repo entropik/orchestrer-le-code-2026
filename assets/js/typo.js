@@ -114,10 +114,45 @@ export function formatTypography(root = document.body) {
 }
 
 /**
- * Initialise le formatage typographique au chargement de la page.
+ * Initialise le sélecteur de confort de lecture (taille de texte) et synchronise le localStorage.
+ */
+export function initTextScale() {
+  if (typeof document === 'undefined') return;
+  const buttons = document.querySelectorAll('.text-scale-btn');
+  if (!buttons.length) return;
+
+  function updateActive(scale) {
+    buttons.forEach((btn) => {
+      const active = btn.getAttribute('data-scale') === scale;
+      btn.setAttribute('aria-pressed', active ? 'true' : 'false');
+      btn.classList.toggle('active', active);
+    });
+  }
+
+  const currentScale = document.documentElement.getAttribute('data-text-scale') || 'normal';
+  updateActive(currentScale);
+
+  buttons.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const scale = btn.getAttribute('data-scale') || 'normal';
+      if (scale === 'normal') {
+        document.documentElement.removeAttribute('data-text-scale');
+        try { localStorage.removeItem('oc-text-scale'); } catch (e) {}
+      } else {
+        document.documentElement.setAttribute('data-text-scale', scale);
+        try { localStorage.setItem('oc-text-scale', scale); } catch (e) {}
+      }
+      updateActive(scale);
+    });
+  });
+}
+
+/**
+ * Initialise le formatage typographique et le contrôle de taille au chargement de la page.
  */
 export function initTypography() {
   if (typeof document === 'undefined') return;
+  initTextScale();
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', () => formatTypography());
   } else {

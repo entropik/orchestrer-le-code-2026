@@ -1,6 +1,7 @@
 {{ define "main" }}
 <main id="contenu" class="reader-layout">
   <aside class="reader-sidebar" aria-label="Parcours de lecture">
+    {{ partial "text_size_control.html" (dict "id" "sidebar") }}
     {{ if .Params.chapter_id }}
     <p class="eyebrow">{{ if eq .Section "accessible" }}Partie I · Accessible{{ else }}Partie II · Ingénieure{{ end }}</p>
     <nav aria-label="Chapitres de cette lecture"><ol>
@@ -22,6 +23,7 @@
         <span class="mrm-chevron" aria-hidden="true">{{ partial "icon.html" (dict "name" "chevron-down") }}</span>
       </summary>
       <div class="mobile-reader-dropdown">
+        {{ partial "text_size_control.html" (dict "id" "mobile-ch") }}
         <p class="mrm-label">Les 12 chapitres de cette lecture :</p>
         <ol class="mrm-chapters-list">
           {{ range (where site.RegularPages "Section" .Section).ByWeight }}
@@ -50,6 +52,7 @@
         <span class="mrm-chevron" aria-hidden="true">{{ partial "icon.html" (dict "name" "chevron-down") }}</span>
       </summary>
       <div class="mobile-reader-dropdown">
+        {{ partial "text_size_control.html" (dict "id" "mobile-toc") }}
         {{ replace .TableOfContents "id=\"TableOfContents\"" "id=\"MobileTableOfContents\"" | safeHTML }}
       </div>
     </details>

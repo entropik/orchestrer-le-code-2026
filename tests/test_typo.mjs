@@ -49,3 +49,72 @@ test("cas réel du problème utilisateur : aucun signe solitaire", () => {
   assert.ok(finale.includes("serveur\u00A0distant\u00A0?"));
   assert.ok(!finale.includes("distant ?"));
 });
+
+test("initTextScale : bascule les crans et synchronise l'attribut data-text-scale", async () => {
+  let docScale = null;
+  let stored = null;
+  const callbacks = {};
+
+  class MockElement {
+    constructor(scale) {
+      this.scale = scale;
+      this.attrs = { "data-scale": scale, "aria-pressed": scale === "normal" ? "true" : "false" };
+      this.classList = {
+        classes: new Set(),
+        toggle(cls, state) {
+          if (state) this.classes.add(cls);
+          else this.classes.delete(cls);
+        }
+      };
+    }
+    getAttribute(k) { return this.attrs[k]; }
+    setAttribute(k, v) { this.attrs[k] = v; }
+    addEventListener(event, fn) { callbacks[this.scale] = fn; }
+  }
+
+  const btnNormal = new MockElement("normal");
+  const btnComfort = new MockElement("comfort");
+  const btnLarge = new MockElement("large");
+
+  global.document = {
+    documentElement: {
+      getAttribute(k) { return docScale; },
+      setAttribute(k, v) { docScale = v; },
+      removeAttribute(k) { docScale = null; }
+    },
+    querySelectorAll(sel) {
+      return sel === ".text-scale-btn" ? [btnNormal, btnComfort, btnLarge] : [];
+    }
+  };
+  global.localStorage = {
+    getItem(k) { return stored; },
+    setItem(k, v) { stored = v; },
+    removeItem(k) { stored = null; }
+  };
+
+  const { initTextScale } = await import("../assets/js/typo.js");
+  initTextScale();
+
+  // Test 1: clic sur confort
+  callbacks["comfort"]();
+  assert.equal(docScale, "comfort");
+  assert.equal(stored, "comfort");
+  assert.equal(btnComfort.getAttribute("aria-pressed"), "true");
+  assert.equal(btnNormal.getAttribute("aria-pressed"), "false");
+
+  // Test 2: clic sur large
+  callbacks["large"]();
+  assert.equal(docScale, "large");
+  assert.equal(stored, "large");
+  assert.equal(btnLarge.getAttribute("aria-pressed"), "true");
+
+  // Test 3: retour sur normal
+  callbacks["normal"]();
+  assert.equal(docScale, null);
+  assert.equal(stored, null);
+  assert.equal(btnNormal.getAttribute("aria-pressed"), "true");
+
+  delete global.document;
+  delete global.localStorage;
+});
+
