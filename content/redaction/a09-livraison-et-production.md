@@ -4,7 +4,7 @@
   "source_path": "tranches/A09-livraison-et-production.md"
 }
 
-Statut : redaction. Chapitre rédigé conformément au périmètre, harmonisé avec le miroir B09.
+Statut : valide. Chapitre rédigé conformément au périmètre, harmonisé avec le miroir B09.
 
 ## Mission
 

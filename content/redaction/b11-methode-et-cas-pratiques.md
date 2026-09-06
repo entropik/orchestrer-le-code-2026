@@ -4,7 +4,7 @@
   "source_path": "tranches/B11-methode-et-cas-pratiques.md"
 }
 
-Statut : redaction. Chapitre rédigé conformément au périmètre, harmonisé avec le miroir A11.
+Statut : valide. Chapitre rédigé conformément au périmètre, harmonisé avec le miroir A11.
 
 ## Mission
 

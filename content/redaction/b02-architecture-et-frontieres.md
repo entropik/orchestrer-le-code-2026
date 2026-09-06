@@ -4,7 +4,7 @@
   "source_path": "tranches/B02-architecture-et-frontieres.md"
 }
 
-Statut : redaction. Chapitre rédigé conformément au périmètre, harmonisé avec le miroir A02.
+Statut : valide. Chapitre rédigé conformément au périmètre, harmonisé avec le miroir A02.
 
 ## Mission
 

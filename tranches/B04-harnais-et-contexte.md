@@ -1,6 +1,6 @@
 # B04 - Donner du contexte et des limites à l'agent
 
-Statut : redaction. Chapitre rédigé conformément au périmètre, harmonisé avec le miroir A04.
+Statut : valide. Chapitre rédigé conformément au périmètre, harmonisé avec le miroir A04.
 
 ## Mission
 

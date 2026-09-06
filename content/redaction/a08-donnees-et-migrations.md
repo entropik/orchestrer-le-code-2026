@@ -4,7 +4,7 @@
   "source_path": "tranches/A08-donnees-et-migrations.md"
 }
 
-Statut : redaction. Chapitre rédigé conformément au périmètre, harmonisé avec le miroir B08.
+Statut : valide. Chapitre rédigé conformément au périmètre, harmonisé avec le miroir B08.
 
 ## Mission
 

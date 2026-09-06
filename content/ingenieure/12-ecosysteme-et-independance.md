@@ -4,7 +4,7 @@
   "weight": 12,
   "chapter_id": "B12",
   "theme": "12",
-  "status": "redaction",
+  "status": "valide",
   "source_path": "manuscrit/02-lecture-ingenieure/12-ecosysteme-et-independance.md",
   "mirror": "/accessible/12-ecosysteme-et-independance",
   "related": [

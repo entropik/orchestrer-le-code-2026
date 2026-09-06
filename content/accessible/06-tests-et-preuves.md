@@ -4,7 +4,7 @@
   "weight": 6,
   "chapter_id": "A06",
   "theme": "06",
-  "status": "redaction",
+  "status": "valide",
   "source_path": "manuscrit/01-lecture-accessible/06-tests-et-preuves.md",
   "mirror": "/ingenieure/06-tests-et-preuves",
   "related": [

@@ -4,7 +4,7 @@
   "weight": 7,
   "chapter_id": "B07",
   "theme": "07",
-  "status": "redaction",
+  "status": "valide",
   "source_path": "manuscrit/02-lecture-ingenieure/07-asynchronisme-et-reprises.md",
   "mirror": "/accessible/07-asynchronisme-et-reprises",
   "related": [

@@ -1,6 +1,6 @@
 # B12 - Choisir ses outils et préserver son indépendance
 
-Statut : redaction. Chapitre rédigé conformément au périmètre, harmonisé avec le miroir A12.
+Statut : valide. Chapitre rédigé conformément au périmètre, harmonisé avec le miroir A12.
 
 ## Mission
 

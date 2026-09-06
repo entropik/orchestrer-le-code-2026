@@ -11,7 +11,7 @@
       "fichier": "manuscrit/01-lecture-accessible/01-piloter-un-systeme.md",
       "miroir": "manuscrit/02-lecture-ingenieure/01-piloter-un-systeme.md",
       "tranche": "tranches/A01-piloter-un-systeme.md",
-      "statut": "redaction",
+      "statut": "valide",
       "dependances": [],
       "sources": [
         "O-MD §1, §4, §5",
@@ -27,7 +27,7 @@
       "fichier": "manuscrit/01-lecture-accessible/02-architecture-et-frontieres.md",
       "miroir": "manuscrit/02-lecture-ingenieure/02-architecture-et-frontieres.md",
       "tranche": "tranches/A02-architecture-et-frontieres.md",
-      "statut": "redaction",
+      "statut": "valide",
       "dependances": [
         "A01"
       ],
@@ -45,7 +45,7 @@
       "fichier": "manuscrit/01-lecture-accessible/03-besoin-et-contrats.md",
       "miroir": "manuscrit/02-lecture-ingenieure/03-besoin-et-contrats.md",
       "tranche": "tranches/A03-besoin-et-contrats.md",
-      "statut": "redaction",
+      "statut": "valide",
       "dependances": [
         "A02"
       ],
@@ -63,7 +63,7 @@
       "fichier": "manuscrit/01-lecture-accessible/04-harnais-et-contexte.md",
       "miroir": "manuscrit/02-lecture-ingenieure/04-harnais-et-contexte.md",
       "tranche": "tranches/A04-harnais-et-contexte.md",
-      "statut": "redaction",
+      "statut": "valide",
       "dependances": [
         "A03"
       ],
@@ -81,7 +81,7 @@
       "fichier": "manuscrit/01-lecture-accessible/05-git-et-collaboration.md",
       "miroir": "manuscrit/02-lecture-ingenieure/05-git-et-collaboration.md",
       "tranche": "tranches/A05-git-et-collaboration.md",
-      "statut": "redaction",
+      "statut": "valide",
       "dependances": [
         "A04"
       ],
@@ -99,7 +99,7 @@
       "fichier": "manuscrit/01-lecture-accessible/06-tests-et-preuves.md",
       "miroir": "manuscrit/02-lecture-ingenieure/06-tests-et-preuves.md",
       "tranche": "tranches/A06-tests-et-preuves.md",
-      "statut": "redaction",
+      "statut": "valide",
       "dependances": [
         "A05"
       ],
@@ -117,7 +117,7 @@
       "fichier": "manuscrit/01-lecture-accessible/07-asynchronisme-et-reprises.md",
       "miroir": "manuscrit/02-lecture-ingenieure/07-asynchronisme-et-reprises.md",
       "tranche": "tranches/A07-asynchronisme-et-reprises.md",
-      "statut": "redaction",
+      "statut": "valide",
       "dependances": [
         "A06"
       ],
@@ -135,7 +135,7 @@
       "fichier": "manuscrit/01-lecture-accessible/08-donnees-et-migrations.md",
       "miroir": "manuscrit/02-lecture-ingenieure/08-donnees-et-migrations.md",
       "tranche": "tranches/A08-donnees-et-migrations.md",
-      "statut": "redaction",
+      "statut": "valide",
       "dependances": [
         "A07"
       ],
@@ -153,7 +153,7 @@
       "fichier": "manuscrit/01-lecture-accessible/09-livraison-et-production.md",
       "miroir": "manuscrit/02-lecture-ingenieure/09-livraison-et-production.md",
       "tranche": "tranches/A09-livraison-et-production.md",
-      "statut": "redaction",
+      "statut": "valide",
       "dependances": [
         "A08"
       ],
@@ -171,7 +171,7 @@
       "fichier": "manuscrit/01-lecture-accessible/10-exploitation-et-evolution.md",
       "miroir": "manuscrit/02-lecture-ingenieure/10-exploitation-et-evolution.md",
       "tranche": "tranches/A10-exploitation-et-evolution.md",
-      "statut": "redaction",
+      "statut": "valide",
       "dependances": [
         "A09"
       ],
@@ -189,7 +189,7 @@
       "fichier": "manuscrit/01-lecture-accessible/11-methode-et-cas-pratiques.md",
       "miroir": "manuscrit/02-lecture-ingenieure/11-methode-et-cas-pratiques.md",
       "tranche": "tranches/A11-methode-et-cas-pratiques.md",
-      "statut": "redaction",
+      "statut": "valide",
       "dependances": [
         "A10"
       ],
@@ -207,7 +207,7 @@
       "fichier": "manuscrit/01-lecture-accessible/12-ecosysteme-et-independance.md",
       "miroir": "manuscrit/02-lecture-ingenieure/12-ecosysteme-et-independance.md",
       "tranche": "tranches/A12-ecosysteme-et-independance.md",
-      "statut": "redaction",
+      "statut": "valide",
       "dependances": [
         "A11"
       ],
@@ -225,7 +225,7 @@
       "fichier": "manuscrit/02-lecture-ingenieure/01-piloter-un-systeme.md",
       "miroir": "manuscrit/01-lecture-accessible/01-piloter-un-systeme.md",
       "tranche": "tranches/B01-piloter-un-systeme.md",
-      "statut": "redaction",
+      "statut": "valide",
       "dependances": [
         "A01"
       ],
@@ -243,7 +243,7 @@
       "fichier": "manuscrit/02-lecture-ingenieure/02-architecture-et-frontieres.md",
       "miroir": "manuscrit/01-lecture-accessible/02-architecture-et-frontieres.md",
       "tranche": "tranches/B02-architecture-et-frontieres.md",
-      "statut": "redaction",
+      "statut": "valide",
       "dependances": [
         "A02",
         "B01"
@@ -262,7 +262,7 @@
       "fichier": "manuscrit/02-lecture-ingenieure/03-besoin-et-contrats.md",
       "miroir": "manuscrit/01-lecture-accessible/03-besoin-et-contrats.md",
       "tranche": "tranches/B03-besoin-et-contrats.md",
-      "statut": "redaction",
+      "statut": "valide",
       "dependances": [
         "A03",
         "B02"
@@ -281,7 +281,7 @@
       "fichier": "manuscrit/02-lecture-ingenieure/04-harnais-et-contexte.md",
       "miroir": "manuscrit/01-lecture-accessible/04-harnais-et-contexte.md",
       "tranche": "tranches/B04-harnais-et-contexte.md",
-      "statut": "redaction",
+      "statut": "valide",
       "dependances": [
         "A04",
         "B03"
@@ -300,7 +300,7 @@
       "fichier": "manuscrit/02-lecture-ingenieure/05-git-et-collaboration.md",
       "miroir": "manuscrit/01-lecture-accessible/05-git-et-collaboration.md",
       "tranche": "tranches/B05-git-et-collaboration.md",
-      "statut": "redaction",
+      "statut": "valide",
       "dependances": [
         "A05",
         "B04"
@@ -319,7 +319,7 @@
       "fichier": "manuscrit/02-lecture-ingenieure/06-tests-et-preuves.md",
       "miroir": "manuscrit/01-lecture-accessible/06-tests-et-preuves.md",
       "tranche": "tranches/B06-tests-et-preuves.md",
-      "statut": "redaction",
+      "statut": "valide",
       "dependances": [
         "A06",
         "B05"
@@ -338,7 +338,7 @@
       "fichier": "manuscrit/02-lecture-ingenieure/07-asynchronisme-et-reprises.md",
       "miroir": "manuscrit/01-lecture-accessible/07-asynchronisme-et-reprises.md",
       "tranche": "tranches/B07-asynchronisme-et-reprises.md",
-      "statut": "redaction",
+      "statut": "valide",
       "dependances": [
         "A07",
         "B06"
@@ -357,7 +357,7 @@
       "fichier": "manuscrit/02-lecture-ingenieure/08-donnees-et-migrations.md",
       "miroir": "manuscrit/01-lecture-accessible/08-donnees-et-migrations.md",
       "tranche": "tranches/B08-donnees-et-migrations.md",
-      "statut": "redaction",
+      "statut": "valide",
       "dependances": [
         "A08",
         "B07"
@@ -376,7 +376,7 @@
       "fichier": "manuscrit/02-lecture-ingenieure/09-livraison-et-production.md",
       "miroir": "manuscrit/01-lecture-accessible/09-livraison-et-production.md",
       "tranche": "tranches/B09-livraison-et-production.md",
-      "statut": "redaction",
+      "statut": "valide",
       "dependances": [
         "A09",
         "B08"
@@ -395,7 +395,7 @@
       "fichier": "manuscrit/02-lecture-ingenieure/10-exploitation-et-evolution.md",
       "miroir": "manuscrit/01-lecture-accessible/10-exploitation-et-evolution.md",
       "tranche": "tranches/B10-exploitation-et-evolution.md",
-      "statut": "redaction",
+      "statut": "valide",
       "dependances": [
         "A10",
         "B09"
@@ -414,7 +414,7 @@
       "fichier": "manuscrit/02-lecture-ingenieure/11-methode-et-cas-pratiques.md",
       "miroir": "manuscrit/01-lecture-accessible/11-methode-et-cas-pratiques.md",
       "tranche": "tranches/B11-methode-et-cas-pratiques.md",
-      "statut": "redaction",
+      "statut": "valide",
       "dependances": [
         "A11",
         "B10"
@@ -433,7 +433,7 @@
       "fichier": "manuscrit/02-lecture-ingenieure/12-ecosysteme-et-independance.md",
       "miroir": "manuscrit/01-lecture-accessible/12-ecosysteme-et-independance.md",
       "tranche": "tranches/B12-ecosysteme-et-independance.md",
-      "statut": "redaction",
+      "statut": "valide",
       "dependances": [
         "A12",
         "B11"

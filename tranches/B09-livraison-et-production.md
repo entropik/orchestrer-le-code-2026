@@ -1,6 +1,6 @@
 # B09 - Passer du poste local à un service réel
 
-Statut : redaction. Chapitre rédigé conformément au périmètre, harmonisé avec le miroir A09.
+Statut : valide. Chapitre rédigé conformément au périmètre, harmonisé avec le miroir A09.
 
 ## Mission
 

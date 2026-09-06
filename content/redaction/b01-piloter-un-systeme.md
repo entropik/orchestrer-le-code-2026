@@ -4,7 +4,7 @@
   "source_path": "tranches/B01-piloter-un-systeme.md"
 }
 
-Statut : redaction. Chapitre rédigé conformément au périmètre, harmonisé avec le miroir A01.
+Statut : valide. Chapitre rédigé conformément au périmètre, harmonisé avec le miroir A01.
 
 ## Mission
 

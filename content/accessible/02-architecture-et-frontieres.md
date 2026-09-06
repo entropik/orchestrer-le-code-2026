@@ -4,7 +4,7 @@
   "weight": 2,
   "chapter_id": "A02",
   "theme": "02",
-  "status": "redaction",
+  "status": "valide",
   "source_path": "manuscrit/01-lecture-accessible/02-architecture-et-frontieres.md",
   "mirror": "/ingenieure/02-architecture-et-frontieres",
   "related": [

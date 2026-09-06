@@ -1,6 +1,6 @@
 # A06 - Demander des preuves, pas seulement du code
 
-Statut : redaction. Chapitre rédigé conformément au périmètre, harmonisé avec le miroir B06.
+Statut : valide. Chapitre rédigé conformément au périmètre, harmonisé avec le miroir B06.
 
 ## Mission
 

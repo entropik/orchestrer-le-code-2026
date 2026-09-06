@@ -4,7 +4,7 @@
   "weight": 8,
   "chapter_id": "B08",
   "theme": "08",
-  "status": "redaction",
+  "status": "valide",
   "source_path": "manuscrit/02-lecture-ingenieure/08-donnees-et-migrations.md",
   "mirror": "/accessible/08-donnees-et-migrations",
   "related": [

@@ -1,6 +1,6 @@
 # B03 - Transformer le besoin en contrat vérifiable
 
-Statut : redaction. Chapitre rédigé conformément au périmètre, harmonisé avec le miroir A03.
+Statut : valide. Chapitre rédigé conformément au périmètre, harmonisé avec le miroir A03.
 
 ## Mission
 

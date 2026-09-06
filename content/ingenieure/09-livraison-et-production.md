@@ -4,7 +4,7 @@
   "weight": 9,
   "chapter_id": "B09",
   "theme": "09",
-  "status": "redaction",
+  "status": "valide",
   "source_path": "manuscrit/02-lecture-ingenieure/09-livraison-et-production.md",
   "mirror": "/accessible/09-livraison-et-production",
   "related": [

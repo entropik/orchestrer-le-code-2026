@@ -1,6 +1,6 @@
 # B02 - Organiser l'architecture et les responsabilités
 
-Statut : redaction. Chapitre rédigé conformément au périmètre, harmonisé avec le miroir A02.
+Statut : valide. Chapitre rédigé conformément au périmètre, harmonisé avec le miroir A02.
 
 ## Mission
 

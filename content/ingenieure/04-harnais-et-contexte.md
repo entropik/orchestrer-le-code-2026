@@ -4,7 +4,7 @@
   "weight": 4,
   "chapter_id": "B04",
   "theme": "04",
-  "status": "redaction",
+  "status": "valide",
   "source_path": "manuscrit/02-lecture-ingenieure/04-harnais-et-contexte.md",
   "mirror": "/accessible/04-harnais-et-contexte",
   "related": [

@@ -4,7 +4,7 @@
   "source_path": "tranches/A03-besoin-et-contrats.md"
 }
 
-Statut : redaction. Chapitre rédigé conformément au périmètre, harmonisé avec le miroir B03.
+Statut : valide. Chapitre rédigé conformément au périmètre, harmonisé avec le miroir B03.
 
 ## Mission
 

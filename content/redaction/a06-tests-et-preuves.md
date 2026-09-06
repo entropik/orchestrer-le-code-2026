@@ -4,7 +4,7 @@
   "source_path": "tranches/A06-tests-et-preuves.md"
 }
 
-Statut : redaction. Chapitre rédigé conformément au périmètre, harmonisé avec le miroir B06.
+Statut : valide. Chapitre rédigé conformément au périmètre, harmonisé avec le miroir B06.
 
 ## Mission
 

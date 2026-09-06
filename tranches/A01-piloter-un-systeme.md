@@ -1,6 +1,6 @@
 # A01 - Piloter un système, pas une génération de code
 
-Statut : redaction. Chapitre rédigé conformément au périmètre, en attente de la finalisation du miroir B01 pour harmonisation de la paire.
+Statut : valide. Chapitre rédigé conformément au périmètre, harmonisé avec le miroir B01.
 
 ## Mission
 

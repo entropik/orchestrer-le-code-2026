@@ -1,6 +1,6 @@
 # A05 - Garder une histoire fiable avec Git
 
-Statut : redaction. Chapitre rédigé conformément au périmètre, harmonisé avec le miroir B05.
+Statut : valide. Chapitre rédigé conformément au périmètre, harmonisé avec le miroir B05.
 
 ## Mission
 

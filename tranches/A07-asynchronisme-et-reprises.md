@@ -1,6 +1,6 @@
 # A07 - Faire travailler le système sans perdre les opérations
 
-Statut : redaction. Chapitre rédigé conformément au périmètre, harmonisé avec le miroir B07.
+Statut : valide. Chapitre rédigé conformément au périmètre, harmonisé avec le miroir B07.
 
 ## Mission
 

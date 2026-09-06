@@ -4,7 +4,7 @@
   "source_path": "tranches/B12-ecosysteme-et-independance.md"
 }
 
-Statut : redaction. Chapitre rédigé conformément au périmètre, harmonisé avec le miroir A12.
+Statut : valide. Chapitre rédigé conformément au périmètre, harmonisé avec le miroir A12.
 
 ## Mission
 

@@ -4,7 +4,7 @@
   "weight": 3,
   "chapter_id": "A03",
   "theme": "03",
-  "status": "redaction",
+  "status": "valide",
   "source_path": "manuscrit/01-lecture-accessible/03-besoin-et-contrats.md",
   "mirror": "/ingenieure/03-besoin-et-contrats",
   "related": [

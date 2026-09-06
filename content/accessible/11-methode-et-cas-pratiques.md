@@ -4,7 +4,7 @@
   "weight": 11,
   "chapter_id": "A11",
   "theme": "11",
-  "status": "redaction",
+  "status": "valide",
   "source_path": "manuscrit/01-lecture-accessible/11-methode-et-cas-pratiques.md",
   "mirror": "/ingenieure/11-methode-et-cas-pratiques",
   "related": [

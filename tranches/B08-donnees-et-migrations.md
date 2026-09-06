@@ -1,6 +1,6 @@
 # B08 - Protéger les données et faire évoluer leur structure
 
-Statut : redaction. Chapitre rédigé conformément au périmètre, harmonisé avec le miroir A08.
+Statut : valide. Chapitre rédigé conformément au périmètre, harmonisé avec le miroir A08.
 
 ## Mission
 

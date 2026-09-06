@@ -4,7 +4,7 @@
   "weight": 5,
   "chapter_id": "B05",
   "theme": "05",
-  "status": "redaction",
+  "status": "valide",
   "source_path": "manuscrit/02-lecture-ingenieure/05-git-et-collaboration.md",
   "mirror": "/accessible/05-git-et-collaboration",
   "related": [

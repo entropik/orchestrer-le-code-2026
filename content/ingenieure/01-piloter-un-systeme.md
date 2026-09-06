@@ -4,7 +4,7 @@
   "weight": 1,
   "chapter_id": "B01",
   "theme": "01",
-  "status": "redaction",
+  "status": "valide",
   "source_path": "manuscrit/02-lecture-ingenieure/01-piloter-un-systeme.md",
   "mirror": "/accessible/01-piloter-un-systeme",
   "related": [

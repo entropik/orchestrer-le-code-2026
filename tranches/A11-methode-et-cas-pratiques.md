@@ -1,6 +1,6 @@
 # A11 - Appliquer ORCHESTRE du besoin à la résolution
 
-Statut : redaction. Chapitre rédigé conformément au périmètre, harmonisé avec le miroir B11.
+Statut : valide. Chapitre rédigé conformément au périmètre, harmonisé avec le miroir B11.
 
 ## Mission
 

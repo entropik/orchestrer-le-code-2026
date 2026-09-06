@@ -4,7 +4,7 @@
   "source_path": "tranches/A07-asynchronisme-et-reprises.md"
 }
 
-Statut : redaction. Chapitre rédigé conformément au périmètre, harmonisé avec le miroir B07.
+Statut : valide. Chapitre rédigé conformément au périmètre, harmonisé avec le miroir B07.
 
 ## Mission
 

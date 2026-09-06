@@ -4,7 +4,7 @@
   "source_path": "tranches/B04-harnais-et-contexte.md"
 }
 
-Statut : redaction. Chapitre rédigé conformément au périmètre, harmonisé avec le miroir A04.
+Statut : valide. Chapitre rédigé conformément au périmètre, harmonisé avec le miroir A04.
 
 ## Mission
 

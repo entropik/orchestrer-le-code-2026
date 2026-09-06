@@ -4,7 +4,7 @@
   "source_path": "tranches/B05-git-et-collaboration.md"
 }
 
-Statut : redaction. Chapitre rédigé conformément au périmètre, harmonisé avec le miroir A05.
+Statut : valide. Chapitre rédigé conformément au périmètre, harmonisé avec le miroir A05.
 
 ## Mission
 
