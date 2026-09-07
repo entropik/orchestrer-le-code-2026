@@ -124,11 +124,29 @@ Vous démarrez une session : quelle est la situation ?
 5. **Phase 5 — Fix + Test de non-régression** : Test placé sur la couture publique, correction minimale, passage au vert.
 6. **Phase 6 — Nettoyage & Bilan** : Suppression des sondes via `grep`. Si le bogue a révélé un manque de couture, passage de relais à `/improve-codebase-architecture`.
 
-### Cas 4 : Amélioration Continue & Architecture Profonde
+### Cas 4 : Rénovation de Monolithe & Architecture Profonde (La boucle des 5 étapes)
 
-1. **Entrée : `/improve-codebase-architecture`** : Audit automatique repérant les modules superficiels ; génération d'un rapport HTML visuel dans `/tmp/` avec diagrammes Mermaid.
-2. **Sélection et Cadrage** : Choix d'un candidat et lancement de `/grilling` adossé à `/codebase-design`. Application du **test de suppression** : supprimer le module concentre-t-il la complexité ou la disperse-t-il chez les appelants ?
-3. **Enregistrement** : Mise à jour de `CONTEXT.md` et formalisation d'un ADR via `/domain-modeling`.
+Ce protocole s'applique lorsqu'il faut reprendre en main et moderniser une application existante enchevêtrée (monolithe historique, scripts d'intégration multiples, couplage fort entre interface web 3D/DOM et backend) sans tout réécrire à l'aveugle.
+
+La séquence complète des 5 étapes :
+
+1. **`/domain-modeling` (Modélisation du domaine & Glossaire)** :
+   - Établir le glossaire et la carte du domaine dans un `CONTEXT.md` à la racine du dépôt.
+   - Clarifier et figer le vocabulaire omniprésent (*Ubiquitous Language*) et les concepts centraux (ex. règles métier, variantes produit comme Donneuse A110 ou Groupe 4 vs EVO, matières & teintes, collections, parcours direct, export PDF, ponts WordPress/Jetpack).
+   - Règle d'or : aucune ligne de code de production n'est modifiée tant que les termes du métier ne sont pas scellés.
+2. **`/improve-codebase-architecture` (Cartographie et détection des coutures)** :
+   - Scanner le monolithe central (`index.php` ou contrôleur géant) et les scripts d'intégration.
+   - Générer un rapport HTML visuel interactif autonome dans `/tmp/` (ouvrable dans le navigateur) mettant en évidence les coutures (*seams* de Michael Feathers), le couplage critique (Three.js / manipulation directe du DOM / API) et les dépendances critiques.
+3. **`/grill-with-docs` (Sécurisation et optimisation du configurateur / système)** :
+   - Mener une interview contradictoire serrée sur vos priorités et compromis non négociables (taille du bundle client, modularité ES modules, durcissement de la politique CSP, validation stricte des entrées).
+   - Acter immédiatement chaque choix structurant et difficilement réversible dans une note d'architecture sous `docs/adr/`.
+4. **`/to-spec` puis `/to-tickets` (Spécification et découpage vertical)** :
+   - Rédiger la spécification technique formelle sans relancer de questions.
+   - Découper la rénovation en tranches verticales indépendantes (*tracer bullets* étanches, sans régression) avec graphe de dépendances bloquantes et critères d'acceptation univoques.
+5. **`/implement` avec `/tdd` et barrière de péage `/review` (Implémentation sous preuve)** :
+   - Traiter chaque ticket dans une session fraîche et isolée.
+   - Dérouler chaque ticket sous couverture de tests stricts (test rouge à la frontière publique, code minimal vert, refactorisation).
+   - Valider la barrière de péage locale : respect du contrat de livraison, double audit `/review` (Standards de code & Spécification) et validation par le script déterministe de livraison (`preparer-livraison.py` ou suite de tests d'intégration).
 
 ### Cas 5 : Gestion des Flux Entrants
 

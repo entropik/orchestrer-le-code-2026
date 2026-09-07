@@ -159,6 +159,41 @@ La seule barrière inviolable repose sur le moteur de base de données relationn
 
 ---
 
+### 5. Dossier de réalisation 3 : Rénovation d'un monolithe hérité (La séquence des 5 étapes)
+
+Dans la pratique de l'ingénierie logicielle, une équipe démarre rarement sur un terrain vierge (*Greenfield*). Le cas d'école le plus exigeant consiste à stabiliser et moderniser un système hérité (*Legacy*) en exploitation : par exemple, un configurateur interactif complexe couplant un moteur 3D (Three.js) et le DOM du navigateur, adossé à un backend monolithique PHP (`index.php`), un CMS (WordPress / Jetpack) et un générateur de spécifications PDF.
+
+Laisser un agent d'IA réécrire ce monolithe en roue libre produit inévitablement des régressions catastrophiques : effacement de règles métier subtiles, rupture des contrats d'intégration et dérive non maîtrisée des dépendances.
+
+Pour rénover une architecture enchevêtrée sans régression, l'ingénierie ORCHESTRE applique une boucle déterministe en cinq étapes outillées :
+
+#### Étape 1 : Modélisation du domaine (`/domain-modeling`)
+- **Action** : Figer le glossaire métier et la carte du domaine dans un fichier `CONTEXT.md` à la racine du dépôt.
+- **Rôle** : Clarifier formellement le langage omniprésent (*Ubiquitous Language*) avant de modifier la moindre ligne de code : distinguer la Donneuse (base mécanique ex. A110), les variantes techniques (Groupe 4 vs EVO), la matrice des Matières & Teintes, les Collections, le Parcours direct, le moteur d'Export PDF et le Pont WordPress/Jetpack.
+- **Livrable** : `CONTEXT.md` enrichi des invariants métier et d'une section `_Avoid_` proscrivant les termes équivoques.
+
+#### Étape 2 : Cartographie architecturale et repérage des coutures (`/improve-codebase-architecture`)
+- **Action** : Scanner l'arbre syntaxique abstrait (AST) du monolithe `index.php` et des scripts d'intégration.
+- **Rôle** : Générer un rapport HTML visuel interactif dans `/tmp/` (ouvrable dans le navigateur) mettant en évidence les points de couture (*seams* de Michael Feathers), le couplage Three.js / DOM et les dépendances critiques.
+- **Livrable** : Cartographie des coutures isolant les modules profonds à extraire sans toucher au reste de l'existant.
+
+#### Étape 3 : Interview contradictoire et sécurisation (`/grill-with-docs`)
+- **Action** : Conduire une interview contradictoire serrée sur les compromis non négociables du configurateur.
+- **Rôle** : Arbitrer les contraintes structurantes : budget de taille du bundle client, modularité ES modules, durcissement de la politique CSP (*Content Security Policy*) et validation runtime hermétique des entrées.
+- **Livrable** : Décisions d'architecture immuables scellées dans des ADRs formels sous `docs/adr/`.
+
+#### Étape 4 : Spécification technique et découpage vertical (`/to-spec` puis `/to-tickets`)
+- **Action** : Rédiger la spécification technique formelle et la découper en tranches verticales indépendantes (*tracer bullets* étanches, sans régression).
+- **Rôle** : Garantir que chaque tranche traverse verticalement l'ensemble des couches nécessaires (de l'événement d'interface à la persistance ou l'export) avec des critères d'acceptation univoques.
+- **Livrable** : Spécification technique et carnet de tickets ordonnancés avec dépendances explicites.
+
+#### Étape 5 : Implémentation sous preuve et barrière de péage (`/implement` avec `/tdd` et `/review`)
+- **Action** : Dérouler chaque ticket unitairement dans une session fraîche, sous couverture de tests stricts.
+- **Rôle** : Écrire d'abord le test d'intégration qui échoue à la frontière publique, implémenter le code minimal vert, puis refactoriser. Clôture impérative par la barrière de péage `/review` (audit Standards & Spécification) et validation par le script déterministe local (`preparer-livraison.py`).
+- **Livrable** : Commits atomiques, tests verts, zéro régression et conformité vérifiée au contrat de livraison.
+
+---
+
 ## Mise en pratique
 
 Le code Python 3.11 ci-dessous implémente les deux moteurs critiques du chapitre :

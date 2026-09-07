@@ -130,6 +130,29 @@ Un bon pilote sait que cette réponse est une illusion :
 
 ---
 
+### 5. Cas pratique 3 : Rénover la maison sans la démolir (Le configurateur interactif hérité)
+
+Le troisième grand défi du pilote consiste à intervenir sur un logiciel déjà en place, complexe et un peu vieilli — ce que les ingénieurs appellent un « système hérité » (*legacy*).
+
+Imagine un configurateur interactif 3D pour des véhicules d'exception (comme une berlinette A110). Le système mélange du code visuel (Three.js pour afficher la voiture en 3D), du code de page web (DOM), un gros fichier central `index.php`, un export de dossier PDF et une liaison avec un site WordPress/Jetpack.
+
+Si tu dis à un agent d'IA ordinaire : *« Modernise tout ça et rends-le propre »*, il va réécrire tout le projet de zéro en détruisant les règles métier patiemment accumulées depuis des années, en cassant les connexions avec WordPress et en introduisant des failles de sécurité.
+
+Pour rénover une telle application sans risquer l'effondrement, le pilote applique **la séquence complète des 5 étapes** :
+
+1. **Établir le vocabulaire commun (`/domain-modeling`)** :
+   Avant d'écrire la moindre ligne de code, l'agent et le pilote figent les concepts métier dans un fichier `CONTEXT.md` à la racine : que signifie exactement une « Donneuse », quelles sont les différences entre une version « Groupe 4 » et « EVO », comment sont structurées les « Matières & Teintes » et les « Collections », comment s'enchaînent le parcours direct, l'export PDF et le pont WordPress/Jetpack. Si l'IA confond les termes du métier, tout le code sera faux.
+2. **Radiographier l'existant sans rien casser (`/improve-codebase-architecture`)** :
+   L'agent analyse la structure du fichier monolithique `index.php` et des scripts d'intégration. Il génère un rapport visuel interactif (ouvrable dans ton navigateur web) qui met en évidence les **coutures** (*seams*) : les rares endroits où l'on peut insérer du code moderne sans devoir tout reprogrammer. On isole ainsi le moteur 3D de la page web.
+3. **L'interrogatoire sans concession (`/grill-with-docs`)** :
+   L'agent te soumet à un questionnaire serré sur tes priorités réelles : la légèreté de chargement pour mobile, la sécurité de la page (politique CSP), la validation stricte des formulaires. Chaque arbitrage est scellé dans une note de décision écrite ([ADR](../03-annexes/05-glossaire.md)).
+4. **Découper en tranches de valeur réelles (`/to-spec` puis `/to-tickets`)** :
+   Au lieu de lancer un grand chantier flou de trois mois, la refonte est découpée en [tranches verticales](../03-annexes/05-glossaire.md) étanches (*tracer bullets*). Chaque ticket résout une étape précise (par exemple : « isoler le choix des teintes avec son test ») sans jamais déstabiliser le reste du configurateur.
+5. **Construire sous preuve et franchir le péage (`/implement` avec `/tdd` et `/review`)** :
+   Chaque ticket est exécuté sous la règle du test d'abord : prouver que la brique fonctionne avant de l'intégrer. Avant toute acceptation, une double revue automatique vérifie le respect des règles du projet et la stricte conformité à la commande.
+
+---
+
 ## Mise en pratique
 
 Voici le dialogue exemplaire à tenir avec ton agent d'IA pour conduire une mission avec autorité et discernement.
@@ -182,6 +205,28 @@ Je propose d'écrire un test de concurrence sous barrière pour reproduire l'ano
 UTILISATEUR (Pilote) :
 "Excellente analyse. Rédige le test de concurrence sous barrière.
 Dès qu'il est rouge, nous validerons la migration d'unicité."
+```
+
+### Le dialogue de rénovation d'un composant hérité (Le repérage des coutures)
+
+```text
+UTILISATEUR (Pilote) :
+"Le configurateur 3D est devenu trop lourd et présente des ralentissements sur mobile.
+Consigne : Ne réécris aucun composant Three.js aujourd'hui.
+Ta mission :
+1. Scanne index.php et cartographie les coutures entre le DOM et le moteur 3D.
+2. Rédige un rapport des dépendances critiques.
+3. Propose une première tranche verticale isolant la sélection des teintes."
+
+AGENT :
+"Rapport d'audit préliminaire généré :
+- Le module Three.js accède directement à 14 éléments du DOM global (couplage fort).
+- Coutures identifiées : extraction possible d'un bus d'événements 'TeinteSelectionnee'.
+- Tranche 1 proposée : isoler le sélecteur de teintes derrière une interface minimale,
+  sans modifier le moteur de rendu 3D, sous couverture de tests d'intégration."
+
+UTILISATEUR (Pilote) :
+"Proposition validée. Consigne le choix dans docs/adr/ et prépare le test rouge de la Tranche 1."
 ```
 
 ---
