@@ -2,6 +2,18 @@
 
 Ces listes de contrôle fournissent les garde-fous partagés par le pilotage accessible et l'ingénierie approfondie avant chaque engagement d'action.
 
+## Quel skill invoquer en premier ? (Le réflexe de session)
+
+Avant de lancer le premier prompt sur une idée ou un chantier, mémorise ce parcours nominal :
+
+1. **Tu as une idée dans le dépôt ?** 👉 `/grill-with-docs [ton idée]` *(ou `/grill-me` si tu réfléchis sans base de code)*.
+2. **Un doute technique ou ergonomique ?** 👉 Détour par `/prototype` (programme jetable pour tester l'intuition).
+3. **Le cadrage est complet ?** 👉 `/to-spec` puis `/to-tickets` (contractualisation formelle et découpage en tranches verticales).
+4. **Tranche par tranche ?** 👉 `/implement` (pilotant `/tdd` en cycle rouge-vert-refactor dans un contexte vierge `/clear`).
+5. **Avant de committer ou fusionner ?** 👉 `/review` (barrière de péage sur deux axes : Standards du dépôt & Spécification).
+
+---
+
 ## Lancer une tâche
 
 - Quel résultat pour quel utilisateur ?

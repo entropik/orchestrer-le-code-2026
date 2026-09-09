@@ -38,20 +38,69 @@ La quasi-totalité du travail d'ingénierie suit un ruban nominal continu, alime
    - Brouillard complet      ───► /wayfinder ────────► Décisions ──► /to-prd
 ```
 
-### Les 4 étapes clés du flux nominal :
+### Quel skill invoquer en premier ?
 
-1. **Cadrage amont (`/grill-with-docs`)** : Point d'entrée obligatoire dans un dépôt Git. L'agent mène une interview contradictoire sans complaisance, **une question à la fois** avec sa recommandation, après avoir inspecté le code existant. Il alimente en direct `CONTEXT.md` (glossaire métier) et formalise les choix structurants dans `docs/adr/`.
-2. **Embranchement Prototype (si doute exécutable)** : Si une question ergonomique (interface utilisateur) ou un automate d'états ne peut être tranché sur le papier :
-   - `/handoff` vers une session isolée.
-   - `/prototype` sur une branche éphémère `prototype/<nom>` pour répondre à la question par du code jetable lancé en une seule commande.
-   - `/handoff` retour pour consigner les apprentissages dans le fil de discussion principal.
-3. **Spécification et Découpage en Tranches** :
-   - `/to-prd` : Synthèse formelle des acquis de l'interview en document de spécification (User Stories, invariants, hors périmètre), sans relancer de questions.
-   - `/to-issues` : Découpage du PRD en tranches verticales indépendantes (*tracer bullets* : schéma, logique, API, UI et test de bout en bout) avec graphe de dépendances bloquantes.
-   - `/clear` : Vidage complet de la mémoire pour démarrer la fabrication dans un contexte vierge de tokens résiduels.
-4. **Fabrication sous preuve & Barrière de péage** :
-   - Pour chaque ticket : `/implement` pilote en interne `/tdd` (cycle rouge à la frontière publique → vert minimal → refactor).
-   - Clôture impérative par `/review` : audit automatisé sur deux axes indépendants (Axe 1 : Standards de code du dépôt ; Axe 2 : Respect strict du contrat du ticket).
+#### Étape 1 : `/grill-with-docs` (LE point d'entrée universel)
+
+Dès que tu as une idée ou une fonctionnalité en tête dans ce projet, écris :
+
+```bash
+/grill-with-docs Je veux ajouter une règle de remise quantitative progressive dans la commande
+```
+
+**Pourquoi lui en premier ?**
+
+- **Contrairement à `/grill-me` (qui est sans état et volatile)**, `/grill-with-docs` travaille directement dans ton dépôt.
+- Il t'interviewe round par round : il pose ses questions une à la fois avec sa recommandation, traque les ambiguïtés, confronte ton idée au glossaire `CONTEXT.md`, vérifie la cohérence avec le code existant et te pousse dans tes retranchements.
+- C'est durant cette phase que les termes flous sont nettoyés dans `CONTEXT.md` et que les éventuels [ADR](/annexes/glossaire#adr) sont rédigés lorsqu'un arbitrage technique structurant et difficilement réversible émerge.
+
+#### Étape 2 (Optionnelle) : `/prototype` (La levée de doute empirique)
+
+Si au milieu de l'interview surgit un doute technique ou d'ergonomie (« Est-ce que cette interaction d'interface est agréable ? », « Est-ce que cet algorithme tient la charge face à 50 000 éléments ? »), on fait un détour par `/prototype` :
+
+- L'agent écrit un petit programme jetable sur une branche dédiée (`prototype/<nom>`) pour tester l'intuition par du code lancé en une seule commande.
+- Une fois que tu as vu le résultat tourner, tu ramènes la certitude dans la discussion `/grill-with-docs`.
+
+#### Étape 3 : `/to-spec` puis `/to-tickets` (La contractualisation)
+
+Une fois que le grilling a épuisé toutes les zones d'ombre :
+
+- **`/to-spec` (ou `/to-prd`)** : L'agent synthétise toute la réflexion en une spécification formelle (ce que le système doit faire, les invariants de domaine, les frontières et le hors périmètre), sans relancer de questions.
+- **`/to-tickets` (ou `/to-issues`)** : L'agent découpe la spécification en tranches verticales indépendantes (*tracer bullets* : schéma, logique, API, UI et test de bout en bout), autonomes et ordonnées par dépendances bloquantes.
+- **`/clear`** : Tu purges la mémoire pour démarrer la fabrication dans un contexte vierge de tokens résiduels.
+
+#### Étape 4 : `/implement` (pilotant `/tdd`)
+
+Pour chaque ticket, dans une session fraîche et isolée :
+
+- Tu lances `/implement`.
+- L'agent travaille en mode développement guidé par les tests (*Test-Driven Development*) :
+  1. Écrit un test unitaire ou d'intégration qui échoue sur la frontière publique (Rouge).
+  2. Écrit le minimum de code propre pour faire passer le test (Vert).
+  3. Refactorise pour garantir des interfaces minces et des modules profonds.
+
+#### Étape 5 : `/review` (ou `/code-review` : La barrière de péage)
+
+Avant de committer ou d'ouvrir ta Pull Request vers la branche principale :
+
+```bash
+/review
+```
+
+Deux sous-agents s'exécutent en parallèle pour passer le diff au crible :
+
+1. **Axe Standards** : est-ce conforme aux règles d'`AGENTS.md` (pas d'abstraction spéculative, conventions du dépôt, robustesse) ?
+2. **Axe Spec** : est-ce que le code répond fidèlement au ticket sans en faire trop ?
+
+---
+
+### En résumé pour tes prochaines sessions
+
+1. **Tu as une idée ?** 👉 `/grill-with-docs [ton idée]` *(ou `/grill-me` si tu brainstormes hors dépôt)*.
+2. **L'agent affine avec toi** et formalise les arbitrages dans `docs/adr/`.
+3. **Tu dérives la spec et les tickets** 👉 `/to-spec` puis `/to-tickets`.
+4. **Tu construis proprement** 👉 `/implement` (TDD systématique ticket par ticket).
+5. **Tu inspectes avant de fusionner** 👉 `/review` (double audit automatisé).
 
 ---
 
